@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -79,7 +79,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                Home
               </a>
             </li>
           
@@ -91,7 +91,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                Archives
               </a>
             </li>
           
@@ -103,7 +103,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                Categories
               </a>
             </li>
           
@@ -115,7 +115,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                Tags
               </a>
             </li>
           
@@ -154,7 +154,7 @@
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
       <time datetime="2020-11-18 23:55" pubdate>
-        2020年11月18日 晚上
+        November 18, 2020 pm
       </time>
     </span>
   
@@ -262,7 +262,31 @@
 <h3 id="（1）-d"><a href="#（1）-d" class="headerlink" title="（1）%d"></a>（1）%d</h3><p><strong>%d</strong> notation is used to indicate just where in a line the <strong>integer</strong> is to be printed.  <strong>d means decimal</strong><br>&nbsp;<br>Each <strong>%d</strong> in the format string must be matched by a corresponding <strong>int</strong> value in the list of items to be printed. </p>
 <h3 id="（2）Printing-short-long-long-long-and-unsigned-Types"><a href="#（2）Printing-short-long-long-long-and-unsigned-Types" class="headerlink" title="（2）Printing short, long, long long, and unsigned Types"></a>（2）Printing short, long, long long, and unsigned Types</h3><p>To print an <strong>unsigned int</strong> number, use the <strong>%u</strong> notation. To print a <strong>long</strong> value, use the <strong>%ld</strong> format specifier.<br>&nbsp;<br>Note that although C allows both <strong>uppercase</strong> and <strong>lowercase</strong> letters for <strong>constant suffixes</strong>, these format specifiers use just <strong>lowercase</strong>.<br>&nbsp;<br>C has several additional <strong>printf()</strong> formats. First, you can use an <strong>h</strong> <strong>prefix</strong> for <strong>short</strong> types. Therefore, <strong>%hd</strong> displays a <strong>short integer</strong> in <strong>decimal</strong> form, and <strong>%ho</strong> displays a <strong>short integer in octal form</strong>. Both the <strong>h</strong> and <strong>l</strong> <strong>prefixes</strong> can be used with <strong>u</strong> for <strong>unsigned</strong> types. </p>
 <h3 id="（3）-c"><a href="#（3）-c" class="headerlink" title="（3）%c"></a>（3）%c</h3><p>The <strong>printf()</strong> function uses <strong>%c</strong> to indicate that a <strong>character</strong> should be printed. </p>
-<h3 id="（4）Printing-Floating-Point-Values"><a href="#（4）Printing-Floating-Point-Values" class="headerlink" title="（4）Printing Floating-Point Values"></a>（4）Printing Floating-Point Values</h3><p>The <strong>printf()</strong> function uses the <strong>%f</strong> format specifier to print type <strong>float</strong> and <strong>double</strong> numbers using <strong>decimal</strong> notation, and it uses <strong>%e</strong> to print them in <strong>exponential</strong> notation.<br>|Format|Meaning|<br>|:–:|:–:|<br>|  %f    |  <strong>decimal</strong> notation(float, double)|<br>| %e     |  <strong>exponential</strong> notation(float, double)|<br>|%a, %A    |<strong>hexadecimal p</strong> notation(float,double)|<br>|%Lf, %Le, %La|<strong>decimal</strong>, <strong>exponential</strong>, <strong>hexadecimal p</strong> notation(long double)|</p>
+<h3 id="（4）Printing-Floating-Point-Values"><a href="#（4）Printing-Floating-Point-Values" class="headerlink" title="（4）Printing Floating-Point Values"></a>（4）Printing Floating-Point Values</h3><p>The <strong>printf()</strong> function uses the <strong>%f</strong> format specifier to print type <strong>float</strong> and <strong>double</strong> numbers using <strong>decimal</strong> notation, and it uses <strong>%e</strong> to print them in <strong>exponential</strong> notation. </p>
+<table>
+<thead>
+<tr>
+<th align="center">Format</th>
+<th align="center">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%f</td>
+<td align="center"><strong>decimal</strong> notation(float, double)</td>
+</tr>
+<tr>
+<td align="center">%e</td>
+<td align="center"><strong>exponential</strong> notation(float, double)</td>
+</tr>
+<tr>
+<td align="center">%a, %A</td>
+<td align="center"><strong>hexadecimal p</strong> notation(float,double)</td>
+</tr>
+<tr>
+<td align="center">%Lf, %Le, %La</td>
+<td align="center"><strong>decimal</strong>, <strong>exponential</strong>, <strong>hexadecimal p</strong> notation(long double)</td>
+</tr>
+</tbody></table>
 <h2 id="5-Type-Sizes"><a href="#5-Type-Sizes" class="headerlink" title="5. Type Sizes"></a>5. Type Sizes</h2><p>What type sizes does your system use?</p>
 <pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
@@ -326,7 +350,7 @@ Type long has a size of 8 bytes.</code></pre>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
   <div id="tocbot"></div>
 </div>
 
@@ -353,7 +377,7 @@ Type long has a size of 8 bytes.</code></pre>
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -362,7 +386,7 @@ Type long has a size of 8 bytes.</code></pre>
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
