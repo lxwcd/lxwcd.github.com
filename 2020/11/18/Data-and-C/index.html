@@ -175,7 +175,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      31
+      32
        分钟
     </span>
   
@@ -232,7 +232,67 @@
 <p>This characteristic of character constants makes it possible to define a character constant such as <code>&#39;FATE&#39;</code>, with four separate 8-bit <code>ASCII</code> codes stored in a 32-bit unit.</p>
 <p>However, attempting to assign such a character constant to a char variable results in only the <strong>last 8 bits</strong> being used, so the variable gets the value <code>&#39;E&#39;</code>.</p>
 <p><strong>Nonprinting Characters</strong><br>The first way we have already mentioned—just use the <code>ASCII</code> code.<br>&nbsp;<br>The second way to represent certain awkward characters in C is to use special symbol sequences. These are called <strong>escape sequences</strong>. </p>
-<p><img src="https://img-blog.csdnimg.cn/20201116220730364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20201116220826670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70#pic_center" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>To represent alert character (<code>\a</code>), you could use the <code>ASCII</code> code instead: <code>&#39;007&#39;</code>. You can omit the leading zeros, so <code>&#39;\07&#39;</code> or even <code>&#39;\7&#39;</code>will do. This notation causes numbers to be interpreted as octal, even if there is no initial 0.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Sequence</th>
+<th align="center">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\a</td>
+<td align="center">Aleart(ANSI C)</td>
+</tr>
+<tr>
+<td align="center">\b</td>
+<td align="center">Backspace</td>
+</tr>
+<tr>
+<td align="center">\f</td>
+<td align="center">Form feed</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td align="center">Newline</td>
+</tr>
+<tr>
+<td align="center">\r</td>
+<td align="center">Carrigae return</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td align="center">Horizontal tab</td>
+</tr>
+<tr>
+<td align="center">\v</td>
+<td align="center">Vertical tab</td>
+</tr>
+<tr>
+<td align="center">\</td>
+<td align="center">Backslash()</td>
+</tr>
+<tr>
+<td align="center">&#39;</td>
+<td align="center">Single quote(‘)</td>
+</tr>
+<tr>
+<td align="center">&quot;</td>
+<td align="center">Double quote(“)</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">Question mark(?)</td>
+</tr>
+<tr>
+<td align="center">\0oo</td>
+<td align="center">Octal value (o represents an octal digit.)</td>
+</tr>
+<tr>
+<td align="center">\0hh</td>
+<td align="center">Hexadecimal value (h represents a hexadecimal digit.)</td>
+</tr>
+</tbody></table>
+<p>To represent alert character (<code>\a</code>), you could use the <code>ASCII</code> code instead: <code>&#39;007&#39;</code>. You can omit the leading zeros, so <code>&#39;\07&#39;</code> or even <code>&#39;\7&#39;</code>will do. This notation causes numbers to be interpreted as octal, even if there is no initial 0.</p>
 <p><strong>Note:</strong> When a character, be it an <strong>escape sequence or not</strong>, is part of a string of characters enclosed in double quotes, <strong>don’t enclose it in single quotes</strong>.</p>
 <pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello!\007\n"</span>);</code></pre>
 <p>will print </p>
