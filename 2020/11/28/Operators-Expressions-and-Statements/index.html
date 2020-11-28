@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
+  <link rel="icon" type="image/png" href="/img/groot.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="诗酒趁年华">
+  <meta name="author" content="李诩">
+  <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  <title>Operators, Expressions, and Statements - CD_LX</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Carpe Diem</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/Operations-Expressions-and-Statements_Inner.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-28 19:12" pubdate>
+        November 28, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      736 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Operators, Expressions, and Statements</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <blockquote>
+<p><strong>书籍</strong>：C Primer Plus第六版英文版<br>&nbsp;</p>
+</blockquote>
+<h1 id="1-Fundamental-Operators"><a href="#1-Fundamental-Operators" class="headerlink" title="1. Fundamental Operators"></a>1. Fundamental Operators</h1><h2 id="1-Assignment-Operator"><a href="#1-Assignment-Operator" class="headerlink" title="(1) Assignment Operator: ="></a>(1) Assignment Operator: =</h2><p>The <code>=</code> symbol is called the assignment operator.</p>
+<h3 id="Some-Terminology-Data-Objects-Lvalues-Rvalues-and-Operands"><a href="#Some-Terminology-Data-Objects-Lvalues-Rvalues-and-Operands" class="headerlink" title="Some Terminology: Data Objects, Lvalues, Rvalues, and Operands"></a>Some Terminology: Data Objects, Lvalues, Rvalues, and Operands</h3><p>Consider an assignment statement. Its purpose is to store a value at a memory location.<br>&nbsp;<br><strong>Data object</strong> is a general term for a region of data storage that can be used to hold values.<br>&nbsp;<br>C uses the term <strong>lvalue</strong> to mean any such name or expression that identifies a particular data object. <strong>Object</strong> refers to the actual data storage, but an <strong>lvalue</strong> is a <strong>label</strong> used to identify, or locate, that storage.</p>
+<p>The term <strong>rvalue</strong> refers to quantities that can be assigned to modifiable <strong>lvalues</strong> but which are not themselves lvalues. <strong>Rvalues</strong> can be constants, variables, or any other expression that yields a value. </p>
+<h2 id="2-Division-Operator"><a href="#2-Division-Operator" class="headerlink" title="(2) Division Operator: /"></a>(2) Division Operator: /</h2><p>Division works differently for integer types than it does for floating types. Floating-type division gives a floating-point answer, but integer division yields an integer answer.</p>
+<p>Integer division does not round to the nearest integer, but always truncates (that is, discards the entire fractional part).</p>
+<pre><code class="hljs c"><span class="hljs-number">5</span>/<span class="hljs-number">2</span> = <span class="hljs-number">2</span>
+<span class="hljs-number">-5</span>/<span class="hljs-number">2</span> = <span class="hljs-number">-2</span>
+<span class="hljs-number">5</span>/(<span class="hljs-number">-2</span>) = <span class="hljs-number">-2</span></code></pre>
+<h2 id="3-Modulus-Operator"><a href="#3-Modulus-Operator" class="headerlink" title="(3) Modulus Operator: %"></a>(3) Modulus Operator: %</h2><p>The modulus operator is used in <strong>integer arithmetic</strong>. It gives the remainder that results when the integer to its left is divided by the integer to its right. For example, 13 % 5 (read as “13 modulo 5”) has the value 3.</p>
+<p>You get a negative modulus value if the first operand is negative, and you get a positive modulus otherwise.</p>
+<pre><code class="hljs c"><span class="hljs-number">5</span>%<span class="hljs-number">2</span> = <span class="hljs-number">1</span>
+<span class="hljs-number">-5</span>%<span class="hljs-number">2</span> = <span class="hljs-number">-1</span>
+<span class="hljs-number">5</span>%(<span class="hljs-number">-2</span>) = <span class="hljs-number">1</span></code></pre>
+<h2 id="4-Increment-and-Decrement-Operators-and-–"><a href="#4-Increment-and-Decrement-Operators-and-–" class="headerlink" title="(4) Increment and Decrement Operators: ++ and –"></a>(4) Increment and Decrement Operators: ++ and –</h2><p>The increment operator performs a simple task; it increments (increases) the value of its operand by 1. </p>
+<pre><code class="hljs pgsql">a_post = a++; 
+// postfix: a <span class="hljs-keyword">is</span> changed <span class="hljs-keyword">after</span> its <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> used
+b_pre= ++b;
+// prefix: b <span class="hljs-keyword">is</span> changed <span class="hljs-keyword">before</span> its <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> used
+(a + b)++; //invalid</code></pre>
+
+<p>You can get fooled if you try to do too much at once with the increment operators.</p>
+<pre><code class="hljs c"><span class="hljs-keyword">while</span> (num &lt; <span class="hljs-number">21</span>)
+&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%10d %10d\n"</span>, num, num*num++);
+&#125;</code></pre>
+<p>In C, the compiler can choose which arguments in a function to evaluate first.</p>
+<pre><code class="hljs c">ans = num/<span class="hljs-number">2</span> + <span class="hljs-number">5</span>*(<span class="hljs-number">1</span> + num++);</code></pre>
+<p>You would think that it would find num/2 first and then move on, but it might do the last term first.</p>
+<h1 id="2-Operator-Precedence"><a href="#2-Operator-Precedence" class="headerlink" title="2. Operator Precedence"></a>2. Operator Precedence</h1><table>
+<thead>
+<tr>
+<th align="center">Operators (decreasing precedence)</th>
+<th align="center">Associativity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+ - (unary)</td>
+<td align="center">Left to right</td>
+</tr>
+<tr>
+<td align="center">* /</td>
+<td align="center">Left to right</td>
+</tr>
+<tr>
+<td align="center">+ - (binary)</td>
+<td align="center">Left to right</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">Left to right</td>
+</tr>
+</tbody></table>
+<h1 id="3-Expressions-and-Statements"><a href="#3-Expressions-and-Statements" class="headerlink" title="3. Expressions and Statements"></a>3. Expressions and Statements</h1><h2 id="1-Expressions"><a href="#1-Expressions" class="headerlink" title="(1) Expressions"></a>(1) Expressions</h2><p>An expression consists of a combination of operators and operands.<br>&nbsp;<br>An important property of C is that every C expression has a value. </p>
+<h2 id="2-Statements"><a href="#2-Statements" class="headerlink" title="(2) Statements"></a>(2) Statements</h2><p>Statements are the primary building blocks of a program. A program is a series of statements with some necessary punctuation. A statement is a complete instruction to the computer. In C, statements are indicated by a <strong>semicolon</strong> at the end. </p>
+<h1 id="4-Type-Conversions"><a href="#4-Type-Conversions" class="headerlink" title="4. Type Conversions"></a>4. Type Conversions</h1><h2 id="1-Automatic-Type-Conversions"><a href="#1-Automatic-Type-Conversions" class="headerlink" title="(1) Automatic Type Conversions"></a>(1) Automatic Type Conversions</h2><ol>
+<li>When appearing in an <strong>expression</strong>, <strong>char</strong> and <strong>short</strong>, both <strong>signed</strong> and <strong>unsigned</strong>, are <strong>automatically</strong> converted to <strong>int</strong> or, if necessary, to <strong>unsigned int</strong>. (If <strong>short</strong> is the same size as <strong>int</strong>, <strong>unsigned short</strong> is larger than <strong>int</strong>; in that case, <strong>unsigned short</strong> is converted to <strong>unsigned int</strong>.) Under <strong>K&amp;R</strong> C, but not under current C, <strong>float</strong> is automatically converted to <strong>double</strong>. Because they are conversions to larger types, they are called <strong>promotions</strong>.</li>
+<li>In any <strong>operation</strong> involving <strong>two types</strong>, both values are converted to the <strong>higher ranking</strong> of the two types.</li>
+<li>The <strong>ranking of types</strong>, from <strong>highest to lowest</strong>, is <strong>long double</strong>, <strong>double</strong>, <strong>float</strong>, <strong>unsigned long long</strong>, <strong>long long</strong>, <strong>unsigned long</strong>, <strong>long</strong>, <strong>unsigned int</strong>, and <strong>int</strong>. One possible <strong>exception</strong> is when <strong>long and int are the same size</strong>, in which case <strong>unsigned int</strong> outranks <strong>long</strong>. The <strong>short</strong> and <strong>char</strong> types don’t appear in this list because they would have been already promoted to int or perhaps <strong>unsigned int</strong>.</li>
+<li>In an <strong>assignment statement</strong>, the final result of the calculations is converted to the type of <strong>the variable being assigned a value</strong>. This process can result in <strong>promotion</strong>, as described in rule 1, or <strong>demotion</strong>, in which a value is converted to a lower-ranking type.</li>
+<li>When passed as <strong>function arguments</strong>, <strong>char</strong> and <strong>short</strong> are converted to <strong>int</strong>, and <strong>float</strong> is converted to <strong>double</strong>. This <strong>automatic promotion</strong> is overridden by function prototyping.</li>
+</ol>
+<h2 id="2-The-Cast-Operator"><a href="#2-The-Cast-Operator" class="headerlink" title="(2) The Cast Operator"></a>(2) The Cast Operator</h2><p>The parentheses and type name together constitute a cast operator.</p>
+<pre><code class="hljs c"><span class="hljs-keyword">int</span> i = (<span class="hljs-keyword">int</span>)<span class="hljs-number">1.6</span>;</code></pre>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/28/Charater-Strings-and-Formatted-Input-Output/">
+                        <span class="hidden-mobile">Charater Strings and Formatted Input/Output</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#58C9B9',
+      preload: 'none',
+      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Operators, Expressions, and Statements&nbsp;",
+      ],
+      cursorChar: " ",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
