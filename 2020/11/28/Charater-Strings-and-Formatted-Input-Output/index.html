@@ -1,0 +1,881 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
+  <link rel="icon" type="image/png" href="/img/groot.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="诗酒趁年华">
+  <meta name="author" content="李诩">
+  <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  <title>Charater Strings and Formatted Input/Output - CD_LX</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Carpe Diem</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/Charater-Strings-and-Formatted-Input-Output_Inner.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-28 12:30" pubdate>
+        November 28, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      42
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Charater Strings and Formatted Input/Output</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <blockquote>
+<p><strong>书籍</strong>：C Primer Plus第六版英文版</p>
+</blockquote>
+<p>This chapter concentrates on input and output. </p>
+<h1 id="1-Character-Strings"><a href="#1-Character-Strings" class="headerlink" title="1. Character Strings"></a>1. Character Strings</h1><p> A character string is a series of one or more characters. </p>
+<h2 id="1-Type-char-Arrays-and-the-Null-Character"><a href="#1-Type-char-Arrays-and-the-Null-Character" class="headerlink" title="(1) Type char Arrays and the Null Character"></a>(1) Type char Arrays and the Null Character</h2><p>C has no special variable type for strings. Instead, strings are stored in an array of type char. Characters in a string are stored in adjacent memory cells, one character per cell, and an array consists of adjacent memory locations.<br><img src="https://img-blog.csdnimg.cn/20190521222859479.png" srcset="/img/loading.gif" alt="
+"><br>The <strong>null character</strong> is not the digit zero; it is the nonprinting character whose <strong>ASCII</strong> code value (or equivalent) is <strong>0</strong>. Strings in C are always stored with this terminating null character. The presence of the null character means that the array must have <strong>at least one more cell</strong> than the number of characters to be stored. </p>
+<h2 id="2-Using-Strings"><a href="#2-Using-Strings" class="headerlink" title="(2) Using Strings"></a>(2) Using Strings</h2><p>In general, <strong>scanf()</strong> is used with <strong>%s</strong> to read only a <strong>single word</strong>, not a whole phrase, as a string. C has other input-reading functions, such as <strong>fgets()</strong>, for handling general strings.</p>
+<h2 id="3-Strings-Versus-Characters"><a href="#3-Strings-Versus-Characters" class="headerlink" title="(3) Strings Versus Characters"></a>(3) Strings Versus Characters</h2><p><img src="https://img-blog.csdnimg.cn/201905212249433.png" srcset="/img/loading.gif" alt="A word is the natural unit of memory for a given computer design.
+For 8-bit microcomputers,"></p>
+<h1 id="2-The-strlen-Function"><a href="#2-The-strlen-Function" class="headerlink" title="2. The strlen() Function"></a>2. The strlen() Function</h1><p>The <strong>strlen()</strong> function gives the length of a string in characters.<br>The <strong>string.h</strong> file contains function prototypes for several string related functions, including <strong>strlen()</strong>.<br>&nbsp;<br>The <strong>strlen()</strong> gives you the exact number of characters (including spaces and punctuation) in the string. The <strong>sizeof</strong> operator gives you a number one <strong>larger</strong> because it also counts the <strong>invisible null character</strong> used to end the string.<br>&nbsp;<br>The <strong>C99</strong> and <strong>C11</strong> standards use a <strong>%zd</strong> specifier for the type used by the <strong>sizeof</strong> operator. This also applies for type returned by <strong>strlen()</strong>.<br>&nbsp;<br>The preceding chapter used <strong>sizeof</strong> with <strong>parentheses</strong>, but this example doesn’t. <strong>Parentheses</strong> are <strong>required for types</strong> but are <strong>optional for particular quantities</strong>. That is, you would use <strong>sizeof(char)</strong> or <strong>sizeof(float)</strong> but can use <strong>sizeof name</strong> or <strong>sizeof 6.28.</strong></p>
+<h1 id="3-Constants-and-the-C-Preprocessor"><a href="#3-Constants-and-the-C-Preprocessor" class="headerlink" title="3. Constants and the C Preprocessor"></a>3. Constants and the C Preprocessor</h1><p>The <strong>preprocessor</strong> uses <strong>#include</strong> to incorporate information from another file, it also lets you define constants. Just add a line like the following at the top of the file containing your program:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAXRATE 0.015</span></code></pre>
+<p><strong>No semicolon</strong> is used because this is a substitution mechanism handled by the <strong>preprocessor</strong>, not a <strong>C</strong> statement.</p>
+<h1 id="4-The-const-Modifier"><a href="#4-The-const-Modifier" class="headerlink" title="4. The const Modifier"></a>4. The const Modifier</h1><p><strong>C90</strong> added a second way to <strong>create symbolic constants</strong>—using the <strong>const</strong> keyword to convert a declaration for a <strong>variable</strong> into a declaration for a <strong>constant</strong>:</p>
+<pre><code class="hljs c"><span class="hljs-comment">// MONTHS a symbolic constant for 12</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MONTHS = <span class="hljs-number">12</span>;</code></pre>
+<p>This newer approach is more flexible than using <strong>#define</strong>; it lets you declare a type, and it allows better control over which parts of a program can use the constant.</p>
+<h1 id="5-Manifest-Constants-on-the-Job"><a href="#5-Manifest-Constants-on-the-Job" class="headerlink" title="5. Manifest Constants on the Job"></a>5. Manifest Constants on the Job</h1><p>The C header files <strong>limits.h</strong> and <strong>float.h</strong> supply detailed information about the <strong>size limits</strong> of <strong>integer</strong> types and <strong>floating</strong> types, respectively. </p>
+<h1 id="6-The-printf-Function"><a href="#6-The-printf-Function" class="headerlink" title="6. The printf() Function"></a>6. The printf() Function</h1><p>The instructions you give <strong>printf()</strong> when you ask it to print a variable depend on the variable type. </p>
+<table>
+<thead>
+<tr>
+<th align="center">Conversion</th>
+<th align="center">Output Specification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%a</td>
+<td align="center">Floating-point-number, hexadecimal digits and p-notation(C99/C11).</td>
+</tr>
+<tr>
+<td align="center">%A</td>
+<td align="center">Floating-point-number, hexadecimal digits and p-notation(C99/C11).</td>
+</tr>
+<tr>
+<td align="center">%c</td>
+<td align="center">Single character.</td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td align="center">Single decimal integer.</td>
+</tr>
+<tr>
+<td align="center">%e</td>
+<td align="center">Floating-point number, e-notation.</td>
+</tr>
+<tr>
+<td align="center">%E</td>
+<td align="center">Floating-point number, e-notation.</td>
+</tr>
+<tr>
+<td align="center">%f</td>
+<td align="center">Floating-point number, decimal notation.</td>
+</tr>
+<tr>
+<td align="center">%g</td>
+<td align="center">Using %f or %e, depending on the value. The %e style is used if the exponent is less than -4 or greater than or equal to the presion.</td>
+</tr>
+<tr>
+<td align="center">%G</td>
+<td align="center">Using %f or %E, depending on the value. The %E style is used if the exponent is less than -4 or greater than or equal to the presion.</td>
+</tr>
+<tr>
+<td align="center">%i</td>
+<td align="center">Single decimal integer(same as %d).</td>
+</tr>
+<tr>
+<td align="center">%o</td>
+<td align="center">Unsigned octal integer.</td>
+</tr>
+<tr>
+<td align="center">%p</td>
+<td align="center">A pointer.</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">Character string.</td>
+</tr>
+<tr>
+<td align="center">%u</td>
+<td align="center">Unsigned decimal integer.</td>
+</tr>
+<tr>
+<td align="center">%x</td>
+<td align="center">Unsigned hexadecimal integer, using hex digits 0f.</td>
+</tr>
+<tr>
+<td align="center">%X</td>
+<td align="center">Unsigned hexadecimal integer, using hex digits 0F.</td>
+</tr>
+<tr>
+<td align="center">%%</td>
+<td align="center">Prints a percent sign.</td>
+</tr>
+</tbody></table>
+<h2 id="（1）Conversion-Specification-Modifiers-for-printf"><a href="#（1）Conversion-Specification-Modifiers-for-printf" class="headerlink" title="（1）Conversion Specification Modifiers for printf()"></a>（1）Conversion Specification Modifiers for printf()</h2><table>
+<thead>
+<tr>
+<th align="center">Modifier</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">flag</td>
+<td align="left">Five flags:-,+,space,#, and 0.</td>
+</tr>
+<tr>
+<td align="center">digit(s)</td>
+<td align="left">The minimun field width. A wilder field will be used if the printed number or string won’t fit in the field.</td>
+</tr>
+<tr>
+<td align="center">.digit(s)</td>
+<td align="left">Presions. For %e, %E, and %f conversions, the maximun number of significant digits. For %g and %G conversions, the maximun number of significant digits. For %s conversion, the maximun number of characters to be printed. For integer conversions, the minimun number of digits to apper: leading zeros are used if necessary to meet this minimum. Using only . implies a following zero, so %.f is the same as %.0f.</td>
+</tr>
+<tr>
+<td align="center">h</td>
+<td align="left">Used with an integer conversion specifier to indicate a short int or unsigned short int value.</td>
+</tr>
+<tr>
+<td align="center">hh</td>
+<td align="left">Used with an integer conversion specifier to indicate a signed char or unsigned char value.</td>
+</tr>
+<tr>
+<td align="center">j</td>
+<td align="left">Used with an integer conversion specifier to indicate an intmax_t or uintmax_t value; these are types defined in stdint.h.</td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td align="left">Used with an integer conversion specifier to indicate a long int or unsigned long int.</td>
+</tr>
+<tr>
+<td align="center">ll</td>
+<td align="left">Used with an integer conversion specifier to indicate a long long int or unsigned long long int.(C99).</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="left">Used with a floating-point conversion specifier to indicate a long double value.</td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="left">Used with an integer conversion specifier to indicate a ptrdiff_t value. This is the type corresponding to the difference between two pointers. (C99).</td>
+</tr>
+<tr>
+<td align="center">z</td>
+<td align="left">Used with an integer conversion specifier to indicate a size_t value. This is the type returned by sizeof. (C99).</td>
+</tr>
+</tbody></table>
+<h2 id="（2）The-printf-Flags"><a href="#（2）The-printf-Flags" class="headerlink" title="（2）The printf( ) Flags"></a>（2）The printf( ) Flags</h2><table>
+<thead>
+<tr>
+<th align="center">Flag</th>
+<th align="center">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-</td>
+<td align="center">The item is left-justified; that is, it is printed begining at the left of the field.</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">Signed values are displayed with a plus sign, if positive, and with a minus sign, if negative.</td>
+</tr>
+<tr>
+<td align="center">space</td>
+<td align="center">Signed values are displayed with a  leading space (but no sign) if positive and with a minus sign if negative. A + flag overrides a space.</td>
+</tr>
+<tr>
+<td align="center">#</td>
+<td align="center">Used  an alternative form for the conversion specification. Produces an initial 0 for the %o form and initial 0x for the %x or %X form, respectively. For all floating-point forms, # gurantees that a decimal-point character is printed, even if no digits follow. For %g and %G forms, it prevents traing zeros form being removed.</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">For numeric forms, pad the field width with leading zeros indtead of with spaces. This flag is ignored if a - flag is present or if, for an integer form, a precision is specified.</td>
+</tr>
+</tbody></table>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+  <span class="hljs-keyword">float</span> f = <span class="hljs-number">321454.321345</span>; 
+  <span class="hljs-keyword">float</span> f1 = <span class="hljs-number">12.2345678</span>;
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"2.3 = %04f\n"</span>,<span class="hljs-number">2.3</span>);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"2.3 = %06.2f\n"</span>,<span class="hljs-number">2.3</span>);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"2.3 = %6.2f\n"</span>,<span class="hljs-number">2.3</span>);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"2.3 = %-6.2f\n"</span>,<span class="hljs-number">2.3</span>);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"321454.321345 = %7f\n"</span>,f);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"321454.321345 = %7.3f\n"</span>,f);
+  
+  <span class="hljs-keyword">int</span> n1 = <span class="hljs-number">3456</span>;
+  <span class="hljs-keyword">int</span> n2  = <span class="hljs-number">1</span>;
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"3456 = %3.2d\n"</span>,n1);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"3456 = %6.2d\n\n"</span>,n1);
+  
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"1 = %.4d\n"</span>,n2);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"1 = %3.2d\n\n"</span>,n2);
+  
+  <span class="hljs-comment">//测试字符串宽度精度</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\"printf\" = %9.3s\n"</span>,<span class="hljs-string">"printf"</span>);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\"printf\" = %9s\n"</span>,<span class="hljs-string">"printf"</span>);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\"printf\" = %3s\n"</span>,<span class="hljs-string">"printf"</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<p>Output：</p>
+<pre><code class="hljs c"><span class="hljs-number">2.3</span> = <span class="hljs-number">2.300000</span> <span class="hljs-comment">//%04f：输出宽度至少4，精度不限制时用默认的，浮点数默认精度6位，这里宽度指总的宽度（包括小数点和小数点后面的数）</span>
+<span class="hljs-number">2.3</span> = <span class="hljs-number">002.30</span> <span class="hljs-comment">//%06.2f： 总共宽度至少6位，精度2位，因此左边补0</span>
+<span class="hljs-number">2.3</span> =   <span class="hljs-number">2.30</span> <span class="hljs-comment">//%6.2f：总共宽度至少6位，精度2位，左边空两格，默认右对齐</span>
+<span class="hljs-number">2.3</span> = <span class="hljs-number">2.30</span> <span class="hljs-comment">// %-6.2f：总共宽度至少6位，精度2位，右边空两格，加-号左对齐</span>
+<span class="hljs-number">321454.321345</span> = <span class="hljs-number">321454.312500</span>
+<span class="hljs-number">321454.321345</span> = <span class="hljs-number">321454.312</span>
+
+<span class="hljs-number">3456</span> = <span class="hljs-number">3456</span>  <span class="hljs-comment">//%3.2d ，总宽度至少3</span>
+<span class="hljs-number">3456</span> =   <span class="hljs-number">3456</span>  <span class="hljs-comment">//%6.2d ，总宽度至少6</span>
+
+<span class="hljs-number">1</span> = <span class="hljs-number">0001</span> <span class="hljs-comment">//%.4d 有效位4位，只有1位，其余补0</span>
+<span class="hljs-number">1</span> =  <span class="hljs-number">01</span>  <span class="hljs-comment">//%3.2d 总宽度3，有效位2，因此左边空1格，补一个0</span>
+
+<span class="hljs-string">"printf"</span> =        pri <span class="hljs-comment">// %9.3s 总宽度至少9，有效3位，因此只现实3个字符</span>
+<span class="hljs-string">"printf"</span> =    <span class="hljs-built_in">printf</span>  <span class="hljs-comment">// %9s，总宽度至少9，宽度9</span>
+<span class="hljs-string">"printf"</span> = <span class="hljs-built_in">printf</span>   <span class="hljs-comment">// %3s，总宽度至少3，因此宽度为6</span></code></pre>
+
+<h2 id="（3）The-Return-Value-of-printf"><a href="#（3）The-Return-Value-of-printf" class="headerlink" title="（3）The Return Value of printf()"></a>（3）The Return Value of printf()</h2><p>The <strong>printf()</strong> function also has a return value; it returns the <strong>number of characters</strong> it printed. </p>
+<h2 id="（4）Printing-Long-Strings"><a href="#（4）Printing-Long-Strings" class="headerlink" title="（4）Printing Long Strings"></a>（4）Printing Long Strings</h2><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Here's one way to print a "</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"long string.\n"</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Here's another way to print a \</span>
+<span class="hljs-string">long string.\n"</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Here's the newest way to print a "</span>
+<span class="hljs-string">"long string.\n"</span>); <span class="hljs-comment">/* ANSI C */</span>
+<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<p>Method 1 is to use more than one <strong>printf()</strong> statement.<br>Method 2 is to terminate the end of the first line with a backslash/return combination.<br>Method 3, which ANSI C introduced, is <strong>string concatenation</strong>. If you follow one <strong>quoted</strong> string constant with another, separated only by <strong>whitespace</strong>, C treats the combination as a <strong>single string</strong>. </p>
+<h1 id="7-scanf"><a href="#7-scanf" class="headerlink" title="7. scanf()"></a>7. scanf()</h1><p>It converts string input into various forms: integers, floating-point numbers, characters, and C strings.<br>&nbsp;<br>Rules:</p>
+<blockquote>
+<ul>
+<li>If you use <strong>scanf()</strong> to read a value for one of the basic variable types, precede the variable name with an <strong>&amp;</strong>.</li>
+<li>If you use <strong>scanf()</strong> to read a string into a <strong>character array</strong>, don’t use an <strong>&amp;</strong>.</li>
+</ul>
+</blockquote>
+<h2 id="1-Conversion-Specifiers-for-scanf"><a href="#1-Conversion-Specifiers-for-scanf" class="headerlink" title="(1) Conversion Specifiers for scanf()"></a>(1) Conversion Specifiers for scanf()</h2><p>The <strong>scanf()</strong> function uses pretty much the same set of conversion specification characters as <strong>printf()</strong> does. The main difference is that <strong>printf()</strong> uses %f, %e, %E, %g, and %G for both type float and type double, whereas <strong>scanf()</strong> uses them just for type float, requiring the <strong>l</strong> modifier for double. </p>
+<table>
+<thead>
+<tr>
+<th align="center">Conversion Specifier</th>
+<th align="center">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%c</td>
+<td align="center">Interpret input as a character.</td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td align="center">Interpret input as a signed decimal integer.</td>
+</tr>
+<tr>
+<td align="center">%e, %f, %g, %a</td>
+<td align="center">Interpret input as a floating-point number (%a is C99).</td>
+</tr>
+<tr>
+<td align="center">%E, %F, %G, %A</td>
+<td align="center">Interpret input as a floating-point number (%A is C99).</td>
+</tr>
+<tr>
+<td align="center">%i</td>
+<td align="center">Interpret input as a signed decimal integer.</td>
+</tr>
+<tr>
+<td align="center">%o</td>
+<td align="center">Interpret input as a signed Octal integer.</td>
+</tr>
+<tr>
+<td align="center">%p</td>
+<td align="center">Intepret input as a pointer (an address).</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">Intepret input as a string. Input begins with the first non-whitespace character and includes evertything up to the next whitespace character.</td>
+</tr>
+<tr>
+<td align="center">%u</td>
+<td align="center">Interpret input as a unsigned decimal integer.</td>
+</tr>
+<tr>
+<td align="center">%x, %X</td>
+<td align="center">Interpret input as a signed hexadecimal integer.</td>
+</tr>
+</tbody></table>
+<h2 id="2-Conversion-Modifiers-for-scanf"><a href="#2-Conversion-Modifiers-for-scanf" class="headerlink" title="(2) Conversion Modifiers for scanf()"></a>(2) Conversion Modifiers for scanf()</h2><table>
+<thead>
+<tr>
+<th align="center">Modifier</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="left">Suppress assignment.</td>
+</tr>
+<tr>
+<td align="center">digit(s)</td>
+<td align="left">Maximum field width. Input stops when the maximum field width is reached or when the first whitespace character is encountered, whichever comes first.</td>
+</tr>
+<tr>
+<td align="center">hh</td>
+<td align="left">Read an integer as a signed char or unsigned char.</td>
+</tr>
+<tr>
+<td align="center">ll</td>
+<td align="left">Read an integer as a long long or unsigned long long (C99).</td>
+</tr>
+<tr>
+<td align="center">h, l or L</td>
+<td align="left">“%hd” and “%hi” indicate that the value will be stored in a <strong>short int</strong>. “%ho”, “%hx”, and “%hu” indicate that the value will be stored in an <strong>unsigned short int</strong>. “%ld” and “%li” indicate that the value will be stored in a <strong>long</strong>. “%lo”, “%lx”, and “%lu” indicate that the value will be stored in <strong>unsigned long</strong>. “%le”, “%lf”, and “%lg” indicate that the value will be stored in type <strong>double</strong>. Using L instead of l with e, f, and g indicates that the value will be stored in type <strong>long double</strong>. In the absence of these modifiers, d, i, o, and x indicate type <strong>int</strong>, and e, f, and g indicate type <strong>float</strong>.</td>
+</tr>
+<tr>
+<td align="center">j</td>
+<td align="left">When followed by an integer specifier, indicates using the intmax_t or uintmax_t type (C99).</td>
+</tr>
+<tr>
+<td align="center">z</td>
+<td align="left">When followed by an integer specifier, indicates using the type returned by sizeof (C99).</td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="left">When followed by an integer specifier, indicates using the type used to represent the difference between two pointers (C99).</td>
+</tr>
+</tbody></table>
+<h2 id="3-The-scanf-View-of-Input"><a href="#3-The-scanf-View-of-Input" class="headerlink" title="(3) The scanf() View of Input"></a>(3) The scanf() View of Input</h2><p>It skips over whitespace characters (spaces, tabs, and newlines) until it finds a non-whitespace character. scanf() continues reading and saving characters until it encounters a nondigit. </p>
+<p>&nbsp;<br>If you use a <strong>%c</strong> specifier, all input characters are fair game. If the next input character is a space or a newline, a space or a newline is assigned to the indicated variable; <strong>whitespace is not skipped</strong>.</p>
+<h2 id="4-The-scanf-Return-Value"><a href="#4-The-scanf-Return-Value" class="headerlink" title="(4) The scanf() Return Value"></a>(4) The scanf() Return Value</h2><p>The <strong>scanf()</strong> function returns <strong>the number of items</strong> that it successfully reads. If it reads no items, which happens if you type a nonnumeric string when it expects a number, <strong>scanf()</strong> returns the value 0. It returns <strong>EOF</strong> when it detects the condition known as “end of file.” </p>
+<h1 id="8-The-Modifier-with-printf-and-scanf"><a href="#8-The-Modifier-with-printf-and-scanf" class="headerlink" title="8. The * Modifier with printf() and scanf()"></a>8. The * Modifier with printf() and scanf()</h1><h2 id="a-The-Modifier-with-printf"><a href="#a-The-Modifier-with-printf" class="headerlink" title="a. The * Modifier with printf()"></a>a. The * Modifier with printf()</h2><p>Suppose that you don’t want to commit yourself to a field width in advance but rather you want the program to specify it. You can do this by using <code>*</code> instead of a number for the field width, but you also have to add an argument to tell what the field width should be.<br>&nbsp;<br>That is, if you have the conversion specifier <code>%*d</code>, the argument list should include a value for <code>*</code> and a value for <code>d</code>. </p>
+<h2 id="b-The-Modifier-with-scanf"><a href="#b-The-Modifier-with-scanf" class="headerlink" title="b. The * Modifier with scanf()"></a>b. The * Modifier with scanf()</h2><p>The <code>*</code> serves quite a different purpose for <strong>scanf()</strong>. When placed between the <code>%</code> and the specifier letter, it causes that function to <strong>skip over corresponding input</strong>.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/24/Data-and-C/">
+                        <span class="hidden-mobile">Data and C</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#58C9B9',
+      preload: 'none',
+      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Charater Strings and Formatted Input/Output&nbsp;",
+      ],
+      cursorChar: " ",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
