@@ -231,157 +231,157 @@ For 8-bit microcomputers,"></p>
 <table>
 <thead>
 <tr>
-<th align="center">Conversion</th>
-<th align="center">Output Specification</th>
+<th align="left">Conversion</th>
+<th align="left">Output Specification</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">%a</td>
-<td align="center">Floating-point-number, hexadecimal digits and p-notation(C99/C11).</td>
+<td align="left">%a</td>
+<td align="left">Floating-point-number, hexadecimal digits and p-notation(C99/C11).</td>
 </tr>
 <tr>
-<td align="center">%A</td>
-<td align="center">Floating-point-number, hexadecimal digits and p-notation(C99/C11).</td>
+<td align="left">%A</td>
+<td align="left">Floating-point-number, hexadecimal digits and p-notation(C99/C11).</td>
 </tr>
 <tr>
-<td align="center">%c</td>
-<td align="center">Single character.</td>
+<td align="left">%c</td>
+<td align="left">Single character.</td>
 </tr>
 <tr>
-<td align="center">%d</td>
-<td align="center">Single decimal integer.</td>
+<td align="left">%d</td>
+<td align="left">Single decimal integer.</td>
 </tr>
 <tr>
-<td align="center">%e</td>
-<td align="center">Floating-point number, e-notation.</td>
+<td align="left">%e</td>
+<td align="left">Floating-point number, e-notation.</td>
 </tr>
 <tr>
-<td align="center">%E</td>
-<td align="center">Floating-point number, e-notation.</td>
+<td align="left">%E</td>
+<td align="left">Floating-point number, e-notation.</td>
 </tr>
 <tr>
-<td align="center">%f</td>
-<td align="center">Floating-point number, decimal notation.</td>
+<td align="left">%f</td>
+<td align="left">Floating-point number, decimal notation.</td>
 </tr>
 <tr>
-<td align="center">%g</td>
-<td align="center">Using %f or %e, depending on the value. The %e style is used if the exponent is less than -4 or greater than or equal to the presion.</td>
+<td align="left">%g</td>
+<td align="left">Using %f or %e, depending on the value. The %e style is used if the exponent is less than -4 or greater than or equal to the presion.</td>
 </tr>
 <tr>
-<td align="center">%G</td>
-<td align="center">Using %f or %E, depending on the value. The %E style is used if the exponent is less than -4 or greater than or equal to the presion.</td>
+<td align="left">%G</td>
+<td align="left">Using %f or %E, depending on the value. The %E style is used if the exponent is less than -4 or greater than or equal to the presion.</td>
 </tr>
 <tr>
-<td align="center">%i</td>
-<td align="center">Single decimal integer(same as %d).</td>
+<td align="left">%i</td>
+<td align="left">Single decimal integer(same as %d).</td>
 </tr>
 <tr>
-<td align="center">%o</td>
-<td align="center">Unsigned octal integer.</td>
+<td align="left">%o</td>
+<td align="left">Unsigned octal integer.</td>
 </tr>
 <tr>
-<td align="center">%p</td>
-<td align="center">A pointer.</td>
+<td align="left">%p</td>
+<td align="left">A pointer.</td>
 </tr>
 <tr>
-<td align="center">%s</td>
-<td align="center">Character string.</td>
+<td align="left">%s</td>
+<td align="left">Character string.</td>
 </tr>
 <tr>
-<td align="center">%u</td>
-<td align="center">Unsigned decimal integer.</td>
+<td align="left">%u</td>
+<td align="left">Unsigned decimal integer.</td>
 </tr>
 <tr>
-<td align="center">%x</td>
-<td align="center">Unsigned hexadecimal integer, using hex digits 0f.</td>
+<td align="left">%x</td>
+<td align="left">Unsigned hexadecimal integer, using hex digits 0f.</td>
 </tr>
 <tr>
-<td align="center">%X</td>
-<td align="center">Unsigned hexadecimal integer, using hex digits 0F.</td>
+<td align="left">%X</td>
+<td align="left">Unsigned hexadecimal integer, using hex digits 0F.</td>
 </tr>
 <tr>
-<td align="center">%%</td>
-<td align="center">Prints a percent sign.</td>
+<td align="left">%%</td>
+<td align="left">Prints a percent sign.</td>
 </tr>
 </tbody></table>
 <h2 id="（1）Conversion-Specification-Modifiers-for-printf"><a href="#（1）Conversion-Specification-Modifiers-for-printf" class="headerlink" title="（1）Conversion Specification Modifiers for printf()"></a>（1）Conversion Specification Modifiers for printf()</h2><table>
 <thead>
 <tr>
-<th align="center">Modifier</th>
+<th align="left">Modifier</th>
 <th align="left">Meaning</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">flag</td>
+<td align="left">flag</td>
 <td align="left">Five flags:-,+,space,#, and 0.</td>
 </tr>
 <tr>
-<td align="center">digit(s)</td>
+<td align="left">digit(s)</td>
 <td align="left">The minimun field width. A wilder field will be used if the printed number or string won’t fit in the field.</td>
 </tr>
 <tr>
-<td align="center">.digit(s)</td>
+<td align="left">.digit(s)</td>
 <td align="left">Presions. For %e, %E, and %f conversions, the maximun number of significant digits. For %g and %G conversions, the maximun number of significant digits. For %s conversion, the maximun number of characters to be printed. For integer conversions, the minimun number of digits to apper: leading zeros are used if necessary to meet this minimum. Using only . implies a following zero, so %.f is the same as %.0f.</td>
 </tr>
 <tr>
-<td align="center">h</td>
+<td align="left">h</td>
 <td align="left">Used with an integer conversion specifier to indicate a short int or unsigned short int value.</td>
 </tr>
 <tr>
-<td align="center">hh</td>
+<td align="left">hh</td>
 <td align="left">Used with an integer conversion specifier to indicate a signed char or unsigned char value.</td>
 </tr>
 <tr>
-<td align="center">j</td>
+<td align="left">j</td>
 <td align="left">Used with an integer conversion specifier to indicate an intmax_t or uintmax_t value; these are types defined in stdint.h.</td>
 </tr>
 <tr>
-<td align="center">l</td>
+<td align="left">l</td>
 <td align="left">Used with an integer conversion specifier to indicate a long int or unsigned long int.</td>
 </tr>
 <tr>
-<td align="center">ll</td>
+<td align="left">ll</td>
 <td align="left">Used with an integer conversion specifier to indicate a long long int or unsigned long long int.(C99).</td>
 </tr>
 <tr>
-<td align="center">L</td>
+<td align="left">L</td>
 <td align="left">Used with a floating-point conversion specifier to indicate a long double value.</td>
 </tr>
 <tr>
-<td align="center">t</td>
+<td align="left">t</td>
 <td align="left">Used with an integer conversion specifier to indicate a ptrdiff_t value. This is the type corresponding to the difference between two pointers. (C99).</td>
 </tr>
 <tr>
-<td align="center">z</td>
+<td align="left">z</td>
 <td align="left">Used with an integer conversion specifier to indicate a size_t value. This is the type returned by sizeof. (C99).</td>
 </tr>
 </tbody></table>
 <h2 id="（2）The-printf-Flags"><a href="#（2）The-printf-Flags" class="headerlink" title="（2）The printf( ) Flags"></a>（2）The printf( ) Flags</h2><table>
 <thead>
 <tr>
-<th align="center">Flag</th>
-<th align="center">Meaning</th>
+<th align="left">Flag</th>
+<th align="left">Meaning</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">-</td>
-<td align="center">The item is left-justified; that is, it is printed begining at the left of the field.</td>
+<td align="left">-</td>
+<td align="left">The item is left-justified; that is, it is printed begining at the left of the field.</td>
 </tr>
 <tr>
-<td align="center">+</td>
-<td align="center">Signed values are displayed with a plus sign, if positive, and with a minus sign, if negative.</td>
+<td align="left">+</td>
+<td align="left">Signed values are displayed with a plus sign, if positive, and with a minus sign, if negative.</td>
 </tr>
 <tr>
-<td align="center">space</td>
-<td align="center">Signed values are displayed with a  leading space (but no sign) if positive and with a minus sign if negative. A + flag overrides a space.</td>
+<td align="left">space</td>
+<td align="left">Signed values are displayed with a  leading space (but no sign) if positive and with a minus sign if negative. A + flag overrides a space.</td>
 </tr>
 <tr>
-<td align="center">#</td>
-<td align="center">Used  an alternative form for the conversion specification. Produces an initial 0 for the %o form and initial 0x for the %x or %X form, respectively. For all floating-point forms, # gurantees that a decimal-point character is printed, even if no digits follow. For %g and %G forms, it prevents traing zeros form being removed.</td>
+<td align="left">#</td>
+<td align="left">Used  an alternative form for the conversion specification. Produces an initial 0 for the %o form and initial 0x for the %x or %X form, respectively. For all floating-point forms, # gurantees that a decimal-point character is printed, even if no digits follow. For %g and %G forms, it prevents traing zeros form being removed.</td>
 </tr>
 <tr>
-<td align="center">0</td>
-<td align="center">For numeric forms, pad the field width with leading zeros indtead of with spaces. This flag is ignored if a - flag is present or if, for an integer form, a precision is specified.</td>
+<td align="left">0</td>
+<td align="left">For numeric forms, pad the field width with leading zeros indtead of with spaces. This flag is ignored if a - flag is present or if, for an integer form, a precision is specified.</td>
 </tr>
 </tbody></table>
 <pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
@@ -452,88 +452,88 @@ For 8-bit microcomputers,"></p>
 <table>
 <thead>
 <tr>
-<th align="center">Conversion Specifier</th>
-<th align="center">Meaning</th>
+<th align="left">Conversion Specifier</th>
+<th align="left">Meaning</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">%c</td>
-<td align="center">Interpret input as a character.</td>
+<td align="left">%c</td>
+<td align="left">Interpret input as a character.</td>
 </tr>
 <tr>
-<td align="center">%d</td>
-<td align="center">Interpret input as a signed decimal integer.</td>
+<td align="left">%d</td>
+<td align="left">Interpret input as a signed decimal integer.</td>
 </tr>
 <tr>
-<td align="center">%e, %f, %g, %a</td>
-<td align="center">Interpret input as a floating-point number (%a is C99).</td>
+<td align="left">%e, %f, %g, %a</td>
+<td align="left">Interpret input as a floating-point number (%a is C99).</td>
 </tr>
 <tr>
-<td align="center">%E, %F, %G, %A</td>
-<td align="center">Interpret input as a floating-point number (%A is C99).</td>
+<td align="left">%E, %F, %G, %A</td>
+<td align="left">Interpret input as a floating-point number (%A is C99).</td>
 </tr>
 <tr>
-<td align="center">%i</td>
-<td align="center">Interpret input as a signed decimal integer.</td>
+<td align="left">%i</td>
+<td align="left">Interpret input as a signed decimal integer.</td>
 </tr>
 <tr>
-<td align="center">%o</td>
-<td align="center">Interpret input as a signed Octal integer.</td>
+<td align="left">%o</td>
+<td align="left">Interpret input as a signed Octal integer.</td>
 </tr>
 <tr>
-<td align="center">%p</td>
-<td align="center">Intepret input as a pointer (an address).</td>
+<td align="left">%p</td>
+<td align="left">Intepret input as a pointer (an address).</td>
 </tr>
 <tr>
-<td align="center">%s</td>
-<td align="center">Intepret input as a string. Input begins with the first non-whitespace character and includes evertything up to the next whitespace character.</td>
+<td align="left">%s</td>
+<td align="left">Intepret input as a string. Input begins with the first non-whitespace character and includes evertything up to the next whitespace character.</td>
 </tr>
 <tr>
-<td align="center">%u</td>
-<td align="center">Interpret input as a unsigned decimal integer.</td>
+<td align="left">%u</td>
+<td align="left">Interpret input as a unsigned decimal integer.</td>
 </tr>
 <tr>
-<td align="center">%x, %X</td>
-<td align="center">Interpret input as a signed hexadecimal integer.</td>
+<td align="left">%x, %X</td>
+<td align="left">Interpret input as a signed hexadecimal integer.</td>
 </tr>
 </tbody></table>
 <h2 id="2-Conversion-Modifiers-for-scanf"><a href="#2-Conversion-Modifiers-for-scanf" class="headerlink" title="(2) Conversion Modifiers for scanf()"></a>(2) Conversion Modifiers for scanf()</h2><table>
 <thead>
 <tr>
-<th align="center">Modifier</th>
+<th align="left">Modifier</th>
 <th align="left">Meaning</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">*</td>
+<td align="left">*</td>
 <td align="left">Suppress assignment.</td>
 </tr>
 <tr>
-<td align="center">digit(s)</td>
+<td align="left">digit(s)</td>
 <td align="left">Maximum field width. Input stops when the maximum field width is reached or when the first whitespace character is encountered, whichever comes first.</td>
 </tr>
 <tr>
-<td align="center">hh</td>
+<td align="left">hh</td>
 <td align="left">Read an integer as a signed char or unsigned char.</td>
 </tr>
 <tr>
-<td align="center">ll</td>
+<td align="left">ll</td>
 <td align="left">Read an integer as a long long or unsigned long long (C99).</td>
 </tr>
 <tr>
-<td align="center">h, l or L</td>
+<td align="left">h, l or L</td>
 <td align="left">“%hd” and “%hi” indicate that the value will be stored in a <strong>short int</strong>. “%ho”, “%hx”, and “%hu” indicate that the value will be stored in an <strong>unsigned short int</strong>. “%ld” and “%li” indicate that the value will be stored in a <strong>long</strong>. “%lo”, “%lx”, and “%lu” indicate that the value will be stored in <strong>unsigned long</strong>. “%le”, “%lf”, and “%lg” indicate that the value will be stored in type <strong>double</strong>. Using L instead of l with e, f, and g indicates that the value will be stored in type <strong>long double</strong>. In the absence of these modifiers, d, i, o, and x indicate type <strong>int</strong>, and e, f, and g indicate type <strong>float</strong>.</td>
 </tr>
 <tr>
-<td align="center">j</td>
+<td align="left">j</td>
 <td align="left">When followed by an integer specifier, indicates using the intmax_t or uintmax_t type (C99).</td>
 </tr>
 <tr>
-<td align="center">z</td>
+<td align="left">z</td>
 <td align="left">When followed by an integer specifier, indicates using the type returned by sizeof (C99).</td>
 </tr>
 <tr>
-<td align="center">t</td>
+<td align="left">t</td>
 <td align="left">When followed by an integer specifier, indicates using the type used to represent the difference between two pointers (C99).</td>
 </tr>
 </tbody></table>
