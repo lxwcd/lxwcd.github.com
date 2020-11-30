@@ -17,10 +17,23 @@
   <meta name="description" content="诗酒趁年华">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
-  <title>CD_LX</title>
+  <title>Functions - CD_LX</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -125,22 +138,55 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/home.jpeg') no-repeat center center;
+         style="background: url('/img/Functions_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-30 20:00" pubdate>
+        November 30, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      374 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -149,367 +195,108 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Functions</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>C Primer Plus (Sixth Editioni) Chapter 9 Functions</p>
+<a id="more"></a>
+<h1 id="1-Function-Arguments"><a href="#1-Function-Arguments" class="headerlink" title="1. Function Arguments"></a>1. Function Arguments</h1><h2 id="（1）Defining-a-Function-with-an-Argument-Formal-Parameters"><a href="#（1）Defining-a-Function-with-an-Argument-Formal-Parameters" class="headerlink" title="（1）Defining a Function with an Argument: Formal Parameters"></a>（1）Defining a Function with an Argument: Formal Parameters</h2><p>Formal parameters are local variables, private to the function.  </p>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dubs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> z)</span></span>;</code></pre>
+<h2 id="（2）Calling-a-Function-with-an-Argument-Actual-Arguments"><a href="#（2）Calling-a-Function-with-an-Argument-Actual-Arguments" class="headerlink" title="（2）Calling a Function with an Argument: Actual Arguments"></a>（2）Calling a Function with an Argument: Actual Arguments</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show_n_char</span><span class="hljs-params">(<span class="hljs-keyword">char</span> ch, <span class="hljs-keyword">int</span> num)</span></span>;
+show_n_char(SPACE, <span class="hljs-number">12</span>);</code></pre>
+<p>The <strong>actual arguments</strong> are the <code>space</code> character and <code>12</code>. These values are assigned to the corresponding <strong>formal parameters</strong> in <strong>show_n_char()</strong>—the variables <code>ch</code> and <code>num</code>. </p>
+<p>In short, the <strong>formal parameter</strong> is a variable in the <strong>called function</strong>, and the <strong>actual argument</strong> is the particular value assigned to the function variable by the <strong>calling function</strong>. </p>
+<p>The <strong>actual argument</strong> can be a constant, a variable, or an even more elaborate expression. Regardless of which it is, the <strong>actual argument</strong> is evaluated, and <strong>its value is copied to the corresponding formal parameter for the function</strong>.</p>
+<p><strong>Because the called function works with data copied from the calling function, the original data in the calling function is protected from whatever manipulations the called function applies to the copies.</strong></p>
+<h1 id="2-Returning-a-Value-from-a-Function-with-return"><a href="#2-Returning-a-Value-from-a-Function-with-return" class="headerlink" title="2. Returning a Value from a Function with return"></a>2. Returning a Value from a Function with return</h1><p>Using <strong>return</strong> has one other effect. It terminates the function and returns control to the next statement in the calling function. <strong>This occurs even if the return statement is not the last in the function.</strong></p>
+<h1 id="3-Finding-Addresses-The-amp-Operator"><a href="#3-Finding-Addresses-The-amp-Operator" class="headerlink" title="3. Finding Addresses: The &amp; Operator"></a>3. Finding Addresses: The &amp; Operator</h1><p>One of the most important C concepts (and sometimes one of the most perplexing) is the <strong>pointer</strong>, which is a variable used to store an address.  </p>
+<p>The unary <strong>&amp;</strong> operator gives you the address where a variable is stored. </p>
+<h1 id="4-Pointers-A-First-Look"><a href="#4-Pointers-A-First-Look" class="headerlink" title="4. Pointers: A First Look"></a>4. Pointers: A First Look</h1><p>Basically, a <strong>pointer</strong> is a variable (or, more generally, a data object) whose value is a memory address. </p>
+<pre><code class="hljs c">ptr = &amp;pooh; <span class="hljs-comment">// assigns pooh's address to ptr</span></code></pre>
+<p>We say that ptr  “points to” pooh. The difference between ptr and &amp;pooh is that <strong>ptr</strong> is a variable, and <strong>&amp;pooh</strong> is a constant. </p>
+<pre><code class="hljs c"><span class="hljs-keyword">int</span> * pi; <span class="hljs-comment">// pi is a pointer to an integer variable</span>
+<span class="hljs-keyword">char</span> * pc; <span class="hljs-comment">// pc is a pointer to a character variable</span>
+<span class="hljs-keyword">float</span> * pf, * pg; <span class="hljs-comment">// pf, pg are pointers to float variables</span></code></pre>
+<p>A <strong>pointer</strong> really is a new type, not an <strong>integer</strong> type. Therefore, as mentioned before, ANSI C provides the <strong>%p</strong> form specifically for pointers.</p>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/11/30/Functions/" target="_blank">
-          <img src="/img/Functions.jpeg" srcset="/img/loading.gif" alt="Functions">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/11/30/Functions/">Functions</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/30/Functions/">
-          
-          
-            
-          
-          C Primer Plus (Sixth Editioni) Chapter 9 Functions
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-30 20:00" pubdate>
-              2020-11-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-              <a href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/11/29/Character-Input-Output/" target="_blank">
-          <img src="/img/Character-Input-Output.jpeg" srcset="/img/loading.gif" alt="Character Input/Output">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/11/29/Character-Input-Output/">Character Input/Output</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/29/Character-Input-Output/">
-          
-          
-            
-          
-          C Primer Plus (Sixth Edition) Chapter 8 Character Input/Output and Input Validation
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 22:57" pubdate>
-              2020-11-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-              <a href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/11/29/Branching-and-Jumps/" target="_blank">
-          <img src="/img/Branching-and-Jumps.jpeg" srcset="/img/loading.gif" alt="Branching and Jumps">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/11/29/Branching-and-Jumps/">Branching and Jumps</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/29/Branching-and-Jumps/">
-          
-          
-            
-          
-          C Primer Plus (Sixth Editioni) Chapter 7 C Control Statements: Branching and Jumps
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-29 21:16" pubdate>
-              2020-11-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-              <a href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/11/28/Operators-Expressions-and-Statements/" target="_blank">
-          <img src="/img/Operations-Expressions-and-Statements.jpeg" srcset="/img/loading.gif" alt="Operators, Expressions, and Statements">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/11/28/Operators-Expressions-and-Statements/">Operators, Expressions, and Statements</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/28/Operators-Expressions-and-Statements/">
-          
-          
-            
-          
-          C Primer Plus (Sixth Edition) Chapter 5 Operators, Expressions, and Statements
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-28 19:12" pubdate>
-              2020-11-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-              <a href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/11/28/Charater-Strings-and-Formatted-Input-Output/" target="_blank">
-          <img src="/img/Charater-Strings-and-Formatted-Input-Output.jpeg" srcset="/img/loading.gif" alt="Charater Strings and Formatted Input/Output">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/11/28/Charater-Strings-and-Formatted-Input-Output/">Charater Strings and Formatted Input/Output</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/28/Charater-Strings-and-Formatted-Input-Output/">
-          
-          
-            
-          
-          C Primer Plus (Sixth Edition) Chapter 4 Charater Strings and Formatted Input/Output
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-28 12:30" pubdate>
-              2020-11-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-              <a href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/11/24/Data-and-C/" target="_blank">
-          <img src="/img/Data-and-C.jpeg" srcset="/img/loading.gif" alt="Data and C">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/11/24/Data-and-C/">Data and C</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/11/24/Data-and-C/">
-          
-          
-            
-          
-          C Primer Plus (Sixth Edition) Chapter 3 Data and C
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-24 21:50" pubdate>
-              2020-11-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-              <a href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/C-Primer-Plus/">C Primer Plus</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/29/Character-Input-Output/">
+                        <span class="hidden-mobile">Character Input/Output</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -614,6 +401,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -621,7 +433,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "We live in this world when we love it&nbsp;",
+        "Functions&nbsp;",
       ],
       cursorChar: " ",
       typeSpeed: 70,
@@ -636,6 +448,23 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -649,6 +478,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
