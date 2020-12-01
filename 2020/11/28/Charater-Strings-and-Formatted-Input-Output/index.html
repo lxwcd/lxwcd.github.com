@@ -302,7 +302,7 @@ For 8-bit microcomputers,"></p>
 <td align="left">Prints a percent sign.</td>
 </tr>
 </tbody></table>
-<h2 id="（1）Conversion-Specification-Modifiers-for-printf"><a href="#（1）Conversion-Specification-Modifiers-for-printf" class="headerlink" title="（1）Conversion Specification Modifiers for printf()"></a>（1）Conversion Specification Modifiers for printf()</h2><table>
+<h2 id="1-Conversion-Specification-Modifiers-for-printf"><a href="#1-Conversion-Specification-Modifiers-for-printf" class="headerlink" title="(1) Conversion Specification Modifiers for printf()"></a>(1) Conversion Specification Modifiers for printf()</h2><table>
 <thead>
 <tr>
 <th align="left">Modifier</th>
@@ -354,7 +354,7 @@ For 8-bit microcomputers,"></p>
 <td align="left">Used with an integer conversion specifier to indicate a size_t value. This is the type returned by sizeof. (C99).</td>
 </tr>
 </tbody></table>
-<h2 id="（2）The-printf-Flags"><a href="#（2）The-printf-Flags" class="headerlink" title="（2）The printf( ) Flags"></a>（2）The printf( ) Flags</h2><table>
+<h2 id="2-The-printf-Flags"><a href="#2-The-printf-Flags" class="headerlink" title="(2) The printf( ) Flags"></a>(2) The printf( ) Flags</h2><table>
 <thead>
 <tr>
 <th align="left">Flag</th>
@@ -426,8 +426,8 @@ For 8-bit microcomputers,"></p>
 <span class="hljs-string">"printf"</span> =    <span class="hljs-built_in">printf</span>  <span class="hljs-comment">// %9s，总宽度至少9，宽度9</span>
 <span class="hljs-string">"printf"</span> = <span class="hljs-built_in">printf</span>   <span class="hljs-comment">// %3s，总宽度至少3，因此宽度为6</span></code></pre>
 
-<h2 id="（3）The-Return-Value-of-printf"><a href="#（3）The-Return-Value-of-printf" class="headerlink" title="（3）The Return Value of printf()"></a>（3）The Return Value of printf()</h2><p>The <strong>printf()</strong> function also has a return value; it returns the <strong>number of characters</strong> it printed. </p>
-<h2 id="（4）Printing-Long-Strings"><a href="#（4）Printing-Long-Strings" class="headerlink" title="（4）Printing Long Strings"></a>（4）Printing Long Strings</h2><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h2 id="3-The-Return-Value-of-printf"><a href="#3-The-Return-Value-of-printf" class="headerlink" title="(3) The Return Value of printf()"></a>(3) The Return Value of printf()</h2><p>The <strong>printf()</strong> function also has a return value; it returns the <strong>number of characters</strong> it printed. </p>
+<h2 id="4-Printing-Long-Strings"><a href="#4-Printing-Long-Strings" class="headerlink" title="(4) Printing Long Strings"></a>(4) Printing Long Strings</h2><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Here's one way to print a "</span>);
@@ -538,8 +538,8 @@ For 8-bit microcomputers,"></p>
 <h2 id="3-The-scanf-View-of-Input"><a href="#3-The-scanf-View-of-Input" class="headerlink" title="(3) The scanf() View of Input"></a>(3) The scanf() View of Input</h2><p>It skips over whitespace characters (spaces, tabs, and newlines) until it finds a non-whitespace character. scanf() continues reading and saving characters until it encounters a nondigit. </p>
 <p>&nbsp;<br>If you use a <strong>%c</strong> specifier, all input characters are fair game. If the next input character is a space or a newline, a space or a newline is assigned to the indicated variable; <strong>whitespace is not skipped</strong>.</p>
 <h2 id="4-The-scanf-Return-Value"><a href="#4-The-scanf-Return-Value" class="headerlink" title="(4) The scanf() Return Value"></a>(4) The scanf() Return Value</h2><p>The <strong>scanf()</strong> function returns <strong>the number of items</strong> that it successfully reads. If it reads no items, which happens if you type a nonnumeric string when it expects a number, <strong>scanf()</strong> returns the value 0. It returns <strong>EOF</strong> when it detects the condition known as “end of file.” </p>
-<h1 id="8-The-Modifier-with-printf-and-scanf"><a href="#8-The-Modifier-with-printf-and-scanf" class="headerlink" title="8. The * Modifier with printf() and scanf()"></a>8. The * Modifier with printf() and scanf()</h1><h2 id="a-The-Modifier-with-printf"><a href="#a-The-Modifier-with-printf" class="headerlink" title="a. The * Modifier with printf()"></a>a. The * Modifier with printf()</h2><p>Suppose that you don’t want to commit yourself to a field width in advance but rather you want the program to specify it. You can do this by using <code>*</code> instead of a number for the field width, but you also have to add an argument to tell what the field width should be.<br>&nbsp;<br>That is, if you have the conversion specifier <code>%*d</code>, the argument list should include a value for <code>*</code> and a value for <code>d</code>. </p>
-<h2 id="b-The-Modifier-with-scanf"><a href="#b-The-Modifier-with-scanf" class="headerlink" title="b. The * Modifier with scanf()"></a>b. The * Modifier with scanf()</h2><p>The <code>*</code> serves quite a different purpose for <strong>scanf()</strong>. When placed between the <code>%</code> and the specifier letter, it causes that function to <strong>skip over corresponding input</strong>.</p>
+<h1 id="8-The-Modifier-with-printf-and-scanf"><a href="#8-The-Modifier-with-printf-and-scanf" class="headerlink" title="8. The * Modifier with printf() and scanf()"></a>8. The * Modifier with printf() and scanf()</h1><h2 id="1-The-Modifier-with-printf"><a href="#1-The-Modifier-with-printf" class="headerlink" title="(1) The * Modifier with printf()"></a>(1) The * Modifier with printf()</h2><p>Suppose that you don’t want to commit yourself to a field width in advance but rather you want the program to specify it. You can do this by using <code>*</code> instead of a number for the field width, but you also have to add an argument to tell what the field width should be.<br>&nbsp;<br>That is, if you have the conversion specifier <code>%*d</code>, the argument list should include a value for <code>*</code> and a value for <code>d</code>. </p>
+<h2 id="2-The-Modifier-with-scanf"><a href="#2-The-Modifier-with-scanf" class="headerlink" title="(2) The * Modifier with scanf()"></a>(2) The * Modifier with scanf()</h2><p>The <code>*</code> serves quite a different purpose for <strong>scanf()</strong>. When placed between the <code>%</code> and the specifier letter, it causes that function to <strong>skip over corresponding input</strong>.</p>
 
             </div>
             <hr>
