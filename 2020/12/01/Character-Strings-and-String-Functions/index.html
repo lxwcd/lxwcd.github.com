@@ -410,7 +410,7 @@
         <span class="hljs-built_in">find</span> = <span class="hljs-built_in">strchr</span>(s, <span class="hljs-string">'\n'</span>);
         <span class="hljs-keyword">if</span>(<span class="hljs-built_in">find</span>)
         &#123;
-          *<span class="hljs-built_in">find</span> = <span class="hljs-string">'\0'</span>;
+            *<span class="hljs-built_in">find</span> = <span class="hljs-string">'\0'</span>;
         &#125;
         <span class="hljs-keyword">else</span>
         <span class="hljs-keyword">while</span>(getchar() != <span class="hljs-string">'\n'</span>)
@@ -516,10 +516,15 @@ sj3
         <span class="hljs-keyword">else</span> <span class="hljs-comment">//不合要求字符，退出</span>
             <span class="hljs-keyword">return</span> sign * intpart;
     &#125;
-    <span class="hljs-comment">//退出后的情况：1.一直输入的是数字直到遇到字符串结束符; 343</span>
-    <span class="hljs-comment">//2. 识别到小数点; 3.3</span>
-    <span class="hljs-comment">//3. 识别到科学计数法 e 或 E，虽然 e2这种形式是错的，但最终计算出结果还是0; </span>
-    <span class="hljs-comment">//4. 扫描到非法字符，结束函数，后面不会执行</span>
+    <span class="hljs-comment">/*</span>
+<span class="hljs-comment">425 退出上面函数有一下情况：</span>
+<span class="hljs-comment">426  1. 数字加非法字符：2s 直接计算结果后退出</span>
+<span class="hljs-comment">427  2. 数字加小数点：2.</span>
+<span class="hljs-comment">428  3. 数字加e或E：2e</span>
+<span class="hljs-comment">429  4. e或E：e</span>
+<span class="hljs-comment">430  5. 小数点：.</span>
+<span class="hljs-comment">431  6. 非法字符：s 直接退出</span>
+<span class="hljs-comment">432 */</span>    
     <span class="hljs-keyword">for</span>( ; *str; str++)
     &#123;
         <span class="hljs-keyword">if</span>(hasdot &amp;&amp; <span class="hljs-built_in">isdigit</span>(*str)) <span class="hljs-comment">//两种表达：2.3 .3; </span>
@@ -529,9 +534,9 @@ sj3
         <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (hasdot &amp;&amp; (*str == <span class="hljs-string">'e'</span> || *str ==<span class="hljs-string">'E'</span>))
         <span class="hljs-comment">//情况：2.3e，.3e，.e;最后一种 .e 不合法，但最终计算结果还是为0</span>
         &#123;
-          hasE = <span class="hljs-number">1</span>;
-          str++;
-          <span class="hljs-keyword">break</span>;
+            hasE = <span class="hljs-number">1</span>;
+            str++;
+            <span class="hljs-keyword">break</span>;
         &#125;
         <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(hasE) <span class="hljs-comment">//用科学计数法，但是前面没有小数点，情况：3e3 e3 3e- 3e+ 3e. 3ek </span>
             <span class="hljs-keyword">break</span>;
@@ -582,10 +587,10 @@ sj3
 
 <h2 id="5-strtod"><a href="#5-strtod" class="headerlink" title="(5) strtod()"></a>(5) strtod()</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">strtod</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr)</span></span>;</code></pre>
 <p><strong>string to double</strong>，将参数 <strong>str</strong> 所指向的字符串转换为<strong>double</strong>型浮点数。</p>
-<p>该函数返回转换后的双精度浮点数，如果没有执行有效的转换，则返回零（<strong>0.0</strong>）。</p>
+<p>该函数返回转换后的<strong>double</strong>浮点数，如果没有执行有效的转换，则返回零（<strong>0.0</strong>）。</p>
 <h2 id="6-strtoul"><a href="#6-strtoul" class="headerlink" title="(6) strtoul()"></a>(6) strtoul()</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">strtoul</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr, <span class="hljs-keyword">int</span> base)</span></span>;</code></pre>
-<p><strong>string to unsigned long int</strong>，参数<strong>str</strong>所指向的字符串根据给定的<strong>base</strong>转换为<strong>unsigned long int</strong> 型，<strong>base</strong>必须介于 <strong>2</strong> 和 <strong>36</strong>（包含）之间，或者是特殊值<strong>0</strong>。</p>
-<p>该函数返回转换后的长整数，如果没有执行有效的转换，则返回 <strong>0</strong>。</p>
+<p><strong>string to unsigned long int</strong>，参数<strong>str</strong>所指向的字符串根据给定的<strong>base</strong>转换为<strong>unsigned long int</strong>型，<strong>base</strong>必须介于 <strong>2</strong> 和 <strong>36</strong>（包含）之间，或者是特殊值<strong>0</strong>。</p>
+<p>该函数返回转换后的<strong>unsigned long int</strong>长整数，如果没有执行有效的转换，则返回 <strong>0</strong>。</p>
 
             </div>
             <hr>
@@ -619,6 +624,12 @@ sj3
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/12/03/Storage-Classes-Linkage-and-Memory-Management/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Storage Classes, Linkage, and Memory Management</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
