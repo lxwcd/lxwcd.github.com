@@ -222,7 +222,7 @@
 <p>The <strong>standard input</strong>, by default, is the normal input device for your system, usually your keyboard. Both the <strong>standard output</strong> and the <strong>standard error output</strong>, by default, are the normal output device for your system, usually your display screen.</p>
 <p>The purpose of the <strong>standard error output</strong> file is to provide a logically distinct place to send error messages. If, for example, you use redirection to send output to a file instead of to the screen, output sent to the standard error output still goes to the screen. </p>
 <h1 id="2-Standard-I-O"><a href="#2-Standard-I-O" class="headerlink" title="2. Standard I/O"></a>2. Standard I/O</h1><p>The <strong>standard I/O package</strong> has two advantages, besides <strong>portability</strong>, over low-level I/O. </p>
-<p>First, it has many specialized functions that simplify handling different I/O problems. For example,<br>printf() converts various forms of data to string output suitable for terminals. </p>
+<p>First, it has many specialized functions that simplify handling different I/O problems. </p>
 <p>Second, input and output are <strong>buffered</strong>. That is, information is transferred in large chunks (typically 512 bytes at a time or more) instead of a byte at a time. </p>
 <h2 id="1-The-fopen-Function"><a href="#1-The-fopen-Function" class="headerlink" title="(1) The fopen() Function"></a>(1) The fopen() Function</h2><p>The program uses <strong>fopen()</strong> to open the file. This function is declared in <strong>stdio.h</strong>. </p>
 <p>Its <strong>first argument</strong> is the name of the file to be opened; more exactly, it is the address of a string containing that name. The <strong>second argument</strong> is a string identifying the <strong>mode</strong> in which the file is to be opened.</p>
@@ -636,6 +636,12 @@ fread(earnings, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keywo
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/12/06/Structures-and-Other-Data-Forms/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Structures and Other Data Forms</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
