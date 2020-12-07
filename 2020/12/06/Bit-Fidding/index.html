@@ -1,0 +1,857 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
+  <link rel="icon" type="image/png" href="/img/groot.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="诗酒趁年华">
+  <meta name="author" content="李诩">
+  <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  <title>Bit Fidding - CD_LX</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Carpe Diem</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/Bit-Fidding_Inner.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-06 22:03" pubdate>
+        December 6, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      49
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Bit Fidding</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>C Primer Plus (Sixth Editioni) Chapter 15 Bit Fidding</p>
+<a id="more"></a>
+<h1 id="1-Binary-Numbers-Bits-and-Bytes"><a href="#1-Binary-Numbers-Bits-and-Bytes" class="headerlink" title="1. Binary Numbers, Bits, and Bytes"></a>1. Binary Numbers, Bits, and Bytes</h1><h2 id="1-Binary-Integers"><a href="#1-Binary-Integers" class="headerlink" title="(1) Binary Integers"></a>(1) Binary Integers</h2><p>Usually, a <strong>byte</strong> contains 8 bits. C, remember, uses the term byte to denote the size used to hold a system’s character set, so a C byte could be 8 bits, 9 bits, 16 bits, or some other value.</p>
+<p>However, the 8-bit byte is the byte used to describe memory chips and the byte used to describe data transfer rates. To keep matters simple, this chapter assumes an 8-bit byte.</p>
+<h2 id="2-Signed-Integers"><a href="#2-Signed-Integers" class="headerlink" title="(2) Signed Integers"></a>(2) Signed Integers</h2><p>The representation of <strong>signed numbers</strong> is determined by the <strong>hardware</strong>, not by <strong>C</strong>. </p>
+<h3 id="符号量表示法"><a href="#符号量表示法" class="headerlink" title="符号量表示法"></a>符号量表示法</h3><p>用1位（如， 高阶位） 储存符号， 只剩下7位表示数字本身（假设储存在1字节中，假设一个字节是8位） 。 用这种符号量（sign-magnitude） 表示法， 10000001表示−1，00000001表示1。 因此， 其表示范围−127～+127。</p>
+<p><strong>缺点:</strong> 有两个0： +0和-0。 这很容易混淆， 而且用两个位组合来表示一个值也有些浪费。</p>
+<h3 id="二进制补码表示法"><a href="#二进制补码表示法" class="headerlink" title="二进制补码表示法"></a>二进制补码表示法</h3><p>补码内容参看：</p>
+<blockquote>
+<p>深入理解计算机系统英文版第二版 – 第二章 p94</p>
+</blockquote>
+<p>该部分内容介绍参考<a href="https://www.cnblogs.com/ysocean/p/7531660.html#_label3" target="_blank" rel="noopener"> 深入理解计算机系统（2.4）——整数的表示（无符号编码和补码编码）</a></p>
+<h3 id="二进制浮点型"><a href="#二进制浮点型" class="headerlink" title="二进制浮点型"></a>二进制浮点型</h3><p>该内容参看：</p>
+<blockquote>
+<p>深入理解计算机系统英文版第二版 – 第二章 p133</p>
+</blockquote>
+<p>该部分内容介绍参考<a href="https://www.cnblogs.com/ysocean/p/7531667.html" target="_blank" rel="noopener">深入理解计算机系统（2.7）——二进制小数和IEEE浮点标准</a></p>
+<h1 id="2-C’s-Bitwise-Operators"><a href="#2-C’s-Bitwise-Operators" class="headerlink" title="2. C’s Bitwise Operators"></a>2. C’s Bitwise Operators</h1><blockquote>
+<p>深入理解计算机系统英文版第二版 – 第二章 p85</p>
+</blockquote>
+<h2 id="1-Bitwise-Logical-Operators"><a href="#1-Bitwise-Logical-Operators" class="headerlink" title="(1) Bitwise Logical Operators"></a>(1) Bitwise Logical Operators</h2><h3 id="二进制反码或按位取反：-～"><a href="#二进制反码或按位取反：-～" class="headerlink" title="二进制反码或按位取反： ～"></a>二进制反码或按位取反： ～</h3><p>一元运算符<strong>～</strong>把1变为0， 把0变为1。</p>
+<pre><code class="hljs c">~(<span class="hljs-number">10011010</span>) <span class="hljs-comment">// expression</span>
+(<span class="hljs-number">01100101</span>) <span class="hljs-comment">// resulting value</span></code></pre>
+<h3 id="按位与：-amp"><a href="#按位与：-amp" class="headerlink" title="按位与： &amp;"></a>按位与： &amp;</h3><p>二元运算符<strong>&amp;</strong>通过逐位比较两个运算对象， 生成一个新值。<br>对于每个位， 只有两个运算对象中相应的位都为1时， 结果才为1（从真/假方面看，只有当两个位都为真时， 结果才为真）。 </p>
+<h3 id="按位或："><a href="#按位或：" class="headerlink" title="按位或： |"></a>按位或： |</h3><p>二元运算符<strong>|</strong>， 通过逐位比较两个运算对象， 生成一个新值。<br>对于每个位， 如果两个运算对象中相应的位为1， 结果就为1（从真/假方面看， 如果两个运算对象中相应的一个位为真或两个位都为真， 那么结果为真） 。 </p>
+<h3 id="按位异或："><a href="#按位异或：" class="headerlink" title="按位异或： ^"></a>按位异或： ^</h3><p>二元运算符<strong>^</strong>逐位比较两个运算对象。<br>只有当两个值<strong>相异</strong>时为真（值为1），同为1或同为0为假（值为0）。</p>
+<h2 id="2-Masks"><a href="#2-Masks" class="headerlink" title="(2) Masks"></a>(2) Masks</h2><p>按位与运算符常用于掩码（mask） 。 所谓掩码指的是一些设置为开（1） 或关（0） 的位组合。 </p>
+<p>例如， 假设定义符号常量MASK为2 （即，二进制形式为00000010） ， 只有1号位是1， 其他位都是0。 下面的语句：</p>
+<pre><code class="hljs c">flags = flags &amp; MASK;</code></pre>
+<p>把flags中除1号位以外的所有位都设置为0， 因为使用按位与运算符（&amp;） 任何位与0组合都得0。 1号位的值不变（如果1号位是1， 那么 1&amp;1得1； 如果 1号位是0， 那么 0&amp;1也得0） 。 这个过程叫作“使用掩码”， 因为掩码中的0隐藏了flags中相应的位。</p>
+<p>可以这样类比： 把掩码中的0看作不透明， 1看作透明。 表达式flags &amp;MASK相当于用掩码覆盖在flags的位组合上， 只有MASK为1的位才可见。</p>
+<h2 id="3-Turning-Bits-On-Setting-Bits"><a href="#3-Turning-Bits-On-Setting-Bits" class="headerlink" title="(3) Turning Bits On (Setting Bits)"></a>(3) Turning Bits On (Setting Bits)</h2><p>有时， 需要打开一个值中的特定位， 同时保持其他位不变。如：</p>
+<pre><code class="hljs c">flags = flags | MASK;</code></pre>
+<p>根据MASK中为1的位， 把flags中对应的位设置为1， 其他位不变。</p>
+<h2 id="4-Turning-Bits-Off-Clearing-Bits"><a href="#4-Turning-Bits-Off-Clearing-Bits" class="headerlink" title="(4) Turning Bits Off (Clearing Bits)"></a>(4) Turning Bits Off (Clearing Bits)</h2><p>和打开特定的位类似， 有时也需要在不影响其他位的情况下关闭指定的位。 假设要关闭变量flags中的1号位。将 MASK设为只有1号位为0，其余全为1，则：</p>
+<pre><code class="hljs c">flags = flags &amp; MASK;</code></pre>
+<p>将1号位变为0，其余不变。</p>
+<h2 id="5-Toggling-Bits"><a href="#5-Toggling-Bits" class="headerlink" title="(5) Toggling Bits"></a>(5) Toggling Bits</h2><p>切换位指的是打开已关闭的位， 或关闭已打开的位。 可以使用按位异或运算符（^） 切换位。</p>
+<p>将 flag 中需要进行切换位的地方对应的mask的部分设为1，其余为0。</p>
+<pre><code class="hljs c">flags ^= MASK;</code></pre>
+<p>flags中与MASK为1的位相对应的位都被切换了， MASK为0的位相对应的位不变。</p>
+<h2 id="6-Checking-the-Value-of-a-Bit"><a href="#6-Checking-the-Value-of-a-Bit" class="headerlink" title="(6)  Checking the Value of a Bit"></a>(6)  Checking the Value of a Bit</h2><p>有时， 需要检查某位的值。 例如， flags中1号位是否被设置为1。</p>
+<pre><code class="hljs c"><span class="hljs-keyword">if</span> ((flags &amp; MASK) == MASK)
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Wow!"</span>);</code></pre>
+<p>将mask中检查的位设为1，其余设为0，这样确保其余位与mask相同，均为0，只比较检查的位。</p>
+<h2 id="7-Bitwise-Shift-Operators"><a href="#7-Bitwise-Shift-Operators" class="headerlink" title="(7) Bitwise Shift Operators"></a>(7) Bitwise Shift Operators</h2><h3 id="左移：-lt-lt"><a href="#左移：-lt-lt" class="headerlink" title="左移： &lt;&lt;"></a>左移： &lt;&lt;</h3><p>左移运算符（&lt;&lt;） 将其左侧运算对象每一位的值向左移动其右侧运算对象指定的位数。 左侧运算对象移出左末端位的值丢失， 用0填充右边空出的位置。 </p>
+<h3 id="右移：-gt-gt"><a href="#右移：-gt-gt" class="headerlink" title="右移： &gt;&gt;"></a>右移： &gt;&gt;</h3><p><strong>逻辑右移:</strong> 右移后左边的空出来位补0，对于 unsigned 数据为逻辑右移。</p>
+<p><strong>算数右移:</strong> 右移后左边空出的数据全部用数据的最高位值填充。对于 signed 数据，可用逻辑右移或算数右移，但通常用算数右移。</p>
+<p>测试对signed 和 unsigned 进行右移测试，得到，<strong>unsigned 采用逻辑右移，signed 采用算数右移</strong>。见下面程序：</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> n = <span class="hljs-number">0xfffffffe</span>;
+    <span class="hljs-keyword">unsigned</span> m = <span class="hljs-number">0xfffffffe</span>;
+    <span class="hljs-keyword">int</span> n1 = n &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> m1 = m &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> n2 = (<span class="hljs-keyword">unsigned</span>) n &gt;&gt; <span class="hljs-number">1</span>; <span class="hljs-comment">//对signed先强制转换为unsigned</span>
+    <span class="hljs-keyword">int</span> m2 = m &gt;&gt; <span class="hljs-number">1</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"n1 = 0x%x, n2 = 0x%x\nm1 = 0x%x, m2 = 0x%x\n"</span>,n1,n2,m1,m2);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<p>结果：</p>
+<pre><code class="hljs c">n1 = <span class="hljs-number">0xffffffff</span>, n2 = <span class="hljs-number">0x7fffffff</span>
+m1 = <span class="hljs-number">0x7fffffff</span>, m2 = <span class="hljs-number">0x7fffffff</span></code></pre>
+
+<h2 id="8-Programming-Example"><a href="#8-Programming-Example" class="headerlink" title="(8) Programming Example"></a>(8) Programming Example</h2><p>以下程序实现功能：将一个 int 型数字转换为二进制</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;limits.h&gt;//for CHAR_BIT, #of bits per char</span></span>
+<span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">itobs</span><span class="hljs-params">(<span class="hljs-keyword">int</span>, <span class="hljs-keyword">char</span> *)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bstr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show_bstr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    char bin_str[CHAR_BIT *sizeof(int) + 1];
+    <span class="hljs-keyword">int</span> number;
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Enter integers and see them in library."</span>);
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Non-numeric input terminates program."</span>);
+    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;number)==<span class="hljs-number">1</span>)
+    &#123;
+        itobs(number,bin_str);
+        show_bstr(bin_str);
+        <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'\n'</span>);
+        <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Next interger:"</span>);
+    &#125;
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Bye!"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;    
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">itobs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">char</span> *ps)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-built_in">size</span> = CHAR_BIT * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>);
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-built_in">size</span> - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--, n &gt;&gt;= <span class="hljs-number">1</span>)
+        ps[i] = (<span class="hljs-number">01</span> &amp; n) + <span class="hljs-string">'0'</span>;
+    ps[<span class="hljs-built_in">size</span>] = <span class="hljs-string">'\0'</span>;
+    <span class="hljs-keyword">return</span> ps;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show_bstr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span>(str[i])
+    &#123;
+        <span class="hljs-built_in">putchar</span>(str[i]);
+        <span class="hljs-keyword">if</span>(++i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span> &amp;&amp; str[i])
+            <span class="hljs-built_in">putchar</span>(<span class="hljs-string">' '</span>);
+   &#125;
+&#125;</code></pre>
+<p>程序分析：</p>
+<ol>
+<li><code>CHAR_BIT</code> 为 <strong>limits.h</strong> 头文件中定义的宏，一个字节的比特数。</li>
+<li><code>char bin_str[CHAR_BIT *sizeof(int) + 1];</code> 声明一个字符串数组存放转化后的二进制数，<code>CHAR_BIT *sizeof(int)</code> 得到 <strong>int</strong> 的比特数，还需要加1为存储字符串结束符。</li>
+<li><code>char *itobs(int n, char *ps)</code> 函数中<code>ps[i] = (01 &amp; n) + &#39;0&#39;;</code> 语句中 01 值八进制数据，与 n 按位与后得到 n 的最低位，因为存储的是字符串，需要转化为 ascall 码，因此加 ‘0’得到实际的数值。</li>
+</ol>
+<p>下面是反转指定位数函数，将最后bits位的数反转：</p>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">invert_end</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, <span class="hljs-keyword">int</span> bits)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> mask = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> bitval = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span> (bits--&gt; <span class="hljs-number">0</span>)
+    &#123;
+        mask |= bitval;
+        bitval &lt;&lt;= <span class="hljs-number">1</span>;
+    &#125;
+    <span class="hljs-keyword">return</span> num ^ mask;
+&#125;</code></pre>
+<p>该函数中 bits 为需要反转的位数，反转最后 bits 位。</p>
+<h1 id="3-Bit-Fields"><a href="#3-Bit-Fields" class="headerlink" title="3. Bit Fields"></a>3. Bit Fields</h1><p>The second method of <strong>manipulating bits</strong> is to use a <strong>bit field</strong>, which is just a set of neighboring bits within a <strong>signed int</strong> or an <strong>unsigned int</strong>. (C99 and C11 additionally allow <strong>type _Bool</strong> bit fields.) </p>
+<p>A bit field is set up with a <strong>structure declaration</strong> that labels each field and determines its <strong>width</strong>. For example, the following declaration sets up four 1-bit fields:</p>
+<pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span>
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> autfd : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> bldfc : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> undln : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> itals : <span class="hljs-number">1</span>;
+&#125; prnt;</code></pre>
+<p>This definition causes <code>prnt</code> to contain four 1-bit fields. Now you can use the usual structure membership operator to assign values to individual fields:</p>
+<pre><code class="hljs c">prnt.itals = <span class="hljs-number">0</span>;
+prnt.undln = <span class="hljs-number">1</span>;</code></pre>
+<p>Because each of these particular fields is just 1 bit, 1 and 0 are the only values you can use for assignment. The variable <code>prnt</code> is stored in an int-sized memory cell, but only 4 bits are used in this example.</p>
+<p>A structure with bit fields allows you to store several settings in a single unit.</p>
+<p>Sometimes there are more than two choices for a setting, so you need more than a single bit to represent all the choices. That’s not a problem because fields aren’t limited to 1-bit sizes. </p>
+<pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span>
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> code1 : <span class="hljs-number">2</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> code2 : <span class="hljs-number">2</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> code3 : <span class="hljs-number">8</span>;
+&#125; prcode;
+prcode.code1 = <span class="hljs-number">0</span>;
+prcode.code2 = <span class="hljs-number">3</span>;
+prcode.code3 = <span class="hljs-number">102</span>;</code></pre>
+<p>Just make sure the value doesn’t exceed the capacity of the field.</p>
+<p>If the total number of bits you declare exceeds the size of an unsigned int, then the next unsigned int storage location is used. </p>
+<p>A single field is not allowed to overlap the boundary between two unsigned ints. </p>
+<p>The compiler automatically shifts an overlapping field definition so that the field is aligned with the <strong>unsigned int</strong> boundary. </p>
+<p>When this occurs, it leaves an <strong>unnamed hole</strong> in the first unsigned int. You can “pad” a field structure with <strong>unnamed holes</strong> by using <strong>unnamed field widths</strong>. </p>
+<p>Using an unnamed field width of 0 forces the next field to align with the next integer:</p>
+<pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span>
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> field1 : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> : <span class="hljs-number">2</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> field2 : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> : <span class="hljs-number">0</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> field3 : <span class="hljs-number">1</span>;
+&#125; stuff;</code></pre>
+<p>Here, there is a 2-bit gap between <code>stuff.field1</code> and <code>stuff.field2</code>, and <code>stuff.field3</code> is stored in the next int.</p>
+<p>One important machine dependency is the order in which fields are placed into an int. On some machines, the order is left to right; on others, it is right to left.</p>
+<p>Also, machines differ in the location of boundaries between fields. For these reasons, bit fields tend not to be very portable. </p>
+<blockquote>
+<p>深入理解计算机系统英文版第二版 – p73<br>字节存储顺序：从小到大，从大到小</p>
+</blockquote>
+<p>Often bit fields are used as a more <strong>compact</strong> way of storing data. Suppose, for example, you decided to represent the properties of an onscreen box. Let’s keep the graphics simple and suppose the box has the following properties:</p>
+<ul>
+<li>The box is opaque or transparent.</li>
+<li>The fill color is selected from the following palette of colors: black, red, green, yellow, blue, magenta, cyan, or white.</li>
+<li>The border can be shown or hidden.</li>
+<li>The border color is selected from the same palette used for the fill color.</li>
+<li>The border can use one of three line styles—solid, dotted, or dashed.<pre><code class="hljs c"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">box_props</span> &#123;</span>
+<span class="hljs-keyword">bool</span> opaque : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> fill_color : <span class="hljs-number">3</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> : <span class="hljs-number">4</span>;
+<span class="hljs-keyword">bool</span> show_border : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> border_color : <span class="hljs-number">3</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> border_style : <span class="hljs-number">2</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> : <span class="hljs-number">2</span>;
+&#125;;</code></pre>
+The padding brings the structure up to 16 bits. Without padding, the structure would be 10 bits. Keep in mind, however, that C uses <strong>unsigned int</strong> as the basic layout unit for structures with bit fields. So even if the sole member of a structure is a single 1-bit field, the structure will have the same size as an unsigned int, which is 32 bits on our system. Also, this coding assumes that the C99 _Bool type is available and is aliased as bool in <strong>stdbool.h</strong>.</li>
+</ul>
+<p>You can use a value of 1 for the <code>opaque</code> member to indicate that the box is opaque and a 0 value to indicate transparency. </p>
+<p>You can do the same for the <code>show_border</code> member. </p>
+<p>For <strong>colors</strong>, you can use a simple RGB (red-green-blue) representation. These are the primary colors for mixing light. A monitor blends red, green, and blue pixels to reproduce different colors. </p>
+<p> Finally, you can choose to let 0, 1, and 2 represent the <strong>solid</strong>, <strong>dotted</strong>, and <strong>dashed</strong> styles; they can be used as values for the <code>border_style</code> member.</p>
+<p><img src="_v_images/20201207230858132_355553505.png" srcset="/img/loading.gif" alt="Color"></p>
+<pre><code class="hljs c"><span class="hljs-comment">/* dualview.c -- bit fields and bitwise operators */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdbool.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;limits.h&gt;</span></span>
+<span class="hljs-comment">/* BIT-FIELD CONSTANTS */</span>
+<span class="hljs-comment">/* line styles */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SOLID 0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DOTTED 1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DASHED 2</span>
+<span class="hljs-comment">/* primary colors */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BLUE 4</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GREEN 2</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RED 1</span>
+<span class="hljs-comment">/* mixed colors */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BLACK 0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> YELLOW (RED | GREEN)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAGENTA (RED | BLUE)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CYAN (GREEN | BLUE)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> WHITE (RED | GREEN | BLUE)</span>
+<span class="hljs-comment">/* BITWISE CONSTANTS */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> OPAQUE 0x1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> FILL_BLUE 0x8</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> FILL_GREEN 0x4</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> FILL_RED 0x2</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> FILL_MASK 0xE</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BORDER 0x100</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BORDER_BLUE 0x800</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BORDER_GREEN 0x400</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BORDER_RED 0x200</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BORDER_MASK 0xE00</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> B_SOLID 0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> B_DOTTED 0x1000</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> B_DASHED 0x2000</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STYLE_MASK 0x3000</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *colors[<span class="hljs-number">8</span>] = &#123;<span class="hljs-string">"black"</span>, <span class="hljs-string">"red"</span>, <span class="hljs-string">"green"</span>, <span class="hljs-string">"yellow"</span>,
+<span class="hljs-string">"blue"</span>, <span class="hljs-string">"magenta"</span>, <span class="hljs-string">"cyan"</span>, <span class="hljs-string">"white"</span>&#125;;
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">box_props</span> &#123;</span>
+<span class="hljs-keyword">bool</span> opaque : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> fill_color : <span class="hljs-number">3</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> : <span class="hljs-number">4</span>;
+<span class="hljs-keyword">bool</span> show_border : <span class="hljs-number">1</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> border_color : <span class="hljs-number">3</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> border_style : <span class="hljs-number">2</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> : <span class="hljs-number">2</span>;
+&#125;;
+<span class="hljs-keyword">union</span> Views <span class="hljs-comment">/* look at data as struct or as unsigned short */</span>
+&#123;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">box_props</span> <span class="hljs-title">st_view</span>;</span>
+    <span class="hljs-keyword">unsigned</span> short us_view;
+&#125;;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show_settings</span><span class="hljs-params">(<span class="hljs-keyword">const</span> struct box_props * pb)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show_settings1</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> short)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">itobs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">char</span> * ps)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-comment">/* create Views object, initialize struct box view */</span>
+    <span class="hljs-keyword">union</span> Views box = &#123;&#123;<span class="hljs-literal">true</span>, YELLOW , <span class="hljs-literal">true</span>, GREEN, DASHED&#125;&#125;;
+    <span class="hljs-keyword">char</span> bin_str[<span class="hljs-number">8</span> *<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>) + <span class="hljs-number">1</span>];
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Original box settings:\n"</span>);
+    show_settings(&amp;box.st_view);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nBox settings using unsigned int view:\n"</span>);
+    show_settings1(box.us_view);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"bits are %s\n"</span>,
+    itobs(box.us_view,bin_str));
+    box.us_view &amp;= ~FILL_MASK; <span class="hljs-comment">/* clear fill bits */</span>
+    box.us_view |= (FILL_BLUE | FILL_GREEN); <span class="hljs-comment">/* reset fill */</span>
+    box.us_view ^= OPAQUE; <span class="hljs-comment">/* toggle opacity */</span>
+    box.us_view |= BORDER_RED; <span class="hljs-comment">/* wrong approach */</span>
+    box.us_view &amp;= ~STYLE_MASK; <span class="hljs-comment">/* clear style bits */</span>
+    box.us_view |= B_DOTTED; <span class="hljs-comment">/* set style to dotted */</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nModified box settings:\n"</span>);
+    show_settings(&amp;box.st_view);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nBox settings using unsigned int view:\n"</span>);
+    show_settings1(box.us_view);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"bits are %s\n"</span>,
+    itobs(box.us_view,bin_str));
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show_settings</span><span class="hljs-params">(<span class="hljs-keyword">const</span> struct box_props * pb)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Box is %s.\n"</span>,
+    pb-&gt;opaque == <span class="hljs-literal">true</span> ? <span class="hljs-string">"opaque"</span>: <span class="hljs-string">"transparent"</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The fill color is %s.\n"</span>, colors[pb-&gt;fill_color]);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Border %s.\n"</span>,
+    pb-&gt;show_border == <span class="hljs-literal">true</span> ? <span class="hljs-string">"shown"</span> : <span class="hljs-string">"not shown"</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The border color is %s.\n"</span>, colors[pb-&gt;border_color]);
+    <span class="hljs-built_in">printf</span> (<span class="hljs-string">"The border style is "</span>);
+    <span class="hljs-keyword">switch</span>(pb-&gt;border_style)
+    &#123;
+        <span class="hljs-keyword">case</span> SOLID : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"solid.\n"</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> DOTTED : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"dotted.\n"</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> DASHED : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"dashed.\n"</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">default</span> : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"unknown type.\n"</span>);
+    &#125;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show_settings1</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> short us)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"box is %s.\n"</span>,
+    (us &amp; OPAQUE) == OPAQUE? <span class="hljs-string">"opaque"</span>: <span class="hljs-string">"transparent"</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The fill color is %s.\n"</span>,
+    colors[(us &gt;&gt; <span class="hljs-number">1</span>) &amp; <span class="hljs-number">07</span>]);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Border %s.\n"</span>,
+    (us &amp; BORDER) == BORDER? <span class="hljs-string">"shown"</span> : <span class="hljs-string">"not shown"</span>);
+    <span class="hljs-built_in">printf</span> (<span class="hljs-string">"The border style is "</span>);
+    <span class="hljs-keyword">switch</span>(us &amp; STYLE_MASK)
+    &#123;
+        <span class="hljs-keyword">case</span> B_SOLID : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"solid.\n"</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> B_DOTTED : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"dotted.\n"</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> B_DASHED : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"dashed.\n"</span>); <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">default</span> : <span class="hljs-built_in">printf</span>(<span class="hljs-string">"unknown type.\n"</span>);
+    &#125;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The border color is %s.\n"</span>,
+    colors[(us &gt;&gt; <span class="hljs-number">9</span>) &amp; <span class="hljs-number">07</span>]);
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">char</span> * <span class="hljs-title">itobs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">char</span> * ps)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-built_in">size</span> = CHAR_BIT * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>);
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-built_in">size</span> - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--, n &gt;&gt;= <span class="hljs-number">1</span>)
+        ps[i] = (<span class="hljs-number">01</span> &amp; n) + <span class="hljs-string">'0'</span>;
+    ps[<span class="hljs-built_in">size</span>] = <span class="hljs-string">'\0'</span>;
+    <span class="hljs-keyword">return</span> ps;
+&#125;</code></pre>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/06/Structures-and-Other-Data-Forms/">
+                        <span class="hidden-mobile">Structures and Other Data Forms</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#58C9B9',
+      preload: 'none',
+      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Bit Fidding&nbsp;",
+      ],
+      cursorChar: " ",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
