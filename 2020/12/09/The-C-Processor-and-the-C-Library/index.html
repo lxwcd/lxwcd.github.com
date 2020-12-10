@@ -1,0 +1,1039 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
+  <link rel="icon" type="image/png" href="/img/groot.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="诗酒趁年华">
+  <meta name="author" content="李诩">
+  <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  <title>The C Processor and the C Library - CD_LX</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Carpe Diem</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/The-C-Processor-and-the-C-Library_Inner.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-09 23:28" pubdate>
+        December 9, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      101
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">The C Processor and the C Library</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>C Primer Plus (Sixth Editioni) Chapter 16 The C Processor and the C Library</p>
+<a id="more"></a>
+<p>The <strong>preprocessor</strong> looks at your program <strong>before</strong> it is <strong>compiled</strong> (hence the term <strong>preprocessor</strong>).</p>
+<p>Following your <strong>preprocessor</strong> directives, the <strong>preprocessor</strong> <strong>replaces</strong> the <strong>symbolic abbreviations</strong> in your program with the <strong>directions</strong> they represent. </p>
+<p>The <strong>preprocessor</strong> can include other files at your request, and it can select which code the compiler sees. </p>
+<p>The <strong>preprocessor</strong> doesn’t know about <strong>C</strong>. Basically, it takes some text and <strong>converts</strong> it to other text. This description does <strong>not do justice</strong> to its true utility and value.</p>
+<h1 id="1-First-Steps-in-Translating-a-Program"><a href="#1-First-Steps-in-Translating-a-Program" class="headerlink" title="1. First Steps in Translating a Program"></a>1. First Steps in Translating a Program</h1><p>The <strong>compiler</strong> has to put a program through some <strong>translation phases</strong> before jumping into <strong>preprocessing</strong>. </p>
+<ol>
+<li><p>The <strong>compiler</strong> <strong>starts</strong> its work by <strong>mapping characters</strong> appearing in the source code to the <strong>source character set</strong>.  This takes care of <strong>multibyte</strong> characters and <strong>trigraphs</strong>—character extensions that make the outer face of C more international. </p>
+</li>
+<li><p>The <strong>compiler</strong> locates each instance of a <strong>backslash</strong> followed by a <strong>newline character</strong> and <strong>deletes</strong> them. That is, two physical lines such as</p>
+<pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"That's wond\</span>
+<span class="hljs-string">erful!\n"</span>);</code></pre>
+<p>are converted to <strong>a single logical line</strong>:</p>
+<pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"That's wonderful\n!"</span>);</code></pre>
+<p>Note that in this context, <strong>“newline character”</strong> means the character produced by pressing the <code>Enter key</code> to start a new line in your source code file; it <strong>doesn’t</strong> mean the symbolic representation <code>\n</code>.</p>
+</li>
+<li><p>The <strong>compiler</strong> breaks the text into a sequence of <strong>preprocessing tokens</strong> and sequences of <strong>whitespace</strong> and <strong>comments</strong>. (In basic terms, tokens are groups separated from each other by spaces, tabs, or line breaks;) <strong>Each comment</strong> is replaced by <strong>one space character</strong>. So something such as</p>
+<pre><code class="hljs c"><span class="hljs-keyword">int</span><span class="hljs-comment">/* this doesn't look like a space*/</span>fox;</code></pre>
+<p>becomes</p>
+<pre><code class="hljs c"><span class="hljs-keyword">int</span> fox;</code></pre>
+<h1 id="2-Manifest-Constants-define"><a href="#2-Manifest-Constants-define" class="headerlink" title="2. Manifest Constants: #define"></a>2. Manifest Constants: #define</h1><p>A <strong>directive</strong> can appear anywhere in the source file, and the definition holds from its place of <strong>appearance to the end of the file</strong>. </p>
+</li>
+</ol>
+<p><strong>Preprocessor</strong> directives run until the <strong>first newline</strong> following the <code>#</code>. </p>
+<p>That is, a directive is limited to <strong>one line</strong> in length. However, as mentioned earlier, the combination <strong>backslash</strong> <strong>newline</strong> is deleted <strong>before preprocessing</strong> begins, so you can spread the directive over <strong>several physical lines</strong>. These lines, however, constitute <strong>a single logical line</strong>.</p>
+<p>Each <strong>#define</strong> line (logical line, that is) has <strong>three</strong> parts:</p>
+<ol>
+<li><p>The <strong>first</strong> part is the <strong>#define directive</strong> itself. </p>
+</li>
+<li><p>The <strong>second</strong> part is your chosen <strong>abbreviation</strong>, known as a <strong>macro</strong>.  </p>
+<p> The <strong>macro name</strong> must have <strong>no spaces</strong> in it, and it must conform to the same <strong>naming rules</strong> that C variables follow: Only <strong>letters</strong>, <strong>digits</strong>, and the <strong>underscore</strong> <code>(_)</code> character can be used, and the <strong>first character cannot be a digit</strong>. </p>
+</li>
+<li><p><strong>Replacement list</strong> or <strong>body</strong> . </p>
+</li>
+</ol>
+<p>When the <strong>preprocessor</strong> finds an example of one of your <strong>macros</strong> within your program, it almost always <strong>replaces</strong> it with the body. ( The one exception to replacement is a <strong>macro</strong> found within <strong>double quotation marks</strong>.) </p>
+<p>This process of going from a <strong>macro</strong> to a <strong>final replacement</strong> is called <strong>macro expansion</strong>. </p>
+<h2 id="1-define-与-const"><a href="#1-define-与-const" class="headerlink" title="(1) define 与 const"></a>(1) define 与 const</h2><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LIMIT 20</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> LIM = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> data1[LIMIT]; <span class="hljs-comment">// valid</span>
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> data2[LIM]; <span class="hljs-comment">// storage size of 'data' isn't constant</span>
+<span class="hljs-keyword">int</span> data3[LIM]; <span class="hljs-comment">//valid</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> LIM2 = <span class="hljs-number">2</span> * LIMIT; <span class="hljs-comment">// valid</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> LIM3 = <span class="hljs-number">2</span> * LIM; <span class="hljs-comment">// valid</span></code></pre>
+<p>In <strong>C</strong>, the array size for <strong>nonautomatic</strong> arrays is supposed to be an <strong>integer constant expression</strong>, meaning that it’s a combination of integer constants, such as <code>5</code>, enumeration constants, and sizeof expressions. This doesn’t include values declared using <strong>const</strong>. (This is one respect in which <strong>C++</strong> differs from <strong>C</strong>; in <strong>C++</strong> you can use <strong>const values</strong> as part of <strong>constant expressions</strong>.) </p>
+<p>However, an implementation may accept other forms of <a href="http://port70.net/~nsz/c/c11/n1570.html#6.6p2" target="_blank" rel="noopener">constant expression</a> . </p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The value of a const-qualified object is not a constant expression. A constant expression can be evaluated during translation rather than runtime.</li>
+<li>You must specify the size of a conventional C array with a constant expression, so the size is<br>determined at compile time. C99/C11 offers the variable-length array alternative for which the<br>size specifier can be a variable. This allows you to delay specifying the size of a VLA until the program is running. So, <code>int data3[LIM];</code> is permitted.</li>
+<li>Static variables and external variables are already in place after a program is loaded into memory. Statically allocated memory is typically reserved in data segment of the program at compile time, while the automatically allocated memory is normally implemented as a transient call stack. Hence, <code>static int data2[LIM];</code> is invalid.</li>
+</ul>
+<h2 id="2-Tokens"><a href="#2-Tokens" class="headerlink" title="(2) Tokens"></a>(2) Tokens</h2><p>Technically, the body of a <strong>macro</strong> is considered to be a <strong>string of tokens</strong> rather than <strong>a string of characters</strong>. </p>
+<p>C preprocessor <strong>tokens</strong> are the separate “words” in the body of a <strong>macro</strong> definition.</p>
+<p>They are separated from one another by <strong>whitespace</strong>. </p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> FOUR 2*2</span></code></pre>
+<p>has one token：2*2</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SIX 2 * 3</span></code></pre>
+<p>has three tokens: 2，*, 2</p>
+<p><strong>Character strings</strong> and <strong>token strings</strong> differ in how multiple spaces in a body are treated. </p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> EIGHT 4    *    8</span></code></pre>
+<p>A <strong>preprocessor</strong> that interprets the body as a character string would replace <code>EIGHT</code> with 4&emsp;&emsp;*&emsp;&emsp;8.</p>
+<p>That is, the extra spaces would be <strong>part of the replacement</strong>, but a <strong>preprocessor</strong> that interprets the body as <strong>tokens</strong> will replace <code>EIGHT</code> with <strong>three tokens</strong> separated by single spaces: 4 * 8. </p>
+<p>In practice, some C compilers have viewed <strong>macro</strong> bodies as <strong>strings</strong> rather than as <strong>tokens</strong>. </p>
+<h2 id="3-Redefining-Constants"><a href="#3-Redefining-Constants" class="headerlink" title="(3) Redefining Constants"></a>(3) Redefining Constants</h2><p>Suppose you define <code>LIMIT</code> to be 20, and then later in the same file you define it again as 25. This process is called <strong>redefining a constant</strong>. </p>
+<p>The ANSI standard allows redefinition only if the new definition <strong>duplicates</strong> the old.</p>
+<p>Having the same definition means the bodies must have the same <strong>tokens</strong> in the <strong>same order</strong>.</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SIX 2 * 3</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SIX 2   *   3</span></code></pre>
+<p>Both have the same <strong>three tokens</strong>, and the extra spaces are not part of the body. The next definition is considered different:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SIX 2*3</span></code></pre>
+<p>It has just <strong>one token</strong>, not three, so it doesn’t match. If you want to redefine a macro, use the <code>#undef</code> directive.</p>
+<h1 id="3-Using-Arguments-with-define"><a href="#3-Using-Arguments-with-define" class="headerlink" title="3. Using Arguments with #define"></a>3. Using Arguments with #define</h1><p><strong>Function-like macro</strong> definitions have one or more <strong>arguments</strong> in <strong>parentheses</strong>, and these arguments then appear in the replacement portion.</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SQUARE(X) (X)*(X)</span></code></pre>
+<p>Now <code>SQUARE(x+2)</code> becomes $(x+2)*(x+2)$, you get the correct result.</p>
+<p>However, <code>100/SQUARE(2)</code> becomes $100/(2)*(2)$ instead of $100/4$.</p>
+<h2 id="1-Creating-Strings-from-Macro-Arguments-The-Operator"><a href="#1-Creating-Strings-from-Macro-Arguments-The-Operator" class="headerlink" title="(1) Creating Strings from Macro Arguments: The # Operator"></a>(1) Creating Strings from Macro Arguments: The # Operator</h2><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PSQR(X) printf(<span class="hljs-meta-string">"The square of X is %d.\n"</span>, ((X)*(X)));</span>
+PSQR(<span class="hljs-number">8</span>);</code></pre>
+<p>output:</p>
+<pre><code class="hljs c">The square of X is <span class="hljs-number">64.</span></code></pre>
+<p>Note that the <code>X</code> in the <strong>quoted string</strong> is treated as ordinary text, not as a <strong>token</strong> that can be replaced.</p>
+<p>Within the replacement part of a <strong>function-like macro</strong>, the <code>#</code> symbol becomes a <strong>preprocessing</strong> operator that <strong>converts tokens into strings</strong>. </p>
+<p>For example, say that <code>x</code>is a macro parameter, and then <code>#x</code> is that parameter name converted to the string <code>&quot;x&quot;</code>. This process is called <strong>stringizing</strong>.</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PSQR(x) printf(<span class="hljs-meta-string">"The square of "</span> #x <span class="hljs-meta-string">" is %d.\n"</span>,((x)*(x)))</span>
+PSQR(y);
+PSQR(<span class="hljs-number">2</span> + <span class="hljs-number">4</span>);</code></pre>
+<p>output:</p>
+<pre><code class="hljs c">The square of y is <span class="hljs-number">25.</span>
+The square of <span class="hljs-number">2</span> + <span class="hljs-number">4</span> is <span class="hljs-number">36.</span></code></pre>
+<p>In the first call to the macro, <code>#x</code> was replaced by <code>&quot;y&quot;</code>, and in the second call <code>#x</code> was replaced by <code>&quot;2 + 4&quot;</code>. </p>
+<pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"The square of "</span> <span class="hljs-string">"y"</span> <span class="hljs-string">" is %d.\n"</span>,((y)*(y)));</code></pre>
+<p>Then string <strong>concatenation</strong> converts the three adjacent strings to one string, which ANSI C introduced, is <strong>string concatenation</strong>.</p>
+<pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"The square of y is %d.\n"</span>,((y)*(y)));</code></pre>
+<p>If you follow one quoted string constant with another, separated only by <strong>whitespace</strong>, C treats the combination as a single string. </p>
+<h2 id="2-Preprocessor-Glue-The-Operator"><a href="#2-Preprocessor-Glue-The-Operator" class="headerlink" title="(2)  Preprocessor Glue: The ## Operator"></a>(2)  Preprocessor Glue: The ## Operator</h2><p>Like the <code>#</code> operator, the <code>##</code> operator can be used in the replacement section of a <strong>function-like macro</strong>. Additionally, it can be used in the replacement section of an <strong>object-like macro</strong>. </p>
+<p>The <code>##</code> operator combines <strong>two tokens</strong> into a <strong>single token</strong>. For example, you could do this:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> XNAME(n) x ## n</span></code></pre>
+<p>Then the macro <code>XNAME(4)</code> becomes <code>x4</code>.</p>
+<pre><code class="hljs c"><span class="hljs-comment">// glue.c -- use the ## operator</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> XNAME(n) x ## n</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PRINT_XN(n) printf(<span class="hljs-meta-string">"x"</span> #n <span class="hljs-meta-string">" = %d\n"</span>, x ## n);</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">XNAME</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span> </span>= <span class="hljs-number">14</span>; <span class="hljs-comment">// becomes int x1 = 14;</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">XNAME</span><span class="hljs-params">(<span class="hljs-number">2</span>)</span> </span>= <span class="hljs-number">20</span>; <span class="hljs-comment">// becomes int x2 = 20;</span>
+    <span class="hljs-keyword">int</span> x3 = <span class="hljs-number">30</span>;
+    PRINT_XN(<span class="hljs-number">1</span>); <span class="hljs-comment">// becomes printf("x1 = %d\n", x1);</span>
+    PRINT_XN(<span class="hljs-number">2</span>); <span class="hljs-comment">// becomes printf("x2 = %d\n", x2);</span>
+    PRINT_XN(<span class="hljs-number">3</span>); <span class="hljs-comment">// becomes printf("x3 = %d\n", x3);</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<p>Note how the <code>PRINT_XN()</code> <strong>macro</strong> uses the <code>#</code> operator to combine <strong>strings</strong> and the <code>##</code> operator to combine <strong>tokens</strong> into a new identifier.</p>
+<h2 id="3-Variadic-Macros-…-and-VA-ARGS"><a href="#3-Variadic-Macros-…-and-VA-ARGS" class="headerlink" title="(3) Variadic Macros: … and _ VA_ARGS _"></a>(3) Variadic Macros: … and _ <em>VA_ARGS</em> _</h2><p>Some functions, such as <code>printf()</code>, accept a <strong>variable number of arguments</strong>. The <code>stdvar.h</code> header file provides tools for creating user-defined functions with a variable number of arguments. </p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PR(...) printf(_ _VA_ARGS_ _)</span></code></pre>
+<p>Suppose you later invoke the <strong>macro</strong> like this:</p>
+<pre><code class="hljs c">PR(<span class="hljs-string">"Howdy"</span>);
+PR(<span class="hljs-string">"weight = %d, shipping = $%.2f\n"</span>, wt, sp);</code></pre>
+<p>For the first invocation,<code>_ _VA_ARGS_ _</code> expands to one argument: <code>&quot;Howdy&quot;</code>.</p>
+<p>For the second invocation, it expands to three arguments: <code>&quot;weight = %d, shipping = $%.2f\n&quot;, wt, sp</code>.</p>
+<p>Thus, the resulting code is this:</p>
+<pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"Howdy"</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"weight = %d, shipping = $%.2f\n"</span>, wt, sp);</code></pre>
+
+<pre><code class="hljs c"><span class="hljs-comment">// variadic.c -- variadic macros</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;math.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PR(X, ...) printf(<span class="hljs-meta-string">"Message "</span> #X <span class="hljs-meta-string">": "</span> _ _VA_ARGS_ _)</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">double</span> x = <span class="hljs-number">48</span>;
+    <span class="hljs-keyword">double</span> y;
+    y = <span class="hljs-built_in">sqrt</span>(x);
+    PR(<span class="hljs-number">1</span>, <span class="hljs-string">"x = %g\n"</span>, x);
+    PR(<span class="hljs-number">2</span>, <span class="hljs-string">"x = %.2f, y = %.4f\n"</span>, x, y);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<p>In the first <strong>macro call</strong>, <code>X</code>has the value <code>1</code>, so <code>#X</code> becomes <code>&quot;1&quot;</code>. That makes the expansion look like this:</p>
+<pre><code class="hljs c"><span class="hljs-built_in">print</span>(<span class="hljs-string">"Message "</span> <span class="hljs-string">"1"</span> <span class="hljs-string">": "</span> <span class="hljs-string">"x = %g\n"</span>, x);</code></pre>
+<p>Then the four strings are <strong>concatenated</strong>, reducing the call to this:</p>
+<pre><code class="hljs c"><span class="hljs-built_in">print</span>(<span class="hljs-string">"Message 1: x = %g\n"</span>, x);</code></pre>
+<p><strong>Note:</strong> the ellipses have to be the <strong>last macro argument</strong>:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> WRONG(X, ..., Y) #X #_ _VA_ARGS_ _ #y <span class="hljs-comment">// don't work</span></span></code></pre>
+
+<h1 id="4-Macro-or-Function"><a href="#4-Macro-or-Function" class="headerlink" title="4. Macro or Function?"></a>4. Macro or Function?</h1><p>The <strong>macro-versus-function</strong> choice represents a trade-off between <strong>time</strong> and <strong>space</strong>. </p>
+<p>A macro produces <strong>inline code</strong>; that is, you get a statement in your program. </p>
+<p>If you use the <strong>macro</strong> 20 times, you get 20 lines of code inserted into your program. </p>
+<p>If you use a <strong>function</strong> 20 times, you have just <strong>one copy</strong> of the function statements in your program, so <strong>less space</strong> is used. </p>
+<p>On the other hand, program control must <strong>shift to</strong> where the function is and then return to the calling program, and this takes <strong>longer</strong> than <strong>inline code</strong>.</p>
+<p><strong>Macros</strong> have an <strong>advantage</strong> in that they don’t worry about <strong>variable types</strong>. (This is because they deal with character strings, not with actual values.) </p>
+<p>Therefore, the <strong>SQUARE(x)</strong> macro can be used equally well with <strong>int</strong> or <strong>float</strong>.</p>
+<p>Here are some points to note:</p>
+<ol>
+<li>Remember that there are <strong>no spaces</strong> in the <strong>macro name</strong>, but that <strong>spaces</strong> can appear in the <strong>replacement string</strong>. </li>
+<li>Use <strong>parentheses</strong> around <strong>each argument</strong> and around the definition as a whole.</li>
+<li>Use capital letters for macro function names.</li>
+<li>A macro inside a <strong>nested loop</strong> is a much better candidate for <strong>speed improvements</strong>. </li>
+</ol>
+<h1 id="5-File-Inclusion-include"><a href="#5-File-Inclusion-include" class="headerlink" title="5. File Inclusion: #include"></a>5. File Inclusion: #include</h1><p>When the preprocessor spots an <strong>#include</strong> directive, it looks for the following filename and includes the contents of that file within the current file. </p>
+<p>Including a large header file doesn’t necessarily add much to the size of your program. The content of header files, for the most part, is information used by the compiler to generate the final code, not material to be added to the final code.</p>
+<h1 id="6-Other-Directives"><a href="#6-Other-Directives" class="headerlink" title="6. Other Directives"></a>6. Other Directives</h1><h2 id="1-The-undef-Directive"><a href="#1-The-undef-Directive" class="headerlink" title="(1) The #undef Directive"></a>(1) The #undef Directive</h2><p>The <strong>#undef</strong> directive “undefines” a given <strong>#define</strong>. That is, suppose you have this definition:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LIMIT 400</span>
+Then the directive
+<span class="hljs-meta">#<span class="hljs-meta-keyword">undef</span> LIMIT</span></code></pre>
+<p>removes that definition. Now, if you like, you can redefine LIMIT so that it has a new value.<br>Even if LIMIT is not defined in the first place, it is still valid to undefine it. </p>
+<h2 id="2-Conditional-Compilation"><a href="#2-Conditional-Compilation" class="headerlink" title="(2) Conditional Compilation"></a>(2) Conditional Compilation</h2><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> MAVIS <span class="hljs-comment">// or #if defined MAVIS</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"horse.h"</span> <span class="hljs-comment">// gets done if MAVIS is #defined</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STABLES 5</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"cow.h"</span> <span class="hljs-comment">// gets done if MAVIS isn't #defined</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STABLES 15</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> SIZE</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SIZE 100</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre>
+<h2 id="3-Predefined-Macros"><a href="#3-Predefined-Macros" class="headerlink" title="(3) Predefined Macros"></a>(3) Predefined Macros</h2><table>
+<thead>
+<tr>
+<th align="left">Macro</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">_ <em>DATE</em> _</td>
+<td align="left">A character string literal in the form “Mmm dd yyyy” representing the date of preprocessing, as in Nov 23 2013</td>
+</tr>
+<tr>
+<td align="left">_ <em>FILE</em> _</td>
+<td align="left">A character string literal representing the name of the current source code file</td>
+</tr>
+<tr>
+<td align="left">_ <em>LINE</em> _</td>
+<td align="left">An integer constant representing the line number in the current source code file</td>
+</tr>
+<tr>
+<td align="left">_ <em>STDC</em> _</td>
+<td align="left">Set to 1 to indicate the implementation conforms to the C Standard</td>
+</tr>
+<tr>
+<td align="left">_ <em>STDC_HOSTED</em> _</td>
+<td align="left">Set to 1 for a hosted environment; 0 otherwise</td>
+</tr>
+<tr>
+<td align="left">_ <em>STDC_VERSION</em> _</td>
+<td align="left">For C99, set to 199901L; for C11, set to 201112L</td>
+</tr>
+<tr>
+<td align="left">_ <em>TIME</em> _</td>
+<td align="left">The time of translation in the form “hh:mm:ss”</td>
+</tr>
+</tbody></table>
+<p>the C99 standard provides for one called <strong>_ <em>func</em> _</strong>. It expands to a string representing the name of the function containing the identifier. </p>
+<p>For this reason, the identifier has to have function scope, whereas macros essentially have file scope. Therefore, <strong>_ <em>func</em> _</strong> is a C language predefined identifier rather than a <strong>predefined macro</strong>.</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">why_me</span><span class="hljs-params">()</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The file is %s.\n"</span>, __FILE__);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The date is %s.\n"</span>, __DATE__);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The version is %ld.\n"</span>, __STDC_VERSION__);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The line is %d.\n"</span>, __LINE__);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The function is %s.\n"</span>, __func__);
+    why_me();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">why_me</span><span class="hljs-params">()</span> </span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The line is %d.\n"</span>, __LINE__);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"The function is %s.\n"</span>, __func__);
+&#125;</code></pre>
+<p>Result:</p>
+<pre><code class="hljs c">The file is predef.c.
+The date is Dec  <span class="hljs-number">9</span> <span class="hljs-number">2020.</span>
+The version is <span class="hljs-number">201710.</span>
+The <span class="hljs-built_in">line</span> is <span class="hljs-number">8.</span>
+The function is main.
+The <span class="hljs-built_in">line</span> is <span class="hljs-number">15.</span>
+The function is why_me.</code></pre>
+<h2 id="4-line-and-error"><a href="#4-line-and-error" class="headerlink" title="(4) #line and #error"></a>(4) #line and #error</h2><p>The <strong>#line</strong> directive lets you reset the line numbering and the filename as reported by the <strong>_ <em>LINE</em> _</strong> and *<em>_ <em>FILE</em> _ *</em>macros. </p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">line</span> 1000 <span class="hljs-comment">// reset current line number to 1000</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">line</span> 10 <span class="hljs-meta-string">"cool.c"</span> <span class="hljs-comment">// reset line number to 10, file name to cool.c</span></span></code></pre>
+<p>The <strong>#error</strong> directive causes the preprocessor to issue an error message that includes any text in the directive. If possible, the compilation process should halt. </p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">why_me</span><span class="hljs-params">()</span></span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> _ _STDC_VERSION_ _ != 201112L</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">error</span> Not C11</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>
+<span class="hljs-function"></span>&#123;
+    ...
+&#125;</code></pre>
+<p>Attempting to compile the program <code>predef.c</code>could then produce results like this:</p>
+<pre><code class="hljs bash">$ gcc predef.c
+predef.c:4:2: error: <span class="hljs-comment">#error Not C11</span>
+    4 | <span class="hljs-comment">#error Not C11</span>
+      |  ^~~~~
+$ gcc -std=c11 predef.c //normal</code></pre>
+<h2 id="5-pragma"><a href="#5-pragma" class="headerlink" title="(5) #pragma"></a>(5) #pragma</h2><p>The <strong>#pragma</strong> lets you place compiler instructions in the source code.</p>
+<p>For example, while C99 was being developed, it was referred to as C9X, and one compiler used the following pragma to turn on C9X support:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> c9x on</span></code></pre>
+<p>Generally, each compiler has its own set of pragmas. C99 also provides the _Pragma preprocessor operator. It converts a string into a regular pragma.</p>
+<pre><code class="hljs c">_Pragma(<span class="hljs-string">"nonstandardtreatmenttypeB on"</span>)</code></pre>
+<p>is equivalent to the following:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> nonstandardtreatmenttypeB on</span></code></pre>
+<p>Because the operator doesn’t use the <strong># symbol</strong>, you can use it as part of a macro expansion:</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PRAGMA(X) <span class="hljs-meta-keyword">_Pragma</span>(#X)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LIMRG(X) PRAGMA(STDC CX_LIMITED_RANGE X)</span></code></pre>
+<h2 id="6-Generic-Selection-C11"><a href="#6-Generic-Selection-C11" class="headerlink" title="(6) Generic Selection (C11)"></a>(6) Generic Selection (C11)</h2><p>In programming, the term <strong>generic programming</strong> indicates code that is not specific to a particular type but which, once a type is specified, can be translated into code for that type.</p>
+<p>A generic selection expression looks like this:</p>
+<pre><code class="hljs c">_Generic(x, <span class="hljs-keyword">int</span>: <span class="hljs-number">0</span>, <span class="hljs-keyword">float</span>: <span class="hljs-number">1</span>, <span class="hljs-keyword">double</span>: <span class="hljs-number">2</span>, <span class="hljs-keyword">default</span>: <span class="hljs-number">3</span>)</code></pre>
+<p>Here <strong>_Generic</strong> is a new C11 keyword. The parentheses following <strong>_Generic</strong> contain several comma-separated terms. </p>
+<p>The first term is an expression, and each remaining item is a type followed by a colon followed by a value, such as float: 1. The type of the first term is matched to one of the labels, and the value of the whole expression is the value following the matched label. </p>
+<p>A generic selection statement is a little like a <strong>switch</strong> statement, except that the <strong>type of an expression</strong> rather than the** value of an expression** is matched to a label.</p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MYTYPE(X) _Generic((X),\</span>
+<span class="hljs-keyword">int</span>: <span class="hljs-string">"int"</span>,\
+<span class="hljs-keyword">float</span> : <span class="hljs-string">"float"</span>,\
+<span class="hljs-keyword">double</span>: <span class="hljs-string">"double"</span>,\
+<span class="hljs-keyword">default</span>: <span class="hljs-string">"other"</span>\
+)</code></pre>
+<h1 id="7-Inline-Functions-C99"><a href="#7-Inline-Functions-C99" class="headerlink" title="7. Inline Functions (C99)"></a>7. Inline Functions (C99)</h1><p>What the C99 and C11 standards actually say is this: “Making a function an inline function suggests that calls to the function be as fast as possible. The extent to which such suggestions are effective is implementation-defined.” </p>
+<p>So making a function an inline function may cause the compiler to replace the function call with inline code and/or perform some other sorts of optimizations, or it may have no effect.</p>
+<p>There are different ways to create inline function definitions. The standard says that a function with internal linkage can be made inline and that the definition for the inline function must be in the same file in which the function is used. </p>
+<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eatline</span><span class="hljs-params">()</span> <span class="hljs-comment">// inline definition/prototype</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">while</span> (getchar() != <span class="hljs-string">'\n'</span>)
+        <span class="hljs-keyword">continue</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    ...
+    eatline(); <span class="hljs-comment">// function call</span>
+    ...
+&#125;</code></pre>
+
+<p>Because an inline function doesn’t have a separate block of code set aside for it, you can’t take its address. (Actually, you can take the address, but then the compiler will generate a non-inline function.) </p>
+<p>Also, an inline function may not show up in a debugger.</p>
+<p>An inline function should be short. </p>
+<p>For the compiler to make inline optimizations, it has to know the contents of the function definition. This means the inline function definition has to be in the same file as the function call. For this reason, an inline function ordinarily has internal linkage. Therefore, if you have a multifile program, you need an inline definition in each file that calls the function. The simplest way to accomplish this is to put the inline function definition in a header file and then include the header file in those files that use the function.</p>
+<h1 id="8-Noreturn-Functions-C11"><a href="#8-Noreturn-Functions-C11" class="headerlink" title="8. _Noreturn Functions (C11)"></a>8. _Noreturn Functions (C11)</h1><p> C11 adds a second function specifier, _Noreturn, to indicate a function that, upon completion, does not return to the <strong>calling function</strong>. </p>
+<p>The exit() function is an example of a _Noreturn function, for once exit() is called, the calling function never resumes. </p>
+<p>Note that this is different from the void return type. A typical void function does return to the calling function; it just doesn’t provide an assignable value.</p>
+<p>The purpose of _Noreturn is to inform the user and the compiler that a particular function won’t return control to the calling program. Informing the user helps to prevent misuse of the function, and informing the compiler may enable it to make some code optimizations.</p>
+<h1 id="9-The-General-Utilities-Library"><a href="#9-The-General-Utilities-Library" class="headerlink" title="9. The General Utilities Library"></a>9. The General Utilities Library</h1><h2 id="1-The-exit-and-atexit-Functions"><a href="#1-The-exit-and-atexit-Functions" class="headerlink" title="(1) The exit() and atexit() Functions"></a>(1) The exit() and atexit() Functions</h2><p>To use the atexit() function, simply pass it the address of the function you want called on exit. </p>
+<pre><code class="hljs c"><span class="hljs-comment">/* byebye.c -- atexit() example */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sign_off</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">too_bad</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> n;
+    atexit(sign_off); <span class="hljs-comment">/* register the sign_off() function */</span>
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Enter an integer:"</span>);
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;n) != <span class="hljs-number">1</span>)
+    &#123;
+        <span class="hljs-built_in">puts</span>(<span class="hljs-string">"That's no integer!"</span>);
+        atexit(too_bad); <span class="hljs-comment">/* register the too_bad() function */</span>
+        <span class="hljs-built_in">exit</span>(EXIT_FAILURE);
+    &#125;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d is %s.\n"</span>, n, (n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)? <span class="hljs-string">"even"</span> : <span class="hljs-string">"odd"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sign_off</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Thus terminates another magnificent program from"</span>);
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"SeeSaw Software!"</span>);
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">too_bad</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"SeeSaw Software extends its heartfelt condolences"</span>);
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"to you upon the failure of your program."</span>);
+&#125;</code></pre>
+<pre><code class="hljs c">Enter an integer:
+<span class="hljs-number">212</span>
+<span class="hljs-number">212</span> is even.
+Thus terminates another magnificent program from <span class="hljs-comment">//sign_off</span>
+SeeSaw Software!</code></pre>
+<pre><code class="hljs c">Here’s a second <span class="hljs-built_in">run</span>:
+Enter an integer:
+what?
+That<span class="hljs-number">'</span>s no integer!
+SeeSaw Software extends its heartfelt condolences <span class="hljs-comment">//too_bad</span>
+to you upon the failure of your program.
+Thus terminates another magnificent program from  <span class="hljs-comment">//sign_off</span>
+SeeSaw Software!</code></pre>
+<p>Because the name of a function acts as an address when used as a function argument, use <code>sign_off</code> or <code>too_bad</code> as the argument. </p>
+<p>Then atexit() registers that function in a list of functions to be executed when exit() is called.</p>
+<p>ANSI guarantees that you can place at least 32 functions on the list. Each function is added with a separate call to atexit(). When the exit() function is finally called, it executes these functions, with the last function added being executed first.</p>
+<p>The functions registered by atexit() should be type void functions taking no arguments. </p>
+<p>Typically, they would perform housekeeping tasks, such as updating a program-monitoring file or resetting environmental variables.</p>
+<p>Note that sign_off() is called even when exit() is not called explicitly; that’s because <strong>exit() is called implicitly when main() terminates</strong>.</p>
+<p>After exit() executes the functions specified by atexit(), it does some tidying of its own. It flushes all output streams, closes all open streams, and closes temporary files created by calls to the standard I/O function tmpfile(). </p>
+<p>Then exit() returns control to the host environment and, if possible, reports a termination status to the environment. </p>
+<p>ANSI C defined a macro called EXIT_FAILURE that can be used portably to indicate failure. Similarly, it defined EXIT_SUCCESS to indicate success, but exit() also accepts 0 for that purpose. </p>
+<p>Under ANSI C, using the exit() function in a nonrecursive main() function is equivalent to using the keyword return. However, exit() also terminates programs when used in functions other than main().</p>
+<h1 id="10-The-Assert-Library"><a href="#10-The-Assert-Library" class="headerlink" title="10. The Assert Library"></a>10. The Assert Library</h1><p>The assert library, supported by the assert.h header file, is a small one designed to help with debugging programs. </p>
+<p>It consists of a macro named assert(). It takes as its argument an integer expression. If the expression evaluates as false (nonzero), the assert() macro writes an error message to the standard error stream (stderr) and calls the abort() function, which terminates the program. (The abort() function is prototyped in the stdlib.h header file.) </p>
+<p>The idea is to identify critical locations in a program where certain conditions should be true and to use the assert() statement to terminate the program if one of the specified conditions is not true. </p>
+<p>Typically, the argument is a relational or logical expression. If assert() does abort the program, it first displays the test that failed, the name of the file containing the test, and a line number.</p>
+<pre><code class="hljs c"><span class="hljs-comment">/* assert.c -- use assert() */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;math.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;assert.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">double</span> x, y, z;
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Enter a pair of numbers (0 0 to quit): "</span>);
+    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%lf%lf"</span>, &amp;x, &amp;y) == <span class="hljs-number">2</span> &amp;&amp; (x != <span class="hljs-number">0</span> || y != <span class="hljs-number">0</span>))
+    &#123;
+        z = x * x - y * y; <span class="hljs-comment">/* should be + */</span>
+        assert(z &gt;= <span class="hljs-number">0</span>);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"answer is %f\n"</span>, <span class="hljs-built_in">sqrt</span>(z));
+        <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Next pair of numbers: "</span>);
+    &#125;
+    <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Done"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<pre><code class="hljs c"><span class="hljs-function">Enter a pair of <span class="hljs-title">numbers</span> <span class="hljs-params">(<span class="hljs-number">0</span> <span class="hljs-number">0</span> to quit)</span>: </span>
+<span class="hljs-function">4 3</span>
+answer is 2.645751
+Next pair of numbers: 
+<span class="hljs-number">3</span> <span class="hljs-number">5</span>
+assert: assert.c:<span class="hljs-number">12</span>: main: Assertion `z &gt;= <span class="hljs-number">0'</span> failed.
+Aborted (core dumped)</code></pre>
+<p> If you think you’ve eliminated the program bugs, place the macro definition<code>#define NDEBUG</code> before the location where assert.h is included and then recompile the program, and the compiler will deactivate all assert() statements in the file. </p>
+<p>The assert() expression is a run-time check. C11 adds a feature, the <strong>_Static_assert</strong> declaration, that does a <strong>compile-time</strong> check. So, assert() can cause a running program to abort, while _Static_assert() can cause a program not to compile. </p>
+<p>The latter takes two arguments. The first is a constant integer expression, and the second is a string. </p>
+<p>If the first expression evaluates to 0 (or _False), the compiler displays the string and does not compile the program.</p>
+<pre><code class="hljs c"><span class="hljs-comment">// statasrt.c</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;limits.h&gt;</span></span>
+_Static_assert(CHAR_BIT == <span class="hljs-number">16</span>, <span class="hljs-string">"16-bit char falsely assumed"</span>);
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+<span class="hljs-built_in">puts</span>(<span class="hljs-string">"char is 16 bits."</span>);
+<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<pre><code class="hljs bash">statasrt.c:4:1: error: static assertion failed: <span class="hljs-string">"16-bit char falsely assumed"</span>
+    4 | _Static_assert(CHAR_BIT == 16, <span class="hljs-string">"16-bit char falsely assumed"</span>);
+      | ^~~~~~~~~~~~~~</code></pre>
+
+<h1 id="11-memcpy-and-memmove-from-the-string-h-Library"><a href="#11-memcpy-and-memmove-from-the-string-h-Library" class="headerlink" title="11. memcpy() and memmove() from the string.h Library"></a>11. memcpy() and memmove() from the string.h Library</h1><p>You can’t assign one array to another, so we’ve been using loops to copy one array to another, element by element. </p>
+<p>The one exception is that we’ve used the strcpy() and strncpy() functions for character arrays. </p>
+<p>The memcpy() and memmove() functions offer you almost the same convenience for other kinds of arrays. </p>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">memcpy</span><span class="hljs-params">(<span class="hljs-keyword">void</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> * <span class="hljs-keyword">restrict</span> s2, <span class="hljs-keyword">size_t</span> n)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> *<span class="hljs-title">memmove</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *s2, <span class="hljs-keyword">size_t</span> n)</span></span>;</code></pre>
+<p>Both of these functions copy <code>n</code> bytes from the location pointed to by <code>s2</code> to the location pointed to by <code>s1</code>, and both return the value of <code>s1</code>. </p>
+<p>The difference between the two, as indicated by the keyword <code>restrict</code>, is that memcpy() is free to assume that there is no overlap between the two memory ranges. </p>
+<p>The memmove() function doesn’t make that assumption, so copying takes place as if all the bytes are first copied to a temporary buffer before being copied to the final destination. </p>
+<p>What if you use memcpy() when there are overlapping ranges? The behavior is undefined, meaning it might work or it might not. </p>
+<p>Because these functions are designed to work with any data type, the two pointer arguments are type pointer-to-void. C allows you to assign any pointer type to pointers of the void * type. </p>
+<p>The other side of this tolerant acceptance is that these functions have no way of knowing what type of data is being copied. Therefore, they use the third argument to indicate the number of bytes to be copied. </p>
+<p>Note that for an array, the number of bytes is not, in general, the number of elements. So if you were copying an array of 10 double values, you would use <code>10*sizeof(double)</code>, not 10, as the third argument.</p>
+<h1 id="10-Variable-Arguments-stdarg-h"><a href="#10-Variable-Arguments-stdarg-h" class="headerlink" title="10. Variable Arguments: stdarg.h"></a>10. Variable Arguments: stdarg.h</h1><p>Earlier, this chapter discussed variadic macros—macros that can accept a variable number of arguments. The stdarg.h header file provides a similar capability for functions. But the usage is a bit more involved. You have to do the following:</p>
+<ol>
+<li>Provide a function prototype using an ellipsis.</li>
+<li>Create a va_list type variable in the function definition.</li>
+<li>Use a macro to initialize the variable to an argument list.</li>
+<li>Use a macro to access the argument list.</li>
+<li>Use a macro to clean up.</li>
+</ol>
+<p>The prototype for such a function should have a parameter list with at least one parameter followed by an ellipsis:</p>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, ...)</span></span>; <span class="hljs-comment">// valid</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">f2</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s, <span class="hljs-keyword">int</span> k, ...)</span></span>; <span class="hljs-comment">// valid</span>
+<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">f3</span><span class="hljs-params">(<span class="hljs-keyword">char</span> c1, ..., <span class="hljs-keyword">char</span> c2)</span></span>; <span class="hljs-comment">// invalid, ellipsis not last</span>
+<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">f3</span><span class="hljs-params">(...)</span></span>; <span class="hljs-comment">// invalid, no parameter</span></code></pre>
+<p>The rightmost parameter (the one just before the ellipses) plays a special role; the standard uses the term parmN as a name to use in discussion. </p>
+<p>In the preceding examples, parmN would be n for the first case and k for the second case. </p>
+<p>The actual argument passed to this parameter will be the number of arguments represented by the ellipses section. </p>
+<pre><code class="hljs c">f1(<span class="hljs-number">2</span>, <span class="hljs-number">200</span>, <span class="hljs-number">400</span>); <span class="hljs-comment">// 2 additional arguments</span>
+f1(<span class="hljs-number">4</span>, <span class="hljs-number">13</span>, <span class="hljs-number">117</span>, <span class="hljs-number">18</span>, <span class="hljs-number">23</span>); <span class="hljs-comment">// 4 additional arguments</span></code></pre>
+<p>Next, the va_list type, which is declared in the stdargs.h header file, represents a data object used to hold the parameters corresponding to the ellipsis part of the parameter list. The beginning of a definition of a variadic function would look something like this:</p>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> lim,...)</span></span>
+<span class="hljs-function"></span>&#123;
+    va_list ap; <span class="hljs-comment">// declare object to hold arguments</span>
+&#125;</code></pre>
+<p>In this example, lim is the parmN parameter, and it will indicate the number of arguments in the variable-argument list.</p>
+<p>After this, the function will use the va_start() macro, also defined in stdargs.h, to copy the argument list to the va_list variable. The macro has two arguments: the va_list variable and the parmN parameter. Continuing with the previous example, the va_list variable is called ap and the parmN parameter is call lim, so the call would look like this:</p>
+<pre><code class="hljs c">va_start(ap, lim); <span class="hljs-comment">// initialize ap to argument list</span></code></pre>
+<p>The next step is gaining access to the contents of the argument list. This involves using va_arg(), another macro. It takes two arguments: a type va_list variable and a type name. </p>
+<p>The first time it’s called, it returns the first item in the list; the next time it’s called, it returns the next item, and so on. The type argument specifies the type of value returned. </p>
+<pre><code class="hljs c"><span class="hljs-keyword">double</span> tic;
+<span class="hljs-keyword">int</span> toc;
+...
+tic = va_arg(ap, <span class="hljs-keyword">double</span>); <span class="hljs-comment">// retrieve first argument</span>
+toc = va_arg(ap, <span class="hljs-keyword">int</span>); <span class="hljs-comment">// retrieve second argument</span></code></pre>
+<p>Be careful. The argument type really has to match the specification. If the first argument is 10.0, the previous code for tic works fine. But if the argument is 10, the code may not work; the automatic conversion of double to int that works for assignment doesn’t take place here.</p>
+<p>Finally, you should clean up by using the va_end() macro. </p>
+<pre><code class="hljs c">va_end(ap); <span class="hljs-comment">// clean up</span></code></pre>
+<p>After you do this, the variable ap may not be usable unless you use va_start to reinitialize it.</p>
+<p>Because va_arg() doesn’t provide a way to back up to previous arguments, it may be useful to preserve a copy of the va_list type variable. C99 has added a macro for that purpose. It’s called va_copy(). </p>
+<p>Its two arguments are both type va_list variables, and it copies the second argument to the first:</p>
+<pre><code class="hljs c">va_list ap;
+va_list apcopy;
+<span class="hljs-keyword">double</span>
+<span class="hljs-keyword">double</span> tic;
+<span class="hljs-keyword">int</span> toc;
+...
+va_start(ap, lim); <span class="hljs-comment">// initialize ap to argument list</span>
+va_copy(apcopy, ap); <span class="hljs-comment">// make apcopy a copy of ap</span>
+tic = va_arg(ap, <span class="hljs-keyword">double</span>); <span class="hljs-comment">// retrieve first argument</span>
+toc = va_arg(ap, <span class="hljs-keyword">int</span>); <span class="hljs-comment">// retrieve second argument</span></code></pre>
+<p>At this point, you could still retrieve the first two items from apcopy, even though they have been removed from ap.</p>
+<pre><code class="hljs c"><span class="hljs-comment">//varargs.c -- use variable number of arguments</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdarg.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>, ...)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">double</span> s,t;
+    s = sum(<span class="hljs-number">3</span>, <span class="hljs-number">1.1</span>, <span class="hljs-number">2.5</span>, <span class="hljs-number">13.3</span>);
+    t = sum(<span class="hljs-number">6</span>, <span class="hljs-number">1.1</span>, <span class="hljs-number">2.1</span>, <span class="hljs-number">13.1</span>, <span class="hljs-number">4.1</span>, <span class="hljs-number">5.1</span>, <span class="hljs-number">6.1</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"return value for "</span>
+    <span class="hljs-string">"sum(3, 1.1, 2.5, 13.3): %g\n"</span>, s);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"return value for "</span>
+    <span class="hljs-string">"sum(6, 1.1, 2.1, 13.1, 4.1, 5.1, 6.1): %g\n"</span>, t);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> lim,...)</span></span>
+<span class="hljs-function"></span>&#123;
+    va_list ap; <span class="hljs-comment">// declare object to hold arguments</span>
+    <span class="hljs-keyword">double</span> tot = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> i;
+    va_start(ap, lim); <span class="hljs-comment">// initialize ap to argument list</span>
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; lim; i++)
+        tot += va_arg(ap, <span class="hljs-keyword">double</span>); <span class="hljs-comment">// access each item in argument list</span>
+    va_end(ap); <span class="hljs-comment">// clean up</span>
+    <span class="hljs-keyword">return</span> tot;
+&#125;</code></pre>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer-Plus/">C Primer Plus</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/06/Bit-Fidding/">
+                        <span class="hidden-mobile">Bit Fidding</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#58C9B9',
+      preload: 'none',
+      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "The C Processor and the C Library&nbsp;",
+      ],
+      cursorChar: " ",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
