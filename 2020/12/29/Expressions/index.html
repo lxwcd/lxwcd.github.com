@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
+  <link rel="icon" type="image/png" href="/img/groot.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="诗酒趁年华">
+  <meta name="author" content="李诩">
+  <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  <title>Expressions - CD_LX</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Carpe Diem</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/Expressions_Inner.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-29 18:35" pubdate>
+        December 29, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      39
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Expressions</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>C++ Primer(Fifth Edition) Chapter 4 Expressions</p>
+<a id="more"></a>
+<h1 id="1-Lvalues-and-Rvalues"><a href="#1-Lvalues-and-Rvalues" class="headerlink" title="1. Lvalues and Rvalues"></a>1. Lvalues and Rvalues</h1><p>Every expression in C++ is either an <strong>rvalue</strong> or an <strong>lvalue</strong>.</p>
+<p>In C++, an <strong>lvalue expression</strong> yields an object or a function. </p>
+<p>Roughly speaking, when we use an object as an <strong>rvalue</strong>, we use the object’s <strong>value</strong> (its contents). </p>
+<p>When we use an object as an <strong>lvalue</strong>, we use the object’s <strong>identity</strong> (its location in memory).</p>
+<ul>
+<li><p><strong>Assignment</strong> requires a (nonconst) <code>lvalue</code> as its left-hand operand and yields its <strong>left-hand operand as an lvalue</strong>.</p>
+</li>
+<li><p>The <strong>address-of operator</strong> requires an <strong>lvalue</strong> operand and <strong>returns</strong> a <strong>pointer</strong> to its operand <strong>as an rvalue</strong>.</p>
+</li>
+<li><p>The built-in dereference and subscript operators and the iterator dereference and string and vector subscript operators all yield <strong>lvalues</strong>.</p>
+</li>
+<li><p>The built-in and iterator <strong>increment and decrement</strong> operators <strong>require lvalue</strong> operands and the prefix versions also <strong>yield lvalues</strong>.</p>
+</li>
+</ul>
+<p><strong>Lvalues and rvalues also differ when used with decltype</strong>.</p>
+<p>When we apply <strong>decltype to an expression</strong> (other than a variable), the result is a <strong>reference</strong> type if the expression yields an <strong>lvalue</strong>. </p>
+<p>As an example, assume <code>p</code> is an <code>int*</code>. Because dereference yields an <strong>lvalue</strong> <code>decltype(*p)</code> is <code>int&amp;</code>. </p>
+<p>On the other hand, because the address-of operator yields an <strong>rvalue</strong> <code>decltype(&amp;p)</code> is <code>int**</code>, that is, a pointer to a pointer to type int.</p>
+<p>The left-hand operand of an assignment operator must be a <strong>modifiable lvalue</strong>. For example, given</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, k = <span class="hljs-number">0</span>; <span class="hljs-comment">// initializations, not assignment</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = i; <span class="hljs-comment">// initialization, not assignment</span></code></pre>
+
+<pre><code class="hljs cpp"><span class="hljs-number">1024</span> = k; <span class="hljs-comment">// error: literals are rvalues</span>
+i + j = k; <span class="hljs-comment">// error: arithmetic expressions are rvalues</span>
+ci = k; <span class="hljs-comment">// error: ci is a const (nonmodifiable) lvalue</span></code></pre>
+<p>The <strong>result of an assignment</strong> is its <strong>left-hand operand</strong>, which is an <strong>lvalue</strong>. </p>
+<p>The <strong>type of the result</strong> is the type of the left-hand operand. </p>
+<p>If the <strong>types</strong> of the left and right operands <strong>differ</strong>, the <strong>right-hand</strong> operand is <strong>converted</strong> to the type of the <strong>left</strong>:</p>
+<pre><code class="hljs cpp">k = <span class="hljs-number">0</span>; <span class="hljs-comment">// result: type int, value 0</span>
+k = <span class="hljs-number">3.14159</span>; <span class="hljs-comment">// result: type int, value 3</span></code></pre>
+<p>Under the new standard, we can use a <strong>braced initializer list</strong> on the right-hand side:</p>
+<pre><code class="hljs cpp">k = &#123;<span class="hljs-number">3.14</span>&#125;; <span class="hljs-comment">// error: narrowing conversion</span>
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vi; <span class="hljs-comment">// initially empty</span>
+vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;</code></pre>
+<p>If the <strong>left-hand operand</strong> is of a <strong>built-in type</strong>, the <strong>initializer list</strong> may contain at most one value, and that value <strong>must not</strong> require a <strong>narrowing conversion</strong>.</p>
+<p>Regardless of the type of the left-hand operand, the initializer list may be empty. </p>
+<p>In this case, the compiler generates a <strong>value-initialized</strong> temporary and assigns that value to the left-hand operand.</p>
+<p>Unlike the other binary operators, assignment is <strong>right associative</strong>.</p>
+<h1 id="2-Arithmetic-Operators"><a href="#2-Arithmetic-Operators" class="headerlink" title="2. Arithmetic Operators"></a>2. Arithmetic Operators</h1><p>In a <strong>division</strong>, the <a href="http://eel.is/c++draft/expr.mul#:operator,division" target="_blank" rel="noopener">new standard</a> requires the quotient to be rounded toward zero (i.e., truncated).</p>
+<p>The <strong>modulus operator</strong> is defined so that if m and n are integers and n is nonzero, then <strong>(m/n)*n + m%n</strong> is equal to m. </p>
+<p><strong>By implication, if **m%n</strong> is nonzero, it has the same sign as <strong>m</strong>.**</p>
+<pre><code class="hljs angelscript"><span class="hljs-number">21</span> % <span class="hljs-number">6</span>; <span class="hljs-comment">/* result is 3 */</span> 			<span class="hljs-number">21</span> / <span class="hljs-number">6</span>; <span class="hljs-comment">/* result is 3 */</span>
+<span class="hljs-number">21</span> % <span class="hljs-number">7</span>; <span class="hljs-comment">/* result is 0 */</span>		 	<span class="hljs-number">21</span> / <span class="hljs-number">7</span>; <span class="hljs-comment">/* result is 3 */</span>
+<span class="hljs-number">-21</span> % <span class="hljs-number">-8</span>; <span class="hljs-comment">/* result is -5 */</span> 		<span class="hljs-number">-21</span> / <span class="hljs-number">-8</span>; <span class="hljs-comment">/* result is 2 */</span>
+<span class="hljs-number">21</span> % <span class="hljs-number">-5</span>; <span class="hljs-comment">/* result is 1 */</span> 			<span class="hljs-number">21</span> / <span class="hljs-number">-5</span>; <span class="hljs-comment">/* result is -4 */</span></code></pre>
+<h1 id="3-Precedence-and-Associativity"><a href="#3-Precedence-and-Associativity" class="headerlink" title="3. Precedence and Associativity"></a>3. Precedence and Associativity</h1><p><img src="https://img-blog.csdnimg.cn/20200129093415373.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200129093555366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200129093618503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200129093634253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<h1 id="4-Order-of-Evaluation"><a href="#4-Order-of-Evaluation" class="headerlink" title="4. Order of Evaluation"></a>4. Order of Evaluation</h1><p><strong>Precedence</strong> specifies how the operands are grouped. It says nothing about the <strong>order</strong> in which the <strong>operands are evaluated</strong>. </p>
+<p>In most cases, the order is largely <strong>unspecified</strong>.</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = f1() * f2();</code></pre>
+<p>we know that <code>f1</code> and <code>f2</code> must be called before the multiplication can be done. </p>
+<p>However, we have no way of knowing whether <code>f1</code> will be called before <code>f2</code> or vice versa.</p>
+<p>For operators that do not specify evaluation order, it is an error for an expression to refer to and change the <strong>same object</strong>. </p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// undefined</span></code></pre>
+<p>The compiler might evaluate <code>++i</code> before evaluating <code>i</code>.</p>
+<p>There are <strong>four operators</strong> that do <strong>guarantee the order</strong> in which <strong>operands are evaluated</strong>.</p>
+<p>The logical <strong>AND (&amp;&amp;)</strong> operator guarantees that its <strong>left-hand operand is evaluated first</strong>. </p>
+<p>Moreover, we are also guaranteed that the <strong>right-hand</strong> operand is evaluated <strong>only if the left-hand operand is true</strong>.</p>
+<p>The only other operators that guarantee the order in which operands are evaluated are the <strong>logical OR (||)</strong> operator, the <strong>conditional (? : )</strong> operator, and the <strong>comma (,)</strong> operator </p>
+<h1 id="5-Increment-and-Decrement-Operators"><a href="#5-Increment-and-Decrement-Operators" class="headerlink" title="5. Increment and Decrement Operators"></a>5. Increment and Decrement Operators</h1><p>There are <strong>two forms</strong> of these operators: prefix and postfix. </p>
+<p>The <strong>prefix</strong> increments (or decrements) its operand and <strong>yields the changed object</strong> as its result. </p>
+<p>The <strong>postfix</strong> operators increment (or decrement) the operand but <strong>yield a copy of the original</strong>, unchanged value as its result.</p>
+<p>The <strong>postfix operator</strong> must <strong>store the original value</strong> so that it can return the unincremented value as its result.</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// the behavior of the following loop is undefined!</span>
+<span class="hljs-keyword">while</span> (beg != s.end() &amp;&amp; !<span class="hljs-built_in">isspace</span>(*beg))
+    *beg = <span class="hljs-built_in">toupper</span>(*beg++); <span class="hljs-comment">// error: this assignment is undefined</span></code></pre>
+<p>The problem is that both the left and right-hand operands to = use beg and the right-hand operand changes beg. </p>
+<p>The compiler might evaluate this expression as either</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// execution if left-hand side is evaluated first</span>
+*beg = <span class="hljs-built_in">toupper</span>(*beg); 
+<span class="hljs-comment">// execution if right-hand side is evaluated first</span>
+*(beg + <span class="hljs-number">1</span>) = <span class="hljs-built_in">toupper</span>(*beg);</code></pre>
+<h1 id="6-sizeof"><a href="#6-sizeof" class="headerlink" title="6. sizeof"></a>6. sizeof</h1><p>The <strong>sizeof</strong> operator returns the size, in <strong>bytes</strong>, of an expression or a type name. </p>
+<p>The operator is <strong>right associative</strong>. </p>
+<p>The result of <strong>sizeof</strong> is a <strong>constant expression</strong> of type <code>size_t</code>.</p>
+<p>The operator takes one of two forms:</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">sizeof</span> (type)
+<span class="hljs-keyword">sizeof</span> expr</code></pre>
+<p><strong>sizeof an array</strong> is the size of the entire array. It is equivalent to taking the sizeof the element type times the number of elements in the array. </p>
+<p><strong>sizeof a string</strong> or a <strong>vector</strong> returns only the size of the fixed part of these types; it does not return the size used by the object’s elements.</p>
+<p>Note that sizeof does not convert the array to a pointer.</p>
+<h1 id="7-Type-Conversion"><a href="#7-Type-Conversion" class="headerlink" title="7. Type Conversion"></a>7. Type Conversion</h1><h2 id="1-implicit-conversions"><a href="#1-implicit-conversions" class="headerlink" title="(1) implicit conversions"></a>(1) implicit conversions</h2><ul>
+<li><p>In <strong>most expressions</strong>, values of integral types smaller than <code>int</code> are first promoted to an appropriate larger integral type.</p>
+</li>
+<li><p>In <strong>conditions</strong>, nonbool expressions are converted to bool.</p>
+</li>
+<li><p>In <strong>initializations</strong>, the initializer is converted to the type of the variable; </p>
+</li>
+<li><p>in <strong>assignments</strong>, the right-hand operand is converted to the type of the left-hand.</p>
+</li>
+<li><p>In <strong>arithmetic and relational expressions</strong> with operands of mixed types, the types are converted to a common type.</p>
+</li>
+</ul>
+<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ival = <span class="hljs-number">3.541</span> + <span class="hljs-number">3</span>; <span class="hljs-comment">// the compiler might warn about loss of precision</span></code></pre>
+
+<ol>
+<li><p><code>3</code> is converted to double, floating-point addition is done, and the result is a double.</p>
+</li>
+<li><p>The double result of the addition is converted to <code>int</code> and used to initialize <code>ival</code>.</p>
+</li>
+</ol>
+<h2 id="2-The-Arithmetic-Conversions"><a href="#2-The-Arithmetic-Conversions" class="headerlink" title="(2) The Arithmetic Conversions"></a>(2) The Arithmetic Conversions</h2><p>The <strong>arithmetic conversions</strong> convert one arithmetic type to another. </p>
+<p>The rules define a hierarchy of type conversions in which operands to an operator are converted to the <strong>widest type</strong>.</p>
+<h2 id="3-Other-Implicit-Conversions"><a href="#3-Other-Implicit-Conversions" class="headerlink" title="(3) Other Implicit Conversions"></a>(3) Other Implicit Conversions</h2><h3 id="Array-to-Pointer-Conversions"><a href="#Array-to-Pointer-Conversions" class="headerlink" title="Array to Pointer Conversions"></a>Array to Pointer Conversions</h3><p>In most expressions, when we use an array, the array is automatically converted to a pointer to the first element in that array.</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[<span class="hljs-number">10</span>]; <span class="hljs-comment">// array of ten ints</span>
+<span class="hljs-keyword">int</span>* ip = ia; <span class="hljs-comment">// convert ia to a pointer to the first element</span></code></pre>
+<p>This conversion is <strong>not performed</strong> when an array is used with <strong>decltype</strong> or as the operand of the <strong>address-of</strong> ( &amp; ), <strong>sizeof</strong>, or <strong>typeid</strong> operators. </p>
+<p>The conversion is also <strong>omitted</strong> when we <strong>initialize a reference</strong> to an array.</p>
+<h2 id="4-Pointer-Conversions"><a href="#4-Pointer-Conversions" class="headerlink" title="(4) Pointer Conversions"></a>(4) Pointer Conversions</h2><ul>
+<li><p>A constant integral value of <strong>0</strong> and the literal <strong>nullptr</strong> can be converted to any pointer type.</p>
+</li>
+<li><p>A pointer to any nonconst type can be converted to <strong>void*</strong>.</p>
+</li>
+<li><p>A pointer to any type can be converted to a <strong>const void*</strong>.</p>
+</li>
+</ul>
+<h2 id="5-Conversions-to-bool"><a href="#5-Conversions-to-bool" class="headerlink" title="(5) Conversions to bool"></a>(5) Conversions to bool</h2><p>There is an <strong>automatic conversion</strong> from arithmetic or pointer types to bool. </p>
+<p>If the pointer or arithmetic value is zero, the conversion yields false; any other value yields true.</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">char</span> *cp = get_string();
+<span class="hljs-keyword">if</span> (cp) <span class="hljs-comment">/* ... */</span> <span class="hljs-comment">// true if the pointer cp is not zero</span>
+<span class="hljs-keyword">while</span> (*cp) <span class="hljs-comment">/* ... */</span> <span class="hljs-comment">// true if *cp is not the null character</span></code></pre>
+
+<h2 id="6-Conversion-to-const"><a href="#6-Conversion-to-const" class="headerlink" title="(6) Conversion to const"></a>(6) Conversion to const</h2><p>We <strong>can</strong> convert a <strong>pointer to a nonconst</strong> type to a <strong>pointer to the corresponding const type</strong>, and similarly for <strong>references</strong>. </p>
+<p>That is, if <code>T</code> is a type, we can convert a pointer or a reference to <code>T</code> into a pointer or reference to <strong>const T</strong>, respectively.</p>
+<h2 id="7-Conversions-Defined-by-Class-Types"><a href="#7-Conversions-Defined-by-Class-Types" class="headerlink" title="(7) Conversions Defined by Class Types"></a>(7) Conversions Defined by Class Types</h2><p>Class types can define conversions that the compiler will apply automatically. </p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// character string literal converted to type string</span>
+<span class="hljs-built_in">string</span> s, t = <span class="hljs-string">"a value"</span>; 
+<span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; s) <span class="hljs-comment">// while condition converts cin to bool</span></code></pre>
+<p>The condition <code>(cin &gt;&gt; s)</code> reads <code>cin</code> and yields <code>cin</code> as its result. </p>
+<p>Conditions expect a value of type bool, but this condition tests a value of type istream. </p>
+<p>The <strong>IO library</strong> defines a conversion from istream to bool. </p>
+<p>That conversion is used (automatically) to convert <code>cin</code> to bool. </p>
+<p>The resulting bool value depends on the state of the stream. </p>
+<p>If the last read succeeded, then the conversion yields true. If the last attempt failed, then the conversion to bool yields false.</p>
+<h2 id="8-Named-Casts"><a href="#8-Named-Casts" class="headerlink" title="(8) Named Casts"></a>(8) Named Casts</h2><pre><code class="hljs elm"><span class="hljs-title">cast</span>-name&lt;<span class="hljs-keyword">type</span>&gt;(expression);</code></pre>
+<p>Where <code>type</code> is the target type of the conversion, and <code>expression</code> is the value to be cast. </p>
+<p>If <code>type</code> is a reference, then the result is an <code>lvalue</code>. </p>
+<p>The cast-name may be one of <strong>static_cast</strong>, <strong>dynamic_cast</strong>, <strong>const_cast</strong>, and <strong>reinterpret_cast</strong>.</p>
+<h3 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h3><p>Any well-defined type conversion, other than those involving low-level const, can be requested using a <strong>static_cast</strong>. </p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// cast used to force floating-point division</span>
+<span class="hljs-keyword">double</span> slope = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">double</span>&gt;(j) / i;</code></pre>
+<p>A <code>static_cast</code> is <strong>often useful</strong> when a <strong>larger arithmetic</strong> type is assigned to a <strong>smaller type</strong>. </p>
+<p>A <code>static_cast</code> is <strong>also useful</strong> to perform a conversion that the compiler will not generate automatically.</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// ok: address of any nonconst object can be stored in a void*</span>
+<span class="hljs-keyword">void</span>* p = &amp;d; 
+<span class="hljs-comment">// ok: converts void* back to the original pointer type</span>
+<span class="hljs-keyword">double</span> *dp = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">double</span>*&gt;(p);</code></pre>
+<p>The result of the cast will be equal to the original address value.</p>
+<p>However, we <strong>must be certain</strong> that the type to which we cast the pointer is the <strong>actual type</strong> of that pointer; if the types do <strong>not match</strong>, the result is <strong>undefined</strong>.</p>
+<h3 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h3><p>A <strong>const_cast</strong> changes only a low-level const in its operand</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *pc;
+<span class="hljs-keyword">char</span> *p = <span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(pc); 
+<span class="hljs-comment">// ok: but writing through p is undefined ？？？</span></code></pre>
+<p>Conventionally we say that a cast that converts a const object to a nonconst type “<strong>casts away the const</strong>.” </p>
+<p><strong>Once we have cast away the const of an object, the compiler will no longer prevent us from writing to that object.</strong> </p>
+<p>If the object was originally not a const, using a cast to obtain write access is legal. </p>
+<p>Only a <strong>const_cast</strong> may be used to change the <strong>constness</strong> of an expression.</p>
+<h3 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h3><p>A <strong>reinterpret_cast</strong> generally performs a <strong>low-level reinterpretation</strong> of the bit pattern of its operands.</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *ip;
+<span class="hljs-keyword">char</span> *pc = <span class="hljs-keyword">reinterpret_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(ip);</code></pre>
+<p>We must never forget that the <strong>actual object</strong> addressed by <code>pc</code> is an <strong>int</strong>, <strong>not a character</strong>. </p>
+<p>Any use of <code>pc</code> that assumes it’s an ordinary character pointer is likely to fail at run time:</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str</span><span class="hljs-params">(pc)</span></span>;</code></pre>
+<p>is likely to result in bizarre run-time behavior.</p>
+<h3 id="Old-Style-Casts"><a href="#Old-Style-Casts" class="headerlink" title="Old-Style Casts"></a>Old-Style Casts</h3><p>In early versions of C++, an explicit cast took one of the following two forms:</p>
+<pre><code class="hljs cpp">type (expr); <span class="hljs-comment">// function-style cast notation</span>
+(type) expr; <span class="hljs-comment">// C-language-style cast notation</span></code></pre>
+<p>When we use an old-style cast where a <strong>static_cast</strong> or a <strong>const_cast</strong> would be legal, the old-style cast does <strong>the same conversion</strong> as the respective named cast. If neither cast is legal, then an old-style cast performs a <strong>reinterpret_cast</strong>. For example:</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">char</span> *pc = (<span class="hljs-keyword">char</span>*) ip; <span class="hljs-comment">// ip is a pointer to int</span></code></pre>
+<p>has the same effect as using a <code>reinterpret_cast</code>.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer/">C++ Primer</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer/">C++ Primer</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/29/Strings-Vectors-and-Arrays/">
+                        <span class="hidden-mobile">Strings-Vectors-and-Arrays</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#58C9B9',
+      preload: 'none',
+      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Expressions&nbsp;",
+      ],
+      cursorChar: " ",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
