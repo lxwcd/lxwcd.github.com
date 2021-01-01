@@ -219,7 +219,7 @@
 <span class="hljs-keyword">int</span> units_sold&#123;<span class="hljs-number">0</span>&#125;;
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">units_sold</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;</code></pre>
 <p>The generalized use of curly braces for initialization is referred to as <strong>list initialization</strong>.</p>
-<p>The compiler will not let us <strong>list initialize</strong> variables of built-in type if<br>the initializer might lead to the <strong>loss of information</strong>:</p>
+<p>The compiler will not let us <strong>list initialize</strong> variables of built-in type if the initializer might lead to the <strong>loss of information</strong>:</p>
 <pre><code class="hljs cpp"><span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> ld = <span class="hljs-number">3.1415926536</span>;
 <span class="hljs-keyword">int</span> a&#123;ld&#125;, b = &#123;ld&#125;; <span class="hljs-comment">// error: narrowing conversion required</span>
 int c(ld), d = ld; // ok: but value will be truncated</code></pre>
@@ -227,7 +227,8 @@ int c(ld), d = ld; // ok: but value will be truncated</code></pre>
 <h2 id="2-Default-Initialization"><a href="#2-Default-Initialization" class="headerlink" title="(2) Default Initialization"></a>(2) Default Initialization</h2><p>When we define a variable without an initializer, the variable is <strong>default initialized</strong>.</p>
 <p>The value of an object of <strong>built-in type</strong> that is <strong>not explicitly initialized</strong> depends on <strong>where it is defined</strong>. </p>
 <p>Variables defined <strong>outside any function</strong> body are initialized to <strong>zero</strong>.</p>
-<p>variables of <strong>built-in type</strong> defined <strong>inside a function</strong> are <strong>uninitialized</strong>.<br>It is an error to copy or otherwise try to access the value of a variable whose value is undefined.</p>
+<p>Variables of <strong>built-in type</strong> defined <strong>inside a function</strong> are <strong>uninitialized</strong>. </p>
+<p>It is an error to copy or otherwise try to access the value of a variable whose value is undefined.</p>
 <p>Objects of <strong>class type</strong> that we do not explicitly initialize have a value that is defined by the class.</p>
 <p>Different of forms of initialization</p>
 <p><a href="https://stackoverflow.com/questions/1051379/is-there-a-difference-between-copy-initialization-and-direct-initialization" target="_blank" rel="noopener">Is there a difference between copy initialization and direct initialization?</a></p>
@@ -241,12 +242,11 @@ int c(ld), d = ld; // ok: but value will be truncated</code></pre>
 <p>The standard also reserves a set of names for use in the standard library. </p>
 <p>The <strong>identifiers</strong> may not contain two consecutive underscores, nor can an identifier <strong>begin with an underscore followed immediately by an uppercase letter</strong>.</p>
 <p>In addition, identifiers defined <strong>outside a function may not begin with an underscore</strong>.</p>
-<h1 id="3-const-Qualifier"><a href="#3-const-Qualifier" class="headerlink" title="3. const Qualifier"></a>3. const Qualifier</h1><h2 id="1-Initialization"><a href="#1-Initialization" class="headerlink" title="(1) Initialization"></a>(1) Initialization</h2><p>We can make a variable unchangeable by defining the variable’s type as const:</p>
+<h1 id="3-const-Qualifier"><a href="#3-const-Qualifier" class="headerlink" title="3. const Qualifier"></a>3. const Qualifier</h1><h2 id="1-Initialization"><a href="#1-Initialization" class="headerlink" title="(1) Initialization"></a>(1) Initialization</h2><p>We can make a variable unchangeable by defining the variable’s type as <strong>const</strong>:</p>
 <pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize = <span class="hljs-number">512</span>; <span class="hljs-comment">// input buffer size</span></code></pre>
 
 <p><strong>Because we can’t change the value of a const object after we create it, it must be initialized.</strong> </p>
-<p>By default, const objects are Local to a file. When a const object is initialized from a compile-time constant, such as in our definition of bufSize:</p>
-<p>The compiler will usually <strong>replace</strong> uses of the variable with its corresponding value <strong>during compilation</strong>. That is, the compiler will generate code using the value <code>512</code> in the places that our code uses <code>bufSize</code>.</p>
+<p>By default, const objects are Local to a file. When a const object is initialized from a compile-time constant, such as in our definition of <code>bufSize</code>, the compiler will usually <strong>replace</strong> uses of the variable with its corresponding value <strong>during compilation</strong>. </p>
 <p>To substitute the value for the variable, the compiler has to see the variable’s initializer. </p>
 <p>When we split a program into multiple files, every file that uses the <strong>const</strong> must have access to its initializer.</p>
 <p>In order to see the initializer, the variable must be defined in every file that wants to use the variable’s value. </p>
@@ -301,7 +301,7 @@ r1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: r
 <pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">42</span>;
 <span class="hljs-keyword">int</span> &amp;r1 = i; <span class="hljs-comment">// r1 bound to i</span>
 <span class="hljs-comment">// r2 also bound to i; but cannot be used to change i</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r2 = i; <span class="hljs-comment">//r2 is not a const object, it can be changed</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r2 = i; 
 r1 = <span class="hljs-number">0</span>; <span class="hljs-comment">// r1 is not const; i is now 0; r2 = 0;</span>
 r2 = <span class="hljs-number">0</span>; <span class="hljs-comment">// error: r2 is a reference to const</span></code></pre>
 
