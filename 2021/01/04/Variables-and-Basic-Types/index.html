@@ -17,7 +17,7 @@
   <meta name="description" content="诗酒趁年华">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
-  <title>Variables and Basic Types - CD_LX</title>
+  <title>Variables-and-Basic-Types - CD_LX</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -138,7 +138,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/Variables-and-Basic-Types_Inner.jpeg') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -153,8 +153,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-29 18:35" pubdate>
-        December 29, 2020 pm
+      <time datetime="2021-01-04 20:56" pubdate>
+        January 4, 2021 pm
       </time>
     </span>
   
@@ -205,10 +205,19 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Variables and Basic Types</h1>
+            <h1 style="display: none">Variables-and-Basic-Types</h1>
             
             <div class="markdown-body" id="post-body">
-              <p>C++ Primer(Fifth Edition) Chapter 2 Variables and Basic Types</p>
+              <hr>
+<p>title: Variables and Basic Types<br>date: 2020-12-29 18:35:02<br>tags:</p>
+<ul>
+<li>C++</li>
+<li>C++ Primer<br>categories:</li>
+<li>C++</li>
+<li>C++ Primer<br>index_img: /img/Variables-and-Basic-Types.jpeg<br>banner_img: /img/Variables-and-Basic-Types_Inner.jpeg</li>
+</ul>
+<hr>
+<p>C++ Primer(Fifth Edition) Chapter 2 Variables and Basic Types</p>
 <a id="more"></a>
 <h1 id="1-Initializers"><a href="#1-Initializers" class="headerlink" title="1. Initializers"></a>1. Initializers</h1><p>An object that is initialized gets the specified value at the moment it is created.</p>
 <p><strong>Warning:</strong><br><strong>Initialization is not assignment.</strong><br>Initialization happens when a variable is given a value when it is created. </p>
@@ -375,7 +384,7 @@ p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*
 <pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> mf = <span class="hljs-number">20</span>; <span class="hljs-comment">// 20 is a constant expression</span>
 <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> limit = mf + <span class="hljs-number">1</span>; <span class="hljs-comment">// mf + 1 is a constant expression</span>
 <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> sz = size(); <span class="hljs-comment">// ok only if size is a constexpr function</span></code></pre>
-<p>Although we cannot use an ordinary function as an initializer for a <strong>constexpr</strong> variable, the new standard lets us define certain<br>functions as <strong>constexpr</strong>. </p>
+<p>Although we cannot use an ordinary function as an initializer for a <strong>constexpr</strong> variable, the new standard lets us define certain functions as <strong>constexpr</strong>. </p>
 <p>Such functions must be <strong>simple enough</strong> that the compiler can evaluate them at <strong>compile time</strong>. </p>
 <p>We can use <strong>constexpr</strong> functions in the initializer of a <strong>constexpr</strong> variable.</p>
 <p>The types we can use in a <strong>constexpr</strong> are known as “<strong>literal types</strong>“ because they are simple enough to have literal values.</p>
@@ -457,24 +466,6 @@ p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/C/">C++</a>
-                    
-                      <a class="hover-with-bg" href="/categories/C/C-Primer/">C++ Primer</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/C/">C++</a>
-                    
-                      <a class="hover-with-bg" href="/tags/C-Primer/">C++ Primer</a>
-                    
-                  </div>
                 
               </div>
               
@@ -485,9 +476,9 @@ p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/29/Strings-Vectors-and-Arrays/">
+                      <a href="/2021/01/05/Declaration-and-Definition/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Strings-Vectors-and-Arrays</span>
+                        <span class="hidden-mobile">Declaration and Definition in C++</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -495,8 +486,8 @@ p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/29/Getting-Started/">
-                        <span class="hidden-mobile">Getting Started</span>
+                      <a href="/2020/12/29/Expressions/">
+                        <span class="hidden-mobile">Expressions</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -662,7 +653,7 @@ p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Variables and Basic Types&nbsp;",
+        "Variables-and-Basic-Types&nbsp;",
       ],
       cursorChar: " ",
       typeSpeed: 70,

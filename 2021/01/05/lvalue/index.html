@@ -17,10 +17,23 @@
   <meta name="description" content="诗酒趁年华">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
-  <title>Categories - CD_LX</title>
+  <title>lvalue - CD_LX</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -125,7 +138,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/category.jpeg') no-repeat center center;
+         style="background: url('/img/lvalue_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -133,6 +146,43 @@
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-05 22:46" pubdate>
+        January 5, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      558 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -145,253 +195,136 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">lvalue</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <a id="more"></a>
+<h1 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h1><blockquote>
+<p><a href="http://port70.net/~nsz/c/c11/n1570.html#6.3.2.1" target="_blank" rel="noopener">lvalue</a><br>An lvalue is an expression (with an object type other than void) that potentially designates an object;</p>
+</blockquote>
+<p>1 A modifiable lvalue is an lvalue that does not have array type, does not have an incomplete type, does not have a const- qualified type, and if it is a structure or union, does not have any member (including, recursively, any member or element of all contained aggregates or unions) with a const- qualified type.</p>
+<blockquote>
+<p>C Primer Plus (6th)<br>Consider an assignment statement. Its purpose is to store a value at a memory location. Data object is a general term for a region of data storage that can be used to hold values. The C standard uses just the term object for this concept. </p>
+</blockquote>
+<p>For example, you could specify an element of an array, a member of a structure, or use a pointer expression that involves the address of the object. </p>
+<p>C uses the term lvalue to mean any such name or expression that identifies a particular data object. </p>
+<p>Object refers to the actual data storage, but an lvalue is a label used to identify, or locate, that storage.</p>
+<p>In the early days of C, saying something was an lvalue meant two things:</p>
+<ol>
+<li><p>It specified an object, hence referred to an address in memory.</p>
+</li>
+<li><p>It could be used on the left side of an assignment operator, hence the “l” in lvalue.</p>
+</li>
+</ol>
+<p>But then C added the const modifier. This allows you to create an object, but one whose value cannot be changed.</p>
+<pre><code class="hljs c"><span class="hljs-keyword">int</span> ex;
+<span class="hljs-keyword">int</span> why = <span class="hljs-number">2</span>, zee = <span class="hljs-number">4</span>;
+ex = why + zee;</code></pre>
+<p>The expression <code>why + zee</code> is an rvalue; it doesn’t represent a specific memory location and you can’t assign to it. It’s just a temporary value the program calculates, and then discards when it’s finished with it.</p>
+<pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt = &amp;entity;
+<span class="hljs-keyword">int</span> ranks[<span class="hljs-number">10</span>];</code></pre>
+<p><code>pt</code> is an identifier. It designates an object that holds an address. </p>
+<p>The expression <code>*pt</code> is not an identifier because it’s not a name. However, it does designate an object.</p>
+<p>The expression <code>ranks + 2 * entity</code> is neither an identifier (not a name) nor an lvalue. </p>
+<p>But the expression <code>*(ranks + 2 * entity)</code> is an lvalue because it does designate the value of a particular memory location.</p>
+<h1 id="2-Operators-and-lvalue"><a href="#2-Operators-and-lvalue" class="headerlink" title="2. Operators and lvalue"></a>2. Operators and lvalue</h1><h2 id="1-Address-Operator-amp"><a href="#1-Address-Operator-amp" class="headerlink" title="(1) Address Operator &amp;"></a>(1) Address Operator &amp;</h2><blockquote>
+<p>The C Programming Language<br>The unary <code>&amp;</code> takes the address of its operand. The operand must be an lvalue referring neither to a bit-field nor to an object declared as register, or must be of function type.</p>
+</blockquote>
+<blockquote>
+<p>C Primer Plus (6th)</p>
+</blockquote>
+<pre><code class="hljs c">ptr = &amp;pooh; <span class="hljs-comment">// assigns pooh's address to ptr</span></code></pre>
+<p>We say that <code>ptr</code> “points to” <code>pooh</code>. The difference between <code>ptr</code> and <code>&amp;pooh</code> is that <code>ptr</code> is a variable, and <code>&amp;pooh</code> is a constant. Or, <code>ptr</code> is a modifiable lvalue and <code>&amp;pooh</code> is an rvalue.</p>
+<h2 id="2-Indirection-Operator"><a href="#2-Indirection-Operator" class="headerlink" title="(2) Indirection Operator *"></a>(2) Indirection Operator *</h2><blockquote>
+<p>The C Programming Language<br>The unary <code>*</code> operator denotes indirection, and returns the object or function to which its operand points. </p>
+</blockquote>
+<p>It is an lvalue if the operand is a pointer to an object of arithmetic, structure, union, or pointer type. </p>
+<p>The operand may not be an lvalue, such as, <code>*(&amp;p)</code>.</p>
+<h2 id="3-and-–"><a href="#3-and-–" class="headerlink" title="(3) ++ and –"></a>(3) ++ and –</h2><p>The operand is incremented ++ or decremented – by 1. </p>
+<p>The value of the expression is the value after the incrementation (decrementation). </p>
+<p>The operand must be an lvalue;</p>
+<p>The result is not an lvalue.</p>
 
-
-
-
-
-
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckjr7is6i0003n8si2gz3gttm" role="tab" data-toggle="collapse" href="#collapse-ckjr7is6i0003n8si2gz3gttm"
-        aria-expanded="false"
-      >
-        C
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/C/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>12</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckjr7is6i0003n8si2gz3gttm" class="collapse in " role="tabpanel"
-       aria-labelledby="heading-ckjr7is6i0003n8si2gz3gttm">
-    
-  
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckjr7is70000in8sib7bn6nz9" role="tab" data-toggle="collapse" href="#collapse-ckjr7is70000in8sib7bn6nz9"
-        aria-expanded="false"
-      >
-        C Primer Plus
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/C/C-Primer-Plus/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>11</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckjr7is70000in8sib7bn6nz9" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckjr7is70000in8sib7bn6nz9">
-    
-    
-    
-      
-      
-        <a href="/2020/12/09/The-C-Processor-and-the-C-Library/" class="list-group-item list-group-item-action">
-          <span class="category-post">The C Processor and the C Library</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/06/Bit-Fidding/" class="list-group-item list-group-item-action">
-          <span class="category-post">Bit Fidding</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/06/File-Input-Output/" class="list-group-item list-group-item-action">
-          <span class="category-post">File Input/Output</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/01/Character-Strings-and-String-Functions/" class="list-group-item list-group-item-action">
-          <span class="category-post">Character Strings and String Functions</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/30/Arrays-and-Pointers/" class="list-group-item list-group-item-action">
-          <span class="category-post">Arrays and Pointers</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/30/Functions/" class="list-group-item list-group-item-action">
-          <span class="category-post">Functions</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/29/Character-Input-Output/" class="list-group-item list-group-item-action">
-          <span class="category-post">Character Input/Output</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/29/Branching-and-Jumps/" class="list-group-item list-group-item-action">
-          <span class="category-post">Branching and Jumps</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/28/Operators-Expressions-and-Statements/" class="list-group-item list-group-item-action">
-          <span class="category-post">Operators, Expressions, and Statements</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/28/Charater-Strings-and-Formatted-Input-Output/" class="list-group-item list-group-item-action">
-          <span class="category-post">Charater Strings and Formatted Input/Output</span>
-        </a>
-      
-    
-      
-      
-        <a href="/categories/C/C-Primer-Plus/" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        
-  </div>
-
-        
-      </div>
-    </div>
-  
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckjr7is7p001on8si01k82uay" role="tab" data-toggle="collapse" href="#collapse-ckjr7is7p001on8si01k82uay"
-        aria-expanded="false"
-      >
-        C++
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/C/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>5</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckjr7is7p001on8si01k82uay" class="collapse in " role="tabpanel"
-       aria-labelledby="heading-ckjr7is7p001on8si01k82uay">
-    
-  
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckjr7is80002on8si47ephps3" role="tab" data-toggle="collapse" href="#collapse-ckjr7is80002on8si47ephps3"
-        aria-expanded="false"
-      >
-        C++ Primer
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/C/C-Primer/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>4</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckjr7is80002on8si47ephps3" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckjr7is80002on8si47ephps3">
-    
-    
-    
-      
-      
-        <a href="/2021/01/07/Storage-Classes-Linkage-and-Memory-Management/" class="list-group-item list-group-item-action">
-          <span class="category-post">Storage Classes Linkage and Memory Management</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/29/Expressions/" class="list-group-item list-group-item-action">
-          <span class="category-post">Expressions</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/29/Strings-Vectors-and-Arrays/" class="list-group-item list-group-item-action">
-          <span class="category-post">Strings-Vectors-and-Arrays</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/29/Getting-Started/" class="list-group-item list-group-item-action">
-          <span class="category-post">Getting Started</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-  </div>
-
-        
-      </div>
-    </div>
-  
-</div>
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/07/Storage-Classes-Linkage-and-Memory-Management/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Storage Classes Linkage and Memory Management</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/05/Declaration-and-Definition/">
+                        <span class="hidden-mobile">Declaration and Definition in C++</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -496,6 +429,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -503,7 +461,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "拣尽寒枝不肯栖，寂寞沙洲冷&nbsp;",
+        "lvalue&nbsp;",
       ],
       cursorChar: " ",
       typeSpeed: 70,
@@ -518,6 +476,23 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -531,6 +506,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
