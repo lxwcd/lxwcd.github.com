@@ -490,7 +490,7 @@ ia3[<span class="hljs-number">4</span>] = i; <span class="hljs-comment">// ok: a
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;col : row) &#123; <span class="hljs-comment">// for every element in the inner array</span>
         col = cnt; <span class="hljs-comment">// give this element the next value</span>
         ++cnt; <span class="hljs-comment">// increment cnt</span>
-&#125;</code></pre>
+    &#125;</code></pre>
 <p><font color = red>note</font><br>To use a multidimensional array in a range for, the loop control variable for<br>all but the innermost array must be <strong>references</strong>.</p>
 <h2 id="2-Pointers-and-Multidimensional-Arrays"><a href="#2-Pointers-and-Multidimensional-Arrays" class="headerlink" title="(2) Pointers and Multidimensional Arrays"></a>(2) Pointers and Multidimensional Arrays</h2><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>]; 
 <span class="hljs-keyword">int</span> (*p)[<span class="hljs-number">4</span>] = ia; <span class="hljs-comment">// p points to an array of four ints</span>
