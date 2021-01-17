@@ -1,0 +1,1604 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
+  <link rel="icon" type="image/png" href="/img/groot.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="诗酒趁年华">
+  <meta name="author" content="李诩">
+  <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  <title>Classes - CD_LX</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Carpe Diem</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/Classes_Inner.jpeg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-15 19:46" pubdate>
+        January 15, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      186
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Classes</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>C++ Primer(Fifth Edition) Chapter 7 Classes</p>
+<a id="more"></a>
+<h1 id="1-Defining-Abstract-Data-Types"><a href="#1-Defining-Abstract-Data-Types" class="headerlink" title="1. Defining Abstract Data Types"></a>1. Defining Abstract Data Types</h1><h2 id="1-Data-abstraction-and-Encapsulation"><a href="#1-Data-abstraction-and-Encapsulation" class="headerlink" title="(1) Data abstraction and Encapsulation"></a>(1) Data abstraction and Encapsulation</h2><p>The fundamental ideas behind <strong>classes</strong> are <strong><font color = blue>data abstraction</strong></font> and <strong><font color = blue>encapsulation</strong></font>.</p>
+<p><strong>Data abstraction</strong> is a programming (and design) technique that relies on the separation of <strong><font color = blue>interface</strong></font> and <strong><font color = blue>implementation</strong></font>. </p>
+<p>The <strong>interface</strong> of a <strong>class</strong> consists of the <strong>operations</strong> that <strong>users of the class</strong> can <strong>execute</strong>. </p>
+<p>The <strong>implementation</strong> includes the <strong>class’data members</strong>, the <strong>bodies of the functions</strong> that <strong>constitute the interface</strong>, and any <strong>functions</strong> needed to <strong>define the class</strong> that are <strong>not intended for general use</strong>.</p>
+<p><strong>Encapsulation enforces the separation of a class’interface and implementation</strong>. </p>
+<p>A class that is encapsulated <strong>hides its implementation</strong>—users of the class can use the interface but have <strong>no access to the implementation</strong>.</p>
+<p>A class that uses <strong>data abstraction</strong> and <strong>encapsulation</strong> defines an <strong><font color = blue>abstract data type</strong></font>. </p>
+<h2 id="2-Difference-between-abstraction-and-encapsulation"><a href="#2-Difference-between-abstraction-and-encapsulation" class="headerlink" title="(2) Difference between abstraction and encapsulation"></a>(2) Difference between abstraction and encapsulation</h2><p><a href="http://www.tonymarston.co.uk/php-mysql/abstraction.txt" target="_blank" rel="noopener">Abstraction, Encapsulation, and Information Hiding</a></p>
+<blockquote>
+<p>If encapsulation was “the same thing as information hiding,” then one might make the argument that “everything that was encapsulated was also hidden.” This is obviously not true. For example, even though information may be encapsulated within record structures and arrays, this information is usually not hidden (unless hidden via some other mechanism).</p>
+</blockquote>
+<blockquote>
+<p>Another example of encapsulated, but not hidden, information is the<br>(highly undesirable) “block of global information” technique reminiscent of FORTRAN’s common blocks. Unfortunately, it is quite easy in some object-oriented languages to create blocks of global data in the form of classes. Specifically, it is possible to create classes with nothing but constants and variables in their public interfaces, i.e., there are no operations in the interface. (For reasons why this is undesirable, see discussions of “module coupling,” e.g., [Myers,1978] and [Yourdon and Constantine, 1979].)</p>
+</blockquote>
+<blockquote>
+<p>It is indeed true that encapsulation mechanisms such as classes allow<br>some information to be hidden. However, these same encapsulation mechanisms also allow some information to be visible. Some even allow<br>varying degrees of visibility, e.g., C++’s public, protected, and private members.</p>
+</blockquote>
+<blockquote>
+<p>One could argue that abstraction is a technique that helps us identify which specific information should be visible, and which information should be hidden. Encapsulation is then the technique for packaging the information in such a way as to hide what should be hidden, and make visible what is intended to be visible.</p>
+</blockquote>
+<h2 id="3-Defining-Member-Functions"><a href="#3-Defining-Member-Functions" class="headerlink" title="(3) Defining Member Functions"></a>(3) Defining Member Functions</h2><p><strong>Member functions</strong> must be <strong>declared</strong> inside the class. </p>
+<p><strong>Member functions</strong> may be <strong>defined</strong> inside the class itself or outside the class body. </p>
+<p><strong>Nonmember functions</strong> that are part of the interface are declared and defined outside the class.</p>
+<p><strong>Functions defined in the class are implicitly inline</strong>.</p>
+<p><strong>Inside a member function</strong>, we can <strong>refer directly</strong> to the members of the object on which the function was called.  </p>
+<p>The <code>this</code> parameter is defined for us <strong>implicitly</strong>. </p>
+<p>It would be legal, although unnecessary, to define <code>isbn</code> as</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">isbn</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;bookNo; &#125;</code></pre>
+
+<p>Because <code>this</code> is intended to always refer to “this” object, this is a const pointer. We cannot change the address that <code>this</code> holds.</p>
+<h2 id="4-Introducing-const-Member-Functions"><a href="#4-Introducing-const-Member-Functions" class="headerlink" title="(4) Introducing const Member Functions"></a>(4) Introducing const Member Functions</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">isbn</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>&#123; <span class="hljs-keyword">return</span> bookNo; &#125;</code></pre>
+<p>The purpose of that <code>const</code> is to <strong>modify the type</strong> of the implicit <strong>this</strong> pointer.</p>
+<p>By default, the type of <strong>this</strong> is a <strong>const pointer</strong> to the <strong>nonconst version of the class type</strong>. </p>
+<p>For example, by default, the type of <strong>this</strong> in a <code>Sales_data</code> member function is <code>Sales_data *const</code>. </p>
+<p>Although this is implicit, it follows the normal initialization rules, which means that (by default) <strong>we cannot bind this to a const object</strong>. </p>
+<p>This fact, in turn, means that <strong>we cannot call an ordinary member function on a const object</strong>.</p>
+<p>A <strong>const</strong> following the <strong>parameter list</strong> indicates that <strong>this</strong> is a <strong>pointer to const</strong>. </p>
+<p>Member functions that use <strong>const</strong> in this way are <strong>const member functions</strong>.</p>
+<p>The fact that <strong>this</strong> is a <strong>pointer to const</strong> means that <strong>const member functions cannot change the object on which they are called</strong>.</p>
+<h2 id="5-Class-Scope-and-Member-Functions"><a href="#5-Class-Scope-and-Member-Functions" class="headerlink" title="(5) Class Scope and Member Functions"></a>(5) Class Scope and Member Functions</h2><p>Recall that a class is itself a scope. The definitions of the member functions of a class are nested inside the scope of the class itself. </p>
+<p>The compiler processes classes in two steps—<strong>the member declarations are compiled first</strong>, after which the <strong>member function bodies</strong>, if any, are processed. </p>
+<p>Thus, member function bodies may use other members of their class regardless of where in the class those members appear.</p>
+<h2 id="6-Defining-a-Member-Function-outside-the-Class"><a href="#6-Defining-a-Member-Function-outside-the-Class" class="headerlink" title="(6) Defining a Member Function outside the Class"></a>(6) Defining a Member Function outside the Class</h2><p>The name of a member defined outside the class must include the name of the class of which it is a member:</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">Sales_data::avg_price</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span> (units_sold)
+        <span class="hljs-keyword">return</span> revenue/units_sold;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<p>The function name, <code>Sales_data::avg_price</code>, uses the <strong>scope operator</strong> to say that we are defining the function named <code>avg_price</code> that is declared <strong>in the scope of the Sales_data class</strong>. </p>
+<p>Once the compiler sees the function name, the rest of the code is interpreted as being inside the scope of the class. </p>
+<h2 id="7-Defining-a-Function-to-Return-“This”-Object"><a href="#7-Defining-a-Function-to-Return-“This”-Object" class="headerlink" title="(7) Defining a Function to Return “This” Object"></a>(7) Defining a Function to Return “This” Object</h2><pre><code class="hljs cpp"><span class="hljs-function">Sales_data&amp; <span class="hljs-title">Sales_data::combine</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data &amp;rhs)</span></span>
+<span class="hljs-function"></span>&#123;
+    units_sold += rhs.units_sold; <span class="hljs-comment">// add the members of rhs into</span>
+    revenue += rhs.revenue; <span class="hljs-comment">// the members of ''this'' object</span>
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; <span class="hljs-comment">// return the object on which the function was called</span>
+&#125;</code></pre>
+<p>The <strong>built-in assignment operators</strong> return their <strong>left-hand operand</strong> as an <strong>lvalue</strong>. </p>
+<p>To return an <code>lvalue</code>, our combine function must <strong>return a reference</strong>. </p>
+<p>Because the left-hand operand is a <code>Sales_data</code> object, the return type is <code>Sales_data&amp;</code>.</p>
+<h2 id="8-Defining-Nonmember-Class-Related-Functions"><a href="#8-Defining-Nonmember-Class-Related-Functions" class="headerlink" title="(8)  Defining Nonmember Class-Related Functions"></a>(8)  Defining Nonmember Class-Related Functions</h2><p>Class authors often define auxiliary functions. Although such functions define operations that are conceptually part of the <strong>interface</strong> of the class, they are <strong>not part</strong> of the class itself.</p>
+<p>Functions that are conceptually part of a class, but not defined inside the class, are typically <strong>declared (but not defined)</strong> in the <strong>same header</strong> as the class itself. </p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// input transactions contain ISBN, number of copies sold, and sales price</span>
+<span class="hljs-function">istream &amp;<span class="hljs-title">read</span><span class="hljs-params">(istream &amp;is, Sales_data &amp;item)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">double</span> price = <span class="hljs-number">0</span>;
+    is &gt;&gt; item.bookNo &gt;&gt; item.units_sold &gt;&gt; price;
+    item.revenue = price * item.units_sold;
+    <span class="hljs-keyword">return</span> is;
+&#125;
+<span class="hljs-function">ostream &amp;<span class="hljs-title">print</span><span class="hljs-params">(ostream &amp;os, <span class="hljs-keyword">const</span> Sales_data &amp;item)</span></span>
+<span class="hljs-function"></span>&#123;
+    os &lt;&lt; item.isbn() &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; item.units_sold &lt;&lt; <span class="hljs-string">" "</span>
+    &lt;&lt; item.revenue &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; item.avg_price();
+    <span class="hljs-keyword">return</span> os;
+&#125;</code></pre>
+<p>The <strong>IO classes</strong> are types that <strong>cannot be copied</strong>, so we may <strong>only pass them by reference</strong>.</p>
+<h2 id="9-Constructors"><a href="#9-Constructors" class="headerlink" title="(9) Constructors"></a>(9) Constructors</h2><p>Each class defines how objects of its type can be <strong>initialized</strong>. </p>
+<p>Classes control object initialization by defining one or more special member functions known as <strong><font color = blue>constructors</strong></font>. </p>
+<p>The job of a <strong>constructor</strong> is to initialize the <strong>data members</strong> of a class object. </p>
+<p>A <strong>constructor</strong> is <strong>run</strong> whenever an object of a class type is created.</p>
+<p><strong>Constructors</strong> have the <strong>same name</strong> as the class. </p>
+<p>Unlike other functions, constructors have <strong>no return type</strong>. </p>
+<p>Like other functions, <strong>constructors</strong> have a (possibly empty) <strong>parameter list</strong> and a (possibly empty) function body. </p>
+<p>A class can have <strong>multiple constructors</strong>. </p>
+<p>Like any other overloaded function, the <strong>constructors</strong> must <strong>differ</strong> from each other in the <strong>number or types of their parameters</strong>.</p>
+<p>Unlike other member functions, <strong>constructors may not be declared as const</strong>.<br>When we create a <strong>const</strong> object of a class type, <strong>the object does not assume its “constness” until after the constructor completes the object’s initialization</strong>.</p>
+<p>Thus, <strong>constructors</strong> can write to <strong>const objects</strong> during their construction.</p>
+<h3 id="The-Synthesized-Default-Constructor"><a href="#The-Synthesized-Default-Constructor" class="headerlink" title="The Synthesized Default Constructor"></a>The Synthesized Default Constructor</h3><p>Classes control default initialization by defining a special constructor, known as the <strong>default constructor</strong>. </p>
+<p>The <strong>default constructor</strong> is one that <strong>takes no arguments</strong>.</p>
+<p>If our class does <strong>not explicitly define</strong> any constructors, the compiler will <strong>implicitly</strong> define the default constructor for us.</p>
+<p>The compiler-generated constructor is known as the <strong><font color = blue>synthesized default constructor</strong></font> </p>
+<h3 id="Some-Classes-Cannot-Rely-on-the-Synthesized-Default-Constructor"><a href="#Some-Classes-Cannot-Rely-on-the-Synthesized-Default-Constructor" class="headerlink" title="Some Classes Cannot Rely on the Synthesized Default Constructor"></a>Some Classes Cannot Rely on the Synthesized Default Constructor</h3><ol>
+<li><p>The compiler generates the <strong>default</strong> for us only if we do not define any other constructors for the class.</p>
+</li>
+<li><p>For some classes, the synthesized default constructor does the wrong thing. </p>
+<p> Objects of built-in or compound type (such as arrays and pointers) that are defined inside a block have <strong>undefined value</strong> when they are default initialized.  </p>
+</li>
+</ol>
+<ol start="3">
+<li><p>Sometimes the compiler is unable to synthesize one. </p>
+<p> For example, if a class has a member that has a class type, and that class doesn’t have a default constructor, then the compiler can’t initialize that member. </p>
+</li>
+</ol>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Sales_data</span> </span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-comment">// constructors added</span>
+    Sales_data() = <span class="hljs-keyword">default</span>;
+    Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s): bookNo(s) &#123; &#125;
+    Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s, <span class="hljs-keyword">unsigned</span> n, <span class="hljs-keyword">double</span> p):
+    bookNo(s), units_sold(n), revenue(p*n) &#123; &#125;
+    Sales_data(<span class="hljs-built_in">std</span>::istream &amp;);
+    <span class="hljs-comment">// other members as before</span>
+    <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">isbn</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>&#123; <span class="hljs-keyword">return</span> bookNo; &#125;
+    <span class="hljs-function">Sales_data&amp; <span class="hljs-title">combine</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data&amp;)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">avg_price</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> bookNo;
+    <span class="hljs-keyword">unsigned</span> units_sold = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">double</span> revenue = <span class="hljs-number">0.0</span>;
+&#125;;</code></pre>
+<h3 id="What-default-Means"><a href="#What-default-Means" class="headerlink" title="What = default Means"></a>What = default Means</h3><pre><code class="hljs haskell"><span class="hljs-type">Sales_data</span>() = <span class="hljs-keyword">default</span>;</code></pre>
+<p>First, note that this constructor defines the <strong>default constructor</strong> because it takes no arguments. </p>
+<p>We are defining this constructor only because we want to provide other constructors as well as the default constructor. </p>
+<p>If we want the default behavior, we can ask the compiler to generate the constructor for us by writing <strong>=</strong> default after the parameter list.</p>
+<h3 id="Constructor-Initializer-List"><a href="#Constructor-Initializer-List" class="headerlink" title="Constructor Initializer List"></a>Constructor Initializer List</h3><pre><code class="hljs cpp">Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s): bookNo(s) &#123; &#125;
+Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s, <span class="hljs-keyword">unsigned</span> n, <span class="hljs-keyword">double</span> p):
+bookNo(s), units_sold(n), revenue(p*n) &#123; &#125;</code></pre>
+<p>The new parts in these definitions are the colon and the code between it and the curly braces that define the (empty) function bodies. </p>
+<p>This new part is a <strong>constructor initializer list</strong>, which specifies <strong>initial values</strong> for one or more <strong>data members</strong> of the object being created. </p>
+<p>The <strong>constructor initializer</strong> is a list of member names, each of which is followed by that member’s <strong>initial value</strong> in parentheses (or inside curly braces). </p>
+<p>Multiple member initializations are separated by commas.</p>
+<p>When a member is <strong>omitted</strong> from the constructor <strong>initializer list</strong>, it is <strong>implicitly</strong> initialized using the same process as is used by the <strong>synthesized default constructor</strong>. </p>
+<h3 id="C-11-List-Initialization"><a href="#C-11-List-Initialization" class="headerlink" title="C++11 List Initialization"></a>C++11 List Initialization</h3><blockquote>
+<p>c++ primer plus(6th)</p>
+</blockquote>
+<p><a href="http://eel.is/c++draft/class.base.init#nt:mem-initializer-list" target="_blank" rel="noopener">mem-initializer-list</a></p>
+<p>With C++11, you can use the list-initialization syntax with classes:</p>
+<pre><code class="hljs cpp">Stock hot_tip = &#123;<span class="hljs-string">"Derivatives Plus Plus"</span>, <span class="hljs-number">100</span>, <span class="hljs-number">45.0</span>&#125;;
+Stock jock &#123;<span class="hljs-string">"Sport Age Storage, Inc"</span>&#125;;
+Stock temp &#123;&#125;;</code></pre>
+<p>The braced lists in the first two declarations match the following constructor:</p>
+<pre><code class="hljs cpp">Stock::Stock(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp; co, <span class="hljs-keyword">long</span> n = <span class="hljs-number">0</span>, <span class="hljs-keyword">double</span> pr = <span class="hljs-number">0.0</span>);</code></pre>
+
+<p>In addition, C++11 offers a class called <code>std::initializer_list</code> that can be used as a<br>type for a function or method parameter.</p>
+<h3 id="Defining-a-Constructor-outside-the-Class-Body"><a href="#Defining-a-Constructor-outside-the-Class-Body" class="headerlink" title="Defining a Constructor outside the Class Body"></a>Defining a Constructor outside the Class Body</h3><pre><code class="hljs cpp">Sales_data::Sales_data(<span class="hljs-built_in">std</span>::istream &amp;is)
+&#123;
+    <span class="hljs-comment">// read will read a transaction from is into this object</span>
+    read(is, *<span class="hljs-keyword">this</span>); 
+&#125;</code></pre>
+<p><code>Sales_data::Sales_data</code> says that we’re defining the <code>Sales_data</code> member named <code>Sales_data</code>. </p>
+<p>This member is a <strong>constructor</strong> because it has the <strong>same name</strong> as its class.</p>
+<p>In this constructor there is no constructor initializer list, although technically speaking, it would be more correct to say that the <strong>constructor initializer list is empty</strong>.</p>
+<p>Even though the constructor initializer list is empty, the members of this object are still initialized <strong>before</strong> the constructor body is executed.</p>
+<h1 id="2-Access-Control-and-Encapsulation"><a href="#2-Access-Control-and-Encapsulation" class="headerlink" title="2. Access Control and Encapsulation"></a>2. Access Control and Encapsulation</h1><p>In C++ we use <strong>access specifiers</strong> to enforce encapsulation:</p>
+<ol>
+<li><p>Members defined after a <strong>public specifier</strong> are accessible to <strong>all parts</strong> of the program. </p>
+<p> The public members define the <strong>interface</strong> to the class.</p>
+</li>
+<li><p>Members defined after a <strong>private specifier</strong> are <strong>accessible</strong> to the <strong>member functions</strong> of the class but are <strong>not accessible</strong> to code that <strong>uses the class</strong>. </p>
+<p> The private sections <strong>encapsulate</strong> (i.e., hide) the <strong>implementation</strong>.</p>
+</li>
+</ol>
+<p>A class may contain <strong>zero or more access specifiers</strong>, and there are <strong>no restrictions</strong> on <strong>how often</strong> an access specifier may appear. </p>
+<p>Each <strong>access specifier</strong> specifies the access level of the <strong>succeeding members</strong>. </p>
+<p>The specified access level remains in effect <strong>until the next access specifier</strong> or the end of the class body.</p>
+<h2 id="1-Using-the-class-or-struct-Keyword"><a href="#1-Using-the-class-or-struct-Keyword" class="headerlink" title="(1) Using the class or struct Keyword"></a>(1) Using the class or struct Keyword</h2><p>The only <strong>difference</strong> between <strong>struct</strong> and <strong>class</strong> is the <strong>default access level</strong>.</p>
+<p>If we use the <strong>struct</strong> keyword, the members defined before the <strong>first access specifier</strong> are <strong>public</strong>; if we use <strong>class</strong>, then the members are <strong>private</strong>.</p>
+<h2 id="2-Friends"><a href="#2-Friends" class="headerlink" title="(2) Friends"></a>(2) Friends</h2><p>A class can allow <strong>another class</strong> or <strong>function</strong> to <strong>access</strong> its <strong>nonpublic members</strong> by making that class or function a <strong><font color = blue>friend</strong></font>. </p>
+<p>A class makes a function its <strong>friend</strong> by including a <strong>declaration</strong> for that function preceded by the keyword <strong>friend</strong>:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sales_data</span> &#123;</span>
+<span class="hljs-comment">// friend declarations for nonmember Sales_data operations added</span>
+<span class="hljs-function"><span class="hljs-keyword">friend</span> Sales_data <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data&amp;, <span class="hljs-keyword">const</span> Sales_data&amp;)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-built_in">std</span>::istream &amp;<span class="hljs-title">read</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::istream&amp;, Sales_data&amp;)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-built_in">std</span>::ostream &amp;<span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::ostream&amp;, <span class="hljs-keyword">const</span> Sales_data&amp;)</span></span>;
+<span class="hljs-comment">// other members and access specifiers as before</span>
+<span class="hljs-keyword">public</span>:
+Sales_data() = <span class="hljs-keyword">default</span>;
+Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s, <span class="hljs-keyword">unsigned</span> n, <span class="hljs-keyword">double</span> p):
+bookNo(s), units_sold(n), revenue(p*n) &#123; &#125;
+Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s): bookNo(s) &#123; &#125;
+Sales_data(<span class="hljs-built_in">std</span>::istream&amp;);
+<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">isbn</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>&#123; <span class="hljs-keyword">return</span> bookNo; &#125;
+<span class="hljs-function">Sales_data &amp;<span class="hljs-title">combine</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data&amp;)</span></span>;
+<span class="hljs-keyword">private</span>:
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> bookNo;
+<span class="hljs-keyword">unsigned</span> units_sold = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">double</span> revenue = <span class="hljs-number">0.0</span>;
+&#125;;
+<span class="hljs-comment">// declarations for nonmember parts of the Sales_data interface</span>
+<span class="hljs-function">Sales_data <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data&amp;, <span class="hljs-keyword">const</span> Sales_data&amp;)</span></span>;
+<span class="hljs-function"><span class="hljs-built_in">std</span>::istream &amp;<span class="hljs-title">read</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::istream&amp;, Sales_data&amp;)</span></span>;
+<span class="hljs-function"><span class="hljs-built_in">std</span>::ostream &amp;<span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::ostream&amp;, <span class="hljs-keyword">const</span> Sales_data&amp;)</span></span>;</code></pre>
+<p><strong>Friend declarations</strong> may appear only inside a class definition; they may appear anywhere in the class. </p>
+<p><strong>Friends</strong> are not members of the class and are not affected by the access control of the section in which they are declared.</p>
+<h3 id="Declarations-for-Friends"><a href="#Declarations-for-Friends" class="headerlink" title="Declarations for Friends"></a>Declarations for Friends</h3><p><strong>A friend declaration only specifies access</strong>. It is not a general declaration of the function. </p>
+<p>If we want users of the class to be able to call a friend function, then we must also declare the function <strong>separately from the friend declaration</strong>.</p>
+<p>To <strong>make a friend visible</strong> to users of the class, we usually declare each friend (<strong>outside the class</strong>) in the <strong>same header</strong> as the class itself.</p>
+<h3 id="Reasons-for-using-friends"><a href="#Reasons-for-using-friends" class="headerlink" title="Reasons for using friends"></a>Reasons for using friends</h3><blockquote>
+<p>c primer plus(6th)</p>
+</blockquote>
+<p>Friends come in three varieties:</p>
+<ul>
+<li>Friend functions</li>
+<li>Friend classes</li>
+<li>Friend member functions</li>
+</ul>
+<p>Often, overloading a binary operator for a class generates a need for friends. </p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// mytime2.h -- Time class after operator overloading</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> MYTIME2_H_</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MYTIME2_H_</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Time</span></span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> hours;
+    <span class="hljs-keyword">int</span> minutes;
+    <span class="hljs-keyword">public</span>:
+    Time();
+    Time(<span class="hljs-keyword">int</span> h, <span class="hljs-keyword">int</span> m = <span class="hljs-number">0</span>);
+    Time <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">double</span> n) <span class="hljs-keyword">const</span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Show</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+&#125;;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre>
+
+<pre><code class="hljs cpp"><span class="hljs-comment">// mytime2.cpp -- implementing Time methods</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"mytime2.h"</span></span>
+Time::Time()
+&#123;
+    hours = minutes = <span class="hljs-number">0</span>;
+&#125;
+Time::Time(<span class="hljs-keyword">int</span> h, <span class="hljs-keyword">int</span> m )
+&#123;
+    hours = h;
+    minutes = m;
+&#125;
+Time Time::<span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">double</span> mult) <span class="hljs-keyword">const</span>
+&#123;
+    Time result;
+    <span class="hljs-keyword">long</span> totalminutes = hours * mult * <span class="hljs-number">60</span> + minutes * mult;
+    result.hours = totalminutes / <span class="hljs-number">60</span>;
+    result.minutes = totalminutes % <span class="hljs-number">60</span>;
+    <span class="hljs-keyword">return</span> result;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Time::Show</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; hours &lt;&lt; <span class="hljs-string">" hours, "</span> &lt;&lt; minutes &lt;&lt; <span class="hljs-string">" minutes"</span>;
+&#125;</code></pre>
+<p>The multiplication operator combines a <code>Time</code> value with a double value.This restricts how the operator can be used. Remember, the <strong>left operand is the invoking object</strong>. That is:</p>
+<p><code>A = B * 2.75;</code> translates to the following member function call: <code>A = B.operator*(2.75);</code> But what about the following statement? </p>
+<pre><code class="hljs cpp">A = <span class="hljs-number">2.75</span> * B;` 
+<span class="hljs-comment">// cannot correspond to a member function</span></code></pre>
+
+<p>Conceptually, <code>2.75 * B</code> should be the same as <code>B * 2.75</code>, but the first expression cannot correspond to a member function because <code>2.75</code> is not a type <code>Time</code> object. </p>
+<p><strong>One way around this difficulty is to use a nonmember function.</strong> (most operators can be overloaded using either member or nonmember functions.)</p>
+<p>A nonmember function is not invoked by an object; instead, any values it uses, including objects, are explicit arguments.Thus, the compiler could match the expression <code>A = 2.75 * B;</code> to the following nonmember function call:</p>
+<pre><code class="hljs cpp">A = <span class="hljs-keyword">operator</span>*(<span class="hljs-number">2.75</span>, B);</code></pre>
+<p>The function would have this prototype:</p>
+<pre><code class="hljs cpp">Time <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">double</span> m, <span class="hljs-keyword">const</span> Time &amp; t);</code></pre>
+
+<p>Using a <strong>nonmember function</strong> solves the problem of getting the operands in the desired order (first double and then Time), but it raises a new problem: <strong>Nonmember functions</strong> can’t directly access <strong>private data</strong> in a class. </p>
+<p>But there is a special category of nonmember functions, called <strong>friends</strong>, that can access <strong>private members</strong> of a class.</p>
+<h3 id="Creating-Friends"><a href="#Creating-Friends" class="headerlink" title="Creating Friends"></a>Creating Friends</h3><blockquote>
+<p>c primer plus(6th)</p>
+</blockquote>
+<ol>
+<li>Placing a prototype in the class declaration and prefix the declaration with the keyword friend:<pre><code class="hljs cpp"><span class="hljs-comment">// goes in class declaration</span>
+<span class="hljs-keyword">friend</span> Time <span class="hljs-keyword">operator</span>*(<span class="hljs-keyword">double</span> m, <span class="hljs-keyword">const</span> Time &amp; t);</code></pre>
+This prototype has two implications:</li>
+</ol>
+<ul>
+<li><p>Although the <code>operator*()</code> function is declared in the class declaration, it is not a member function. <strong>So it isn’t invoked by using the membership operator</strong>.</p>
+</li>
+<li><p>Although the <code>operator*()</code> function is not a member function, it has the <strong>same access rights</strong> as a member function.</p>
+</li>
+</ul>
+<ol start="2">
+<li>Writing the <strong>function definition</strong>. Because it is not a member function, you don’t use the <code>Time::</code> qualifier. Also you don’t use the <code>friend</code> keyword in the definition. </li>
+</ol>
+<h3 id="Are-Friends-Unfaithful-to-OOP"><a href="#Are-Friends-Unfaithful-to-OOP" class="headerlink" title="Are Friends Unfaithful to OOP"></a>Are Friends Unfaithful to OOP</h3><blockquote>
+<p>c primer plus(6th)</p>
+</blockquote>
+<p>You should think of <strong>friend</strong> functions as part of an extended interface for a class. </p>
+<p>By using both a friend function and a class method, you can express either operation with the same user interface. </p>
+<p>Only a class declaration can decide which functions are friends, so the class declaration still controls which functions access private data. </p>
+<p>In short, <strong>class methods</strong> and <strong>friends</strong> are simply two different mechanisms for expressing a class interface.</p>
+<p>Actually, you can write this particular <strong>friend function</strong> as a <strong>non-friend</strong> by altering the definition so that it switches which value comes first in the multiplication:</p>
+<pre><code class="hljs pgsql"><span class="hljs-type">Time</span> <span class="hljs-keyword">operator</span>*(<span class="hljs-type">double</span> m, const <span class="hljs-type">Time</span> &amp; t)
+&#123;
+    <span class="hljs-keyword">return</span> t * m; // use t.<span class="hljs-keyword">operator</span>*(m)
+&#125;</code></pre>
+<p>The original version accessed <code>t.minutes</code> and <code>t.hours</code> explicitly, so it had to be a<br><code>friend</code>.</p>
+<p>This version only uses the <code>Time</code> object t <strong>as a whole</strong>, letting a member function handle the private values, so this version doesn’t have to be a <code>friend</code>. </p>
+<p>Nonetheless, there are reasons to make this version a <strong>friend</strong>, too: </p>
+<ol>
+<li><p>It ties the function in as part of the official class interface. </p>
+</li>
+<li><p>If you later find a need for the function to access private data directly, you only have to change the function definition and not the class prototype.</p>
+</li>
+</ol>
+<h3 id="friend-class"><a href="#friend-class" class="headerlink" title="friend class"></a>friend class</h3><blockquote>
+<p>c primer plus(6th)</p>
+</blockquote>
+<p>Any method of the <strong>friend class</strong> can access <strong>private</strong> and <strong>protected</strong> members of the original class.</p>
+<p>Also you can be more restrictive and designate just <strong>particular member functions</strong> of a class to be <strong>friends</strong> to another class.</p>
+<p>Friendship cannot be imposed from the outside. Thus, although friends do grant outside access to a class’s private portion, they don’t really violate the spirit of <strong>object-oriented programming</strong>. Instead, they provide more flexibility to the public interface.</p>
+<p><strong>Example:</strong><br>Suppose you must program a simple simulation of a <code>television</code> and a <code>remote control</code>. </p>
+<p>You decide to define a <code>Tv</code> class representing a <code>television</code> and a <code>Remote</code> class representing a <code>remote control</code>. </p>
+<p>There should be some sort of <strong>relationship</strong> between these classes.</p>
+<p>A <code>remote control</code> is not a <code>television</code> and <code>vice versa</code>, so the <code>is-a</code> relationship of <strong>public inheritance</strong> doesn’t apply. Nor is either a <code>component</code> of the other, so the <code>has-a</code> relationship of <code>containment</code> or of <code>private</code> or <code>protected inheritance</code> doesn’t apply.</p>
+<p>What is true is that a <code>remote</code> control can modify the state of a television, and this suggests making the <code>Remote</code> class a <code>friend</code> to the <code>Tv</code> class.</p>
+<p>A <strong>friend</strong> declaration can appear in a <strong>public</strong>, <strong>private</strong>, or <strong>protected</strong> section; <strong>the location makes no difference</strong>. </p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// tv.h -- Tv and Remote classes</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> TV_H_</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TV_H_</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span></span>
+<span class="hljs-class">&#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">friend</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Remote</span>;</span> <span class="hljs-comment">// Remote can access Tv private parts</span>
+    <span class="hljs-keyword">enum</span> &#123;Off, On&#125;;
+    <span class="hljs-keyword">enum</span> &#123;MinVal,MaxVal = <span class="hljs-number">20</span>&#125;;
+    <span class="hljs-keyword">enum</span> &#123;Antenna, Cable&#125;;
+    <span class="hljs-keyword">enum</span> &#123;TV, DVD&#125;;
+    Tv(<span class="hljs-keyword">int</span> s = Off, <span class="hljs-keyword">int</span> mc = <span class="hljs-number">125</span>) : state(s), volume(<span class="hljs-number">5</span>),
+    maxchannel(mc), channel(<span class="hljs-number">2</span>), mode(Cable), input(TV) &#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onoff</span><span class="hljs-params">()</span> </span>&#123;state = (state == On)? Off : On;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">ison</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>&#123;<span class="hljs-keyword">return</span> state == On;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">volup</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">voldown</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chanup</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chandown</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_mode</span><span class="hljs-params">()</span> </span>&#123;mode = (mode == Antenna)? Cable : Antenna;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_input</span><span class="hljs-params">()</span> </span>&#123;input = (input == TV)? DVD : TV;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">settings</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>; <span class="hljs-comment">// display all settings</span>
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> state; <span class="hljs-comment">// on or off</span>
+    <span class="hljs-keyword">int</span> volume; <span class="hljs-comment">// assumed to be digitized</span>
+    <span class="hljs-keyword">int</span> maxchannel; <span class="hljs-comment">// maximum number of channels</span>
+    <span class="hljs-keyword">int</span> channel; <span class="hljs-comment">// current channel setting</span>
+    <span class="hljs-keyword">int</span> mode; <span class="hljs-comment">// broadcast or cable</span>
+    <span class="hljs-keyword">int</span> input; <span class="hljs-comment">// TV or DVD</span>
+&#125;;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Remote</span></span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> mode; <span class="hljs-comment">// controls TV or DVD</span>
+    <span class="hljs-keyword">public</span>:
+    Remote(<span class="hljs-keyword">int</span> m = Tv::TV) : mode(m) &#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">volup</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123; <span class="hljs-keyword">return</span> t.volup();&#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">voldown</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123; <span class="hljs-keyword">return</span> t.voldown();&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onoff</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123; t.onoff(); &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chanup</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.chanup();&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chandown</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.chandown();&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_chan</span><span class="hljs-params">(Tv &amp; t, <span class="hljs-keyword">int</span> c)</span> </span>&#123;t.channel = c;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_mode</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.set_mode();&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_input</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.set_input();&#125;
+&#125;;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre>
+
+<pre><code class="hljs cpp"><span class="hljs-comment">// tv.cpp -- methods for the Tv class (Remote methods are inline)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"tv.h"</span></span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Tv::volup</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span> (volume &lt; MaxVal)
+    &#123;
+        volume++;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Tv::voldown</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span> (volume &gt; MinVal)
+    &#123;
+        volume--;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Tv::chanup</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span> (channel &lt; maxchannel)
+        channel++;
+    <span class="hljs-keyword">else</span>
+        channel = <span class="hljs-number">1</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Tv::chandown</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span> (channel &gt; <span class="hljs-number">1</span>)
+        channel--;
+    <span class="hljs-keyword">else</span>
+        channel = maxchannel;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Tv::settings</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+    <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"TV is "</span> &lt;&lt; (state == Off? <span class="hljs-string">"Off"</span> : <span class="hljs-string">"On"</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">if</span> (state == On)
+    &#123;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Volume setting = "</span> &lt;&lt; volume &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Channel setting = "</span> &lt;&lt; channel &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Mode = "</span>
+        &lt;&lt; (mode == Antenna? <span class="hljs-string">"antenna"</span> : <span class="hljs-string">"cable"</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
+        out &lt;&lt; <span class="hljs-string">"Input = "</span>
+        &lt;&lt; (input == TV? <span class="hljs-string">"TV"</span> : <span class="hljs-string">"DVD"</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
+    &#125;
+&#125;</code></pre>
+
+<pre><code class="hljs cpp"><span class="hljs-comment">//use_tv.cpp -- using the Tv and Remote classes</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"tv.h"</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>;
+    Tv s42;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Initial settings for 42\" TV:\n"</span>;
+    s42.settings();
+    s42.onoff();
+    s42.chanup();
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\nAdjusted settings for 42\" TV:\n"</span>;
+    s42.settings();
+    Remote grey;
+    grey.set_chan(s42, <span class="hljs-number">10</span>);
+    grey.volup(s42);
+    grey.volup(s42);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n42\" settings after using remote:\n"</span>;
+    s42.settings();
+    <span class="hljs-function">Tv <span class="hljs-title">s58</span><span class="hljs-params">(Tv::On)</span></span>;
+    s58.set_mode();
+    grey.set_chan(s58,<span class="hljs-number">28</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n58\" settings:\n"</span>;
+    s58.settings();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+<h3 id="Friend-Member-Functions"><a href="#Friend-Member-Functions" class="headerlink" title="Friend Member Functions"></a>Friend Member Functions</h3><blockquote>
+<p>c primer plus(6th)</p>
+</blockquote>
+<p>Looking at the code for the last example, the only <code>Remote</code> method that accesses a <strong>private</strong> <code>Tv</code> member directly is <code>Remote::set_chan()</code>, so that’s the only method that needs to be a <strong>friend</strong>.</p>
+<p>You do have the option of making just <strong>selected class members</strong> <strong>friends</strong> to another class rather than making the <strong>entire class</strong> a <strong>friend</strong>.</p>
+<p><strong>You need to be careful about the order in which you arrange the various declarations and definitions.</strong> </p>
+<p>The way to make <code>Remote::set_chan()</code> a <strong>friend</strong> to the <code>Tv</code> class is to declare it as a <strong>friend</strong> in the <code>Tv</code> class declaration:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span></span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::set_chan</span><span class="hljs-params">(Tv &amp; t, <span class="hljs-keyword">int</span> c)</span></span>;
+    ...
+&#125;;</code></pre>
+<p>However, for the compiler to process this statement, it needs to have already seen the <code>Remote</code> <strong>definition</strong>. Otherwise, it won’t know that <code>Remote</code> is a class and that <code>set_chan()</code> is a method of that class. This suggests putting the <code>Remote</code> <strong>definition</strong> above the <code>Tv</code> definition. But the fact that <code>Remote</code> methods mention <code>Tv</code> objects means that the <code>Tv</code> definition should appear above the <code>Remote</code> definition. Part of the way around the <strong>circular dependence</strong> is to use a <strong>forward declaration</strong>. To do so, you insert the following statement above the <code>Remote</code> definition:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span>;</span> <span class="hljs-comment">// forward declaration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Remote</span> &#123;</span> ... &#125;;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span> &#123;</span> ... &#125;;</code></pre>
+<p>Could you use the following arrangement instead?</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Remote</span>;</span> <span class="hljs-comment">// forward declaration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span> &#123;</span> ... &#125;;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Remote</span> &#123;</span> ... &#125;;</code></pre>
+<p>The answer is no.The reason is that when the compiler sees that a <code>Remote</code> method is declared as a <strong>friend</strong> in the <code>Tv</code> class declaration, the compiler needs to <strong>have already</strong> viewed the <strong>declaration</strong> of the <code>Remote</code> class in general and of the <code>set_chan()</code> method in particular.</p>
+<p>Another difficulty remains. The <code>Remote</code> declaration contains inline code such as the following:</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onoff</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123; t.onoff(); &#125;</code></pre>
+<p>Because this calls a <code>Tv</code> method, the compiler needs to have seen the <code>Tv</code>class declaration at this point so that it knows what methods <code>Tv</code> has. But as you’ve seen, that declaration necessarily follows the <code>Remote</code> declaration. The solution to this problem is to restrict <code>Remote</code> to method declarations and to <strong>place the actual definitions after the <code>Tv</code> class</strong>. This leads to the following ordering:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span>;</span> <span class="hljs-comment">// forward declaration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Remote</span> &#123;</span> ... &#125;; <span class="hljs-comment">// Tv-using methods as prototypes only</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span> &#123;</span> ... &#125;; <span class="hljs-comment">// put Remote method definitions here</span></code></pre>
+<p>The Remote prototypes look like this:</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onoff</span><span class="hljs-params">(Tv &amp; t)</span></span>;</code></pre>
+<p>All the compiler needs to know when inspecting this prototype is that <code>Tv</code> is a class, and the <strong>forward declaration</strong> supplies that information. </p>
+<p>By the time the compiler reaches the actual <strong>method definitions</strong>, it has already read the <code>Tv</code> class declaration and has the added information needed to compile those methods. By using the inline keyword in the method definitions, you can still make the methods inline methods:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// tvfm.h -- Tv and Remote classes using a friend member</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> TVFM_H_</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TVFM_H_</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span>;</span> <span class="hljs-comment">// forward declaration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Remote</span></span>
+<span class="hljs-class">&#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">enum</span> State&#123;Off, On&#125;;
+    <span class="hljs-keyword">enum</span> &#123;MinVal,MaxVal = <span class="hljs-number">20</span>&#125;;
+    <span class="hljs-keyword">enum</span> &#123;Antenna, Cable&#125;;
+    <span class="hljs-keyword">enum</span> &#123;TV, DVD&#125;;
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> mode;
+<span class="hljs-keyword">public</span>:
+    Remote(<span class="hljs-keyword">int</span> m = TV) : mode(m) &#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">volup</span><span class="hljs-params">(Tv &amp; t)</span></span>; <span class="hljs-comment">// prototype only</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">voldown</span><span class="hljs-params">(Tv &amp; t)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onoff</span><span class="hljs-params">(Tv &amp; t)</span> </span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chanup</span><span class="hljs-params">(Tv &amp; t)</span> </span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chandown</span><span class="hljs-params">(Tv &amp; t)</span> </span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_mode</span><span class="hljs-params">(Tv &amp; t)</span> </span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_input</span><span class="hljs-params">(Tv &amp; t)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_chan</span><span class="hljs-params">(Tv &amp; t, <span class="hljs-keyword">int</span> c)</span></span>;
+&#125;;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tv</span></span>
+<span class="hljs-class">&#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::set_chan</span><span class="hljs-params">(Tv &amp; t, <span class="hljs-keyword">int</span> c)</span></span>;
+    <span class="hljs-keyword">enum</span> State&#123;Off, On&#125;;
+    <span class="hljs-keyword">enum</span> &#123;MinVal,MaxVal = <span class="hljs-number">20</span>&#125;;
+    <span class="hljs-keyword">enum</span> &#123;Antenna, Cable&#125;;
+    <span class="hljs-keyword">enum</span> &#123;TV, DVD&#125;;
+    Tv(<span class="hljs-keyword">int</span> s = Off, <span class="hljs-keyword">int</span> mc = <span class="hljs-number">125</span>) : state(s), volume(<span class="hljs-number">5</span>),
+    maxchannel(mc), channel(<span class="hljs-number">2</span>), mode(Cable), input(TV) &#123;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onoff</span><span class="hljs-params">()</span> </span>&#123;state = (state == On)? Off : On;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">ison</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>&#123;<span class="hljs-keyword">return</span> state == On;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">volup</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">voldown</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chanup</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">chandown</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_mode</span><span class="hljs-params">()</span> </span>&#123;mode = (mode == Antenna)? Cable : Antenna;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_input</span><span class="hljs-params">()</span> </span>&#123;input = (input == TV)? DVD : TV;&#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">settings</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> state;
+    <span class="hljs-keyword">int</span> volume;
+    <span class="hljs-keyword">int</span> maxchannel;
+    <span class="hljs-keyword">int</span> channel;
+    <span class="hljs-keyword">int</span> mode;
+    <span class="hljs-keyword">int</span> input;
+&#125;;
+<span class="hljs-comment">// Remote methods as inline functions</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">Remote::volup</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123; <span class="hljs-keyword">return</span> t.volup();&#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">Remote::voldown</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123; <span class="hljs-keyword">return</span> t.voldown();&#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::onoff</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123; t.onoff(); &#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::chanup</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.chanup();&#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::chandown</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.chandown();&#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::set_mode</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.set_mode();&#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::set_input</span><span class="hljs-params">(Tv &amp; t)</span> </span>&#123;t.set_input();&#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Remote::set_chan</span><span class="hljs-params">(Tv &amp; t, <span class="hljs-keyword">int</span> c)</span> </span>&#123;t.channel = c;&#125;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span></code></pre>
+<h3 id="Shared-Friends"><a href="#Shared-Friends" class="headerlink" title="Shared Friends"></a>Shared Friends</h3><blockquote>
+<p>c primer plus(6th)</p>
+</blockquote>
+<p>Another use for friends is when a function needs to access <strong>private</strong> data in <strong>two separate classes</strong>. </p>
+<p>For example, that you have a <code>Probe</code> class that represents some sort of programmable measuring device and an <code>Analyzer</code> class that represents some sort of programmable analyzing device. Each has an internal clock, and you would like to be able to synchronize the two clocks. You could use something along the following lines:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Analyzer</span>;</span> <span class="hljs-comment">// forward declaration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Probe</span></span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sync</span><span class="hljs-params">(Analyzer &amp; a, <span class="hljs-keyword">const</span> Probe &amp; p)</span></span>; <span class="hljs-comment">// sync a to p</span>
+    <span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sync</span><span class="hljs-params">(Probe &amp; p, <span class="hljs-keyword">const</span> Analyzer &amp; a)</span></span>; <span class="hljs-comment">// sync p to a</span>
+    ...
+&#125;;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Analyzer</span></span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sync</span><span class="hljs-params">(Analyzer &amp; a, <span class="hljs-keyword">const</span> Probe &amp; p)</span></span>; <span class="hljs-comment">// sync a to p</span>
+    <span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sync</span><span class="hljs-params">(Probe &amp; p, <span class="hljs-keyword">const</span> Analyzer &amp; a)</span></span>; <span class="hljs-comment">// sync p to a</span>
+    ...
+&#125;;
+<span class="hljs-comment">// define the friend functions</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sync</span><span class="hljs-params">(Analyzer &amp; a, <span class="hljs-keyword">const</span> Probe &amp; p)</span></span>
+<span class="hljs-function"></span>&#123;
+    ...
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sync</span><span class="hljs-params">(Probe &amp; p, <span class="hljs-keyword">const</span> Analyzer &amp; a)</span></span>
+<span class="hljs-function"></span>&#123;
+    ...
+&#125;</code></pre>
+<p>The <strong>forward declaration</strong> enables the compiler to know that <code>Analyzer</code> is a type when it reaches the <strong>friend</strong> declarations in the <code>Probe</code> class declaration.</p>
+<h1 id="3-Additional-Class-Features"><a href="#3-Additional-Class-Features" class="headerlink" title="3. Additional Class Features"></a>3. Additional Class Features</h1><h2 id="1-Making-Members-inline"><a href="#1-Making-Members-inline" class="headerlink" title="(1) Making Members inline"></a>(1) Making Members inline</h2><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Screen</span> </span>
+<span class="hljs-class">&#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>::size_type pos;
+    <span class="hljs-comment">//using pos = std::string::size_type;</span>
+    <span class="hljs-comment">// needed because Screen has another constructor</span>
+    Screen() = <span class="hljs-keyword">default</span>; 
+    <span class="hljs-comment">// cursor initialized to 0 by its in-class initializer</span>
+    Screen(pos ht, pos wd, <span class="hljs-keyword">char</span> c)
+    : height(ht), width(wd), contents(ht * wd, c) 
+    &#123; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> <span class="hljs-comment">// get the character at the cursor</span></span>
+<span class="hljs-function">    </span>&#123; <span class="hljs-keyword">return</span> contents[cursor]; &#125; <span class="hljs-comment">// implicitly inline</span>
+    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">char</span> <span class="hljs-title">get</span><span class="hljs-params">(pos ht, pos wd)</span> <span class="hljs-keyword">const</span></span>; <span class="hljs-comment">// explicitly inline</span>
+    <span class="hljs-function">Screen &amp;<span class="hljs-title">move</span><span class="hljs-params">(pos r, pos c)</span></span>; <span class="hljs-comment">// can be made inline later</span>
+<span class="hljs-keyword">private</span>:
+    pos cursor = <span class="hljs-number">0</span>;
+    pos height = <span class="hljs-number">0</span>, width = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> contents;
+&#125;;</code></pre>
+<pre><code class="hljs cpp"><span class="hljs-comment">// we can specify inline on the definition</span>
+<span class="hljs-function"><span class="hljs-keyword">inline</span> Screen &amp;<span class="hljs-title">Screen::move</span><span class="hljs-params">(pos r, pos c)</span></span>
+<span class="hljs-function"></span>&#123;
+    pos row = r * width; <span class="hljs-comment">// compute the row location</span>
+    cursor = row + c ; <span class="hljs-comment">// move cursor to the column within that row</span>
+    <span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>; <span class="hljs-comment">// return this object as an lvalue</span>
+&#125;
+<span class="hljs-comment">// declared as inline in the class</span>
+<span class="hljs-function"><span class="hljs-keyword">char</span> <span class="hljs-title">Screen::get</span><span class="hljs-params">(pos r, pos c)</span> <span class="hljs-keyword">const</span> </span>
+<span class="hljs-function"></span>&#123;
+    pos row = r * width; <span class="hljs-comment">// compute row location</span>
+    <span class="hljs-keyword">return</span> contents[row + c]; <span class="hljs-comment">// return character at the given column</span>
+&#125;</code></pre>
+
+<h2 id="2-mutable-Data-Members"><a href="#2-mutable-Data-Members" class="headerlink" title="(2) mutable Data Members"></a>(2) mutable Data Members</h2><p>A <strong>mutable data member</strong> is never <strong>const</strong>, even when it is a member of a <strong>const</strong> object. </p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Screen</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">some_member</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-comment">// may change even in a const object</span>
+    <span class="hljs-keyword">mutable</span> <span class="hljs-keyword">size_t</span> access_ctr; 
+    <span class="hljs-comment">// other members as before</span>
+&#125;;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Screen::some_member</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-comment">// keep a count of the calls to any member function</span>
+	++access_ctr; 
+&#125;</code></pre>
+<p>Despite the fact that <code>some_member</code> is a <strong>const</strong> member function, it can change the value of <code>access_ctr</code>. </p>
+<h2 id="3-Overloading-Based-on-const"><a href="#3-Overloading-Based-on-const" class="headerlink" title="(3) Overloading Based on const"></a>(3) Overloading Based on const</h2><p>We can overload a member function based on whether it is <strong>const</strong> for the same reasons that <strong>we can overload a function based on whether a pointer parameter points to const</strong>.</p>
+<p>The <strong>nonconst</strong> version will not be viable for <strong>const</strong> objects;</p>
+<p>we can only call <strong>const</strong> member functions on a <strong>const</strong> object. We can call either version on a <strong>nonconst</strong> object, but the <strong>nonconst</strong> version will be a better match.</p>
+<h2 id="4-Class-Types"><a href="#4-Class-Types" class="headerlink" title="(4) Class Types"></a>(4) Class Types</h2><p>Every class defines a unique type. Two different classes define two different types even if they define the same members. </p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">First</span> &#123;</span>
+<span class="hljs-keyword">int</span> memi;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getMem</span><span class="hljs-params">()</span></span>;
+&#125;;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Second</span> &#123;</span>
+<span class="hljs-keyword">int</span> memi;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getMem</span><span class="hljs-params">()</span></span>;
+&#125;;
+First obj1;
+Second obj2 = obj1; <span class="hljs-comment">// error: obj1 and obj2 have different types</span></code></pre>
+
+<p>We can <strong>refer to a class type directly</strong>, by using the class name as a type name.</p>
+<p>Alternatively, we can <strong>use the class name following the keyword class or struct</strong>:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sales_data</span> &#123;</span>&#125;;
+Sales_data item1; <span class="hljs-comment">// default-initialized object of type Sales_data</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sales_data</span> <span class="hljs-title">item1</span>;</span> <span class="hljs-comment">// equivalent declaration</span></code></pre>
+<p>Both methods of referring to a class type are equivalent. The second method is inherited from C and is also valid in C++.</p>
+<h3 id="Class-Declarations"><a href="#Class-Declarations" class="headerlink" title="Class Declarations"></a>Class Declarations</h3><p>Just as we can declare a function apart from its definition, we can also declare a class without defining it:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Screen</span>;</span> <span class="hljs-comment">// declaration of the Screen class</span></code></pre>
+<p>This declaration, sometimes referred to as a <strong>forward declaration</strong>, introduces the name <code>Screen</code> into the program and indicates that <code>Screen</code> refers to a class type.</p>
+<p><strong>After a declaration and before a definition is seen</strong>, the type <code>Screen</code> is an incomplete type-it’s <strong>known</strong> that <code>Screen</code> is a class type but <strong>not known</strong> what members that type contains.</p>
+<p>A <strong>class must be defined—not just declared</strong>—before we can write code that creates objects of that type. </p>
+<p>Otherwise, the compiler does not know <strong>how much storage</strong> such objects need. </p>
+<p>Similarly, the class <strong>must be defined before a reference or pointer is used</strong> to access a member of the type. After all, <strong>if the class has not been defined, the compiler can’t know what members the class has.</strong></p>
+<p><strong>Because a class is not defined until its class body is complete, a class cannot have data members of its own type.</strong></p>
+<p>However, <strong>a class is considered declared (but not yet defined) as soon as its class name has been seen</strong>. </p>
+<p>Therefore, <strong>a class can have data members that are pointers or references to its own type</strong>:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Link_screen</span> &#123;</span>
+Screen window;
+Link_screen *next;
+Link_screen *prev;
+&#125;;</code></pre>
+
+<p><a href="http://eel.is/c++draft/class.pre#2" target="_blank" rel="noopener">A class is considered defined after the closing brace of its class-specifier has been seen even though its member functions are in general not yet defined.</a></p>
+<h1 id="4-Class-Scope"><a href="#4-Class-Scope" class="headerlink" title="4. Class Scope"></a>4. Class Scope</h1><h2 id="1-Scope-and-Members-Defined-outside-the-Class"><a href="#1-Scope-and-Members-Defined-outside-the-Class" class="headerlink" title="(1) Scope and Members Defined outside the Class"></a>(1) Scope and Members Defined outside the Class</h2><p>Once the class name is seen, the remainder of the definition—including the parameter list and the function body—is in the scope of the class. </p>
+<p>As a result, we can refer to other class members without qualification.</p>
+<p>The other hand, the return type of a function normally appears before the function’s name. </p>
+<p>When a member function is defined outside the class body, any name used in the return type is outside the class scope. </p>
+<p>As a result, the <strong>return type must specify the class of which it is a member</strong>. </p>
+<h2 id="2-Name-Lookup-and-Class-Scope"><a href="#2-Name-Lookup-and-Class-Scope" class="headerlink" title="(2) Name Lookup and Class Scope"></a>(2) Name Lookup and Class Scope</h2><h3 id="name-lookup"><a href="#name-lookup" class="headerlink" title="name lookup"></a>name lookup</h3><p>The process of finding which declarations match the use of a name.</p>
+<ol>
+<li>Look for a declaration of the name in the block in which the name was used. Only names declared before the use are considered.</li>
+<li>If the name isn’t found, look in the enclosing scope(s).</li>
+<li>If no declaration is found, then the program is in error.</li>
+</ol>
+<p>The way names are resolved inside <strong>member functions</strong> defined inside the class may seem to behave <strong>differently</strong> than these lookup rules. </p>
+<p>However, in this case, appearances are deceiving. </p>
+<p>Class definitions are processed in two phases:</p>
+<ol>
+<li>First, the <strong>member declarations</strong> are compiled.</li>
+<li><strong>Function bodies</strong> are compiled only <strong>after the entire class has been seen</strong>.</li>
+</ol>
+<p>Because <strong>member function bodies</strong> are not processed until the entire class is seen, <strong>they can use any name defined inside the class</strong>. </p>
+<p>If function definitions were processed at the same time as the member declarations, then we would have to order the member functions so that they referred only to names already seen.</p>
+<p><strong>This two-step process applies only to names used in the body of a member function.</strong></p>
+<p>Names used in declarations, including names used for the <strong>return type</strong> and types in the <strong>parameter list</strong>, must be seen before they are used. </p>
+<p>If a member declaration uses a name that has not yet been seen inside the class, the compiler will look for that name in the scope(s) in which the class is defined. </p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">double</span> Money;
+<span class="hljs-built_in">string</span> bal;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">Money <span class="hljs-title">balance</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> bal; &#125;
+<span class="hljs-keyword">private</span>:
+    Money bal;
+    <span class="hljs-comment">// ...</span>
+&#125;;</code></pre>
+<p>When the compiler sees the <strong>declaration</strong> of the <code>balance</code> function, it will look for a <strong>declaration</strong> of <code>Money</code> in the <code>Account</code> class. The compiler considers only declarations inside <code>Account</code> that <strong>appear before the use of Money</strong>. </p>
+<p>Because no matching member is found, the compiler then <strong>looks for a declaration in the enclosing scope(s)</strong>. In this example, the compiler will find the <code>typedef</code> of <code>Money</code>. That type will be used for the <strong>return type</strong> of the function <code>balance</code> and as the type for the data member <code>bal</code>. </p>
+<p>On the other hand, <strong>the function body</strong> of <code>balance</code> is processed only after the entire class is seen. Thus, the return inside that function returns the member named <code>bal</code>, not the <code>string</code> from the outer scope.</p>
+<h3 id="Normal-Block-Scope-Name-Lookup-inside-Member-Definitions"><a href="#Normal-Block-Scope-Name-Lookup-inside-Member-Definitions" class="headerlink" title="Normal Block-Scope Name Lookup inside Member Definitions"></a>Normal Block-Scope Name Lookup inside Member Definitions</h3><p>A name used in the body of a member function is resolved as follows:</p>
+<ol>
+<li>First, look for a declaration of the name <strong>inside the member function</strong>. As usual, only declarations in the function body that precede the use of the name are considered.</li>
+<li>If the declaration is not found inside the member function, look for a declaration <strong>inside the class</strong>. <strong>All the members of the class are considered</strong>.</li>
+<li>If a declaration for the name is not found in the class, look for a declaration that is <strong>in scope before the member function definition</strong>.</li>
+</ol>
+<pre><code class="hljs cpp"><span class="hljs-comment">/*</span>
+<span class="hljs-comment"> note: this code is for illustration purposes only</span>
+<span class="hljs-comment"> and reflects bad practice</span>
+<span class="hljs-comment"> it is generally a bad idea to use the same name</span>
+<span class="hljs-comment"> for a parameter and a member</span>
+<span class="hljs-comment">*/</span>
+<span class="hljs-keyword">int</span> height; <span class="hljs-comment">// defines a name subsequently used inside Screen</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Screen</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>::size_type pos;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dummy_fcn</span><span class="hljs-params">(pos height)</span> </span>&#123;
+    cursor = width * height; <span class="hljs-comment">// which height? the parameter</span>
+    &#125;
+<span class="hljs-keyword">private</span>:
+    pos cursor = <span class="hljs-number">0</span>;
+    pos height = <span class="hljs-number">0</span>, width = <span class="hljs-number">0</span>;
+&#125;;</code></pre>
+<p>In this case, the <code>height</code> parameter hides the member named <code>height</code>. If we wanted to override the normal lookup rules, we can do so:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// bad practice: names local to member functions</span>
+<span class="hljs-comment">// shouldn't hide member names</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Screen::dummy_fcn</span><span class="hljs-params">(pos height)</span> </span>&#123;
+    cursor = width * <span class="hljs-keyword">this</span>-&gt;height; <span class="hljs-comment">// member height</span>
+    <span class="hljs-comment">// alternative way to indicate the member</span>
+    cursor = width * Screen::height; <span class="hljs-comment">// member height</span>
+&#125;</code></pre>
+<h3 id="After-Class-Scope-Look-in-the-Surrounding-Scope"><a href="#After-Class-Scope-Look-in-the-Surrounding-Scope" class="headerlink" title="After Class Scope, Look in the Surrounding Scope"></a>After Class Scope, Look in the Surrounding Scope</h3><p>If the compiler doesn’t find the name in function or class scope, it looks for the name in the <strong>surrounding scope</strong>. </p>
+<p>If we want the name <code>height</code> from the outer scope, we can ask for it explicitly using the scope operator:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// bad practice: don't hide names </span>
+<span class="hljs-comment">// that are needed from surrounding scopes</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Screen::dummy_fcn</span><span class="hljs-params">(pos height)</span> </span>&#123;
+    cursor = width * ::height;<span class="hljs-comment">// which height? the global one</span>
+&#125;</code></pre>
+<p>Even though the outer object is hidden, it is still possible to access that object by using the <strong>scope operator</strong>.</p>
+<h3 id="Names-Are-Resolved-Where-They-Appear-within-a-File"><a href="#Names-Are-Resolved-Where-They-Appear-within-a-File" class="headerlink" title="Names Are Resolved Where They Appear within a File"></a>Names Are Resolved Where They Appear within a File</h3><p>When a member is defined outside its class, the <strong>third step</strong> of <strong>name lookup</strong> includes names declared in the scope of the member definition as well as those that appear in the scope of the class definition. For example:</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> height; <span class="hljs-comment">// defines a name subsequently used inside Screen</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Screen</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>::size_type pos;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setHeight</span><span class="hljs-params">(pos)</span></span>;
+    pos height = <span class="hljs-number">0</span>; <span class="hljs-comment">// hides the declaration of height in the outer scope</span>
+&#125;;
+<span class="hljs-function">Screen::pos <span class="hljs-title">verify</span><span class="hljs-params">(Screen::pos)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Screen::setHeight</span><span class="hljs-params">(pos var)</span> </span>&#123;
+    <span class="hljs-comment">// var: refers to the parameter</span>
+    <span class="hljs-comment">// height: refers to the class member</span>
+    <span class="hljs-comment">// verify: refers to the global function</span>
+    height = verify(var);
+&#125;</code></pre>
+<p>Notice that the declaration of the global function <code>verify</code> is not visible before the definition of the class Screen. </p>
+<p>However, the third step of <strong>name lookup</strong> includes the scope in which the member definition appears. </p>
+<p>In this example, the declaration for <code>verify</code> appears before <code>setHeight</code> is defined and may, therefore, be used.</p>
+<h3 id="Type-Names-Are-Special"><a href="#Type-Names-Are-Special" class="headerlink" title="Type Names Are Special"></a>Type Names Are Special</h3><p>Ordinarily, an inner scope can <strong>redefine a name</strong> from an outer scope even if that name has already been used in the inner scope. </p>
+<p>However, in a class, if a member uses a name from an outer scope and that name is a <strong>type</strong>, then the class may not subsequently redefine that name:</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">double</span> Money;
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">Money <span class="hljs-title">balance</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> bal; &#125; <span class="hljs-comment">// uses Money from the outer scope</span>
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">double</span> Money; <span class="hljs-comment">// error: cannot redefine Money</span>
+    Money bal;
+    <span class="hljs-comment">// ...</span>
+&#125;;</code></pre>
+<p><strong>Definitions of type names</strong> usually should appear at the <strong>beginning</strong> of a class.</p>
+<p>That way any member that uses that type will be seen after the type name has already been defined.</p>
+<h1 id="5-Constructors"><a href="#5-Constructors" class="headerlink" title="5.  Constructors"></a>5.  Constructors</h1><h2 id="1-Constructor-Initializer-List"><a href="#1-Constructor-Initializer-List" class="headerlink" title="(1) Constructor Initializer List"></a>(1) Constructor Initializer List</h2><p>When we define variables, we typically <strong>initialize them immediately</strong> rather than defining them and then assigning to them:</p>
+<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> foo = <span class="hljs-string">"Hello World!"</span>; <span class="hljs-comment">// define and initialize</span>
+<span class="hljs-built_in">string</span> bar; <span class="hljs-comment">// default initialized to the empty string</span>
+bar = <span class="hljs-string">"Hello World!"</span>; <span class="hljs-comment">// assign a new value to bar</span></code></pre>
+<p>If we do not explicitly initialize a member in the <strong>constructor initializer list</strong>, that member is <strong>default initialized</strong> before the constructor body starts executing. </p>
+<h3 id="Constructor-Initializers-Are-Sometimes-Required"><a href="#Constructor-Initializers-Are-Sometimes-Required" class="headerlink" title="Constructor Initializers Are Sometimes Required"></a>Constructor Initializers Are Sometimes Required</h3><p>We can often, but not always, ignore the distinction between whether a member is <strong>initialized</strong> or <strong>assigned</strong>. </p>
+<p>Members that are <strong>const or references</strong> <strong>must be initialized</strong>.</p>
+<p>Similarly, members that are of a <strong>class</strong> type that does not define a default constructor also <strong>must be initialized</strong>. </p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConstRef</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    ConstRef(<span class="hljs-keyword">int</span> ii);
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci;
+    <span class="hljs-keyword">int</span> &amp;ri;
+&#125;;</code></pre>
+<p>Like any other <strong>const object</strong> or <strong>reference</strong>, the members <code>ci</code> and <code>ri</code> must be initialized.</p>
+<p>As a result, omitting a constructor initializer for these members is an error:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// error: ci and ri must be initialized</span>
+ConstRef::ConstRef(<span class="hljs-keyword">int</span> ii)
+&#123;   <span class="hljs-comment">// assignments:</span>
+    i = ii; <span class="hljs-comment">// ok</span>
+    ci = ii; <span class="hljs-comment">// error: cannot assign to a const</span>
+    ri = i; <span class="hljs-comment">// error: ri was never initialized</span>
+&#125;</code></pre>
+<p>By the time the body of the constructor begins executing, initialization is complete.</p>
+<p>Our only chance to initialize const or reference data members is in the constructor initializer. The correct way to write this constructor is：</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// ok: explicitly initialize reference and const members</span>
+ConstRef::ConstRef(<span class="hljs-keyword">int</span> ii): i(ii), ci(ii), ri(i) &#123; &#125;</code></pre>
+<h3 id="Order-of-Member-Initialization"><a href="#Order-of-Member-Initialization" class="headerlink" title="Order of Member Initialization"></a>Order of Member Initialization</h3><p>Members are initialized in the order in which <strong>they appear in the class definition</strong>: The first member is initialized first, then the next, and so on. </p>
+<p><strong>The order in which initializers appear in the constructor initializer list does not change the order of initialization.</strong></p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">X</span> &#123;</span>
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">int</span> j;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// undefined: i is initialized before j</span>
+    X(<span class="hljs-keyword">int</span> val): j(val), i(j) &#123; &#125;
+&#125;;</code></pre>
+<p><strong>Note:</strong><br>It is a good idea to write constructor initializers in the <strong>same order</strong> as the members are declared. </p>
+<p>Moreover, when possible, <strong>avoid using members to initialize other members</strong>.</p>
+<h2 id="2-Delegating-Constructors"><a href="#2-Delegating-Constructors" class="headerlink" title="(2) Delegating Constructors"></a>(2) Delegating Constructors</h2><p>A <strong>delegating constructor</strong> uses another constructor from its own class to perform its initialization. </p>
+<p>In a <strong>delegating constructor</strong>, the <strong>member initializer list</strong> has a single entry that is the name of the class itself. </p>
+<p>Like other member initializers, the name of the class is followed by a parenthesized list of arguments. </p>
+<p>The argument list must match another constructor in the class.</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sales_data</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// nondelegating constructor initializes members from  corresponding arguments</span>
+    Sales_data(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> s, <span class="hljs-keyword">unsigned</span> cnt, <span class="hljs-keyword">double</span> price):
+    bookNo(s), units_sold(cnt), revenue(cnt*price) &#123;
+    &#125;
+    <span class="hljs-comment">// remaining constructors all delegate to another constructor</span>
+    Sales_data(): Sales_data(<span class="hljs-string">""</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>) &#123;&#125;
+    Sales_data(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> s): Sales_data(s, <span class="hljs-number">0</span>,<span class="hljs-number">0</span>) &#123;&#125;
+    Sales_data(<span class="hljs-built_in">std</span>::istream &amp;is): Sales_data()
+    &#123; read(is, *<span class="hljs-keyword">this</span>); &#125;
+    <span class="hljs-comment">// other members as before</span>
+&#125;;</code></pre>
+
+<h2 id="3-The-Role-of-the-Default-Constructor"><a href="#3-The-Role-of-the-Default-Constructor" class="headerlink" title="(3) The Role of the Default Constructor"></a>(3) The Role of the Default Constructor</h2><p>The <strong>default constructor</strong> is used <strong>automatically</strong> whenever an object is default or value initialized. </p>
+<p><strong>Default initialization</strong> happens:</p>
+<ul>
+<li><p>When we define <strong>nonstatic variables or arrays</strong> at block scope without initializers.</p>
+</li>
+<li><p>When a class that itself has members of class type uses the synthesized default constructor.</p>
+</li>
+<li><p>When members of class type are not <strong>explicitly initialized</strong> in a constructor initializer list. </p>
+</li>
+</ul>
+<p>Value initialization happens:</p>
+<ul>
+<li><p>During array initialization when we provide fewer initializers than the size of the array.</p>
+</li>
+<li><p>When we define a local static object without an initializer.</p>
+</li>
+<li><p>When we explicitly request value initialization by writing an expressions of the form T() where T is the name of a type (The vector constructor that takes a single argument to specify the vector’s size uses an argument of this kind to value initialize its element initializer.) </p>
+</li>
+</ul>
+<h2 id="4-Using-the-Default-Constructor"><a href="#4-Using-the-Default-Constructor" class="headerlink" title="(4) Using the Default Constructor"></a>(4) Using the Default Constructor</h2><p>It is a common mistake among programmers new to C++ to try to declare an object initialized with the default constructor as follows:</p>
+<pre><code class="hljs cpp"><span class="hljs-function">Sales_data <span class="hljs-title">obj</span><span class="hljs-params">()</span></span>; <span class="hljs-comment">// oops! declares a function, not an object</span>
+Sales_data obj2; <span class="hljs-comment">// ok: obj2 is an object, not a function</span></code></pre>
+<h2 id="5-Implicit-Class-Type-Conversions"><a href="#5-Implicit-Class-Type-Conversions" class="headerlink" title="(5) Implicit Class-Type Conversions"></a>(5) Implicit Class-Type Conversions</h2><p>Every constructor that can be called with a <font color = red>single argument</font> defines an <strong>implicit conversion</strong> to a class type. </p>
+<p>Such constructors are sometimes referred to as <strong>converting constructors</strong>. </p>
+<p>The <code>Sales_data</code> constructors that take a string and that take an <code>istream</code> both define implicit conversions from those types to <code>Sales_data</code>. </p>
+<p>That is, we can use a string or an <code>istream</code> where an object of type <code>Sales_data</code> is expected:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Sales_data</span> &#123;</span>
+    <span class="hljs-comment">// constructors added</span>
+    Sales_data() = <span class="hljs-keyword">default</span>;
+    Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s): bookNo(s) &#123; &#125;
+    Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s, <span class="hljs-keyword">unsigned</span> n, <span class="hljs-keyword">double</span> p):
+    bookNo(s), units_sold(n), revenue(p*n) &#123; &#125;
+    Sales_data(<span class="hljs-built_in">std</span>::istream &amp;);
+    <span class="hljs-comment">// other members as before</span>
+    <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">isbn</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>&#123; <span class="hljs-keyword">return</span> bookNo; &#125;
+    <span class="hljs-function">Sales_data&amp; <span class="hljs-title">combine</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data&amp;)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">avg_price</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> bookNo;
+    <span class="hljs-keyword">unsigned</span> units_sold = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">double</span> revenue = <span class="hljs-number">0.0</span>;
+&#125;;
+
+Sales_data item;
+<span class="hljs-built_in">string</span> null_book = <span class="hljs-string">"9-999-99999-9"</span>;
+<span class="hljs-comment">// constructs a temporary Sales_data object</span>
+<span class="hljs-comment">// with units_sold and revenue equal to 0 and bookNo equal to null_book</span>
+item.combine(null_book);</code></pre>
+<p>The compiler automatically creates a <code>Sales_data</code> object from the given string. </p>
+<p>That newly generated (temporary) <code>Sales_data</code> is passed to combine. </p>
+<h2 id="6-Only-One-Class-Type-Conversion-Is-Allowed"><a href="#6-Only-One-Class-Type-Conversion-Is-Allowed" class="headerlink" title="(6) Only One Class-Type Conversion Is Allowed"></a>(6) Only One Class-Type Conversion Is Allowed</h2><p>The compiler will automatically apply <strong>only one class-type</strong> conversion. </p>
+<p>For example, the following code is in error because it implicitly uses two conversions:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// error: requires two user-defined conversions:</span>
+<span class="hljs-comment">// (1) convert "9-999-99999-9" to string</span>
+<span class="hljs-comment">// (2) convert that (temporary) string to Sales_data</span>
+item.combine(<span class="hljs-string">"9-999-99999-9"</span>);</code></pre>
+<p>If we wanted to make this call, we can do so by <strong>explicitly</strong> converting the character string to either a string or a <code>Sales_data</code> object:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// ok: explicit conversion to string, implicit conversion to Sales_data</span>
+item.combine(<span class="hljs-built_in">string</span>(<span class="hljs-string">"9-999-99999-9"</span>));
+<span class="hljs-comment">// ok: implicit conversion to string, explicit conversion to Sales_data</span>
+item.combine(Sales_data(<span class="hljs-string">"9-999-99999-9"</span>));</code></pre>
+<h2 id="7-Class-Type-Conversions-Are-Not-Always-Useful"><a href="#7-Class-Type-Conversions-Are-Not-Always-Useful" class="headerlink" title="(7) Class-Type Conversions Are Not Always Useful"></a>(7) Class-Type Conversions Are Not Always Useful</h2><pre><code class="hljs cpp"><span class="hljs-comment">// uses the istream constructor to build an object to pass to combine</span>
+item.combine(<span class="hljs-built_in">cin</span>);</code></pre>
+<p>This code implicitly converts <code>cin</code> to <code>Sales_data</code>. </p>
+<p>This conversion executes the <code>Sales_data</code> constructor that takes an <code>istream</code>. That constructor creates a (temporary) <code>Sales_data</code> object by reading the standard input. That object is then passed to combine.</p>
+<p>This <code>Sales_data</code> object is a temporary. We have <strong>no access to it</strong> once combine finishes. Effectively, we have constructed an object that is discarded after we add its value into item.</p>
+<h2 id="8-Suppressing-Implicit-Conversions-Defined-by-Constructors"><a href="#8-Suppressing-Implicit-Conversions-Defined-by-Constructors" class="headerlink" title="(8) Suppressing Implicit Conversions Defined by Constructors"></a>(8) Suppressing Implicit Conversions Defined by Constructors</h2><p>We can <strong>prevent</strong> the use of a constructor in a context that requires an implicit conversion by declaring the constructor as <strong>explicit</strong>:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sales_data</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    Sales_data() = <span class="hljs-keyword">default</span>;
+    Sales_data(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s, <span class="hljs-keyword">unsigned</span> n, <span class="hljs-keyword">double</span> p):
+    bookNo(s), units_sold(n), revenue(p*n) &#123; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">Sales_data</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> &amp;s)</span>: <span class="hljs-title">bookNo</span><span class="hljs-params">(s)</span> </span>&#123; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">Sales_data</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::istream&amp;)</span></span>;
+    <span class="hljs-comment">// remaining members as before</span>
+&#125;;</code></pre>
+<p>Now, neither constructor can be used to implicitly create a <code>Sales_data</code> object.</p>
+<p>Neither of our previous uses will compile:</p>
+<pre><code class="hljs cpp">item.combine(null_book); <span class="hljs-comment">// error: string constructor is explicit</span>
+item.combine(<span class="hljs-built_in">cin</span>); <span class="hljs-comment">// error: istream constructor is explicit</span></code></pre>
+<p>The <code>explicit</code> keyword is meaningful only on constructors that can be called with a <strong>single argument</strong>.</p>
+<p>Constructors that require <strong>more arguments</strong> are <strong>not used to perform an implicit conversion</strong>, so there is no need to designate such constructors as <code>explicit</code>. </p>
+<p>The <code>explicit</code> keyword is used <strong>only on the constructor declaration inside the class</strong>. It is not repeated on a <strong>definition</strong> made outside the class body:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// error: explicit allowed only on a constructor declaration in a class header</span>
+<span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">Sales_data::Sales_data</span><span class="hljs-params">(istream&amp; is)</span></span>
+<span class="hljs-function"></span>&#123;
+    read(is, *<span class="hljs-keyword">this</span>);
+&#125;</code></pre>
+<h2 id="9-explicit-Constructors-Can-Be-Used-Only-for-Direct-Initialization"><a href="#9-explicit-Constructors-Can-Be-Used-Only-for-Direct-Initialization" class="headerlink" title="(9)explicit Constructors Can Be Used Only for Direct Initialization"></a>(9)explicit Constructors Can Be Used Only for Direct Initialization</h2><p>One context in which <strong>implicit conversions</strong> happen is when we use the <strong>copy form of initialization</strong> (with an =). </p>
+<p>We <strong>cannot</strong> use an <strong>explicit constructor</strong> with this form of initialization; we must use <strong>direct initialization</strong>:</p>
+<pre><code class="hljs cpp"><span class="hljs-function">Sales_data <span class="hljs-title">item1</span> <span class="hljs-params">(null_book)</span></span>; <span class="hljs-comment">// ok: direct initialization</span>
+<span class="hljs-comment">// error: cannot use the copy form of initialization </span>
+<span class="hljs-comment">// with an explicit constructor</span>
+Sales_data item2 = null_book;</code></pre>
+<h2 id="10-Explicitly-Using-Constructors-for-Conversions"><a href="#10-Explicitly-Using-Constructors-for-Conversions" class="headerlink" title="(10) Explicitly Using Constructors for Conversions"></a>(10) Explicitly Using Constructors for Conversions</h2><p>Although the compiler will not use an explicit constructor for an implicit conversion, we can use such constructors explicitly to force a conversion:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// ok: the argument is an explicitly constructed Sales_data object</span>
+item.combine(Sales_data(null_book));
+<span class="hljs-comment">// ok: static_cast can use an explicit constructor</span>
+item.combine(<span class="hljs-keyword">static_cast</span>&lt;Sales_data&gt;(<span class="hljs-built_in">cin</span>));</code></pre>
+<h2 id="11-Library-Classes-with-explicit-Constructors"><a href="#11-Library-Classes-with-explicit-Constructors" class="headerlink" title="(11) Library Classes with explicit Constructors"></a>(11) Library Classes with explicit Constructors</h2><p>Some of the library classes that we’ve used have single-parameter constructors:</p>
+<ul>
+<li><p>The string constructor that takes a single parameter of type <code>const char*</code> is not explicit.</p>
+</li>
+<li><p>The vector constructor that takes a size is explicit.</p>
+</li>
+</ul>
+<h2 id="12-Aggregate-Classes"><a href="#12-Aggregate-Classes" class="headerlink" title="(12) Aggregate Classes"></a>(12) Aggregate Classes</h2><p>An <strong>aggregate class</strong> gives users direct access to its members and has special initialization syntax. A class is an aggregate if</p>
+<ul>
+<li>All of its data members are public</li>
+<li>It does not define any constructors</li>
+<li>It has no in-class initializers</li>
+<li>It has no base classes or virtual functions, which are class-related features.</li>
+</ul>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Data</span> &#123;</span>
+    <span class="hljs-keyword">int</span> ival;
+    <span class="hljs-built_in">string</span> s;
+&#125;;</code></pre>
+<p>We can initialize the data members of an aggregate class by providing a braced list of member initializers:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// val1.ival = 0; val1.s = string("Anna")</span>
+Data val1 = &#123; <span class="hljs-number">0</span>, <span class="hljs-string">"Anna"</span> &#125;;</code></pre>
+<p>As with initialization of array elements, if the list of initializers has <strong>fewer elements</strong> than the class has members, the trailing members are <strong>value initialized</strong>.</p>
+<p>It is worth noting that there are three significant drawbacks to <strong>explicitly initializing</strong> the members of an object of class type:</p>
+<ul>
+<li><p>It requires that all the data members of the class be public.</p>
+</li>
+<li><p>It puts the burden on the user of the class (rather than on the class author) to correctly initialize every member of every object. </p>
+</li>
+<li><p>If a member is added or removed, all initializations have to be updated.</p>
+</li>
+</ul>
+<h2 id="13-Literal-Classes"><a href="#13-Literal-Classes" class="headerlink" title="(13) Literal Classes"></a>(13) Literal Classes</h2><p>Unlike other classes, classes that are <strong>literal types</strong> may have function members that are <strong>constexpr</strong>. </p>
+<p>Such members must meet all the requirements of a <strong>constexpr function</strong>. These member functions are implicitly <strong>const</strong>.</p>
+<p>An <strong>aggregate</strong> class whose data members are all of <strong>literal type</strong> is a <strong>literal class</strong>. </p>
+<p>A <strong>nonaggregate class</strong>, that meets the following restrictions, is also a literal class: </p>
+<ul>
+<li>The data members all must have literal type.</li>
+<li>The class must have at least one <strong>constexpr</strong> constructor.</li>
+<li>If a data member has an in-class initializer, the initializer for a member of built-in type must be a constant expression, or if the member has class type, the initializer must use the member’s own <strong>constexpr</strong> constructor. </li>
+<li>The class must use default definition for its destructor, which is the member that destroys objects of the class type.</li>
+</ul>
+<h2 id="14-constexpr-Constructors"><a href="#14-constexpr-Constructors" class="headerlink" title="(14) constexpr Constructors"></a>(14) constexpr Constructors</h2><p>Although constructors can’t be <strong>const</strong>, constructors in a literal class can be <strong>constexpr</strong> functions.</p>
+<p>A <strong>constexpr</strong> <strong>constructor</strong> can be declared as <code>=</code> default (or as a deleted function).</p>
+<p>A <strong>constexpr</strong> constructor must meet the requirements of a <strong>constructor</strong>—meaning it can have <strong>no return statement</strong>—and of a <strong>constexpr function</strong>—meaning the only executable statement it can have is a return statement. </p>
+<p>As a result, the <strong>body</strong> of a <strong>constexpr constructor</strong> is typically <strong>empty</strong>. </p>
+<p>We define a <strong>constexpr constructor</strong> by preceding its declaration with the keyword <strong>constexpr</strong>:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Debug</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    constexpr Debug(bool b = true): hw(b), io(b), other(b) &#123;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">constexpr</span> <span class="hljs-title">Debug</span><span class="hljs-params">(<span class="hljs-keyword">bool</span> h, <span class="hljs-keyword">bool</span> i, <span class="hljs-keyword">bool</span> o)</span>:</span>
+    hw(h), io(i), other(o) &#123;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">any</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> hw || io || other; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_io</span><span class="hljs-params">(<span class="hljs-keyword">bool</span> b)</span> </span>&#123; io = b; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_hw</span><span class="hljs-params">(<span class="hljs-keyword">bool</span> b)</span> </span>&#123; hw = b; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set_other</span><span class="hljs-params">(<span class="hljs-keyword">bool</span> b)</span> </span>&#123; hw = b; &#125;
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">bool</span> hw; <span class="hljs-comment">// hardware errors other than IO errors</span>
+    <span class="hljs-keyword">bool</span> io; <span class="hljs-comment">// IO errors</span>
+    <span class="hljs-keyword">bool</span> other; <span class="hljs-comment">// other errors</span>
+&#125;;</code></pre>
+<p>A <strong>constexpr constructor</strong> must initialize every data member. </p>
+<p>The initializers must either use a <strong>constexpr constructor</strong> or be a constant expression.</p>
+<p>A <strong>constexpr constructor</strong> is used to generate objects that are <strong>constexpr</strong> and for parameters or return types in <strong>constexpr functions</strong>:</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">constexpr</span> Debug <span class="hljs-title">io_sub</span><span class="hljs-params">(<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>)</span></span>; <span class="hljs-comment">// debugging IO</span>
+<span class="hljs-keyword">if</span> (io_sub.any()) <span class="hljs-comment">// equivalent to if(true)</span>
+    <span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">"print appropriate error messages"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+<span class="hljs-function"><span class="hljs-keyword">constexpr</span> Debug <span class="hljs-title">prod</span><span class="hljs-params">(<span class="hljs-literal">false</span>)</span></span>; <span class="hljs-comment">// no debugging during production</span>
+<span class="hljs-keyword">if</span> (prod.any()) <span class="hljs-comment">// equivalent to if(false)</span>
+    <span class="hljs-built_in">cerr</span> &lt;&lt; <span class="hljs-string">"print an error message"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre>
+<h1 id="6-static-Class-Members"><a href="#6-static-Class-Members" class="headerlink" title="6. static Class Members"></a>6. static Class Members</h1><p>Classes sometimes need members that are associated with the class, rather than with individual objects of the class type. </p>
+<h2 id="1-Declaring-static-Members"><a href="#1-Declaring-static-Members" class="headerlink" title="(1) Declaring static Members"></a>(1) Declaring static Members</h2><p>We say a member is associated with the class by adding the keyword <strong>static</strong> to its <strong>declaration</strong>. </p>
+<p>Like any other member, static members can be <strong>public</strong> or <strong>private</strong>.</p>
+<p>The type of a <strong>static</strong> data member can be <strong>const</strong>, <strong>reference</strong>, <strong>array</strong>, <strong>class type</strong>, and so forth.</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">calculate</span><span class="hljs-params">()</span> </span>&#123; amount += amount * interestRate; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">rate</span><span class="hljs-params">()</span> </span>&#123; <span class="hljs-keyword">return</span> interestRate; &#125;
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rate</span><span class="hljs-params">(<span class="hljs-keyword">double</span>)</span></span>;
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> owner;
+    <span class="hljs-keyword">double</span> amount;
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> interestRate;
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">initRate</span><span class="hljs-params">()</span></span>;
+&#125;;</code></pre>
+<p>The static members of a class <strong>exist outside any object</strong>. </p>
+<p>Objects do not contain data associated with static data members. </p>
+<p>Thus, each <code>Account</code> object will contain two data members—<code>owner</code> and <code>amount</code>. </p>
+<p>There is <strong>only one <code>interestRate</code> object that will be shared by all the <code>Account</code>objects</strong>.</p>
+<p>Static member functions are <strong>not bound to any object</strong>; they do not have a <strong>this</strong> pointer. </p>
+<p>As a result, static member functions may <strong>not be declared as const</strong>, and we may <strong>not refer to this</strong> in the body of a static member. </p>
+<p>This restriction applies both to <strong>explicit uses</strong> of this and to <strong>implicit uses</strong> of this by calling a <strong>nonstatic member</strong>.</p>
+<h2 id="2-Using-a-Class-static-Member"><a href="#2-Using-a-Class-static-Member" class="headerlink" title="(2) Using a Class static Member"></a>(2) Using a Class static Member</h2><p>We can access a <strong>static member</strong> directly through the scope operator:</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">double</span> r;
+r = Account::rate(); <span class="hljs-comment">// access a static member using the scope operator</span></code></pre>
+<p>Even though <strong>static members</strong> are not part of the objects of its class, we can use an object, reference, or pointer of the class type to access a static member:</p>
+<pre><code class="hljs cpp">Account ac1;
+Account *ac2 = &amp;ac1;
+<span class="hljs-comment">// equivalent ways to call the static member rate function</span>
+r = ac1.rate(); <span class="hljs-comment">// through an Account object or reference</span>
+r = ac2-&gt;rate(); <span class="hljs-comment">// through a pointer to an Account object</span></code></pre>
+<p>Member functions can use static members directly, without the scope operator:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">calculate</span><span class="hljs-params">()</span> </span>&#123; amount += amount * interestRate; &#125;
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> interestRate;
+    <span class="hljs-comment">// remaining members as before</span>
+&#125;;</code></pre>
+<h2 id="3-Defining-static-Members"><a href="#3-Defining-static-Members" class="headerlink" title="(3) Defining static Members"></a>(3) Defining static Members</h2><p>As with any other member function, we can <strong>define a static</strong> member function <strong>inside or outside</strong> of the class body. </p>
+<p>When we define a static member <strong>outside the class</strong>, we do <strong>not</strong> repeat the <strong>static keyword</strong>. The keyword appears only with the <strong>declaration</strong> inside the class body。</p>
+<p>Because static data members are not part of individual objects of the class type, <strong>they are not defined when we create objects of the class</strong>. </p>
+<p>As a result, <strong>they are not initialized by the class’constructors</strong>. </p>
+<p>Moreover, in general, we may <strong>not initialize a static member</strong> <strong>inside the class</strong>. </p>
+<p>Instead, we must <strong>define</strong> and <strong>initialize</strong> each <strong>static data member</strong> <strong>outside the class body</strong>. </p>
+<p>Like any other object, a static data member may be <strong>defined only once</strong>.</p>
+<p>Like global objects, static data members are defined outside any function. </p>
+<p>Hence, once they are defined, they continue to exist until the program completes.</p>
+<h2 id="5-In-Class-Initialization-of-static-Data-Members"><a href="#5-In-Class-Initialization-of-static-Data-Members" class="headerlink" title="(5) In-Class Initialization of static Data Members"></a>(5) In-Class Initialization of static Data Members</h2><p>Ordinarily, class static members may not be initialized in the class body. </p>
+<p>However, we can provide <strong>in-class initializers</strong> for static members that have <strong>const</strong> integral type and must do so for static members that are <strong>constexprs</strong> of literal type. </p>
+<p>The initializers must be constant expressions. </p>
+<p>Such members are themselves constant expressions; they can be used where a constant expression is required. </p>
+<h2 id="6-static-Members-Can-Be-Used-in-Ways-Ordinary-Members-Can’t"><a href="#6-static-Members-Can-Be-Used-in-Ways-Ordinary-Members-Can’t" class="headerlink" title="(6) static Members Can Be Used in Ways Ordinary Members Can’t"></a>(6) static Members Can Be Used in Ways Ordinary Members Can’t</h2><p>Static members exist <strong>independently</strong> of any other object. </p>
+<p>As a result, they can be used in ways that would be illegal for nonstatic data members. </p>
+<p>As one example, a static data member can have incomplete type. </p>
+<p>In particular, a static data member can have the <strong>same type as the class type</strong> of which it is a member. </p>
+<p>A nonstatic data member is restricted to being declared as a pointer or a reference to an object of its class:</p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bar</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// ...</span>
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">static</span> Bar mem1; <span class="hljs-comment">// ok: static member can have incomplete type</span>
+    Bar *mem2; <span class="hljs-comment">// ok: pointer member can have incomplete type</span>
+    Bar mem3; <span class="hljs-comment">// error: data members must have complete type</span>
+&#125;;</code></pre>
+<p>Another difference between static and ordinary members is that <strong>we can use a static member as a default argument</strong> </p>
+<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Screen</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// bkground refers to the static member</span>
+    <span class="hljs-comment">// declared later in the class definition</span>
+    <span class="hljs-function">Screen&amp; <span class="hljs-title">clear</span><span class="hljs-params">(<span class="hljs-keyword">char</span> = bkground)</span></span>;
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> bkground;
+&#125;;</code></pre>
+<p><strong>A nonstatic data member may not be used as a default argument because its value is part of the object of which it is a member.</strong> </p>
+<p>Using a nonstatic data member as a default argument provides no object from which to obtain the member’s value and so is an error.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer/">C++ Primer</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer/">C++ Primer</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/14/Functions-C++/">
+                        <span class="hidden-mobile">Functions</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#58C9B9',
+      preload: 'none',
+      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Classes&nbsp;",
+      ],
+      cursorChar: " ",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
