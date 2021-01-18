@@ -17,10 +17,23 @@
   <meta name="description" content="诗酒趁年华">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
-  <title>Archives - CD_LX</title>
+  <title>The IO Library - CD_LX</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -125,7 +138,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/archive.jpeg') no-repeat center center;
+         style="background: url('/img/The-IO-Library_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -133,6 +146,43 @@
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-18 21:43" pubdate>
+        January 18, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      469 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -145,79 +195,123 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">21 posts in total.</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/12/29/Expressions/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Expressions</span>
-      <time style="float: right;">12-29</time>
-    </a>
-  
-    
-    <a href="/2020/12/29/Strings-Vectors-and-Arrays/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Strings-Vectors-and-Arrays</span>
-      <time style="float: right;">12-29</time>
-    </a>
-  
-    
-    <a href="/2020/12/29/Variables-and-Basic-Types/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Variables and Basic Types</span>
-      <time style="float: right;">12-29</time>
-    </a>
-  
-    
-    <a href="/2020/12/29/Getting-Started/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Getting Started</span>
-      <time style="float: right;">12-29</time>
-    </a>
-  
-    
-    <a href="/2020/12/09/The-C-Processor-and-the-C-Library/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">The C Processor and the C Library</span>
-      <time style="float: right;">12-09</time>
-    </a>
-  
-    
-    <a href="/2020/12/06/Bit-Fidding/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Bit Fidding</span>
-      <time style="float: right;">12-06</time>
-    </a>
-  
-    
-    <a href="/2020/12/06/File-Input-Output/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">File Input/Output</span>
-      <time style="float: right;">12-06</time>
-    </a>
-  
-    
-    <a href="/2020/12/01/Character-Strings-and-String-Functions/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Character Strings and String Functions</span>
-      <time style="float: right;">12-01</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">The IO Library</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>C++ Primer(Fifth Edition) Chapter 8 The IO Library</p>
+<a id="more"></a>
+<h1 id="1-The-IO-Classes"><a href="#1-The-IO-Classes" class="headerlink" title="1. The IO Classes"></a>1. The IO Classes</h1><h2 id="1-No-Copy-or-Assign-for-IO-Objects"><a href="#1-No-Copy-or-Assign-for-IO-Objects" class="headerlink" title="(1) No Copy or Assign for IO Objects"></a>(1) No Copy or Assign for IO Objects</h2><p>We cannot copy or assign objects of the IO types:</p>
+<pre><code class="hljs cpp">ofstream out1, out2;
+out1 = out2; <span class="hljs-comment">// error: cannot assign stream objects</span>
+<span class="hljs-function">ofstream <span class="hljs-title">print</span><span class="hljs-params">(ofstream)</span></span>; <span class="hljs-comment">// error: can't initialize the ofstream parameter</span>
+out2 = print(out2); <span class="hljs-comment">// error: cannot copy stream objects</span></code></pre>
+<h2 id="2-Condition-States"><a href="#2-Condition-States" class="headerlink" title="(2)  Condition States"></a>(2)  Condition States</h2><p><img src="_v_images/20210118221216970_1707240907.png" srcset="/img/loading.gif" alt=" IO Library Condition State"></p>
+<h2 id="3-Flushing-the-Output-Buffer"><a href="#3-Flushing-the-Output-Buffer" class="headerlink" title="(3) Flushing the Output Buffer"></a>(3) Flushing the Output Buffer</h2><p><code>endl</code> ends the current line and flushes the buffer. </p>
+<p><code>flush</code> flushes the stream but adds no characters to the output.</p>
+<p><code>ends</code> inserts a null character into the buffer and then flushes it.</p>
+<pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"hi!"</span> &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// writes hi and a newline, then flushes the buffer</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"hi!"</span> &lt;&lt; flush; <span class="hljs-comment">// writes hi, then flushes the buffer; adds no data</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"hi!"</span> &lt;&lt; ends; <span class="hljs-comment">// writes hi and a null, then flushes the buffer</span></code></pre>
 
+<h2 id="4-The-unitbuf-Manipulator"><a href="#4-The-unitbuf-Manipulator" class="headerlink" title="(4) The unitbuf Manipulator"></a>(4) The unitbuf Manipulator</h2><p>If we want to flush after every output, we can use the <code>unitbuf</code> manipulator. </p>
+<p>This manipulator tells the stream to do a flush after every subsequent write. </p>
+<p>The <code>nounitbuf</code> manipulator restores the stream to use normal, system-managed buffer flushing:</p>
+<pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; unitbuf; <span class="hljs-comment">// all writes will be flushed immediately</span>
+<span class="hljs-comment">// any output is flushed immediately, no buffering</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; nounitbuf; <span class="hljs-comment">// returns to normal buffering</span></code></pre>
 
-              </div>
+<p><strong>Caution:</strong> Buffers Are Not Flushed If the Program Crashes</p>
+<p>Output buffers are not flushed if the program terminates abnormally. </p>
+<p>When a program crashes, it is likely that data the program wrote may be sitting in an output buffer waiting to be printed.</p>
+<p>When you debug a program that has crashed, it is essential to make sure that any output you think should have been written was actually flushed.</p>
+<h1 id="2-File-Input-and-Output"><a href="#2-File-Input-and-Output" class="headerlink" title="2. File Input and Output"></a>2. File Input and Output</h1><p>The fstream header defines three types to support file IO: <code>ifstream</code> to read from a given file, <code>ofstream</code> to write to a given file, and <code>fstream</code>, which reads and writes a given file.<br><img src="_v_images/20210118223957603_227409082.png" srcset="/img/loading.gif" alt=" fstream-Specific Operations"></p>
+<h2 id="1-File-Modes"><a href="#1-File-Modes" class="headerlink" title="(1) File Modes"></a>(1) File Modes</h2><p><img src="_v_images/20210118224422012_1688489982.png" srcset="/img/loading.gif" alt="File Modes"></p>
+<p><code>out</code> may be set only for an ofstream or fstream object.</p>
+<p><code>in</code> may be set only for an ifstream or fstream object.</p>
+<p><code>trunc</code> may be set only when out is also specified.</p>
+<p><code>app</code> mode may be specified so long as trunc is not. If app is specified, the file is always opened in output mode, even if out was not explicitly specified.</p>
+<p>By default, a file opened in <code>out</code> mode is truncated even if we do not specify <code>trunc</code>. </p>
+<p>To preserve the contents of a file opened with <code>out</code>, either we must also specify <code>app</code>, in which case we can write only at the end of the file, or we must also specify <code>in</code>, in which case the file is open for both input and output.</p>
+<p>The <code>ate</code> and <code>binary</code> modes may be specified on any file stream object type and in combination with any other file modes.</p>
+
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/C-Primer/">C++ Primer</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-Primer/">C++ Primer</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/15/Classes/">
+                        <span class="hidden-mobile">Classes</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -322,6 +416,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -329,7 +448,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "诗酒趁年华&nbsp;",
+        "The IO Library&nbsp;",
       ],
       cursorChar: " ",
       typeSpeed: 70,
@@ -344,6 +463,23 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -357,6 +493,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 

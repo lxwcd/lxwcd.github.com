@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>The IO Library</title>
+    <link href="/2021/01/18/The-IO-Library/"/>
+    <url>/2021/01/18/The-IO-Library/</url>
+    
+    <content type="html"><![CDATA[<p>C++ Primer(Fifth Edition) Chapter 8 The IO Library</p><a id="more"></a><h1 id="1-The-IO-Classes"><a href="#1-The-IO-Classes" class="headerlink" title="1. The IO Classes"></a>1. The IO Classes</h1><h2 id="1-No-Copy-or-Assign-for-IO-Objects"><a href="#1-No-Copy-or-Assign-for-IO-Objects" class="headerlink" title="(1) No Copy or Assign for IO Objects"></a>(1) No Copy or Assign for IO Objects</h2><p>We cannot copy or assign objects of the IO types:</p><pre><code class="hljs cpp">ofstream out1, out2;out1 = out2; <span class="hljs-comment">// error: cannot assign stream objects</span><span class="hljs-function">ofstream <span class="hljs-title">print</span><span class="hljs-params">(ofstream)</span></span>; <span class="hljs-comment">// error: can't initialize the ofstream parameter</span>out2 = print(out2); <span class="hljs-comment">// error: cannot copy stream objects</span></code></pre><h2 id="2-Condition-States"><a href="#2-Condition-States" class="headerlink" title="(2)  Condition States"></a>(2)  Condition States</h2><p><img src="_v_images/20210118221216970_1707240907.png" srcset="/img/loading.gif" alt=" IO Library Condition State"></p><h2 id="3-Flushing-the-Output-Buffer"><a href="#3-Flushing-the-Output-Buffer" class="headerlink" title="(3) Flushing the Output Buffer"></a>(3) Flushing the Output Buffer</h2><p><code>endl</code> ends the current line and flushes the buffer. </p><p><code>flush</code> flushes the stream but adds no characters to the output.</p><p><code>ends</code> inserts a null character into the buffer and then flushes it.</p><pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"hi!"</span> &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// writes hi and a newline, then flushes the buffer</span><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"hi!"</span> &lt;&lt; flush; <span class="hljs-comment">// writes hi, then flushes the buffer; adds no data</span><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"hi!"</span> &lt;&lt; ends; <span class="hljs-comment">// writes hi and a null, then flushes the buffer</span></code></pre><h2 id="4-The-unitbuf-Manipulator"><a href="#4-The-unitbuf-Manipulator" class="headerlink" title="(4) The unitbuf Manipulator"></a>(4) The unitbuf Manipulator</h2><p>If we want to flush after every output, we can use the <code>unitbuf</code> manipulator. </p><p>This manipulator tells the stream to do a flush after every subsequent write. </p><p>The <code>nounitbuf</code> manipulator restores the stream to use normal, system-managed buffer flushing:</p><pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; unitbuf; <span class="hljs-comment">// all writes will be flushed immediately</span><span class="hljs-comment">// any output is flushed immediately, no buffering</span><span class="hljs-built_in">cout</span> &lt;&lt; nounitbuf; <span class="hljs-comment">// returns to normal buffering</span></code></pre><p><strong>Caution:</strong> Buffers Are Not Flushed If the Program Crashes</p><p>Output buffers are not flushed if the program terminates abnormally. </p><p>When a program crashes, it is likely that data the program wrote may be sitting in an output buffer waiting to be printed.</p><p>When you debug a program that has crashed, it is essential to make sure that any output you think should have been written was actually flushed.</p><h1 id="2-File-Input-and-Output"><a href="#2-File-Input-and-Output" class="headerlink" title="2. File Input and Output"></a>2. File Input and Output</h1><p>The fstream header defines three types to support file IO: <code>ifstream</code> to read from a given file, <code>ofstream</code> to write to a given file, and <code>fstream</code>, which reads and writes a given file.<br><img src="_v_images/20210118223957603_227409082.png" srcset="/img/loading.gif" alt=" fstream-Specific Operations"></p><h2 id="1-File-Modes"><a href="#1-File-Modes" class="headerlink" title="(1) File Modes"></a>(1) File Modes</h2><p><img src="_v_images/20210118224422012_1688489982.png" srcset="/img/loading.gif" alt="File Modes"></p><p><code>out</code> may be set only for an ofstream or fstream object.</p><p><code>in</code> may be set only for an ifstream or fstream object.</p><p><code>trunc</code> may be set only when out is also specified.</p><p><code>app</code> mode may be specified so long as trunc is not. If app is specified, the file is always opened in output mode, even if out was not explicitly specified.</p><p>By default, a file opened in <code>out</code> mode is truncated even if we do not specify <code>trunc</code>. </p><p>To preserve the contents of a file opened with <code>out</code>, either we must also specify <code>app</code>, in which case we can write only at the end of the file, or we must also specify <code>in</code>, in which case the file is open for both input and output.</p><p>The <code>ate</code> and <code>binary</code> modes may be specified on any file stream object type and in combination with any other file modes.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+      <category>C++ Primer</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>C++ Primer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Classes</title>
     <link href="/2021/01/15/Classes/"/>
     <url>/2021/01/15/Classes/</url>
