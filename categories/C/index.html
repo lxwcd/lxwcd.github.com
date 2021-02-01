@@ -155,15 +155,27 @@
                 
 
 <div class="list-group">
-  <p class="h4">9 posts in total.</p>
+  <p class="h4">11 posts in total.</p>
   <hr>
   
     
       
       <p class="h5">2021</p>
     
+    <a href="/2021/01/31/Generic-Algorithms/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Generic Algorithms</span>
+      <time style="float: right;">01-31</time>
+    </a>
+  
+    
     <a href="/2021/01/24/const-in-C-VS-C++/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">const in C VS C++</span>
+      <time style="float: right;">01-24</time>
+    </a>
+  
+    
+    <a href="/2021/01/24/Sequential-Containers/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Sequential Containers</span>
       <time style="float: right;">01-24</time>
     </a>
   
@@ -212,13 +224,19 @@
       <time style="float: right;">12-29</time>
     </a>
   
-    
-    <a href="/2020/12/29/Getting-Started/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Getting Started</span>
-      <time style="float: right;">12-29</time>
-    </a>
-  
 </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/categories/C/page/2/">2</a><a class="extend next" rel="next" href="/categories/C/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
