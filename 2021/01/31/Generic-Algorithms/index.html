@@ -138,7 +138,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/Sequential-Containers_Inner.jpeg') no-repeat center center;
+         style="background: url('/img/Generic-Algorithms_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -165,7 +165,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      3.3k 字
     </span>
   
 
@@ -175,7 +175,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30
+      66
        分钟
     </span>
   
@@ -208,7 +208,7 @@
             <h1 style="display: none">Generic Algorithms</h1>
             
             <div class="markdown-body" id="post-body">
-              <p>C++ Primer(Fifth Edition) Chapter 10 Sequential Containers</p>
+              <p>C++ Primer(Fifth Edition) Chapter 10 Generic Algorithms</p>
 <a id="more"></a>
 
 <h1 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1. Overview"></a>1. Overview</h1><p>Algorithms never change the size of the underlying container. Algorithms may change the values of the elements stored in the container, and they may move elements around within the container. They do not, however, ever add or remove elements directly.</p>
@@ -301,7 +301,175 @@ elimDups(words);
 <span class="hljs-comment">// resort by length, maintaining alphabetical order among words of the same length</span>
 stable_sort(words.begin(), words.end(), isShorter);</code></pre>
 
-<h2 id="2-Lambda-Expressions"><a href="#2-Lambda-Expressions" class="headerlink" title="(2) Lambda Expressions"></a>(2) Lambda Expressions</h2>
+<h2 id="2-Lambda-Expressions"><a href="#2-Lambda-Expressions" class="headerlink" title="(2) Lambda Expressions"></a>(2) Lambda Expressions</h2><h3 id="Introducing-Lambdas"><a href="#Introducing-Lambdas" class="headerlink" title="Introducing Lambdas"></a>Introducing Lambdas</h3><p>A lambda expression represents a callable unit of code. It can be thought of as an unnamed, inline function. Like any function, a lambda has a return type, a parameter list, and a function body. Unlike a function, lambdas may be defined inside a function. </p>
+<pre><code class="hljs cpp">[capture <span class="hljs-built_in">list</span>] (parameter <span class="hljs-built_in">list</span>) -&gt; <span class="hljs-keyword">return</span> type &#123; function body &#125;</code></pre>
+<p>where <code>capture list</code> is an (often empty) list of local variables defined in the enclosing function; return type, parameter list, and function body are the same as in any ordinary function. </p>
+<p>However, unlike ordinary functions, a lambda must use a trailing return to specify its return type.</p>
+<p>We can omit either or both of the parameter list and return type but must always include the capture list and function body:</p>
+<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> f = [] &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>; &#125;;</code></pre>
+<p>Here, we’ve defined <code>f</code> as a callable object that takes no arguments and returns <code>42</code>.</p>
+<pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; f() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 42</span></code></pre>
+<p>Omitting the parentheses and the parameter list in a lambda is equivalent to specifying an empty parameter list. Hence, when we call f, the argument list is empty.</p>
+<p>If we omit the return type, the lambda has an inferred return type that depends on the code in the function body. If the function body is just a return statement, the return type is inferred from the type of the expression that is returned. Otherwise, the return type is void.</p>
+<h3 id="Passing-Arguments-to-a-Lambda"><a href="#Passing-Arguments-to-a-Lambda" class="headerlink" title="Passing Arguments to a Lambda"></a>Passing Arguments to a Lambda</h3><p>Unlike ordinary functions, a lambda may not have default arguments. Therefore, a call to a lambda always has as many arguments as the lambda has parameters. Once the parameters are initialized, the function body executes. </p>
+<pre><code class="hljs cpp">[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)
+&#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;</code></pre>
+<p>The empty capture list indicates that this lambda will not use any local variables from the surrounding function. </p>
+<p>We can rewrite our call to <code>stable_sort</code> to use this lambda as follows:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// sort words by size, but maintain alphabetical order for words of the same size</span>
+stable_sort(words.begin(), words.end(),
+[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)
+&#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;);</code></pre>
+<p>When stable_sort needs to compare two elements, it will call the given lambda expression. </p>
+<h3 id="Using-the-Capture-List"><a href="#Using-the-Capture-List" class="headerlink" title="Using the Capture List"></a>Using the Capture List</h3><pre><code class="hljs cpp">[sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
+&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;;</code></pre>
+<p>Inside the <code>[]</code> that begins a lambda we can provide a comma-separated list of names defined in the surrounding function.</p>
+<p>Because this lambda captures <code>sz</code>, the body of the lambda may use <code>sz</code>. The lambda does not capture words, and so has no access to that variable. Had we given our lambda an empty capture list, our code would not compile:</p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// error: sz not captured</span>
+[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
+&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;;</code></pre>
+
+<p>A lambda may use a variable local to its surrounding function only if the lambda captures that variable in its capture list.</p>
+<h3 id="find-if"><a href="#find-if" class="headerlink" title="find_if"></a>find_if</h3><pre><code class="hljs cpp"><span class="hljs-comment">// get an iterator to the first element whose size() is &gt;= sz</span>
+<span class="hljs-keyword">auto</span> wc = find_if(words.begin(), words.end(),
+                [sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
+&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;);
+
+<span class="hljs-comment">// compute the number of elements with size &gt;= sz</span>
+<span class="hljs-keyword">auto</span> count = words.end() - wc;
+<span class="hljs-built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; make_plural(count, <span class="hljs-string">"word"</span>, <span class="hljs-string">"s"</span>)
+&lt;&lt; <span class="hljs-string">" of length "</span> &lt;&lt; sz &lt;&lt; <span class="hljs-string">" or longer"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre>
+<p>Our output statement calls <code>make_plural</code> to print <code>word</code> or <code>words</code>, depending on whether that size is equal to <code>1</code>.</p>
+<h3 id="The-for-each-Algorithm"><a href="#The-for-each-Algorithm" class="headerlink" title="The for_each Algorithm"></a>The for_each Algorithm</h3><pre><code class="hljs cpp"><span class="hljs-comment">// print words of the given size or longer, each one followed by a space</span>
+for_each(wc, words.end(),
+        [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s)&#123;<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">" "</span>;&#125;);
+<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre>
+<p>The capture list in this lambda is empty, yet the body uses two names: its own parameter, named <code>s</code>, and <code>cout</code>.</p>
+<p>The capture list is empty, because we use the capture list only for (nonstatic) variables defined in the surrounding function. </p>
+<p>A lambda can use names that are defined outside the function in which the lambda appears. </p>
+<p>The capture list is used for local nonstatic variables only; lambdas can use local statics and variables declared outside the function directly.</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">biggies</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; &amp;words,</span></span>
+<span class="hljs-function"><span class="hljs-params"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::size_type sz)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-comment">// put words in alphabetical order and remove duplicates</span>
+    elimDups(words); 
+    <span class="hljs-comment">// sort words by size, but maintain alphabetical order for words of the same size</span>
+    stable_sort(words.begin(), words.end(),
+                [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)
+                &#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;);
+    <span class="hljs-comment">// get an iterator to the first element whose size() is &gt;= sz</span>
+    <span class="hljs-keyword">auto</span> wc = find_if(words.begin(), words.end(),
+                      [sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
+                      &#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;);
+    <span class="hljs-comment">// compute the number of elements with size &gt;= sz</span>
+    <span class="hljs-keyword">auto</span> count = words.end() - wc;
+    <span class="hljs-built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; make_plural(count, <span class="hljs-string">"word"</span>, <span class="hljs-string">"s"</span>)
+    &lt;&lt; <span class="hljs-string">" of length "</span> &lt;&lt; sz &lt;&lt; <span class="hljs-string">" or longer"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-comment">// print words of the given size or longer, each one followed by a space</span>
+    for_each(wc, words.end(),
+            [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s)&#123;<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">" "</span>;&#125;);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+&#125;</code></pre>
+
+<h2 id="3-Lambda-Captures-and-Returns"><a href="#3-Lambda-Captures-and-Returns" class="headerlink" title="(3) Lambda Captures and Returns"></a>(3) Lambda Captures and Returns</h2><p>When we define a lambda, the compiler generates a new (unnamed) class type that corresponds to that lambda. </p>
+<p>By default, the class generated from a lambda contains a data member corresponding to the variables captured by the lambda. </p>
+<p>Like the data members of any class, the data members of a lambda are initialized when a lambda object is created. </p>
+<h3 id="Capture-by-Value"><a href="#Capture-by-Value" class="headerlink" title="Capture by Value"></a>Capture by Value</h3><p>Similar to parameter passing, we can capture variables by value or by reference. </p>
+<p>Unlike parameters, the value of a captured variable is copied when the lambda is created, not when it is called:</p>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn1</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
+    <span class="hljs-comment">// copies v1 into the callable object named f</span>
+    <span class="hljs-keyword">auto</span> f = [v1] &#123; <span class="hljs-keyword">return</span> v1; &#125;;
+    v1 = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">auto</span> j = f(); <span class="hljs-comment">// j is 42; f stored a copy of v1 when we created it</span>
+&#125;</code></pre>
+<p><img src="_v_images/20210202212852556_443641787.png" srcset="/img/loading.gif" alt="Lambda Capture List"></p>
+<h3 id="Capture-by-Reference"><a href="#Capture-by-Reference" class="headerlink" title="Capture by Reference"></a>Capture by Reference</h3><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn2</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
+    <span class="hljs-comment">// the object f2 contains a reference to v1</span>
+    <span class="hljs-keyword">auto</span> f2 = [&amp;v1] &#123; <span class="hljs-keyword">return</span> v1; &#125;;
+    v1 = <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// j is 0; f2 refers to v1; it doesn't store it</span>
+    <span class="hljs-keyword">auto</span> j = f2(); 
+&#125;</code></pre>
+<h3 id="Mutable-Lambdas"><a href="#Mutable-Lambdas" class="headerlink" title="Mutable Lambdas"></a>Mutable Lambdas</h3><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn3</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
+    <span class="hljs-comment">// f can change the value of the variables it captures</span>
+    <span class="hljs-keyword">auto</span> f = [v1] () <span class="hljs-keyword">mutable</span> &#123; <span class="hljs-keyword">return</span> ++v1; &#125;;
+    v1 = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">auto</span> j = f(); <span class="hljs-comment">// j is 43</span>
+&#125;</code></pre>
+<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn4</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
+    <span class="hljs-comment">// v1 is a reference to a non const variable</span>
+    <span class="hljs-comment">// we can change that variable through the reference inside f2</span>
+    <span class="hljs-keyword">auto</span> f2 = [&amp;v1] &#123; <span class="hljs-keyword">return</span> ++v1; &#125;;
+    v1 = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">auto</span> j = f2(); <span class="hljs-comment">// j is 1</span>
+&#125;</code></pre>
+<h3 id="Specifying-the-Lambda-Return-Type"><a href="#Specifying-the-Lambda-Return-Type" class="headerlink" title="Specifying the Lambda Return Type"></a>Specifying the Lambda Return Type</h3><p>The lambdas we’ve written so far contain only a single return statement. As a result, we haven’t had to specify the return type. </p>
+<p>By default, if a lambda body contains any statements other than a return, that lambda is assumed to return void. Like other functions that return void, lambdas inferred to return void may not return a value.</p>
+<pre><code class="hljs cpp">transform(vi.begin(), vi.end(), vi.begin(),
+          [](<span class="hljs-keyword">int</span> i) &#123; <span class="hljs-keyword">return</span> i &lt; <span class="hljs-number">0</span> ? -i : i; &#125;);
+
+<span class="hljs-comment">// error: cannot deduce the return type for the lambda</span>
+transform(vi.begin(), vi.end(), vi.begin(),
+          [](<span class="hljs-keyword">int</span> i) &#123; <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -i; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> i; &#125;);
+
+transform(vi.begin(), vi.end(), vi.begin(),
+         [](<span class="hljs-keyword">int</span> i) -&gt; <span class="hljs-keyword">int</span>
+         &#123; <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -i; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> i; &#125;);</code></pre>
+
+<h1 id="4-Revisiting-Iterators"><a href="#4-Revisiting-Iterators" class="headerlink" title="4. Revisiting Iterators"></a>4. Revisiting Iterators</h1><h2 id="1-Insert-Iterators"><a href="#1-Insert-Iterators" class="headerlink" title="(1) Insert Iterators"></a>(1) Insert Iterators</h2><p>An <code>inserter</code> is an iterator adaptor that takes a container and yields an iterator that adds elements to the specified container. </p>
+<p>When we assign a value through an insert iterator, the iterator calls a container operation to add an element at a specified position in the given container.<br><img src="_v_images/20210202212659785_830469995.png" srcset="/img/loading.gif" alt="Insert Iterator Operations"><br>There are three kinds of inserters. Each differs from the others as to where elements are inserted:</p>
+<ul>
+<li><p><code>back_inserter</code> creates an iterator that uses push_back.</p>
+</li>
+<li><p><code>front_inserter</code> creates an iterator that uses push_front.</p>
+</li>
+<li><p><code>inserter</code> creates an iterator that uses insert. This function takes a second argument, which must be an iterator into the given container. Elements are inserted ahead of the element denoted by the given iterator.</p>
+</li>
+</ul>
+<pre><code class="hljs cpp"><span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-number">1</span>st = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;
+<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; lst2, lst3; <span class="hljs-comment">// empty lists</span>
+<span class="hljs-comment">// after copy completes, 1st2 contains 4 3 2 1</span>
+copy(<span class="hljs-number">1</span>st.cbegin(), lst.cend(), front_inserter(lst2));
+<span class="hljs-comment">// after copy completes, 1st3 contains 1 2 3 4</span>
+copy(<span class="hljs-number">1</span>st.cbegin(), lst.cend(), inserter(lst3, lst3.begin()));</code></pre>
+<h2 id="2-iostream-Iterators"><a href="#2-iostream-Iterators" class="headerlink" title="(2) iostream Iterators"></a>(2) iostream Iterators</h2><p><img src="_v_images/20210202212519319_272382113.png" srcset="/img/loading.gif" alt="istream_iterator Operations"></p>
+<p><img src="_v_images/20210202212538787_2147290368.png" srcset="/img/loading.gif" alt="ostream Iterator Operations"></p>
+<h2 id="3-Reverse-Iterators"><a href="#3-Reverse-Iterators" class="headerlink" title="(3) Reverse Iterators"></a>(3) Reverse Iterators</h2><p>The containers, aside from forward_list, all have reverse iterators. We obtain a reverse iterator by calling the rbegin, rend, crbegin, and crend members.</p>
+<pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;
+<span class="hljs-comment">// reverse iterator of vector from back to front</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> r_iter = vec.crbegin(); <span class="hljs-comment">// binds r_iter to the last element</span>
+    r_iter != vec.crend(); <span class="hljs-comment">// crend refers 1 before 1st element</span>
+    ++r_iter) <span class="hljs-comment">// decrements the iterator one element</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; *r_iter &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 9, 8, 7,... 0</span></code></pre>
+<pre><code class="hljs cpp">sort(vec.begin(), vec.end()); <span class="hljs-comment">// sorts vec in ''normal'' order</span>
+<span class="hljs-comment">// sorts in reverse: puts the smallest element at the end of vec</span>
+sort(vec.rbegin(), vec.rend());</code></pre>
+<p><img src="_v_images/20210202212433603_786048652.png" srcset="/img/loading.gif" alt="Comparing begin/cend and rbegin/crend Iterators"><br>Not surprisingly, we can define a reverse iterator only from an iterator that supports <code>--</code> as well as <code>++</code>. </p>
+<p>Aside from <code>forward_list</code>, the iterators on the standard containers all support decrement as well as increment. </p>
+<p>However, the <code>stream</code> iterators do not, because it is not possible to move backward through a stream. Therefore, it is not possible to create a reverse iterator from a <code>forward_list</code> or a stream iterator. </p>
+<pre><code class="hljs cpp"><span class="hljs-comment">// find the first element in a comma-separated list</span>
+<span class="hljs-keyword">auto</span> comma = find(line.cbegin(), line.cend(), <span class="hljs-string">','</span>);
+<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">string</span>(line.cbegin(), comma) &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+<span class="hljs-comment">// find the last element in a comma-separated list</span>
+<span class="hljs-keyword">auto</span> rcomma = find(line.crbegin(), line.crend(), <span class="hljs-string">','</span>);
+<span class="hljs-comment">// ok: get a forward iterator and read to the end of line</span>
+<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">string</span>(rcomma.base(), line.cend()) &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre>
+<p>Technically speaking, the relationship between normal and reverse iterators accommodates the properties of a left-inclusive range.</p>
+<p>The point is that <code>[line.crbegin(), rcomma) and [rcomma.base(), line.cend())</code> refer to the same elements in line. In order for that to happen, <code>rcomma</code> and <code>rcomma.base()</code> must yield adjacent positions, rather than the same position, as must <code>crbegin()</code> and <code>cend()</code>.</p>
+<h1 id="5-Structure-of-Generic-Algorithms"><a href="#5-Structure-of-Generic-Algorithms" class="headerlink" title="5. Structure of Generic Algorithms"></a>5. Structure of Generic Algorithms</h1><p><img src="_v_images/20210202212113310_1303620266.png" srcset="/img/loading.gif" alt="Iterator Categories"></p>
+<h1 id="6-Container-Specific-Algorithms"><a href="#6-Container-Specific-Algorithms" class="headerlink" title="6. Container-Specific Algorithms"></a>6. Container-Specific Algorithms</h1><p>Unlike the other containers, list and <code>forward_list</code> define several algorithms as members. In particular, the <code>list</code> types define their own versions of <code>sort</code>, <code>merge</code>, <code>remove</code>, <code>reverse</code>, and <code>unique</code>. The generic version of <code>sort</code> requires randomaccess iterators. As a result, <code>sort</code> cannot be used with <code>list</code> and <code>forward_list</code> because these types offer bidirectional and forward iterators, respectively.</p>
+<p><img src="_v_images/20210202211821083_764781053.png" srcset="/img/loading.gif" alt=" Algorithms That are Members of list and forward_list"></p>
+<p><img src="_v_images/20210202211733225_1095566265.png" srcset="/img/loading.gif" alt=" Arguments to the list and forward_list splice Members"></p>
+
             </div>
             <hr>
             <div>
@@ -334,6 +502,12 @@ stable_sort(words.begin(), words.end(), isShorter);</code></pre>
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/02/02/Associative-Containers/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Associative Containers</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
