@@ -219,17 +219,17 @@
 <p>The library also defines a companion class named <code>weak_ptr</code> that is a <code>weak</code> reference to an object managed by a <code>shared_ptr</code>. All three are defined in the memory header.</p>
 <h2 id="1-The-shared-ptr-Class"><a href="#1-The-shared-ptr-Class" class="headerlink" title="(1) The shared_ptr Class"></a>(1) The shared_ptr Class</h2><p><img src="_v_images/20210204211119613_405171216.png" srcset="/img/loading.gif" alt="Operations Common to shared_ptr and unique_ptr"><br><img src="_v_images/20210204211057221_1274647234.png" srcset="/img/loading.gif" alt="Operations Specific to shared_ptr"><br>Like <code>vectors</code>, smart pointers are <code>templates</code>. Therefore, when we create a smart pointer, we must supply additional information—in this case, the type to which the pointer can point. </p>
 <p>As with vector, we supply that type inside angle brackets that follow the name of the kind of smart pointer we are defining:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; p1; <span class="hljs-comment">// shared_ptr that can point at a string</span>
-<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; p2; <span class="hljs-comment">// shared_ptr that can point at a list of ints</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; p1; <span class="hljs-comment">// shared_ptr that can point at a string</span>
+<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; p2; <span class="hljs-comment">// shared_ptr that can point at a list of ints</span></code></pre></div>
 <p>A <code>default</code> initialized smart pointer holds a <code>null</code> pointer.</p>
 <p>We use a smart pointer in ways that are similar to using a pointer.</p>
 <p>Dereferencing a smart pointer returns the object to which the pointer points. </p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// if p1 is not null, check whether it's the empty string</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// if p1 is not null, check whether it's the empty string</span>
 <span class="hljs-keyword">if</span> (p1 &amp;&amp; p1-&gt;empty())
-    *p1 = <span class="hljs-string">"hi"</span>; <span class="hljs-comment">// if so, dereference p1 to assign a new value to that string</span></code></pre>
+    *p1 = <span class="hljs-string">"hi"</span>; <span class="hljs-comment">// if so, dereference p1 to assign a new value to that string</span></code></pre></div>
 
 <h3 id="The-make-shared-Function"><a href="#The-make-shared-Function" class="headerlink" title="The make_shared Function"></a>The make_shared Function</h3><p>This function allocates and initializes an object in dynamic memory and returns a <code>shared_ptr</code> that points to that object. Like the smart pointers, <code>make_shared</code> is defined in the memory header.</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// shared_ptr that points to an int with value 42</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// shared_ptr that points to an int with value 42</span>
 <span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p3 = make_shared&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">42</span>);
 <span class="hljs-comment">// p4 points to a string with value 9999999999</span>
 <span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; p4 = make_shared&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-number">10</span>, <span class="hljs-string">'9'</span>);
@@ -238,17 +238,17 @@
 
 <span class="hljs-keyword">auto</span> p = make_shared&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">42</span>); <span class="hljs-comment">// object to which p points has one user</span>
 <span class="hljs-function"><span class="hljs-keyword">auto</span> <span class="hljs-title">q</span><span class="hljs-params">(p)</span></span>; <span class="hljs-comment">// p and q point to the same object</span>
-<span class="hljs-comment">// object to which p and q point has two users</span></code></pre>
+<span class="hljs-comment">// object to which p and q point has two users</span></code></pre></div>
 
 <p>We can think of a <code>shared_ptr</code> as if it has an associated counter, usually referred to as a <code>reference count</code>. </p>
 <p>Whenever we copy a <code>shared_ptr</code>, the count is incremented. For example, the counter associated with a <code>shared_ptr</code> is incremented when we use it to initialize another <code>shared_ptr</code>, when we use it as the right-hand operand of an assignment, or when we pass it to or return it from a function by value.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> r = make_shared&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">42</span>); <span class="hljs-comment">// int to which r points has one user</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> r = make_shared&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">42</span>); <span class="hljs-comment">// int to which r points has one user</span>
 r = q; <span class="hljs-comment">// assign to r, making it point to a different address</span>
 <span class="hljs-comment">// increase the use count for the object to which q points</span>
 <span class="hljs-comment">// reduce the use count of the object to which r had pointed</span>
-<span class="hljs-comment">// the object r had pointed to has no users; that object is automatically freed</span></code></pre>
+<span class="hljs-comment">// the object r had pointed to has no users; that object is automatically freed</span></code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-comment">// factory returns a shared_ptr pointing to a dynamically allocated object</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// factory returns a shared_ptr pointing to a dynamically allocated object</span>
 <span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;Foo&gt; <span class="hljs-title">factory</span><span class="hljs-params">(T arg)</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-comment">// process arg as appropriate</span>
@@ -267,17 +267,17 @@ r = q; <span class="hljs-comment">// assign to r, making it point to a different
     <span class="hljs-built_in">shared_ptr</span>&lt;Foo&gt; p = factory(arg);
     <span class="hljs-comment">// use p</span>
     <span class="hljs-keyword">return</span> p; <span class="hljs-comment">// reference count is incremented when we return p</span>
-&#125; <span class="hljs-comment">// p goes out of scope; the memory to which p points is not freed</span></code></pre>
+&#125; <span class="hljs-comment">// p goes out of scope; the memory to which p points is not freed</span></code></pre></div>
 <p>Because <code>p</code> is local to <code>use_factory</code>, it is destroyed when <code>use_factory</code> ends. When <code>p</code> is destroyed, its reference count is decremented and checked. In this case, <code>p</code> is the only object referring to the memory returned by factory. </p>
 <p>Because <code>p</code> is about to go away, the object to which <code>p</code> points will be destroyed and the memory in which that object resides will be freed. The memory will not be freed if there is any other <code>shared_ptr</code> pointing to it.</p>
 <h3 id="Classes-with-Resources-That-Have-Dynamic-Lifetime"><a href="#Classes-with-Resources-That-Have-Dynamic-Lifetime" class="headerlink" title="Classes with Resources That Have Dynamic Lifetime"></a>Classes with Resources That Have Dynamic Lifetime</h3><p>So far, the classes we’ve used allocate resources that exist only as long as the corresponding objects. </p>
 <p>For example, each <code>vector</code> “owns” its own elements. When we copy a <code>vector</code>, the elements in the original <code>vector</code> and in the copy are separate from one another:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; v1; <span class="hljs-comment">// empty vector</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; v1; <span class="hljs-comment">// empty vector</span>
 &#123; <span class="hljs-comment">// new scope</span>
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; v2 = &#123;<span class="hljs-string">"a"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"the"</span>&#125;;
     v1 = v2; <span class="hljs-comment">// copies the elements from v2 into v1</span>
 &#125; <span class="hljs-comment">// v2 is destroyed, which destroys the elements in v2</span>
-<span class="hljs-comment">// v1 has three elements, which are copies of the ones originally in v2</span></code></pre>
+<span class="hljs-comment">// v1 has three elements, which are copies of the ones originally in v2</span></code></pre></div>
 
 <p>The elements allocated by a <code>vector</code> exist only while the <code>vector</code> itself exists. </p>
 <p>When a <code>vector</code> is destroyed, the elements in the <code>vector</code> are also destroyed. </p>
@@ -286,13 +286,13 @@ r = q; <span class="hljs-comment">// assign to r, making it point to a different
 <p>Unlike the containers, we want <code>Blob</code> objects that are copies of one another to share the <strong>same elements</strong>. </p>
 <p>That is, when we copy a <code>Blob</code>, the original and the copy should refer to the same underlying elements. </p>
 <p>In general, when two objects share the same underlying data, we can’t unilaterally destroy the data when an object of that type goes away:</p>
-<pre><code class="hljs cpp">Blob&lt;<span class="hljs-built_in">string</span>&gt; b1; <span class="hljs-comment">// empty Blob</span>
+<div class="hljs"><pre><code class="hljs cpp">Blob&lt;<span class="hljs-built_in">string</span>&gt; b1; <span class="hljs-comment">// empty Blob</span>
 &#123;   <span class="hljs-comment">// new scope</span>
     Blob&lt;<span class="hljs-built_in">string</span>&gt; b2 = &#123;<span class="hljs-string">"a"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"the"</span>&#125;;
     b1 = b2; <span class="hljs-comment">// b1 and b2 share the same elements</span>
 &#125; <span class="hljs-comment">// b2 is destroyed, but the elements in b2 must not be destroyed</span>
-<span class="hljs-comment">// b1 points to the elements originally created in b2</span></code></pre>
-<pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StrBlob</span> </span>
+<span class="hljs-comment">// b1 points to the elements originally created in b2</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StrBlob</span> </span>
 <span class="hljs-class">&#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-keyword">typedef</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&gt;::size_type size_type;
@@ -340,9 +340,9 @@ StrBlob::StrBlob(<span class="hljs-built_in">initializer_list</span>&lt;<span cl
 <span class="hljs-function"></span>&#123;
     check(<span class="hljs-number">0</span>, <span class="hljs-string">"pop_back on empty StrBlob"</span>);
     data-&gt;pop_back();
-&#125;</code></pre>
+&#125;</code></pre></div>
 <h2 id="2-Managing-Memory-Directly"><a href="#2-Managing-Memory-Directly" class="headerlink" title="(2) Managing Memory Directly"></a>(2) Managing Memory Directly</h2><h3 id="Using-new-to-Dynamically-Allocate-and-Initialize-Objects"><a href="#Using-new-to-Dynamically-Allocate-and-Initialize-Objects" class="headerlink" title="Using new to Dynamically Allocate and Initialize Objects"></a>Using new to Dynamically Allocate and Initialize Objects</h3><p>By default, dynamically allocated objects are default initialized, which means that objects of built-in or compound type have undefined value; objects of class type are initialized by their default constructor:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> *ps = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>; <span class="hljs-comment">// initialized to empty string</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> *ps = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>; <span class="hljs-comment">// initialized to empty string</span>
 <span class="hljs-keyword">int</span> *pi = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>; <span class="hljs-comment">// pi points to an uninitialized int</span>
 <span class="hljs-keyword">int</span> *pi = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>); <span class="hljs-comment">// object to which pi points has value 1024</span>
 <span class="hljs-built_in">string</span> *ps = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(<span class="hljs-number">10</span>, <span class="hljs-string">'9'</span>); <span class="hljs-comment">// *ps is "9999999999"</span>
@@ -351,26 +351,26 @@ StrBlob::StrBlob(<span class="hljs-built_in">initializer_list</span>&lt;<span cl
 <span class="hljs-built_in">string</span> *ps1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>; <span class="hljs-comment">// default initialized to the empty string</span>
 <span class="hljs-built_in">string</span> *ps = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(); <span class="hljs-comment">// value initialized to the empty string</span>
 <span class="hljs-keyword">int</span> *pi1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>; <span class="hljs-comment">// default initialized; *pi1 is undefined</span>
-<span class="hljs-keyword">int</span> *pi2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(); <span class="hljs-comment">// value initialized to 0; *pi2 is 0</span></code></pre>
+<span class="hljs-keyword">int</span> *pi2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(); <span class="hljs-comment">// value initialized to 0; *pi2 is 0</span></code></pre></div>
 
 <p>Because the compiler uses the initializer’s type to deduce the type to allocate, we can use auto only with a single initializer inside parentheses:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">auto</span>(obj); <span class="hljs-comment">// p points to an object of the type of obj</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">auto</span>(obj); <span class="hljs-comment">// p points to an object of the type of obj</span>
 <span class="hljs-comment">// that object is initialized from obj</span>
-<span class="hljs-keyword">auto</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">auto</span>&#123;a,b,c&#125;; <span class="hljs-comment">// error: must use parentheses for the initializer</span></code></pre>
+<span class="hljs-keyword">auto</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">auto</span>&#123;a,b,c&#125;; <span class="hljs-comment">// error: must use parentheses for the initializer</span></code></pre></div>
 <p>The type of <code>p1</code> is a pointer to the auto-deduced type of <code>obj</code>. </p>
 <h3 id="Dynamically-Allocated-const-Objects"><a href="#Dynamically-Allocated-const-Objects" class="headerlink" title="Dynamically Allocated const Objects"></a>Dynamically Allocated const Objects</h3><p>It is legal to use new to allocate <code>const</code> objects:</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// allocate and initialize a const int</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// allocate and initialize a const int</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *pci = <span class="hljs-keyword">new</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>);
 <span class="hljs-comment">// allocate a default-initialized const empty string</span>
-<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> *pcs = <span class="hljs-keyword">new</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span>;</code></pre>
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> *pcs = <span class="hljs-keyword">new</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span>;</code></pre></div>
 <p>Like any other <code>const</code>, a dynamically allocated const object must be initialized. </p>
 <p>A <code>const</code> dynamic object of a class type that defines a default constructor may be initialized implicitly. Objects of other types must be explicitly initialized. Because the allocated object is const, the pointer returned by new is a pointer to const.</p>
 <h3 id="Memory-Exhaustion"><a href="#Memory-Exhaustion" class="headerlink" title="Memory Exhaustion"></a>Memory Exhaustion</h3><p>If new is unable to allocate the requested storage, it throws an exception of type bad_alloc</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// if allocation fails, new returns a null pointer</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// if allocation fails, new returns a null pointer</span>
 <span class="hljs-keyword">int</span> *p1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>; <span class="hljs-comment">// if allocation fails, new throws std::bad_alloc</span>
 <span class="hljs-keyword">int</span> *p2 = <span class="hljs-keyword">new</span> (nothrow) <span class="hljs-keyword">int</span>; <span class="hljs-comment">// if allocation fails, new returns a null pointer</span>
-<span class="hljs-comment">//Both bad_alloc and nothrow are defined in the new header.</span></code></pre>
-<h3 id="Freeing-Dynamic-Memory"><a href="#Freeing-Dynamic-Memory" class="headerlink" title="Freeing Dynamic Memory"></a>Freeing Dynamic Memory</h3><pre><code class="hljs cpp"><span class="hljs-keyword">delete</span> p; <span class="hljs-comment">// p must point to a dynamically allocated object or be null</span>
+<span class="hljs-comment">//Both bad_alloc and nothrow are defined in the new header.</span></code></pre></div>
+<h3 id="Freeing-Dynamic-Memory"><a href="#Freeing-Dynamic-Memory" class="headerlink" title="Freeing Dynamic Memory"></a>Freeing Dynamic Memory</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">delete</span> p; <span class="hljs-comment">// p must point to a dynamically allocated object or be null</span>
 
 <span class="hljs-keyword">int</span> i, *pi1 = &amp;i, *pi2 = <span class="hljs-literal">nullptr</span>;
 <span class="hljs-keyword">double</span> *pd = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>(<span class="hljs-number">33</span>), *pd2 = pd;
@@ -381,7 +381,7 @@ StrBlob::StrBlob(<span class="hljs-built_in">initializer_list</span>&lt;<span cl
 <span class="hljs-keyword">delete</span> pi2; <span class="hljs-comment">// ok: it is always ok to delete a null pointer</span>
 
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *pci = <span class="hljs-keyword">new</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>);
-<span class="hljs-keyword">delete</span> pci; <span class="hljs-comment">// ok: deletes a const object</span></code></pre>
+<span class="hljs-keyword">delete</span> pci; <span class="hljs-comment">// ok: deletes a const object</span></code></pre></div>
 <p>Like <code>new</code>, a <code>delete</code> expression performs two actions: It destroys the object to which its given pointer points, and it <strong>frees</strong> the corresponding memory.</p>
 <h3 id="Dynamically-Allocated-Objects-Exist-until-They-Are-Freed"><a href="#Dynamically-Allocated-Objects-Exist-until-They-Are-Freed" class="headerlink" title="Dynamically Allocated Objects Exist until They Are Freed"></a>Dynamically Allocated Objects Exist until They Are Freed</h3><p>Dynamic memory managed through built-in pointers (rather than smart pointers) exists until it is explicitly freed.</p>
 <h3 id="Resetting-the-Value-of-a-Pointer-after-a-delete"><a href="#Resetting-the-Value-of-a-Pointer-after-a-delete" class="headerlink" title="Resetting the Value of a Pointer after a delete"></a>Resetting the Value of a Pointer after a delete</h3><p>When we delete a pointer, that pointer becomes invalid. </p>
@@ -394,15 +394,15 @@ StrBlob::StrBlob(<span class="hljs-built_in">initializer_list</span>&lt;<span cl
 <p>Resetting the pointer we use to delete that memory lets us check that particular pointer but has no effect on any of the other pointers that still point at the (freed) memory. </p>
 <h2 id="3-Using-shared-ptrs-with-new"><a href="#3-Using-shared-ptrs-with-new" class="headerlink" title="(3) Using shared_ptrs with new"></a>(3) Using shared_ptrs with new</h2><p><img src="_v_images/20210204210915108_973828147.png" srcset="/img/loading.gif" alt="Other Ways to Define and Change shared_ptrs"><br>If we do not initialize a smart pointer, it is initialized as a null pointer.</p>
 <p>We can also initialize a smart pointer from a pointer returned by new:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">double</span>&gt; p1; <span class="hljs-comment">// shared_ptr that can point at a double</span>
-<span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>))</span></span>; <span class="hljs-comment">// p2 points to an int with value 42</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">double</span>&gt; p1; <span class="hljs-comment">// shared_ptr that can point at a double</span>
+<span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>))</span></span>; <span class="hljs-comment">// p2 points to an int with value 42</span></code></pre></div>
 
 <p>The smart pointer constructors that take pointers are explicit. Hence, we cannot implicitly convert a built-in pointer to a smart pointer; we must use the direct form of initialization to initialize a smart pointer:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>); <span class="hljs-comment">// error: must use direct initialization</span>
-<span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>))</span></span>; <span class="hljs-comment">// ok: uses direct initialization</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; p1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>); <span class="hljs-comment">// error: must use direct initialization</span>
+<span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>))</span></span>; <span class="hljs-comment">// ok: uses direct initialization</span></code></pre></div>
 <p>The initialization of <code>p1</code> implicitly asks the compiler to create a <code>shared_ptr</code> from the <code>int*</code> returned by <code>new</code>. </p>
 <p>Because we can’t implicitly convert a pointer to a smart pointer, this initialization is an error. For the same reason, a function that returns a shared_ptr cannot implicitly convert a plain pointer in its return statement:</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">clone</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">clone</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(p); <span class="hljs-comment">// error: implicit conversion to shared_ptr&lt;int&gt;</span>
 &#125;
@@ -411,49 +411,49 @@ StrBlob::StrBlob(<span class="hljs-built_in">initializer_list</span>&lt;<span cl
 <span class="hljs-function"></span>&#123;
     <span class="hljs-comment">// ok: explicitly create a shared_ptr&lt;int&gt; from int*</span>
     <span class="hljs-keyword">return</span> <span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(p));
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>We must explicitly bind a shared_ptr to the pointer we want to return:</p>
-<h3 id="Don’t-Mix-Ordinary-Pointers-and-Smart-Pointers"><a href="#Don’t-Mix-Ordinary-Pointers-and-Smart-Pointers" class="headerlink" title="Don’t Mix Ordinary Pointers and Smart Pointers"></a>Don’t Mix Ordinary Pointers and Smart Pointers</h3><pre><code class="hljs cpp"><span class="hljs-comment">// ptr is created and initialized when process is called</span>
+<h3 id="Don’t-Mix-Ordinary-Pointers-and-Smart-Pointers"><a href="#Don’t-Mix-Ordinary-Pointers-and-Smart-Pointers" class="headerlink" title="Don’t Mix Ordinary Pointers and Smart Pointers"></a>Don’t Mix Ordinary Pointers and Smart Pointers</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// ptr is created and initialized when process is called</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">process</span><span class="hljs-params">(<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; ptr)</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-comment">// use ptr</span>
-&#125; <span class="hljs-comment">// ptr goes out of scope and is destroyed</span></code></pre>
+&#125; <span class="hljs-comment">// ptr goes out of scope and is destroyed</span></code></pre></div>
 <p>The parameter to process is passed by value, so the argument to process is copied into <code>ptr</code>. </p>
 <p>Copying a <code>shared_ptr</code> increments its reference count. Thus, inside process the count is at least 2. </p>
 <p>When <code>process</code> completes, the reference count of <code>ptr</code> is decremented but cannot go to zero. </p>
 <p>Therefore, when the local variable <code>ptr</code> is destroyed, the memory to which <code>ptr</code> points will not be deleted. </p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>))</span></span>; <span class="hljs-comment">// reference count is 1</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>))</span></span>; <span class="hljs-comment">// reference count is 1</span>
 process(p); <span class="hljs-comment">// copying p increments its count; in process the reference count is 2</span>
-<span class="hljs-keyword">int</span> i = *p; <span class="hljs-comment">// ok: reference count is 1</span></code></pre>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> *<span class="hljs-title">x</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>))</span></span>; <span class="hljs-comment">// dangerous: x is a plain pointer, not a smart pointer</span>
+<span class="hljs-keyword">int</span> i = *p; <span class="hljs-comment">// ok: reference count is 1</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> *<span class="hljs-title">x</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>))</span></span>; <span class="hljs-comment">// dangerous: x is a plain pointer, not a smart pointer</span>
 process(x); <span class="hljs-comment">// error: cannot convert int* to shared_ptr&lt;int&gt;</span>
 process(<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt;(x)); <span class="hljs-comment">// legal, but the memory will be deleted!</span>
-<span class="hljs-keyword">int</span> j = *x; <span class="hljs-comment">// undefined: x is a dangling pointer!</span></code></pre>
+<span class="hljs-keyword">int</span> j = *x; <span class="hljs-comment">// undefined: x is a dangling pointer!</span></code></pre></div>
 <p>When we bind a <code>shared_ptr</code> to a plain pointer, we give responsibility for that memory to that <code>shared_ptr</code>. Once we give <code>shared_ptr</code> responsibility for a pointer, we should no longer use a built-in pointer to access the memory to which the <code>shared_ptr</code> now points.</p>
 <p>The smart pointer types define a function named <code>get</code> that returns a built-in pointer to the object that the smart pointer is managing. </p>
 <p>This function is intended for cases when we need to pass a built-in pointer to code that can’t use a smart pointer. </p>
 <p>The code that uses the return from get must not delete that pointer. </p>
 <p>We can use <code>reset</code> to assign a new pointer to a <code>shared_ptr</code>:</p>
-<pre><code class="hljs cpp">p = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>); <span class="hljs-comment">// error: cannot assign a pointer to a shared_ptr</span>
-p.reset(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>)); <span class="hljs-comment">// ok: p points to a new object</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp">p = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>); <span class="hljs-comment">// error: cannot assign a pointer to a shared_ptr</span>
+p.reset(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">1024</span>)); <span class="hljs-comment">// ok: p points to a new object</span></code></pre></div>
 <p>Like assignment, reset updates the reference counts and, if appropriate, deletes the object to which <code>p</code> points. </p>
 <p>The <code>reset</code> member is often used together with <code>unique</code> to control changes to the object shared among several <code>shared_ptrs</code>. Before changing the underlying object, we check whether we’re the only user. If not, we make a new copy before making the change:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (!p.unique())
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (!p.unique())
     p.reset(<span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(*p)); <span class="hljs-comment">// we aren't alone; allocate a new copy</span>
-*p += newVal; <span class="hljs-comment">// now that we know we're the only pointer, okay to change this object</span></code></pre>
-<h2 id="4-Smart-Pointers-and-Exceptions"><a href="#4-Smart-Pointers-and-Exceptions" class="headerlink" title="(4) Smart Pointers and Exceptions"></a>(4) Smart Pointers and Exceptions</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>
+*p += newVal; <span class="hljs-comment">// now that we know we're the only pointer, okay to change this object</span></code></pre></div>
+<h2 id="4-Smart-Pointers-and-Exceptions"><a href="#4-Smart-Pointers-and-Exceptions" class="headerlink" title="(4) Smart Pointers and Exceptions"></a>(4) Smart Pointers and Exceptions</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-function"><span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">sp</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>))</span></span>; <span class="hljs-comment">// allocate a new object</span>
     <span class="hljs-comment">// code that throws an exception that is not caught inside f</span>
-&#125; <span class="hljs-comment">// shared_ptr freed automatically when the function ends</span></code></pre>
+&#125; <span class="hljs-comment">// shared_ptr freed automatically when the function ends</span></code></pre></div>
 
 <p>When a function is exited, whether through normal processing or due to an exception, all the local objects are destroyed. In this case, <code>sp</code> is a <code>shared_ptr</code>, so destroying <code>sp</code> checks its reference count. Here, <code>sp</code> is the only pointer to the memory it manages; that memory will be freed as part of destroying <code>sp</code>.</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">int</span> *ip = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>); <span class="hljs-comment">// dynamically allocate a new object</span>
     <span class="hljs-comment">// code that throws an exception that is not caught inside f</span>
     <span class="hljs-keyword">delete</span> ip; <span class="hljs-comment">// free the memory before exiting</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>If an exception happens between the <code>new</code> and the <code>delete</code>, and is not caught inside <code>f</code>, then this memory can never be freed. There is no pointer to this memory outside the function <code>f</code>. Thus, there is no way to free this memory.</p>
 <h3 id="Caution-Smart-Pointer-Pitfalls"><a href="#Caution-Smart-Pointer-Pitfalls" class="headerlink" title="Caution: Smart Pointer Pitfalls"></a>Caution: Smart Pointer Pitfalls</h3><ul>
 <li>Don’t use the same built-in pointer value to initialize (or reset) more than one smart pointer.</li>
@@ -464,19 +464,19 @@ p.reset(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</sp
 </ul>
 <h2 id="5-unique-ptr"><a href="#5-unique-ptr" class="headerlink" title="(5) unique_ptr"></a>(5) unique_ptr</h2><p><img src="_v_images/20210204210809246_334407479.png" srcset="/img/loading.gif" alt="unique_ptr Operations"><br>A <code>unique_ptr</code> “owns” the object to which it points. Unlike <code>shared_ptr</code>, only one <code>unique_ptr</code> at a time can point to a given object. The object to which a <code>unique_ptr</code> points is destroyed when the <code>unique_ptr</code> is destroyed.</p>
 <p>Unlike <code>shared_ptr</code>, there is no library function comparable to <code>make_shared</code> that returns a <code>unique_ptr</code>. Instead, when we define a <code>unique_ptr</code>, we bind it to a pointer returned by <code>new</code>. As with <code>shared_ptrs</code>, we must use the direct form of initialization:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-keyword">double</span>&gt; p1; <span class="hljs-comment">// unique_ptr that can point at a double</span>
-<span class="hljs-function"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>))</span></span>; <span class="hljs-comment">// p2 points to int with value 42</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-keyword">double</span>&gt; p1; <span class="hljs-comment">// unique_ptr that can point at a double</span>
+<span class="hljs-function"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>(<span class="hljs-number">42</span>))</span></span>; <span class="hljs-comment">// p2 points to int with value 42</span></code></pre></div>
 <p>Because a <code>unique_ptr</code> owns the object to which it points, <code>unique_ptr</code> does not support ordinary copy or assignment:</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">p1</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(<span class="hljs-string">"Stegosaurus"</span>))</span></span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">p1</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(<span class="hljs-string">"Stegosaurus"</span>))</span></span>;
 <span class="hljs-function"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(p1)</span></span>; <span class="hljs-comment">// error: no copy for unique_ptr</span>
 <span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; p3;
-p3 = p2; <span class="hljs-comment">// error: no assign for unique_ptr</span></code></pre>
+p3 = p2; <span class="hljs-comment">// error: no assign for unique_ptr</span></code></pre></div>
 <p>Although we can’t copy or assign a <code>unique_ptr</code>, we can transfer ownership from one (nonconst) <code>unique_ptr</code> to another by calling <code>release</code> or <code>reset</code>:</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// transfers ownership from p1 (which points to the string Stegosaurus) to p2</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// transfers ownership from p1 (which points to the string Stegosaurus) to p2</span>
 <span class="hljs-function"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">p2</span><span class="hljs-params">(p1.release())</span></span>; <span class="hljs-comment">// release makes p1 null</span>
 <span class="hljs-function"><span class="hljs-built_in">unique_ptr</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">p3</span><span class="hljs-params">(<span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>(<span class="hljs-string">"Trex"</span>))</span></span>;
 <span class="hljs-comment">// transfers ownership from p3 to p2</span>
-p2.reset(p3.release()); <span class="hljs-comment">// reset deletes the memory to which p2 had pointed</span></code></pre>
+p2.reset(p3.release()); <span class="hljs-comment">// reset deletes the memory to which p2 had pointed</span></code></pre></div>
 <p>The <code>release</code> member returns the pointer currently stored in the <code>unique_ptr</code> and makes that <code>unique_ptr</code> <code>null</code>. Thus, <code>p2</code> is initialized from the pointer value that had been stored in <code>p1</code> and <code>p1</code> becomes <code>null</code>.</p>
 <p>The <code>reset</code> member takes an optional pointer and repositions the <code>unique_ptr</code> to point to the given pointer. </p>
 <p>If the <code>unique_ptr</code> is not <code>null</code>, then the object to which the <code>unique_ptr</code> had pointed is deleted. </p>
@@ -484,76 +484,76 @@ p2.reset(p3.release()); <span class="hljs-comment">// reset deletes the memory t
 <p>Calling <code>release</code> breaks the connection between a <code>unique_ptr</code> and the object it had been managing. </p>
 <p>Often the pointer returned by <code>release</code> is used to initialize or assign another smart pointer. In that case, responsibility for managing the memory is simply transferred from one smart pointer to another. </p>
 <p>However, if we do not use another smart pointer to hold the pointer returned from <code>release</code>, our program takes over responsibility for freeing that resource:</p>
-<pre><code class="hljs cpp">p2.release(); <span class="hljs-comment">// WRONG: p2 won't free the memory and we've lost the pointer</span>
-<span class="hljs-keyword">auto</span> p = p2.release(); <span class="hljs-comment">// ok, but we must remember to delete(p)</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp">p2.release(); <span class="hljs-comment">// WRONG: p2 won't free the memory and we've lost the pointer</span>
+<span class="hljs-keyword">auto</span> p = p2.release(); <span class="hljs-comment">// ok, but we must remember to delete(p)</span></code></pre></div>
 <h2 id="6-weak-ptr"><a href="#6-weak-ptr" class="headerlink" title="(6) weak_ptr"></a>(6) weak_ptr</h2><p><img src="_v_images/20210204210737836_1070598606.png" srcset="/img/loading.gif" alt="weak_ptrs"><br>A <code>weak_ptr</code> is a smart pointer that does not control the lifetime of the object to which it points. Instead, a <code>weak_ptr</code> points to an object that is managed by a <code>shared_ptr</code>. </p>
 <p>Binding a <code>weak_ptr</code> to a <code>shared_ptr</code> does not change the reference count of that <code>shared_ptr</code>. Once the last <code>shared_ptr</code> pointing to the object goes away, the object itself will be deleted. </p>
 <p>That object will be deleted even if there are <code>weak_ptrs</code> pointing to it.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> p = make_shared&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">42</span>);
-<span class="hljs-function">weak_ptr&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">wp</span><span class="hljs-params">(p)</span></span>; <span class="hljs-comment">// wp weakly shares with p; use count in p is unchanged</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> p = make_shared&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">42</span>);
+<span class="hljs-function">weak_ptr&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">wp</span><span class="hljs-params">(p)</span></span>; <span class="hljs-comment">// wp weakly shares with p; use count in p is unchanged</span></code></pre></div>
 
 <p>Because the object might no longer exist, we cannot use a <code>weak_ptr</code> to access its object directly. </p>
 <p>To access that object, we must call <code>lock</code>. The <code>lock</code> function checks whether the object to which the <code>weak_ptr</code> points still exists. If so, <code>lock</code> returns a <code>shared_ptr</code> to the shared object. </p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; np = wp.lock()) 
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">shared_ptr</span>&lt;<span class="hljs-keyword">int</span>&gt; np = wp.lock()) 
 &#123; <span class="hljs-comment">// true if np is not null</span>
     <span class="hljs-comment">// inside the if, np shares its object with p</span>
-&#125;</code></pre>
-<h1 id="2-Dynamic-Arrays"><a href="#2-Dynamic-Arrays" class="headerlink" title="2. Dynamic Arrays"></a>2. Dynamic Arrays</h1><h2 id="1-new-and-Arrays"><a href="#1-new-and-Arrays" class="headerlink" title="(1) new and Arrays"></a>(1) new and Arrays</h2><pre><code class="hljs cpp"><span class="hljs-comment">// call get_size to determine how many ints to allocate</span>
-<span class="hljs-keyword">int</span> *pia = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[get_size()]; <span class="hljs-comment">// pia points to the first of these ints</span></code></pre>
+&#125;</code></pre></div>
+<h1 id="2-Dynamic-Arrays"><a href="#2-Dynamic-Arrays" class="headerlink" title="2. Dynamic Arrays"></a>2. Dynamic Arrays</h1><h2 id="1-new-and-Arrays"><a href="#1-new-and-Arrays" class="headerlink" title="(1) new and Arrays"></a>(1) new and Arrays</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// call get_size to determine how many ints to allocate</span>
+<span class="hljs-keyword">int</span> *pia = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[get_size()]; <span class="hljs-comment">// pia points to the first of these ints</span></code></pre></div>
 <p>The size inside the brackets must have integral type but need not be a constant.</p>
 <p>We can also allocate an array by using a type alias to represent an array type. In this case, we omit the brackets:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> arrT[<span class="hljs-number">42</span>]; <span class="hljs-comment">// arrT names the type array of 42 ints</span>
-<span class="hljs-keyword">int</span> *p = <span class="hljs-keyword">new</span> arrT; <span class="hljs-comment">// allocates an array of 42 ints; p points to the first one</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">int</span> arrT[<span class="hljs-number">42</span>]; <span class="hljs-comment">// arrT names the type array of 42 ints</span>
+<span class="hljs-keyword">int</span> *p = <span class="hljs-keyword">new</span> arrT; <span class="hljs-comment">// allocates an array of 42 ints; p points to the first one</span></code></pre></div>
 <p>Here, <code>new</code> allocates an array of ints and returns a pointer to the first one. </p>
 <p>Even though there are no brackets in our code, the compiler executes this expression using <code>new[]</code>. That is, the compiler executes this expression as if we had written </p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *p = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">42</span>];</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *p = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">42</span>];</code></pre></div>
 <h3 id="Allocating-an-Array-Yields-a-Pointer-to-the-Element-Type"><a href="#Allocating-an-Array-Yields-a-Pointer-to-the-Element-Type" class="headerlink" title="Allocating an Array Yields a Pointer to the Element Type"></a>Allocating an Array Yields a Pointer to the Element Type</h3><p>Because the allocated memory does not have an array type, we cannot call begin or end on a dynamic array. These functions use the array dimension (which is part of an array’s type) to return pointers to the first and one past the last elements, respectively. For the same reasons, we also cannot use a range for to process the elements in a (so-called) dynamic array.</p>
 <h3 id="Initializing-an-Array-of-Dynamically-Allocated-Objects"><a href="#Initializing-an-Array-of-Dynamically-Allocated-Objects" class="headerlink" title="Initializing an Array of Dynamically Allocated Objects"></a>Initializing an Array of Dynamically Allocated Objects</h3><p>By default, objects allocated by <code>new</code>—whether allocated as a single object or in an array—are default initialized. </p>
 <p>We can value initialize the elements in an array by following the size with an empty pair of parentheses.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *pia = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">// block of ten uninitialized ints</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *pia = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">// block of ten uninitialized ints</span>
 <span class="hljs-keyword">int</span> *pia2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>](); <span class="hljs-comment">// block of ten ints value initialized to 0</span>
 <span class="hljs-built_in">string</span> *psa = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>]; <span class="hljs-comment">// block of ten empty strings</span>
-<span class="hljs-built_in">string</span> *psa2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>](); <span class="hljs-comment">// block of ten empty strings</span></code></pre>
+<span class="hljs-built_in">string</span> *psa2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>](); <span class="hljs-comment">// block of ten empty strings</span></code></pre></div>
 <p>Under the new standard, we can also provide a braced list of element initializers:</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// block of ten ints each initialized from the corresponding initializer</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// block of ten ints each initialized from the corresponding initializer</span>
 <span class="hljs-keyword">int</span> *pia3 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>]&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;
 <span class="hljs-comment">// block of ten strings; the first four are initialized from the given initializers</span>
 <span class="hljs-comment">// remaining elements are value initialized</span>
-<span class="hljs-built_in">string</span> *psa3 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>]&#123;<span class="hljs-string">"a"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"the"</span>, <span class="hljs-built_in">string</span>(<span class="hljs-number">3</span>,<span class="hljs-string">'x'</span>)&#125;;</code></pre>
+<span class="hljs-built_in">string</span> *psa3 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>]&#123;<span class="hljs-string">"a"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"the"</span>, <span class="hljs-built_in">string</span>(<span class="hljs-number">3</span>,<span class="hljs-string">'x'</span>)&#125;;</code></pre></div>
 <p>As when we list initialize an object of built-in array type, the initializers are used to initialize the first elements in the array. </p>
 <p>If there are fewer initializers than elements, the remaining elements are value initialized. </p>
 <p>If there are more initializers than the given size, then the <code>new</code> expression fails and no storage is allocated. In this case, <code>new</code> throws an exception of type <code>bad_array_new_length</code>. Like <code>bad_alloc</code>, this type is defined in the <code>new</code> header. </p>
 <p>Although we can use empty parentheses to value initialize the elements of an array, we cannot supply an element initializer inside the parentheses. The fact that we cannot supply an initial value inside the parentheses means that we cannot use <code>auto</code> to allocate an array. </p>
-<h3 id="It-Is-Legal-to-Dynamically-Allocate-an-Empty-Array"><a href="#It-Is-Legal-to-Dynamically-Allocate-an-Empty-Array" class="headerlink" title="It Is Legal to Dynamically Allocate an Empty Array"></a>It Is Legal to Dynamically Allocate an Empty Array</h3><pre><code class="hljs cpp"><span class="hljs-keyword">char</span> arr[<span class="hljs-number">0</span>]; <span class="hljs-comment">// error: cannot define a zero-length array</span>
-<span class="hljs-keyword">char</span> *cp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">0</span>]; <span class="hljs-comment">// ok: but cp can't be dereferenced</span></code></pre>
+<h3 id="It-Is-Legal-to-Dynamically-Allocate-an-Empty-Array"><a href="#It-Is-Legal-to-Dynamically-Allocate-an-Empty-Array" class="headerlink" title="It Is Legal to Dynamically Allocate an Empty Array"></a>It Is Legal to Dynamically Allocate an Empty Array</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">char</span> arr[<span class="hljs-number">0</span>]; <span class="hljs-comment">// error: cannot define a zero-length array</span>
+<span class="hljs-keyword">char</span> *cp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">0</span>]; <span class="hljs-comment">// ok: but cp can't be dereferenced</span></code></pre></div>
 <p>When we use <code>new</code> to allocate an <code>array</code> of size <code>zero</code>, <code>new</code> returns a valid, nonzero pointer. </p>
 <p>That pointer is guaranteed to be distinct from any other pointer returned by <code>new</code>. This pointer acts as the <code>off-the-end</code> pointer for a zero-element array. </p>
 <p>We can use this pointer in ways that we use an off-the-end iterator. The pointer can be compared as in the loop above. </p>
 <p>We can add zero to (or subtract zero from) such a pointer and can subtract the pointer from itself, yielding zero. </p>
 <p>The pointer cannot be dereferenced—after all, it points to no element. </p>
-<h3 id="Freeing-Dynamic-Arrays"><a href="#Freeing-Dynamic-Arrays" class="headerlink" title="Freeing Dynamic Arrays"></a>Freeing Dynamic Arrays</h3><pre><code class="hljs cpp"><span class="hljs-keyword">delete</span> p; <span class="hljs-comment">// p must point to a dynamically allocated object or be null</span>
-<span class="hljs-keyword">delete</span> [] pa; <span class="hljs-comment">// pa must point to a dynamically allocated array or be null</span></code></pre>
+<h3 id="Freeing-Dynamic-Arrays"><a href="#Freeing-Dynamic-Arrays" class="headerlink" title="Freeing Dynamic Arrays"></a>Freeing Dynamic Arrays</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">delete</span> p; <span class="hljs-comment">// p must point to a dynamically allocated object or be null</span>
+<span class="hljs-keyword">delete</span> [] pa; <span class="hljs-comment">// pa must point to a dynamically allocated array or be null</span></code></pre></div>
 <p>The second statement destroys the elements in the array to which <code>pa</code> points and frees the corresponding memory. </p>
 <p>Elements in an array are destroyed in <strong>reverse</strong> order. That is, the last element is destroyed first, then the second to last, and so on. </p>
 <p>When we delete a pointer to an array, the empty bracket pair is essential: It indicates to the compiler that the pointer addresses the first element of an array of objects. </p>
 <p>If we omit the brackets when we delete a pointer to an array (or provide them when we delete a pointer to an object), the behavior is undefined. </p>
 <h3 id="Smart-Pointers-and-Dynamic-Arrays"><a href="#Smart-Pointers-and-Dynamic-Arrays" class="headerlink" title="Smart Pointers and Dynamic Arrays"></a>Smart Pointers and Dynamic Arrays</h3><p><img src="_v_images/20210204210655222_1518181881.png" srcset="/img/loading.gif" alt="unique_ptrs to Arrays"></p>
 <p>The library provides a version of <code>unique_ptr</code> that can manage arrays allocated by <code>new</code>. To use a <code>unique_ptr</code> to manage a dynamic array, we must include a pair of empty brackets after the object type:</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// up points to an array of ten uninitialized ints</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// up points to an array of ten uninitialized ints</span>
 unique_ptr&lt;int[]&gt; up(new int[10]);
-up.release(); <span class="hljs-comment">// automatically uses delete[] to destroy its pointer</span></code></pre>
+up.release(); <span class="hljs-comment">// automatically uses delete[] to destroy its pointer</span></code></pre></div>
 <p>When a <code>unique_ptr</code> points to an array, we cannot use the dot and arrow member access operators. After all, the <code>unqiue_ptr</code> points to an array, not an object.</p>
 <p>On the other hand, when a <code>unqiue_ptr</code> points to an array, we can use the subscript operator to access the elements in the array:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i != <span class="hljs-number">10</span>; ++i)
-    up[i] = i; <span class="hljs-comment">// assign a new value to each of the elements</span></code></pre>
-<h2 id="2-The-allocator-Class"><a href="#2-The-allocator-Class" class="headerlink" title="(2) The allocator Class"></a>(2) The allocator Class</h2><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> *<span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[n]; <span class="hljs-comment">// construct n empty strings</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i != <span class="hljs-number">10</span>; ++i)
+    up[i] = i; <span class="hljs-comment">// assign a new value to each of the elements</span></code></pre></div>
+<h2 id="2-The-allocator-Class"><a href="#2-The-allocator-Class" class="headerlink" title="(2) The allocator Class"></a>(2) The allocator Class</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> *<span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[n]; <span class="hljs-comment">// construct n empty strings</span>
 <span class="hljs-built_in">string</span> s;
 <span class="hljs-built_in">string</span> *q = p; <span class="hljs-comment">// q points to the first string</span>
 <span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; s &amp;&amp; q != p + n)
 *q++ = s; <span class="hljs-comment">// assign a new value to *q</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> size = q - p; <span class="hljs-comment">// remember how many strings we read</span>
 <span class="hljs-comment">// use the array</span>
-<span class="hljs-keyword">delete</span>[] p; <span class="hljs-comment">// p points to an array; must remember to use delete[]</span></code></pre>
+<span class="hljs-keyword">delete</span>[] p; <span class="hljs-comment">// p points to an array; must remember to use delete[]</span></code></pre></div>
 <p>classes that do not have default constructors cannot be dynamically allocated as an array.</p>
 <h3 id="The-allocator-Class"><a href="#The-allocator-Class" class="headerlink" title="The allocator Class"></a>The allocator Class</h3><p>The library <code>allocator</code> class, which is defined in the <code>memory</code> header, lets us separate allocation from construction. It provides type-aware allocation of raw, unconstructed, memory. </p>
 

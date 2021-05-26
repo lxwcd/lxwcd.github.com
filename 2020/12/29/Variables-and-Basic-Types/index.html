@@ -214,15 +214,15 @@
 <p><strong>Warning:</strong><br><strong>Initialization is not assignment.</strong><br>Initialization happens when a variable is given a value when it is created. </p>
 <p>Assignment obliterates an object’s current value and replaces that value with a new one.</p>
 <h2 id="1-List-Initialization"><a href="#1-List-Initialization" class="headerlink" title="(1) List Initialization"></a>(1) List Initialization</h2><p>The language defines several different forms of initialization:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> units_sold = <span class="hljs-number">0</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> units_sold = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">int</span> units_sold = &#123;<span class="hljs-number">0</span>&#125;;
 <span class="hljs-keyword">int</span> units_sold&#123;<span class="hljs-number">0</span>&#125;;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">units_sold</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;</code></pre>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">units_sold</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;</code></pre></div>
 <p>The generalized use of curly braces for initialization is referred to as <strong>list initialization</strong>.</p>
 <p>The compiler will not let us <strong>list initialize</strong> variables of built-in type if the initializer might lead to the <strong>loss of information</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> ld = <span class="hljs-number">3.1415926536</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">long</span> <span class="hljs-keyword">double</span> ld = <span class="hljs-number">3.1415926536</span>;
 <span class="hljs-keyword">int</span> a&#123;ld&#125;, b = &#123;ld&#125;; <span class="hljs-comment">// error: narrowing conversion required</span>
-int c(ld), d = ld; // ok: but value will be truncated</code></pre>
+int c(ld), d = ld; // ok: but value will be truncated</code></pre></div>
 
 <h2 id="2-Default-Initialization"><a href="#2-Default-Initialization" class="headerlink" title="(2) Default Initialization"></a>(2) Default Initialization</h2><p>When we define a variable without an initializer, the variable is <strong>default initialized</strong>.</p>
 <p>The value of an object of <strong>built-in type</strong> that is <strong>not explicitly initialized</strong> depends on <strong>where it is defined</strong>. </p>
@@ -242,7 +242,7 @@ int c(ld), d = ld; // ok: but value will be truncated</code></pre>
 <p>The standard also reserves a set of names for use in the standard library. </p>
 <p>The <strong>identifiers</strong> may not contain two consecutive underscores, nor can an identifier <strong>begin with an underscore followed immediately by an uppercase letter</strong>. In addition, identifiers defined <strong>outside a function may not begin with an underscore</strong>. (Ubuntu 20.04.1 g++ 9.5.3 测试，无此限制，这样命名不会报错，正常使用)</p>
 <h1 id="3-const-Qualifier"><a href="#3-const-Qualifier" class="headerlink" title="3. const Qualifier"></a>3. const Qualifier</h1><h2 id="1-Initialization"><a href="#1-Initialization" class="headerlink" title="(1) Initialization"></a>(1) Initialization</h2><p>We can make a variable unchangeable by defining the variable’s type as <strong>const</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize = <span class="hljs-number">512</span>; <span class="hljs-comment">// input buffer size</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize = <span class="hljs-number">512</span>; <span class="hljs-comment">// input buffer size</span></code></pre></div>
 
 <p><strong>Because we can’t change the value of a const object after we create it, it must be initialized.</strong> </p>
 <p>By default, const objects are Local to a file. When a const object is initialized from a compile-time constant, such as in our definition of <code>bufSize</code>, the compiler will usually <strong>replace</strong> uses of the variable with its corresponding value <strong>during compilation</strong>. </p>
@@ -252,21 +252,21 @@ int c(ld), d = ld; // ok: but value will be truncated</code></pre>
 <p>To support this usage, yet avoid multiple definitions of the same variable, <strong>const</strong> variables are defined as local to the file. </p>
 <p><strong>Sometimes we have a const variable that we want to share across multiple files but whose initializer is not a constant expression.</strong></p>
 <p>To define a single instance of a <strong>const</strong> variable, we use the keyword <strong>extern</strong> on <strong>both its definition and declaration(s)</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// file_1.cc defines and initializes a const that </span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// file_1.cc defines and initializes a const that </span>
 <span class="hljs-comment">// is accessible to other files</span>
 <span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize = fcn();
 <span class="hljs-comment">// file_1.h</span>
-<span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize; <span class="hljs-comment">// same bufSize as defined in file_1.cc</span></code></pre>
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize; <span class="hljs-comment">// same bufSize as defined in file_1.cc</span></code></pre></div>
 <p>In this program, <code>file_1.cc</code> defines and initializes <code>bufSize</code>. Because this declaration includes an initializer, it is (as usual) a definition. </p>
 <p>However, because <code>bufSize</code> is <strong>const</strong>, we must specify <strong>extern</strong> in order for <code>bufSize</code> to be used in other files.</p>
 <p>The declaration in <code>file_1.h</code> is also <code>extern</code>. In this case, the <code>extern</code> signifies that <code>bufSize</code> is not local to this file and that its definition will occur elsewhere.</p>
 <h2 id="2-References-to-const"><a href="#2-References-to-const" class="headerlink" title="(2) References to const"></a>(2) References to const</h2><p>As with any other object, we can bind a reference to an object of a <strong>const</strong> type. </p>
 <p>To do so we use a <strong>reference to const</strong>, which is a reference that refers to a <strong>const</strong> type.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = <span class="hljs-number">1024</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = <span class="hljs-number">1024</span>;
 <span class="hljs-comment">// ok: both reference and underlying object are const</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r1 = ci; 
 r1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: r1 is a reference to const</span>
-<span class="hljs-keyword">int</span> &amp;r2 = ci; <span class="hljs-comment">// error: non const reference to a const object</span></code></pre>
+<span class="hljs-keyword">int</span> &amp;r2 = ci; <span class="hljs-comment">// error: non const reference to a const object</span></code></pre></div>
 
 <p><strong>Terminology: const Reference is a Reference to const.</strong></p>
 <p>C++ programmers tend to abbreviate the phrase “reference to const” as “const reference.” </p>
@@ -277,17 +277,17 @@ r1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: r
 <li><strong>We can initialize a reference to const from any expression that can be converted to the type of the reference.</strong> </li>
 </ol>
 <p>In particular, we can bind a reference to <strong>const</strong> to a <strong>nonconst</strong> object, a literal, or a more general expression:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">42</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">42</span>;
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r1 = i; <span class="hljs-comment">// we can bind a const int&amp; to a plain int object</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r2 = <span class="hljs-number">42</span>; <span class="hljs-comment">// ok: r1 is a reference to const</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r3 = r1 * <span class="hljs-number">2</span>; <span class="hljs-comment">// ok: r3 is a reference to const</span>
-<span class="hljs-keyword">int</span> &amp;r4 = r1 * <span class="hljs-number">2</span>; <span class="hljs-comment">// error: r4 is a plain, non const reference</span></code></pre>
+<span class="hljs-keyword">int</span> &amp;r4 = r1 * <span class="hljs-number">2</span>; <span class="hljs-comment">// error: r4 is a plain, non const reference</span></code></pre></div>
 <p>The easiest way to understand this difference in initialization rules is to consider what happens when we bind a reference to an object of a different type:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">double</span> dval = <span class="hljs-number">3.14</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;ri = dval;</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">double</span> dval = <span class="hljs-number">3.14</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;ri = dval;</code></pre></div>
 <p>To ensure that the object to which <code>ri</code> is bound is an <code>int</code>, the compiler transforms this code into something like:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> temp = dval; <span class="hljs-comment">// create a temporary const int from the double</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;ri = temp; <span class="hljs-comment">// bind ri to that temporary</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> temp = dval; <span class="hljs-comment">// create a temporary const int from the double</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;ri = temp; <span class="hljs-comment">// bind ri to that temporary</span></code></pre></div>
 <p>In this case, <code>ri</code> is bound to a <strong>temporary</strong> object. A temporary object is an unnamed object created by the compiler when it needs a place to store a result from evaluating an expression. </p>
 <p>C++ programmers often use the word <strong>temporary</strong> as an abbreviation for temporary object.</p>
 <p><strong>Now consider what could happen if this initialization were allowed but ri was not const:</strong> </p>
@@ -297,19 +297,19 @@ r1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: r
 <li><strong>A Reference to const May Refer to an Object That Is Not const</strong></li>
 </ol>
 <p>It is important to realize that a reference to const <strong>restricts only what we can do through that reference</strong>. </p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">42</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">42</span>;
 <span class="hljs-keyword">int</span> &amp;r1 = i; <span class="hljs-comment">// r1 bound to i</span>
 <span class="hljs-comment">// r2 also bound to i; but cannot be used to change i</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r2 = i; 
 r1 = <span class="hljs-number">0</span>; <span class="hljs-comment">// r1 is not const; i is now 0; r2 = 0;</span>
-r2 = <span class="hljs-number">0</span>; <span class="hljs-comment">// error: r2 is a reference to const</span></code></pre>
+r2 = <span class="hljs-number">0</span>; <span class="hljs-comment">// error: r2 is a reference to const</span></code></pre></div>
 
 <p>Even so, <strong>the value int i still might change</strong>. We can change <code>i</code> by assigning to it directly, or by assigning to another reference bound to <code>i</code>, such as <code>r1</code>.</p>
 <h2 id="3-Pointers-and-const"><a href="#3-Pointers-and-const" class="headerlink" title="(3) Pointers and const"></a>(3) Pointers and const</h2><p>Like a reference to <strong>const</strong>, a pointer to <strong>const</strong> may not be used to change the object to which the pointer points. </p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14</span>; <span class="hljs-comment">// pi is const; its value may not be changed</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14</span>; <span class="hljs-comment">// pi is const; its value may not be changed</span>
 <span class="hljs-keyword">double</span> *ptr = &amp;pi; <span class="hljs-comment">// error: ptr is a plain pointer</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *cptr = &amp;pi; <span class="hljs-comment">// ok: cptr may point to a double that is const</span>
-*cptr = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: cannot assign to *cptr</span></code></pre>
+*cptr = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: cannot assign to *cptr</span></code></pre></div>
 <p><strong>There are two exceptions to the rule that the types of a pointer and the object to which it points must match:</strong></p>
 <ol>
 <li><strong>We can use a pointer to const to point to a nonconst object</strong></li>
@@ -322,58 +322,58 @@ r2 = <span class="hljs-number">0</span>; <span class="hljs-comment">// error: r2
 </ol>
 <p>Hence, as with any other object type, we can have a pointer that is itself <strong>const</strong>. </p>
 <p>Like any other <strong>const object</strong>, a const pointer must be initialized, and once initialized, its value may not be changed. </p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> errNumb = <span class="hljs-number">0</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> errNumb = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> curErr = &amp;errNumb; <span class="hljs-comment">// curErr will always point to errNumb</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14159</span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *<span class="hljs-keyword">const</span> pip = &amp;pi; <span class="hljs-comment">// pip is a const pointer to a const object</span></code></pre>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *<span class="hljs-keyword">const</span> pip = &amp;pi; <span class="hljs-comment">// pip is a const pointer to a const object</span></code></pre></div>
 
 <h2 id="4-Top-Level-const"><a href="#4-Top-Level-const" class="headerlink" title="(4) Top-Level const"></a>(4) Top-Level const</h2><p>We use the term <strong>top-level const</strong> to indicate that the pointer itself is a <strong>const</strong>. </p>
 <p>When a pointer can point to a <strong>const</strong> object, we refer to that <strong>const</strong> as a <strong>low-level const</strong>.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
 <span class="hljs-comment">// we can't change the value of p1; const is top-level</span>
 <span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> p1 = &amp;i; 
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = <span class="hljs-number">42</span>; <span class="hljs-comment">// we cannot change ci; const is top-level</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p2 = &amp;ci; <span class="hljs-comment">// we can change p2; const is low-level</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> p3 = p2; <span class="hljs-comment">// right-most const is top-level, left-most is not</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r = ci; <span class="hljs-comment">// const in reference types is always low-level</span></code></pre>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r = ci; <span class="hljs-comment">// const in reference types is always low-level</span></code></pre></div>
 <p>The <strong>distinction</strong> between top-level and low-level matters when we copy an object. </p>
 <p><strong>When we copy an object, top-level consts are ignored:</strong></p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// ok: copying the value of ci; top-level const in ci is ignored</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// ok: copying the value of ci; top-level const in ci is ignored</span>
 i = ci; 
 <span class="hljs-comment">// ok: pointed-to type matches; top-level const in p3 is ignored</span>
-p2 = p3;</code></pre>
+p2 = p3;</code></pre></div>
 <p>Copying an object doesn’t change the copied object. As a result, it is immaterial whether the object copied from or copied into is <strong>const</strong>.</p>
 <p>On the other hand, <strong>low-level const is never ignored</strong>. </p>
 <p>When we copy an object, both objects must have the same <strong>low-level const</strong> qualification or there must be a conversion between the types of the two objects. </p>
 <p>In general, we can convert a <strong>nonconst</strong> to <strong>const</strong> but not the other way round:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *p = p3; <span class="hljs-comment">// error: p3 has a low-level const but p doesn't</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *p = p3; <span class="hljs-comment">// error: p3 has a low-level const but p doesn't</span>
 p2 = p3; <span class="hljs-comment">// ok: p2 has the same low-level const qualification as p3</span>
 p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*</span>
 <span class="hljs-comment">// error: can't bind an ordinary int&amp; to a const int object</span>
 <span class="hljs-keyword">int</span> &amp;r = ci; 
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r2 = i; <span class="hljs-comment">// ok: can bind const int&amp; to plain int</span></code></pre>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;r2 = i; <span class="hljs-comment">// ok: can bind const int&amp; to plain int</span></code></pre></div>
 <h2 id="5-int-const-const-int-and-int-const"><a href="#5-int-const-const-int-and-int-const" class="headerlink" title="(5) int const * , const int * and int *const"></a>(5) int const * , const int * and int *const</h2><p><a href="https://stackoverflow.com/a/1143272/12342782" target="_blank" rel="noopener">What is the difference between const int*, const int * const, and int const *</a></p>
 <p><a href="https://www.cdecl.org/" target="_blank" rel="noopener">website to auto-translates C declarations </a></p>
 <p><a href="http://c-faq.com/decl/spiral.anderson.html" target="_blank" rel="noopener">Clockwise/Spiral Rule</a></p>
-<pre><code class="hljs nimrod"><span class="hljs-built_in">int</span> <span class="hljs-keyword">const</span> *p; // declare p <span class="hljs-keyword">as</span> <span class="hljs-built_in">pointer</span> to <span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span>
+<div class="hljs"><pre><code class="hljs nimrod"><span class="hljs-built_in">int</span> <span class="hljs-keyword">const</span> *p; // declare p <span class="hljs-keyword">as</span> <span class="hljs-built_in">pointer</span> to <span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span>
 <span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span> *p; // same <span class="hljs-keyword">as</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">const</span> * p
-<span class="hljs-built_in">int</span> * <span class="hljs-keyword">const</span> p; // declare p <span class="hljs-keyword">as</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">pointer</span> to <span class="hljs-built_in">int</span></code></pre>
+<span class="hljs-built_in">int</span> * <span class="hljs-keyword">const</span> p; // declare p <span class="hljs-keyword">as</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">pointer</span> to <span class="hljs-built_in">int</span></code></pre></div>
 
 <h2 id="5-Constant-Expressions"><a href="#5-Constant-Expressions" class="headerlink" title="(5) Constant Expressions"></a>(5) Constant Expressions</h2><p>A constant expression is an expression whose value cannot change and that <strong><font color = red>can be evaluated at compile time</strong>.</font> </p>
 <p>A literal is a constant expression. </p>
 <p>A <strong>const</strong> object that is initialized from a constant expression is also a constant expression.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> max_files = <span class="hljs-number">20</span>; <span class="hljs-comment">// max_files is a constant expression</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> max_files = <span class="hljs-number">20</span>; <span class="hljs-comment">// max_files is a constant expression</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> limit = max_files + <span class="hljs-number">1</span>; <span class="hljs-comment">// limit is a constant expression</span>
 <span class="hljs-keyword">int</span> staff_size = <span class="hljs-number">27</span>; <span class="hljs-comment">// staff_size is not a constant expression</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sz = get_size(); <span class="hljs-comment">// sz is not a constant expression</span></code></pre>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sz = get_size(); <span class="hljs-comment">// sz is not a constant expression</span></code></pre></div>
 
 <h2 id="6-Constexpr-Variables"><a href="#6-Constexpr-Variables" class="headerlink" title="(6) Constexpr Variables"></a>(6) Constexpr Variables</h2><p>In a large system, it can be difficult to determine (for certain) that an initializer is a <strong>constant expression</strong>.</p>
 <p>In general, the definition of an object and its use in such a context can be widely separated.</p>
 <p>Under the new standard, we can ask the compiler to verify that a variable is a <strong>constant expression</strong> by declaring the variable in a <strong>constexpr</strong> declaration. </p>
 <p>Variables declared as <strong>constexpr</strong> are <strong>implicitly const</strong> and must be initialized by <strong>constant expressions</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> mf = <span class="hljs-number">20</span>; <span class="hljs-comment">// 20 is a constant expression</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> mf = <span class="hljs-number">20</span>; <span class="hljs-comment">// 20 is a constant expression</span>
 <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> limit = mf + <span class="hljs-number">1</span>; <span class="hljs-comment">// mf + 1 is a constant expression</span>
-<span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> sz = size(); <span class="hljs-comment">// ok only if size is a constexpr function</span></code></pre>
+<span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> sz = size(); <span class="hljs-comment">// ok only if size is a constexpr function</span></code></pre></div>
 <p>Although we cannot use an ordinary function as an initializer for a <strong>constexpr</strong> variable, the new standard lets us define certain functions as <strong>constexpr</strong>. </p>
 <p>Such functions must be <strong>simple enough</strong> that the compiler can evaluate them at <strong>compile time</strong>. </p>
 <p>We can use <strong>constexpr</strong> functions in the initializer of a <strong>constexpr</strong> variable.</p>
@@ -381,61 +381,61 @@ p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*
 <p>Variables <strong>defined inside a function</strong> ordinarily are <strong>not</strong> stored at a <strong>fixed address</strong>. Hence, we cannot use a <strong>constexpr</strong> pointer to point to such variables. </p>
 <p>On the other hand, the address of an object defined <strong>outside of any function</strong> is a <strong>constant expression</strong>, and so may be used to initialize a <strong>constexpr</strong> pointer. </p>
 <h2 id="7-Pointers-and-constexpr"><a href="#7-Pointers-and-constexpr" class="headerlink" title="(7) Pointers and constexpr"></a>(7) Pointers and constexpr</h2><p>It is important to understand that when we define a pointer in a <strong>constexpr</strong> declaration, the <strong>constexpr</strong> specifier applies to the <strong>pointer</strong>, <strong>not</strong> the type to which the pointer points:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p = <span class="hljs-literal">nullptr</span>; <span class="hljs-comment">// p is a pointer to a const int</span>
-<span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> *q = <span class="hljs-literal">nullptr</span>; <span class="hljs-comment">// q is a const pointer to int</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p = <span class="hljs-literal">nullptr</span>; <span class="hljs-comment">// p is a pointer to a const int</span>
+<span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">int</span> *q = <span class="hljs-literal">nullptr</span>; <span class="hljs-comment">// q is a const pointer to int</span></code></pre></div>
 <h1 id="4-Dealing-with-Types"><a href="#4-Dealing-with-Types" class="headerlink" title="4. Dealing with Types"></a>4. Dealing with Types</h1><h2 id="1-auto"><a href="#1-auto" class="headerlink" title="(1) auto"></a>(1) auto</h2><p>Under the new standard, we can let the compiler figure out the type for us by using the <strong>auto</strong> type specifier. </p>
 <p><strong>auto</strong> tells the compiler to deduce the type from the <strong>initializer</strong>. </p>
 <p>By implication, a variable that uses <strong>auto</strong> as its type specifier must have an <strong>initializer</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> item = val1 + val2; <span class="hljs-comment">// item initialized to the result of val1 + val2</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> item = val1 + val2; <span class="hljs-comment">// item initialized to the result of val1 + val2</span></code></pre></div>
 
 <p>As with any other type specifier, we can define <strong>multiple variables</strong> using <strong>auto</strong>.</p>
 <p>Because a declaration can involve only <strong>a single base type</strong>, the initializers for all the variables in the declaration must have types that are <strong>consistent</strong> with each other:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> i = <span class="hljs-number">0</span>, *p = &amp;i; <span class="hljs-comment">// ok: i is int and p is a pointer to int</span>
-<span class="hljs-keyword">auto</span> sz = <span class="hljs-number">0</span>, pi = <span class="hljs-number">3.14</span>; <span class="hljs-comment">// error: inconsistent types for sz and pi</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> i = <span class="hljs-number">0</span>, *p = &amp;i; <span class="hljs-comment">// ok: i is int and p is a pointer to int</span>
+<span class="hljs-keyword">auto</span> sz = <span class="hljs-number">0</span>, pi = <span class="hljs-number">3.14</span>; <span class="hljs-comment">// error: inconsistent types for sz and pi</span></code></pre></div>
 
 <p>The type that the compiler infers for <strong>auto</strong> is <strong>not always exactly the same as the initializer’s type</strong>. Instead, the compiler adjusts the type to conform to normal initialization rules.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, &amp;r = i;
-<span class="hljs-keyword">auto</span> a = r; <span class="hljs-comment">// a is an int (r is an alias for i, which has type int)</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, &amp;r = i;
+<span class="hljs-keyword">auto</span> a = r; <span class="hljs-comment">// a is an int (r is an alias for i, which has type int)</span></code></pre></div>
 
 <p><strong>auto</strong> ordinarily ignores top-level consts. As usual in initializations, <strong>low-level consts, such as when an initializer is a pointer to const, are kept</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = i, &amp;cr = ci;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = i, &amp;cr = ci;
 <span class="hljs-keyword">auto</span> b = ci; <span class="hljs-comment">// b is an int (top-level const in ci is dropped)</span>
 <span class="hljs-comment">// c is an int (cr is an alias for ci whose const is top-level)</span>
 <span class="hljs-keyword">auto</span> c = cr; 
 <span class="hljs-keyword">auto</span> d = &amp;i; <span class="hljs-comment">// d is an int*(&amp; of an int object is int*)</span>
 <span class="hljs-comment">// e is const int*(&amp; of a const object is low-level const)</span>
-<span class="hljs-keyword">auto</span> e = &amp;ci;</code></pre>
+<span class="hljs-keyword">auto</span> e = &amp;ci;</code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> f = ci; <span class="hljs-comment">// deduced type of ci is int; f has type const int</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> f = ci; <span class="hljs-comment">// deduced type of ci is int; f has type const int</span></code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> &amp;g = ci; <span class="hljs-comment">// g is a const int&amp; that is bound to ci</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> &amp;g = ci; <span class="hljs-comment">// g is a const int&amp; that is bound to ci</span>
 <span class="hljs-keyword">auto</span> &amp;h = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: we can't bind a plain reference to a literal</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> &amp;j = <span class="hljs-number">42</span>; <span class="hljs-comment">// ok: we can bind a const reference to a literal</span></code></pre>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> &amp;j = <span class="hljs-number">42</span>; <span class="hljs-comment">// ok: we can bind a const reference to a literal</span></code></pre></div>
 
 <p>When we ask for a reference to an auto-deduced type, <strong>top-level consts in the initializer are not ignored</strong>. </p>
 <p>As usual, <strong>consts are not top-level when we bind a reference to an initializer</strong>.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> k = ci, &amp;l = i; <span class="hljs-comment">// k is int; l is int&amp;</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> k = ci, &amp;l = i; <span class="hljs-comment">// k is int; l is int&amp;</span>
 <span class="hljs-keyword">auto</span> &amp;m = ci, *p = &amp;ci; <span class="hljs-comment">// m is a const int&amp;;p is a pointer to const int</span>
 <span class="hljs-comment">// error: type deduced from i is int; type deduced from &amp;ci is const int</span>
-<span class="hljs-keyword">auto</span> &amp;n = i, *p2 = &amp;ci;</code></pre>
+<span class="hljs-keyword">auto</span> &amp;n = i, *p2 = &amp;ci;</code></pre></div>
 
 <h2 id="2-decltype"><a href="#2-decltype" class="headerlink" title="(2) decltype"></a>(2) decltype</h2><p>Sometimes we want to define a variable with a type that the compiler <strong>deduces from an expression but do not want to use</strong> that expression to initialize the variable. </p>
 <p>For such cases, the new standard introduced a second type specifier, <strong>decltype</strong>, which returns the type of its operand. </p>
 <p>The compiler analyzes the expression to determine its type but does not evaluate the expression:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">decltype</span>(f()) sum = x; <span class="hljs-comment">// sum has whatever type f returns</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">decltype</span>(f()) sum = x; <span class="hljs-comment">// sum has whatever type f returns</span></code></pre></div>
 <p>Here, the compiler <strong>does not call f</strong>, but it uses the type that such a call would return as the type for <code>sum</code>.</p>
 <p>The way <strong>decltype</strong> handles <strong>top-level const and references</strong> differs subtly from the way <strong>auto</strong> does. </p>
 <p>When the expression to which we apply <strong>decltype</strong> is a variable, <strong>decltype</strong> returns the type of that variable, including top-level const and references:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = <span class="hljs-number">0</span>, &amp;cj = ci;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = <span class="hljs-number">0</span>, &amp;cj = ci;
 <span class="hljs-keyword">decltype</span>(ci) x = <span class="hljs-number">0</span>; <span class="hljs-comment">// x has type const int</span>
 <span class="hljs-keyword">decltype</span>(cj) y = x; <span class="hljs-comment">// y has type const int&amp; and is bound to x</span>
-<span class="hljs-keyword">decltype</span>(cj) z; <span class="hljs-comment">// error: z is a reference and must be initialized</span></code></pre>
+<span class="hljs-keyword">decltype</span>(cj) z; <span class="hljs-comment">// error: z is a reference and must be initialized</span></code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-comment">// decltype of an expression can be a reference type</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// decltype of an expression can be a reference type</span>
 <span class="hljs-keyword">int</span> i = <span class="hljs-number">42</span>, *p = &amp;i, &amp;r = i;
 <span class="hljs-comment">// ok: addition yields an int; b is an (uninitialized) int</span>
 <span class="hljs-keyword">decltype</span>(r + <span class="hljs-number">0</span>) b; 
-<span class="hljs-keyword">decltype</span>(*p) c; <span class="hljs-comment">// error: c is int&amp; and must be initialized</span></code></pre>
+<span class="hljs-keyword">decltype</span>(*p) c; <span class="hljs-comment">// error: c is int&amp; and must be initialized</span></code></pre></div>
 <p>Here <code>r</code> is a reference, so <code>decltype(r)</code> is a <strong>reference type</strong>. If we want the type to which <code>r</code> refers, we can use <code>r</code> in an expression, such as <code>r + 0</code>, which is an expression that yields a value that has a <strong>nonreference</strong> type.</p>
 <p>On the other hand, the <strong>dereference operator</strong> is an example of an expression for which <strong>decltype</strong> returns a reference. </p>
 <p>As we’ve seen, when we dereference a pointer, we get the object to which the pointer points. Moreover, we can assign to that object.</p>
@@ -445,9 +445,9 @@ p2 = &amp;i; <span class="hljs-comment">// ok: we can convert int* to const int*
 <p>If we <strong>wrap the variable’s name</strong> in one or more sets of parentheses, the compiler will evaluate the operand as an expression.</p>
 <p>A variable is an expression that can be the left-hand side of an assignment. </p>
 <p><strong>As a result, decltype on such an expression yields a reference:</strong></p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// decltype of a parenthesized variable is always a reference</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// decltype of a parenthesized variable is always a reference</span>
 <span class="hljs-keyword">decltype</span>((i)) d; <span class="hljs-comment">// error: d is int&amp; and must be initialized</span>
-<span class="hljs-keyword">decltype</span>(i) e; <span class="hljs-comment">// ok: e is an (uninitialized) int</span></code></pre>
+<span class="hljs-keyword">decltype</span>(i) e; <span class="hljs-comment">// ok: e is an (uninitialized) int</span></code></pre></div>
 
 
 

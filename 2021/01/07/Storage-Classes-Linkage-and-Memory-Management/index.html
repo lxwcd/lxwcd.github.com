@@ -220,11 +220,11 @@
 <p>This means that even if a label first appears inside an inner block in a function, its scope extends to the whole function. </p>
 <p>It would be confusing if you could use the same label inside two separate blocks, and function scope for labels prevents this from happening.</p>
 <p>Function prototype scope applies to variable names used in function prototypes, as in the following:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mighty</span><span class="hljs-params">(<span class="hljs-keyword">int</span> mouse, <span class="hljs-keyword">double</span> large)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mighty</span><span class="hljs-params">(<span class="hljs-keyword">int</span> mouse, <span class="hljs-keyword">double</span> large)</span></span>;</code></pre></div>
 <p>Function prototype scope runs from the point the variable is defined to the end of the prototype declaration. </p>
 <p>What this means is that all the compiler cares about when handling a function prototype argument is the types; the names you use, if any, normally don’t matter, and they needn’t match the names you use in the function definition. </p>
 <p>One case in which the names matter a little is with variable-length array parameters:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use_a_VLA</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> m, ar[n][m])</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use_a_VLA</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> m, ar[n][m])</span></span>;</code></pre></div>
 <p>If you use names in the brackets, they have to be names declared earlier in the prototype.</p>
 <h2 id="3-file-scope"><a href="#3-file-scope" class="headerlink" title="(3) file scope"></a>(3) file scope</h2><p>A variable with its definition placed outside of any function has file scope. </p>
 <p>A variable with file scope is visible from the point it is defined to the end of the file containing the definition. </p>
@@ -239,13 +239,13 @@
 <p>A variable with file scope can have either internal or external linkage.</p>
 <p>A variable with external linkage can be used anywhere in a multifile program. </p>
 <p>A variable with internal linkage can be used anywhere in a single translation unit.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> giants = <span class="hljs-number">5</span>; <span class="hljs-comment">// file scope, external linkage</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> giants = <span class="hljs-number">5</span>; <span class="hljs-comment">// file scope, external linkage</span>
 <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> dodgers = <span class="hljs-number">3</span>; <span class="hljs-comment">// file scope, internal linkage</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
     ...
 &#125;
-...</code></pre>
+...</code></pre></div>
 <h1 id="3-Storage-Duration"><a href="#3-Storage-Duration" class="headerlink" title="3. Storage Duration"></a>3. Storage Duration</h1><p>Scope and linkage describe the visibility of identifiers. </p>
 <p>Storage duration describes the persistence of the objects accessed by these identifiers. </p>
 <p>A C object has one of the following four storage durations: static storage duration, thread storage duration, automatic storage duration, or allocated storage duration.</p>
@@ -262,33 +262,33 @@
 <p>Variable-length arrays provide a slight exception in that they exist from the point of declaration to the end of the block rather than from the beginning of the block to the end.</p>
 <h1 id="4-Five-Storage-Classes"><a href="#4-Five-Storage-Classes" class="headerlink" title="4. Five Storage Classes"></a>4. Five Storage Classes</h1><h2 id="1-Automatic-Variables"><a href="#1-Automatic-Variables" class="headerlink" title="(1) Automatic Variables"></a>(1) Automatic Variables</h2><p>A variable belonging to the automatic storage class has automatic storage duration, block scope, and no linkage.</p>
 <p>Automatic variables are not initialized unless you do so explicitly. </p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-comment">//The keyword auto is termed a storage-class specifier.</span>
     <span class="hljs-keyword">auto</span> <span class="hljs-keyword">int</span> i; <span class="hljs-comment">//uninitialized</span>
     <span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; <span class="hljs-comment">//automatic variable without explicitly using auto</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <h2 id="2-Register-Variables"><a href="#2-Register-Variables" class="headerlink" title="(2) Register Variables"></a>(2) Register Variables</h2><p>register variables are stored in the CPU registers or, more generally, in the fastest memory available, where they can be accessed and manipulated more rapidly than regular variables. </p>
 <p>Because a register variable may be in a register rather than in memory, you can’t take the address of a register variable. </p>
 <p>In most other respects, register variables are the same as automatic variables. </p>
 <p>That is, they have block scope, no linkage, and automatic storage duration. </p>
 <p>A variable is declared by using the storage class specifier register:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> quick;
     ...
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>A variable as a register class is more a request than a direct order. </p>
 <p>The compiler has to weigh your demands against the number of registers or amount of fast memory available, or it can simply ignore the request. </p>
 <p>In that case, the variable becomes an ordinary automatic variable; however, you still can’t use the address operator with it.</p>
 <h2 id="3-Static-Variables-with-Block-Scope"><a href="#3-Static-Variables-with-Block-Scope" class="headerlink" title="(3) Static Variables with Block Scope"></a>(3) Static Variables with Block Scope</h2><p>You also can create local variables having block scope but static duration. </p>
 <p>These variables have the same scope as automatic variables, but they don’t vanish when the containing function ends its job. </p>
 <p>That is, such variables have block scope, no linkage, but static storage duration.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">try</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">try</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
     <span class="hljs-keyword">static</span> j = <span class="hljs-number">2</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p><code>i</code> is initialized each time <code>try()</code> is called, but <code>j</code> is initialized just once, when <code>try()</code> is <strong>compiled</strong>.</p>
 <p>Only <code>try()</code> is allowed to see <code>j</code>, but <code>static j = 2;</code> is not executed during runtime.</p>
 <p>Static variables are initialized to zero if you don’t explicitly initialize them to some other value.</p>
@@ -298,7 +298,7 @@
 <p>You create an external variable by placing a defining declaration outside of any function. </p>
 <p>An external variable can additionally be declared inside a function that uses it by using the <code>extern</code> keyword. </p>
 <p>If a particular external variable is defined in one source code file and is used in a second source code file, declaring the variable in the second file with <code>extern</code> is mandatory. </p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> Errupt; <span class="hljs-comment">/* externally defined variable */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> Errupt; <span class="hljs-comment">/* externally defined variable */</span>
 <span class="hljs-keyword">double</span> Up[<span class="hljs-number">100</span>]; <span class="hljs-comment">/* externally defined array */</span>
 <span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> Coal; <span class="hljs-comment">/* mandatory declaration if */</span>
 <span class="hljs-comment">/* Coal defined in another file */</span>
@@ -307,7 +307,7 @@
     <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> Errupt; <span class="hljs-comment">/* optional declaration */</span>
     <span class="hljs-keyword">extern</span> <span class="hljs-keyword">double</span> Up[]; <span class="hljs-comment">/* optional declaration */</span>
 ...
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>Note that you don’t have to give the array size in the optional declaration of double <code>Up</code>. That’s because the original declaration already supplied that information. </p>
 <p>The group of extern declarations inside <code>main()</code> can be omitted entirely because external variables have file scope, so they are known from the point of declaration to the end of the file. </p>
 <p>If only extern is omitted from the declaration inside a function, a separate automatic variable is set up. </p>
@@ -315,46 +315,46 @@
 <p>external variables are initialized automatically to zero if you don’t initialize them.</p>
 <p>This rule applies to elements of an externally defined array, too. </p>
 <p>Unlike the case for automatic variables, you can use only <strong>constant expressions</strong> to initialize <strong>file scope</strong> variables:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>; <span class="hljs-comment">// ok, 10 is constant</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>; <span class="hljs-comment">// ok, 10 is constant</span>
 <span class="hljs-keyword">int</span> y = <span class="hljs-number">3</span> + <span class="hljs-number">20</span>; <span class="hljs-comment">// ok, a constant expression</span>
 <span class="hljs-keyword">size_t</span> z = <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>); <span class="hljs-comment">// ok, a constant expression</span>
-<span class="hljs-keyword">int</span> x2 = <span class="hljs-number">2</span> * x; <span class="hljs-comment">// not ok, x is a variable</span></code></pre>
+<span class="hljs-keyword">int</span> x2 = <span class="hljs-number">2</span> * x; <span class="hljs-comment">// not ok, x is a variable</span></code></pre></div>
 <p>As long as the type is not a variable array, a sizeof expression is considered a constant expression.</p>
 <p>An external variable can be initialized only once, and that must occur when the variable is defined. </p>
-<pre><code class="hljs c"><span class="hljs-comment">// file one.c</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">// file one.c</span>
 <span class="hljs-keyword">char</span> permis = <span class="hljs-string">'N'</span>;
 ...
 <span class="hljs-comment">// file two.c</span>
-<span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> permis = <span class="hljs-string">'Y'</span>; <span class="hljs-comment">/* error */</span></code></pre>
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> permis = <span class="hljs-string">'Y'</span>; <span class="hljs-comment">/* error */</span></code></pre></div>
 <p>The keyword extern indicates that a declaration is not a definition because it instructs the compiler to look elsewhere.</p>
 <h2 id="5-Static-Variables-with-Internal-Linkage"><a href="#5-Static-Variables-with-Internal-Linkage" class="headerlink" title="(5) Static Variables with Internal Linkage"></a>(5) Static Variables with Internal Linkage</h2><p>Variables of this storage class have static storage duration, file scope, and internal linkage. </p>
 <p>You create one by defining it outside of any function (just as with an external variable) with the storage class specifier <code>static</code>:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> svil = <span class="hljs-number">1</span>; <span class="hljs-comment">// static variable, internal linkage</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> svil = <span class="hljs-number">1</span>; <span class="hljs-comment">// static variable, internal linkage</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
     ...
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>The ordinary external variable can be used by functions in any file that’s part of the program, but the static variable with internal linkage can be used only by functions in the same file. </p>
 <p>You can redeclare any file scope variable within a function by using the storage class specifier <code>extern</code>. </p>
 <p>Such a declaration doesn’t change the linkage. Consider the following code:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> traveler = <span class="hljs-number">1</span>; <span class="hljs-comment">// external linkage</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> traveler = <span class="hljs-number">1</span>; <span class="hljs-comment">// external linkage</span>
 <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> stayhome = <span class="hljs-number">1</span>; <span class="hljs-comment">// internal linkage</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> traveler; <span class="hljs-comment">// use global traveler</span>
     <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> stayhome; <span class="hljs-comment">// use global stayhome</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <h1 id="4-Storage-Class-Specifier-Roundup"><a href="#4-Storage-Class-Specifier-Roundup" class="headerlink" title="4. Storage-Class Specifier Roundup"></a>4. Storage-Class Specifier Roundup</h1><p>The C language has six keywords that are grouped together as storage-class specifiers. They are auto, register, static, extern, _Thread_local, and typedef.</p>
 <p>The extern specifier indicates that you are declaring a variable that has been defined elsewhere. </p>
 <p>If the declaration containing extern has file scope, the variable referred to must have external linkage. </p>
 <p>If the declaration containing extern has block scope, the referred-to variable can have either external linkage or internal linkage, depending on the defining declaration for that variable.</p>
 <h1 id="5-malloc-and-free"><a href="#5-malloc-and-free" class="headerlink" title="5. malloc() and free()"></a>5. malloc() and free()</h1><p>Then malloc() finds a suitable block of free memory. The memory is anonymous; that is, malloc() allocates memory but it doesn’t assign a name to it. However, it does return the address of the first byte of that block.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">double</span> * ptd;
-ptd = (<span class="hljs-keyword">double</span> *) <span class="hljs-built_in">malloc</span>(<span class="hljs-number">30</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>));</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> * ptd;
+ptd = (<span class="hljs-keyword">double</span> *) <span class="hljs-built_in">malloc</span>(<span class="hljs-number">30</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>));</code></pre></div>
 
 <p>The free() function takes as its argument an address returned earlier by malloc() and frees up the memory that had been allocated.</p>
-<h1 id="6-calloc"><a href="#6-calloc" class="headerlink" title="6. calloc()"></a>6. calloc()</h1><pre><code class="hljs c"><span class="hljs-keyword">long</span> *newmen;
-newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">calloc</span>(<span class="hljs-number">100</span>, <span class="hljs-keyword">sizeof</span> (<span class="hljs-keyword">long</span>));</code></pre>
+<h1 id="6-calloc"><a href="#6-calloc" class="headerlink" title="6. calloc()"></a>6. calloc()</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">long</span> *newmen;
+newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">calloc</span>(<span class="hljs-number">100</span>, <span class="hljs-keyword">sizeof</span> (<span class="hljs-keyword">long</span>));</code></pre></div>
 
 <p>The calloc() function throws in one more feature: It sets all the bits in the block to zero. (Note, however, that on some hardware systems, a floating-point value of 0 is not represented by all bits set to 0.)</p>
 

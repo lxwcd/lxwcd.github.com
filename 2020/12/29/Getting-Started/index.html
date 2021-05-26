@@ -211,7 +211,7 @@
               <p>C++ Primer(Fifth Edition) Chapter 1 Getting Started</p>
 <a id="more"></a>
 <h1 id="1-Formatting-of-C-Programs"><a href="#1-Formatting-of-C-Programs" class="headerlink" title="1. Formatting of C++ Programs"></a>1. Formatting of C++ Programs</h1><p>C++ programs are largely free-format, meaning that where we put curly braces, indentation, comments, and newlines usually has no effect on what our programs mean. </p>
-<pre><code class="hljs cpp"><span class="hljs-comment">//c++</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">//c++</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
@@ -220,29 +220,29 @@
 		 &lt;&lt; <span class="hljs-string">"!"</span>
 		 &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
-<pre><code class="hljs cpp">Hello world!</code></pre>
+<div class="hljs"><pre><code class="hljs cpp">Hello world!</code></pre></div>
 <p>That’s because C++’s free format rules treat <strong>newlines and spaces between tokens interchangeably</strong>.</p>
-<pre><code class="hljs c"><span class="hljs-comment">//c</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">//c</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
 	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello\n"</span>
 	);https:<span class="hljs-comment">//blog.csdn.net/Lee567/article/details/100099573#4_printf__148)</span>
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
- &#125;</code></pre>
+ &#125;</code></pre></div>
 <p><a href="https://lxwcd.github.io/2020/11/28/Charater-Strings-and-Formatted-Input-Output/#4-Printing-Long-Strings">printf() Printing long strings</a></p>
-<h1 id="2-lt-lt-Operator"><a href="#2-lt-lt-Operator" class="headerlink" title="2. &lt;&lt; Operator"></a>2. &lt;&lt; Operator</h1><pre><code class="hljs cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter two numbers:"</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;</code></pre>
+<h1 id="2-lt-lt-Operator"><a href="#2-lt-lt-Operator" class="headerlink" title="2. &lt;&lt; Operator"></a>2. &lt;&lt; Operator</h1><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter two numbers:"</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;</code></pre></div>
 <p>The <code>&lt;&lt;</code> operator takes two operands: The <strong>left-hand</strong> operand must be an <strong>ostream</strong> object; the <strong>right-hand</strong> operand is a <strong>value to print</strong>. </p>
 <p>The operator <strong>writes</strong> the given value on the given <strong>ostream</strong>. </p>
 <p>The <strong>result</strong> of the <strong>output operator</strong> is its <strong>left-hand operand</strong>. </p>
 <p>As a result, we can chain together output requests. </p>
 <p>Thus, our expression is equivalent to</p>
-<pre><code class="hljs cpp">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter two numbers:"</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;</code></pre>
+<div class="hljs"><pre><code class="hljs cpp">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter two numbers:"</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;</code></pre></div>
 <p>The <strong>second operator</strong> prints <code>endl</code>, which is a special value called a <strong>manipulator</strong>. Writing <code>endl</code> has the effect of ending the current line and <strong>flushing</strong> the buffer associated with that device. </p>
 <p>Flushing the buffer ensures that all the output the program has generated so far is actually written to the output stream, rather than sitting in memory waiting to be written.</p>
-<h1 id="3-Reading-an-Unknown-Number-of-Inputs"><a href="#3-Reading-an-Unknown-Number-of-Inputs" class="headerlink" title="3. Reading an Unknown Number of Inputs"></a>3. Reading an Unknown Number of Inputs</h1><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h1 id="3-Reading-an-Unknown-Number-of-Inputs"><a href="#3-Reading-an-Unknown-Number-of-Inputs" class="headerlink" title="3. Reading an Unknown Number of Inputs"></a>3. Reading an Unknown Number of Inputs</h1><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>, value = <span class="hljs-number">0</span>;
@@ -251,9 +251,9 @@
         sum += value; <span class="hljs-comment">// equivalent to sum = sum + value</span>
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Sum is: "</span> &lt;&lt; sum &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-keyword">while</span> (<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; value)</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">while</span> (<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; value)</code></pre></div>
 
 <p>Evaluating the while condition executes the expression<br><code>std::cin &gt;&gt; value</code> .</p>
 <p>When we use an <code>istream</code> as a condition, the effect is to test the state of the stream. </p>

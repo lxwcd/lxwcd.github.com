@@ -226,10 +226,10 @@
 <p>C handles this variety of methods by having the  <strong>getchar()</strong>  function return a special value when the end of a file is reached, regardless of how the operating system actually detects the end of file. The name given to this value is <strong>EOF</strong> (end of file). </p>
 <p>Therefore, the <strong>return value</strong> for <strong>getchar()</strong> when it detects an end of file is <strong>EOF</strong>. The <strong>scanf()</strong> function also returns <strong>EOF</strong> on detecting the end of a file. </p>
 <p>Typically, <strong>EOF</strong> is defined in the <strong>stdio.h</strong> file as follows:</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> EOF (-1)</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> EOF (-1)</span></code></pre></div>
 <p>Normally, <strong>getchar()</strong> returns a value in the range <strong>0</strong> through <strong>127</strong>, because those are values corresponding to the standard character set, but it might return values from <strong>0</strong> through <strong>255</strong> if the system recognizes an extended character set. </p>
 <p>In either case, the value <strong>-1</strong> does not correspond to any character, so it can be used to signal the end of a file.<br>&nbsp;</p>
-<pre><code class="hljs c"><span class="hljs-comment">/* echo_eof.c -- repeats input to end of file */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* echo_eof.c -- repeats input to end of file */</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
@@ -237,7 +237,7 @@
     <span class="hljs-keyword">while</span> ((ch = getchar()) != EOF)
         <span class="hljs-built_in">putchar</span>(ch);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p><strong>Note:</strong></p>
 <ul>
 <li>You don’t have to define <strong>EOF</strong> because <strong>stdio.h</strong> takes care of that.</li>
@@ -251,22 +251,22 @@
 <h2 id="1-Redirecting-Input"><a href="#1-Redirecting-Input" class="headerlink" title="(1) Redirecting Input"></a>(1) Redirecting Input</h2><p>The program runs as described earlier, taking its input from the keyboard. Now suppose you want to use the program on a <strong>text file</strong> called <code>words</code>. </p>
 <p>A <strong>text file</strong> is one containing text—that is, data stored as <strong>human-readable characters</strong>. It could be an essay or a program in C, for example. A file containing machine language instructions, such as the file holding the executable version<br>of a program, is not a text file. </p>
 <p>All you need to do is enter this command instead of the previous one:</p>
-<pre><code class="hljs bash">echo_eof &lt; words</code></pre>
+<div class="hljs"><pre><code class="hljs bash">echo_eof &lt; words</code></pre></div>
 <p>The <code>&lt;</code> symbol is a <strong>Unix and Linux and DOS/Windows redirection operator</strong>. It causes the <code>words</code> file to be associated with the <strong>stdin stream</strong>, channeling the file contents into the <code>echo_eof</code> program. </p>
 <p>The <code>echo_eof</code> program itself doesn’t know (or care) that the input is coming from a file instead of the keyboard. All it knows is that a stream of characters is being fed to it, so it reads them and prints them one character at a time until the end of file shows up. </p>
 <p>Because C puts files and I/O devices on the same footing, the file is now the I/O device. </p>
 <h2 id="2-Redirecting-Output"><a href="#2-Redirecting-Output" class="headerlink" title="(2) Redirecting Output"></a>(2) Redirecting Output</h2><p>Now suppose you want to have <code>echo_eof</code> send your keyboard input to a file called <code>mywords</code>.</p>
 <p>Then you can enter the following and begin typing:</p>
-<pre><code class="hljs bash">echo_eof &gt; mywords</code></pre>
+<div class="hljs"><pre><code class="hljs bash">echo_eof &gt; mywords</code></pre></div>
 <p>The <code>&gt;</code> is a second <strong>redirection operator</strong>. It causes a new file called <code>mywords</code> to be created for your use, and then it *<em>redirects the output *</em>of <code>echo_eof</code> (that is, a copy of the characters you type) to that file. </p>
 <p>If you already have a file with the name <code>mywords</code>, normally it would be <strong>erased</strong> and then <strong>replaced</strong> by the new one. (Many operating systems, however, give you the option of protecting existing files by making them <strong>read-only</strong>.) </p>
 <p>All that appears on your screen are the letters as you type them, and the copies go to the file instead. To end the program, press <strong>Ctrl+D</strong>.</p>
 <h2 id="3-Combined-Redirection"><a href="#3-Combined-Redirection" class="headerlink" title="(3) Combined Redirection"></a>(3) Combined Redirection</h2><p>Now suppose you want to make a copy of the file mywords and call it savewords. Just issue this next command:</p>
-<pre><code class="hljs bash">echo_eof &lt; mywords &gt; savewords</code></pre>
+<div class="hljs"><pre><code class="hljs bash">echo_eof &lt; mywords &gt; savewords</code></pre></div>
 <p>or:</p>
-<pre><code class="hljs bash">echo_eof &gt; savewords &lt; mywords</code></pre>
+<div class="hljs"><pre><code class="hljs bash">echo_eof &gt; savewords &lt; mywords</code></pre></div>
 <p><strong>Beware: *<em>Don’t use the *</em>same file for both input and output</strong> to the same command.</p>
-<pre><code class="hljs bash">echo_eof &lt; mywords &gt; mywords....&lt;--WRONG</code></pre>
+<div class="hljs"><pre><code class="hljs bash">echo_eof &lt; mywords &gt; mywords....&lt;--WRONG</code></pre></div>
 <p>The reason is that <code>&gt;</code> mywords causes the original mywords to be <strong>truncated to zero length</strong> before it is ever used as input.</p>
 <p><strong>Rules:</strong></p>
 <ul>

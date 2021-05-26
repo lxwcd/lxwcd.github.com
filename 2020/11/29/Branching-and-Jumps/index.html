@@ -212,8 +212,8 @@
 <a id="more"></a>
 <h1 id="1-getchar-and-putchar"><a href="#1-getchar-and-putchar" class="headerlink" title="1.  getchar() and putchar()"></a>1.  getchar() and putchar()</h1><p>The <strong>getchar()</strong> function takes no arguments, and it <strong>returns</strong> the next character from input.<br>&nbsp;<br>The <strong>putchar()</strong> function prints its argument.<br>&nbsp;<br>Because these functions deal only with characters, they are faster and more compact than the more general <strong>scanf()</strong> and <strong>printf()</strong> functions.<br>&nbsp;<br>Characters are really stored as <strong>integers</strong>. <strong>getchar( )</strong> is actually type <strong>int</strong> itself.</p>
 <h1 id="2-The-ctype-h-Family-of-Character-Functions"><a href="#2-The-ctype-h-Family-of-Character-Functions" class="headerlink" title="2. The ctype.h Family of Character Functions"></a>2. The ctype.h Family of Character Functions</h1><p>C has a standard set of functions for analyzing characters; the <strong>ctype.h</strong> header file contains the prototypes.<br>&nbsp;<br>Note that the mapping functions don’t modify the original argument; instead, they return the modified value. </p>
-<pre><code class="hljs c"><span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// no effect on ch</span>
-ch = <span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// convert ch to lowercase</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// no effect on ch</span>
+ch = <span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// convert ch to lowercase</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -308,9 +308,9 @@ ch = <span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">
 </tbody></table>
 <h2 id="1-Precedence"><a href="#1-Precedence" class="headerlink" title="(1) Precedence"></a>(1) Precedence</h2><p>The <strong>!</strong> operator has a very high precedence—higher than <strong>multiplication</strong>, the same as the <strong>increment operators</strong>, and just below that of <strong>parentheses</strong>. The <strong>&amp;&amp;</strong> operator has higher precedence than <strong>||</strong>.</p>
 <h2 id="2-Order-of-Evaluation"><a href="#2-Order-of-Evaluation" class="headerlink" title="(2) Order of Evaluation"></a>(2) Order of Evaluation</h2><p>The <strong>&amp;&amp;</strong> and <strong>||</strong> operators are sequence points, so all side effects take place before a program moves from one operand to the next. </p>
-<pre><code class="hljs c"><span class="hljs-keyword">while</span> ( x++ &lt; <span class="hljs-number">10</span> &amp;&amp; x + y &lt; <span class="hljs-number">20</span>)</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">while</span> ( x++ &lt; <span class="hljs-number">10</span> &amp;&amp; x + y &lt; <span class="hljs-number">20</span>)</code></pre></div>
 <p>The fact that the <strong>&amp;&amp;</strong> operator is a sequence point guarantees that <code>x</code> is incremented before the expression on the right is evaluated.</p>
-<h1 id="4-A-Word-Count-Program"><a href="#4-A-Word-Count-Program" class="headerlink" title="4. A Word-Count Program"></a>4. A Word-Count Program</h1><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h1 id="4-A-Word-Count-Program"><a href="#4-A-Word-Count-Program" class="headerlink" title="4. A Word-Count Program"></a>4. A Word-Count Program</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;ctype.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdbool.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STOP <span class="hljs-meta-string">'\x1b'</span></span>
@@ -356,9 +356,9 @@ ch = <span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">
 <span class="hljs-string">    punctuations = %ld, spaces = %ld,  words = %d, lines = %d\n"</span>,
     n_chars,n_alphabets,n_digits,n_punctuations,n_spaces,n_words,n_lines);
     <span class="hljs-comment">/*return 0; */</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>Output:</p>
-<pre><code class="hljs c"><span class="hljs-function">Enter <span class="hljs-built_in">text</span> to be <span class="hljs-title">analyzed</span> <span class="hljs-params">(Esc to <span class="hljs-built_in">terminate</span>)</span>:</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function">Enter <span class="hljs-built_in">text</span> to be <span class="hljs-title">analyzed</span> <span class="hljs-params">(Esc to <span class="hljs-built_in">terminate</span>)</span>:</span>
 <span class="hljs-function">Reason is a</span>
 <span class="hljs-function">powerful servant but</span>
 an inadequate master.
@@ -366,24 +366,24 @@ an inadequate master.
 *** :) ***
 ^[
 Charaters = <span class="hljs-number">77</span>, alphabets = <span class="hljs-number">45</span>, digits = <span class="hljs-number">3</span>, 
-punctuations = <span class="hljs-number">12</span>, spaces = <span class="hljs-number">17</span>,  words = <span class="hljs-number">17</span>, lines = <span class="hljs-number">5</span></code></pre>
+punctuations = <span class="hljs-number">12</span>, spaces = <span class="hljs-number">17</span>,  words = <span class="hljs-number">17</span>, lines = <span class="hljs-number">5</span></code></pre></div>
 <h1 id="5-The-Conditional-Operator"><a href="#5-The-Conditional-Operator" class="headerlink" title="5. The Conditional Operator: ?:"></a>5. The Conditional Operator: ?:</h1><p>C offers a shorthand way to express one form of the <strong>if else</strong> statement. It is called a conditional expression and uses the <strong>?:</strong> conditional operator. </p>
-<pre><code class="hljs c">expression1 ? expression2 : expression3</code></pre>
+<div class="hljs"><pre><code class="hljs c">expression1 ? expression2 : expression3</code></pre></div>
 <p>If expression1 is true (nonzero), the whole conditional expression has the same value as expression2. If expression1 is false (zero), the whole conditional expression has the same value as expression3.</p>
 <h1 id="6-Loop-Aids-continue-and-break"><a href="#6-Loop-Aids-continue-and-break" class="headerlink" title="6. Loop Aids: continue and break"></a>6. Loop Aids: continue and break</h1><h2 id="1-The-continue-Statement"><a href="#1-The-continue-Statement" class="headerlink" title="(1) The continue Statement"></a>(1) The continue Statement</h2><p>The continue statement causes the program to <strong>skip over</strong> the rest of the loop, which is devoted to processing valid input. Instead, the program <strong>starts the next loop cycle</strong> by attempting to read the next input value. </p>
 <p><strong>continue</strong> works for the while, do while, for, and not for the switch function.</p>
 <p><strong>continue</strong> terminates the current loop, but not the entire loop.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">for</span> (count = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span>; count++)
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">for</span> (count = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span>; count++)
 &#123;
 ch = getchar();
 <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">'\n'</span>)
 <span class="hljs-keyword">continue</span>;
 <span class="hljs-built_in">putchar</span>(ch);
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>In this case, when the <strong>continue</strong> statement is executed, <strong>first count is incremented</strong> and then it’s compared to 10.</p>
 <h2 id="2-The-break-Statement"><a href="#2-The-break-Statement" class="headerlink" title="(2) The break Statement"></a>(2) The break Statement</h2><p>A <strong>break</strong> statement in a loop causes the program to break free of the loop that encloses it and to proceed to the next stage of the program. </p>
 <p>break works for while, do while, for and switch functions.</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
   <span class="hljs-keyword">int</span> i;
@@ -394,21 +394,21 @@ ch = getchar();
   &#125;
   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"i = %d\n"</span>,i);
   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>In this case, when the program executes the <strong>break</strong> statement, it breaks out of the for loop <strong>without adding i</strong>.  </p>
-<h1 id="7-The-goto-Statement"><a href="#7-The-goto-Statement" class="headerlink" title="7. The goto Statement"></a>7. The goto Statement</h1><pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)
+<h1 id="7-The-goto-Statement"><a href="#7-The-goto-Statement" class="headerlink" title="7. The goto Statement"></a>7. The goto Statement</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)
     <span class="hljs-keyword">goto</span> a;
 <span class="hljs-keyword">goto</span> b;
 a: cost = cost * <span class="hljs-number">1.05</span>;
 flag = <span class="hljs-number">2</span>;
-b: bill = cost * flag;</code></pre>
+b: bill = cost * flag;</code></pre></div>
 <p>It is the same as:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)
 &#123;
     cost = cost * <span class="hljs-number">1.05</span>;
     flag = <span class="hljs-number">2</span>;
 &#125;
-bill = cost * flag;</code></pre>
+bill = cost * flag;</code></pre></div>
 <p>When a <strong>goto</strong> is encountered, it jumps unconditionally to the statement where the <strong>label</strong> is, and then <strong>executes sequentially from there</strong>.</p>
 
             </div>

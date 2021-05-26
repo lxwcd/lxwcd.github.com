@@ -223,9 +223,9 @@
 <p><strong>The int type is intended to be the integer size that the computer handles most efficiently</strong>.</p>
 <h2 id="2-Using-Characters-Type-char"><a href="#2-Using-Characters-Type-char" class="headerlink" title="(2) Using Characters: Type char"></a>(2) Using Characters: Type char</h2><p>The <strong>char</strong> type is used for storing characters such as <strong>letters</strong> and <strong>punctuation marks</strong>, but technically it is an <strong>integer</strong> type.<br>&nbsp;<br>To handle characters, the computer uses a <strong>numerical code</strong> in which certain integers represent certain characters. </p>
 <p>The most commonly used code in the U.S. is the <code>ASCII</code> code.<br>&nbsp;<br>The standard <code>ASCII</code> code runs numerically from 0 to 127. This range is small enough that 7 bits can hold it. The char type is typically defined as an 8-bit unit of memory.<br>&nbsp;<br><strong>Character Constants and Initialization</strong>：A single character contained between single quotes is a C character constant.<br>&nbsp;<br>Because characters are really stored as numeric values, you can also use the numerical code to assign values:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">char</span> grade = <span class="hljs-number">65</span>; <span class="hljs-comment">/* ok for ASCII, but poor style */</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">char</span> grade = <span class="hljs-number">65</span>; <span class="hljs-comment">/* ok for ASCII, but poor style */</span></code></pre></div>
 <p>Because 65 is the <code>ASCII</code> code for the letter <code>A</code>, this example assigns the value <code>A</code> to grade.<br>&nbsp;<br>C treats character constants as type <code>int</code> rather than type <code>char</code>. For example, on an <code>ASCII</code> system with a 32-bit int and an 8-bit char, the code.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">char</span> grade = <span class="hljs-string">'B'</span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">char</span> grade = <span class="hljs-string">'B'</span>;</code></pre></div>
 <p><strong>represents ‘B’ as the numerical value 66 stored in a 32-bit unit, but grade winds up with 66 stored in an 8-bit unit.</strong> </p>
 <p>This characteristic of character constants makes it possible to define a character constant such as <code>&#39;FATE&#39;</code>, with four separate 8-bit <code>ASCII</code> codes stored in a 32-bit unit.</p>
 <p>However, attempting to assign such a character constant to a char variable results in only the <strong>last 8 bits</strong> being used, so the variable gets the value <code>&#39;E&#39;</code>.</p>
@@ -292,19 +292,19 @@
 </tbody></table>
 <p>To represent alert character (<code>\a</code>), you could use the <code>ASCII</code> code instead: <code>&#39;007&#39;</code>. You can omit the leading zeros, so <code>&#39;\07&#39;</code> or even <code>&#39;\7&#39;</code>will do. This notation causes numbers to be interpreted as octal, even if there is no initial 0.</p>
 <p><strong>Note:</strong> When a character, be it an <strong>escape sequence or not</strong>, is part of a string of characters enclosed in double quotes, <strong>don’t enclose it in single quotes</strong>.</p>
-<pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello!\007\n"</span>);</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello!\007\n"</span>);</code></pre></div>
 <p>will print </p>
-<pre><code class="hljs c">Hello! <span class="hljs-keyword">and</span> <span class="hljs-built_in">beep</span></code></pre>
+<div class="hljs"><pre><code class="hljs c">Hello! <span class="hljs-keyword">and</span> <span class="hljs-built_in">beep</span></code></pre></div>
 <h2 id="3-The-Bool-Type"><a href="#3-The-Bool-Type" class="headerlink" title="(3) The _Bool Type"></a>(3) The _Bool Type</h2><p>C uses the value $1$ for <strong>true</strong> and $0$ for <strong>false</strong>, the <strong>_Bool</strong> type really is just an <strong>integer</strong> type, but one that, in principle, only requires 1 bit of memory, because that is enough to cover the full range from $0$ to $1$.</p>
 <h2 id="4-Portable-Types-stdint-h-and-inttypes-h"><a href="#4-Portable-Types-stdint-h-and-inttypes-h" class="headerlink" title="(4) Portable Types: stdint.h and inttypes.h"></a>(4) Portable Types: stdint.h and inttypes.h</h2><p>The same type name doesn’t necessarily mean the same thing on different systems, What C has done is create more names for the existing types. The trick is to define these new names in a header file called <strong>stdint.h</strong>. </p>
 <p>For example, <code>int32_t</code> represents the type for a <strong>32-bit signed integer</strong>. The header file on a system that uses a 32-bit int could define <code>int32_t</code> as an <strong>alias for int</strong>. A different system, one with a 16-bit int and a 32-bit long, could define the same name, <code>int32_t</code>, as an <strong>alias for int</strong>. </p>
 <h2 id="5-Types-float-double-and-long-double"><a href="#5-Types-float-double-and-long-double" class="headerlink" title="(5) Types float, double, and long double"></a>(5) Types float, double, and long double</h2><p>Here are two <strong>valid floating-point constants</strong>:</p>
-<pre><code class="hljs angelscript"><span class="hljs-number">-1.56E+12</span>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">-1.56E+12</span>
 <span class="hljs-number">3.14159</span>
 <span class="hljs-number">.2</span>
 <span class="hljs-number">4e16</span>
 <span class="hljs-number">.8E-5</span>
-<span class="hljs-number">100.</span></code></pre>
+<span class="hljs-number">100.</span></code></pre></div>
 <p><strong>Rules:</strong></p>
 <ul>
 <li>You can leave out positive signs. </li>
@@ -346,18 +346,18 @@
 </tr>
 </tbody></table>
 <h1 id="5-Type-Sizes"><a href="#5-Type-Sizes" class="headerlink" title="5. Type Sizes"></a>5. Type Sizes</h1><p>What type sizes does your system use?</p>
-<pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Type int has a size of %zd bytes.\n"</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Type char has a size of %zd bytes.\n"</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">char</span>));
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Type long has a size of %zd bytes.\n"</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">long</span>));
 &#125;
-<span class="hljs-comment">//C has a built-in operator called sizeof that gives sizes in bytes. C99 and C11 provide a %zd specifier for this type used by sizeof.</span></code></pre>
+<span class="hljs-comment">//C has a built-in operator called sizeof that gives sizes in bytes. C99 and C11 provide a %zd specifier for this type used by sizeof.</span></code></pre></div>
 <p>answer</p>
-<pre><code class="hljs routeros">Type int has a size of 4 bytes.
+<div class="hljs"><pre><code class="hljs routeros">Type int has a size of 4 bytes.
 Type char has a size of 1 bytes.
-Type long has a size of 8 bytes.</code></pre>
+Type long has a size of 8 bytes.</code></pre></div>
             </div>
             <hr>
             <div>

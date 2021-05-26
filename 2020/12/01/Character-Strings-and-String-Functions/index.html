@@ -238,7 +238,7 @@
 </ul>
 <p>The <strong>null pointer</strong>, or <strong>NULL</strong>, <strong>has a value</strong> that doesn’t correspond to a <strong>valid address</strong> of data. It’s often used by functions that otherwise return valid addresses to indicate some special occurrence, such as encountering <strong>end-of-file</strong> or failing to perform as expected.</p>
 <p>So the <strong>null character</strong> is an <strong>integer type</strong>, while the <strong>null pointer</strong> is a <strong>pointer type</strong>. </p>
-<h2 id="4-The-s-gets-Function"><a href="#4-The-s-gets-Function" class="headerlink" title="(4) The s _ gets() Function"></a>(4) The s _ gets() Function</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">s_gets</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* st, <span class="hljs-keyword">int</span> n)</span></span>
+<h2 id="4-The-s-gets-Function"><a href="#4-The-s-gets-Function" class="headerlink" title="(4) The s _ gets() Function"></a>(4) The s _ gets() Function</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">s_gets</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* st, <span class="hljs-keyword">int</span> n)</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">char</span> * ret_val;
     <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
@@ -254,7 +254,7 @@
                 <span class="hljs-keyword">continue</span>;
     &#125;
     <span class="hljs-keyword">return</span> ret_val;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <h1 id="4-String-Output"><a href="#4-String-Output" class="headerlink" title="4. String Output"></a>4. String Output</h1><h2 id="1-The-puts-Function"><a href="#1-The-puts-Function" class="headerlink" title="(1) The puts() Function"></a>(1) The puts() Function</h2><p>The <strong>puts()</strong> function is very easy to use. Just give it the <strong>address of a string</strong> for an argument.</p>
 <p><strong>puts()</strong> automatically <strong>appends a newline</strong> when it displays a string.</p>
 <h2 id="2-The-fputs-Function"><a href="#2-The-fputs-Function" class="headerlink" title="(2) The fputs() Function"></a>(2) The fputs() Function</h2><p>The <strong>fputs()</strong> function is the <strong>file-oriented</strong> version of <strong>puts()</strong>. The main differences are these:</p>
@@ -275,30 +275,30 @@
 <p>The <strong>strcmp()</strong> function is for <strong>comparing strings</strong>, not <strong>characters</strong>.</p>
 <h2 id="5-The-strncmp-Variation"><a href="#5-The-strncmp-Variation" class="headerlink" title="(5) The strncmp() Variation"></a>(5) The strncmp() Variation</h2><p>The <strong>strncmp()</strong> function compares the strings until they differ or until it has compared a number of characters specified by a third argument.</p>
 <h2 id="6-The-sprintf-Function"><a href="#6-The-sprintf-Function" class="headerlink" title="(6) The sprintf() Function"></a>(6) The sprintf() Function</h2><p>The <strong>sprintf()</strong> function is declared in <code>stdio.h</code> instead of <code>string.h</code>. It works like <strong>printf()</strong>, but it <strong>writes</strong> to a string instead of writing to a display. </p>
-<h2 id="7-Other-String-Functions"><a href="#7-Other-String-Functions" class="headerlink" title="(7) Other String Functions"></a>(7) Other String Functions</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strcpy</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2)</span></span>;</code></pre>
+<h2 id="7-Other-String-Functions"><a href="#7-Other-String-Functions" class="headerlink" title="(7) Other String Functions"></a>(7) Other String Functions</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strcpy</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2)</span></span>;</code></pre></div>
 <p>This function <strong>copies *<em>the string (including the *</em>null character</strong>) pointed to by <code>s2</code> to the location pointed to by <code>s1</code>. The return value is <code>s1</code>.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strncpy</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2, <span class="hljs-keyword">size_t</span> n)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strncpy</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2, <span class="hljs-keyword">size_t</span> n)</span></span>;</code></pre></div>
 <p>This function <strong>copies</strong> to the location pointed to by <code>s1</code> no more than <code>n</code> characters from the string pointed to by <code>s2</code>. The return value is <code>s1</code>. No characters after a <strong>null character</strong> are copied and, if the source string is shorter than <code>n</code> characters, the <strong>target string</strong> is padded with <strong>null characters</strong>. If the source string has <code>n</code> or more characters, <strong>no null character is copied</strong>. The return value is <code>s1</code>.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strcat</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strcat</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2)</span></span>;</code></pre></div>
 <p>The string pointed to by <code>s2</code> is copied to the <strong>end of the string</strong> pointed to by <code>s1</code>. The first character of the <code>s2</code> string is copied <strong>over the null character</strong> of the <code>s1</code> string. The <strong>return value</strong> is <code>s1</code>.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strncat</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2, <span class="hljs-keyword">size_t</span> n)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strncat</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> s2, <span class="hljs-keyword">size_t</span> n)</span></span>;</code></pre></div>
 <p>No more than the first <code>n</code> characters of the <code>s2</code> string are appended to the <code>s1</code> string, with the first character of the <code>s2</code> string being copied <strong>over the null character</strong> of the <code>s1</code> string. The <strong>null character</strong> and any characters following it in the <code>s2</code> string are <strong>not copied</strong>, and a <strong>null character</strong> is appended to the result. The return value is <code>s1</code>.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">strcmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">strcmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2)</span></span>;</code></pre></div>
 <p>This function returns a <strong>positive value</strong> if the <code>s1</code> string follows the <code>s2</code> string in the machine collating sequence, the value <strong>0</strong> if the two strings are <strong>identical</strong>, and a <strong>negative</strong> value if the <strong>first string</strong> precedes the <strong>second string</strong> in the machine collating sequence.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">strncmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2, <span class="hljs-keyword">size_t</span> n)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">strncmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2, <span class="hljs-keyword">size_t</span> n)</span></span>;</code></pre></div>
 <p>This function works like <strong>strcmp()</strong>, except that the comparison stops after <code>n</code> characters or when the first <strong>null character</strong> is encountered, whichever comes first.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strchr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s, <span class="hljs-keyword">int</span> c)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strchr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s, <span class="hljs-keyword">int</span> c)</span></span>;</code></pre></div>
 <p>This function <strong>returns a pointer to the first location</strong> in the string <code>s</code> that holds the character <code>c</code>. (The terminating <strong>null character</strong> is part of the string, so it can be searched for.) The function returns the <strong>null pointer</strong> if the character is not found.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strpbrk</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strpbrk</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2)</span></span>;</code></pre></div>
 <p>This function returns a <strong>pointer to the first location</strong> in the string <code>s1</code> that holds <strong>any character</strong> found in the <code>s2</code> string. The function returns the <strong>null pointer</strong> if no character is found.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strrchr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s, <span class="hljs-keyword">int</span> c)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strrchr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s, <span class="hljs-keyword">int</span> c)</span></span>;</code></pre></div>
 <p>This function returns a <strong>pointer to the last occurrence of the character</strong> <code>c</code> in the strings. (The terminating <strong>null character</strong> is part of the string, so it can be searched for.) The function returns the <strong>null pointer</strong> if the character is not found.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strstr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strstr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s2)</span></span>;</code></pre></div>
 <p>This function returns a <strong>pointer to the first occurrence</strong> of string <code>s2</code> in string <code>s1</code>. The function returns the <strong>null pointer</strong> if the string is not found.</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">strlen</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">strlen</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * s)</span></span>;</code></pre></div>
 <p>This function returns the <strong>number of characters</strong>, not including the terminating <strong>null character</strong>, found in the <strong>strings</strong>.</p>
 <h1 id="6-Command-Line-Arguments"><a href="#6-Command-Line-Arguments" class="headerlink" title="6. Command-Line Arguments"></a>6. Command-Line Arguments</h1><p><img src="_v_images/20201201201425398_503175558.png" srcset="/img/loading.gif" alt=""><br>A C program reads these items by using arguments to <strong>main()</strong>.</p>
-<pre><code class="hljs c"><span class="hljs-comment">/* 11.31 repeat.c -- main() with arguments */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* 11.31 repeat.c -- main() with arguments */</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>
 <span class="hljs-function"></span>&#123;
@@ -308,27 +308,27 @@
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d: %s\n"</span>, count, argv[count]);
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
 <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
-<pre><code class="hljs bash">$ repeat Resistance is futile</code></pre>
+&#125;</code></pre></div>
+<div class="hljs"><pre><code class="hljs bash">$ repeat Resistance is futile</code></pre></div>
 <p>repeat is the name of the program.</p>
-<pre><code class="hljs vim"><span class="hljs-built_in">argv</span>[<span class="hljs-number">0</span>] points <span class="hljs-keyword">to</span> <span class="hljs-built_in">repeat</span> (<span class="hljs-keyword">for</span> most systems)
+<div class="hljs"><pre><code class="hljs vim"><span class="hljs-built_in">argv</span>[<span class="hljs-number">0</span>] points <span class="hljs-keyword">to</span> <span class="hljs-built_in">repeat</span> (<span class="hljs-keyword">for</span> most systems)
 <span class="hljs-built_in">argv</span>[<span class="hljs-number">1</span>] points <span class="hljs-keyword">to</span> Resistance
 <span class="hljs-built_in">argv</span>[<span class="hljs-number">2</span>] points <span class="hljs-keyword">to</span> <span class="hljs-keyword">is</span>
-<span class="hljs-built_in">argv</span>[<span class="hljs-number">3</span>] points <span class="hljs-keyword">to</span> futile</code></pre>
+<span class="hljs-built_in">argv</span>[<span class="hljs-number">3</span>] points <span class="hljs-keyword">to</span> futile</code></pre></div>
 <p>output:</p>
-<pre><code class="hljs c">The command <span class="hljs-built_in">line</span> has <span class="hljs-number">3</span> arguments:
+<div class="hljs"><pre><code class="hljs c">The command <span class="hljs-built_in">line</span> has <span class="hljs-number">3</span> arguments:
 <span class="hljs-number">1</span>: Resistance
 <span class="hljs-number">2</span>: is
-<span class="hljs-number">3</span>: futile</code></pre>
+<span class="hljs-number">3</span>: futile</code></pre></div>
 <p>C compilers allow <strong>main()</strong> to have <strong>no arguments</strong> or else to have <strong>two arguments</strong>. (Some implementations allow additional arguments, but that would be an extension of the standard.) </p>
 <p>With two arguments, the <strong>first argument</strong> is the number of strings in the command line. </p>
 <p>The system uses <strong>spaces</strong> to tell when one string ends and the next begins. Therefore, the repeat example has <strong>four strings</strong>, including the command <strong>name</strong>. </p>
 <p>The program stores the command line strings in memory and stores the <strong>address of each string</strong> in an <strong>array of pointers</strong>. </p>
 <p>The address of this array is stored in the <strong>second argument</strong>.</p>
-<h1 id="7-String-to-Number-Conversions"><a href="#7-String-to-Number-Conversions" class="headerlink" title="7. String-to-Number Conversions"></a>7. String-to-Number Conversions</h1><h2 id="1-atoi"><a href="#1-atoi" class="headerlink" title="(1) atoi( )"></a>(1) atoi( )</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">atoi</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>*str)</span></span>;</code></pre>
+<h1 id="7-String-to-Number-Conversions"><a href="#7-String-to-Number-Conversions" class="headerlink" title="7. String-to-Number Conversions"></a>7. String-to-Number Conversions</h1><h2 id="1-atoi"><a href="#1-atoi" class="headerlink" title="(1) atoi( )"></a>(1) atoi( )</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">atoi</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>*str)</span></span>;</code></pre></div>
 <p>It takes a <strong>string</strong> str as  an argument and returns the corresponding <strong>integer value</strong>.  The <code>stdlib.h</code> header contains the function declaration<br>for <strong>atoi()</strong>.</p>
 <p>该函数会扫描字符串，跳过空白字符，直到遇到数字或者正负符号才开始转换，一直到遇到非数字或者字符串结束符 <strong>‘\0’</strong> 结束扫描，如果一开始扫描到是非数字，则结束扫描，未扫描到数字返回数字 <strong>0</strong>，否则返回转换后的数字，能识别<strong>正负号</strong>。</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>
 <span class="hljs-function"></span>&#123;
@@ -339,17 +339,17 @@
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">"string: %-10s	corresponding integer: %d\n"</span>,argv[i], j);
   &#125;
   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>output:</p>
-<pre><code class="hljs c">./atoi1.o jds323sd <span class="hljs-number">898</span>dsj23 js<span class="hljs-number">-98</span>dk +<span class="hljs-number">23</span>sd33 <span class="hljs-number">-92</span>d89s i<span class="hljs-number">-988</span>sj
+<div class="hljs"><pre><code class="hljs c">./atoi1.o jds323sd <span class="hljs-number">898</span>dsj23 js<span class="hljs-number">-98</span>dk +<span class="hljs-number">23</span>sd33 <span class="hljs-number">-92</span>d89s i<span class="hljs-number">-988</span>sj
 <span class="hljs-built_in">string</span>: jds323sd  	corresponding integer: <span class="hljs-number">0</span>
 <span class="hljs-built_in">string</span>: <span class="hljs-number">898</span>dsj23  	corresponding integer: <span class="hljs-number">898</span>
 <span class="hljs-built_in">string</span>: js<span class="hljs-number">-98</span>dk   	corresponding integer: <span class="hljs-number">0</span>
 <span class="hljs-built_in">string</span>: +<span class="hljs-number">23</span>sd33   	corresponding integer: <span class="hljs-number">23</span>
 <span class="hljs-built_in">string</span>: <span class="hljs-number">-92</span>d89s   	corresponding integer: <span class="hljs-number">-92</span>
-<span class="hljs-built_in">string</span>: i<span class="hljs-number">-988</span>sj   	corresponding integer: <span class="hljs-number">0</span></code></pre>
+<span class="hljs-built_in">string</span>: i<span class="hljs-number">-988</span>sj   	corresponding integer: <span class="hljs-number">0</span></code></pre></div>
 <p>Implementation of <strong>atoi()</strong>:</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;ctype.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">atoi</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *st)</span></span>
 <span class="hljs-function"></span>&#123;
@@ -378,9 +378,9 @@
         <span class="hljs-built_in">printf</span>(<span class="hljs-string">"string: %10s	int: %d;\n"</span>, argv[i], n);
     &#125;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>output:</p>
-<pre><code class="hljs c">./atoi.o sdj87<span class="hljs-number">-08</span> <span class="hljs-number">98</span>sjd09 <span class="hljs-number">-98</span>sd88 <span class="hljs-number">-09</span>sdj88
+<div class="hljs"><pre><code class="hljs c">./atoi.o sdj87<span class="hljs-number">-08</span> <span class="hljs-number">98</span>sjd09 <span class="hljs-number">-98</span>sd88 <span class="hljs-number">-09</span>sdj88
 <span class="hljs-built_in">string</span>:   sdj87<span class="hljs-number">-08</span>	<span class="hljs-keyword">int</span>: <span class="hljs-number">0</span>;
 <span class="hljs-built_in">string</span>:    <span class="hljs-number">98</span>sjd09	<span class="hljs-keyword">int</span>: <span class="hljs-number">98</span>;
 <span class="hljs-built_in">string</span>:    <span class="hljs-number">-98</span>sd88	<span class="hljs-keyword">int</span>: <span class="hljs-number">-98</span>;
@@ -388,17 +388,17 @@
 ```                                                                                                                                                                                
 ## (<span class="hljs-number">2</span>) atof() 
 ```c
-<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">atof</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str)</span></span>;</code></pre>
+<span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">atof</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str)</span></span>;</code></pre></div>
 <p>该函数将参数 <strong>str</strong> 所指向的字符串转换为一个<strong>double</strong> 型浮点数。</p>
 <p>浮点数合法表示:</p>
-<pre><code class="hljs angelscript"><span class="hljs-number">3.123</span>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">3.123</span>
 <span class="hljs-number">.2</span>
 <span class="hljs-number">-.32</span>
 <span class="hljs-number">2e-2</span>
 <span class="hljs-number">2.E-2</span>
-<span class="hljs-number">.3e-2</span></code></pre>
+<span class="hljs-number">.3e-2</span></code></pre></div>
 
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">s_gets</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *s, <span class="hljs-keyword">int</span> n)</span></span>
@@ -428,9 +428,9 @@
         <span class="hljs-built_in">printf</span>(<span class="hljs-string">"string: %s, float: %f\n"</span>, s, n); <span class="hljs-comment">//printf()输出双精度也是%f,输出形式为小数点形式</span>
     &#125;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>Answer:</p>
-<pre><code class="hljs c"><span class="hljs-number">.023e-3</span><span class="hljs-number">.2</span>sj
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-number">.023e-3</span><span class="hljs-number">.2</span>sj
 <span class="hljs-built_in">string</span>: <span class="hljs-number">.023e-3</span><span class="hljs-number">.2</span>, <span class="hljs-keyword">float</span>: <span class="hljs-number">0.000023</span>
 <span class="hljs-number">-.32</span><span class="hljs-number">.3e2</span>
 <span class="hljs-built_in">string</span>: <span class="hljs-number">-.32</span><span class="hljs-number">.3e2</span>, <span class="hljs-keyword">float</span>: <span class="hljs-number">-0.320000</span>
@@ -443,9 +443,9 @@ sj3
 <span class="hljs-number">2.e-3</span><span class="hljs-number">.32</span>
 <span class="hljs-built_in">string</span>: <span class="hljs-number">2.e-3</span><span class="hljs-number">.32</span>, <span class="hljs-keyword">float</span>: <span class="hljs-number">0.002000</span>
 <span class="hljs-number">.22e-3</span>
-<span class="hljs-built_in">string</span>: <span class="hljs-number">.22e-3</span>, <span class="hljs-keyword">float</span>: <span class="hljs-number">0.000220</span></code></pre>
+<span class="hljs-built_in">string</span>: <span class="hljs-number">.22e-3</span>, <span class="hljs-keyword">float</span>: <span class="hljs-number">0.000220</span></code></pre></div>
 <p>Implementation of <strong>atof()</strong>:</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;math.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;ctype.h&gt;</span></span>
@@ -559,13 +559,13 @@ sj3
     &#125;
     ret = sign * ( (intpart + decpart) * <span class="hljs-built_in">pow</span>(<span class="hljs-number">10</span> , sign_e * <span class="hljs-built_in">exp</span>) );
     <span class="hljs-keyword">return</span> ret;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
-<h2 id="3-atol"><a href="#3-atol" class="headerlink" title="(3)  atol()"></a>(3)  atol()</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">atol</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str)</span></span>;</code></pre>
+<h2 id="3-atol"><a href="#3-atol" class="headerlink" title="(3)  atol()"></a>(3)  atol()</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">atol</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str)</span></span>;</code></pre></div>
 <p>该函数将参数 <strong>str</strong> 所指向的字符串转换为<strong>long int</strong>。</p>
-<h2 id="4-strtol"><a href="#4-strtol" class="headerlink" title="(4) strtol()"></a>(4) strtol()</h2><pre><code class="hljs cs"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">strtol</span>(<span class="hljs-params"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr, <span class="hljs-keyword">int</span> <span class="hljs-keyword">base</span></span>)</span>;</code></pre>
+<h2 id="4-strtol"><a href="#4-strtol" class="headerlink" title="(4) strtol()"></a>(4) strtol()</h2><div class="hljs"><pre><code class="hljs cs"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">strtol</span>(<span class="hljs-params"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr, <span class="hljs-keyword">int</span> <span class="hljs-keyword">base</span></span>)</span>;</code></pre></div>
 <p><strong>string to long int</strong>，该函数把参数 <strong>str</strong> 所指向的字符串根据给定的 <strong>base</strong> 转换为<strong>long int</strong>，<strong>base</strong> 必须介于 <strong>2</strong> 和 <strong>36</strong>（包含）之间，或者是特殊值 <strong>0</strong>。<br>&nbsp;<br>参数说明:<br><strong>str</strong>: 要转换的字符串，起始扫描时会跳过开头的空白字符，直到遇到数字或者正负符号开始做转换，知道遇到不合条件字符或者字符串结束字符才结束。<br>&nbsp;<br><strong>endptr</strong>: 指向指针的指针，<strong>*endptr</strong> 为指向第一个非法字符。<br>&nbsp;<br><strong>base</strong>: 基数。代表将 <strong>str</strong> 进行转换采用的进制。范围为 <strong>2~36</strong>，或者 <strong>0</strong>；<br>如 <strong>base</strong> 是 <strong>0</strong>，默认采用 <strong>10</strong> 进制，但如果遇到 <strong>‘0x’</strong> 或者 <strong>‘0X’</strong> 前置的字符，采用 <strong>16</strong> 进制，遇到 <strong>‘0’</strong> 前置非第一种情况，则用 <strong>8</strong> 进制。<br>&nbsp;<br><strong>返回值</strong>: 函数返回转换后的长整型数字，若无有效数字，返回 <strong>0</strong>。</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>
 <span class="hljs-function"></span>&#123;
@@ -583,12 +583,12 @@ sj3
     &#125;
     <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Bye!\n"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
-<h2 id="5-strtod"><a href="#5-strtod" class="headerlink" title="(5) strtod()"></a>(5) strtod()</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">strtod</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr)</span></span>;</code></pre>
+<h2 id="5-strtod"><a href="#5-strtod" class="headerlink" title="(5) strtod()"></a>(5) strtod()</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">strtod</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr)</span></span>;</code></pre></div>
 <p><strong>string to double</strong>，将参数 <strong>str</strong> 所指向的字符串转换为<strong>double</strong>型浮点数。</p>
 <p>该函数返回转换后的<strong>double</strong>浮点数，如果没有执行有效的转换，则返回零（<strong>0.0</strong>）。</p>
-<h2 id="6-strtoul"><a href="#6-strtoul" class="headerlink" title="(6) strtoul()"></a>(6) strtoul()</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">strtoul</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr, <span class="hljs-keyword">int</span> base)</span></span>;</code></pre>
+<h2 id="6-strtoul"><a href="#6-strtoul" class="headerlink" title="(6) strtoul()"></a>(6) strtoul()</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">strtoul</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">char</span> **endptr, <span class="hljs-keyword">int</span> base)</span></span>;</code></pre></div>
 <p><strong>string to unsigned long int</strong>，参数<strong>str</strong>所指向的字符串根据给定的<strong>base</strong>转换为<strong>unsigned long int</strong>型，<strong>base</strong>必须介于 <strong>2</strong> 和 <strong>36</strong>（包含）之间，或者是特殊值<strong>0</strong>。</p>
 <p>该函数返回转换后的<strong>unsigned long int</strong>长整数，如果没有执行有效的转换，则返回 <strong>0</strong>。</p>
 

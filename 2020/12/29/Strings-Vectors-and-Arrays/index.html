@@ -212,7 +212,7 @@
 <a id="more"></a>
 <h1 id="1-using-declaration"><a href="#1-using-declaration" class="headerlink" title="1. using declaration"></a>1. using declaration</h1><p><a href="http://eel.is/c++draft/basic.namespace" target="_blank" rel="noopener">Namespaces</a> </p>
 <p>A <strong>using</strong> declaration lets us use a name from a namespace without qualifying the <code>name</code> with a namespace_name <strong>::</strong> prefix.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span>::name;</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span>::name;</code></pre></div>
 <p>Once the <strong>using</strong> declaration has been made, we can access <code>name</code> directly.</p>
 <p>Code inside headers ordinarily should not use <strong>using</strong> declarations.<br>The reason is that the contents of a header are copied into the including program’s text. </p>
 <p>If a header has a using declaration, then every program that includes that header gets that same <strong>using</strong> declaration. </p>
@@ -220,53 +220,53 @@
 <h1 id="2-Library-string-Type"><a href="#2-Library-string-Type" class="headerlink" title="2. Library string Type"></a>2. Library string Type</h1><p>A string is a <strong>variable-length sequence of characters</strong>. </p>
 <p>To use the string type, we must include the <strong>string header</strong>. </p>
 <p>Because it is part of the library, string is defined in the <strong>std namespace</strong>. </p>
-<pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>;</code></pre></div>
 
 <h2 id="1-Defining-and-Initializing-strings"><a href="#1-Defining-and-Initializing-strings" class="headerlink" title="(1) Defining and Initializing strings"></a>(1) Defining and Initializing strings</h2><p>Each class defines how objects of its type can be initialized. </p>
 <p>A class may define <strong>many different ways to initialize objects</strong> of its type. </p>
 <p>Each way must be <strong>distinguished</strong> from the others either by the <strong>number of initializers</strong> that we supply, or by the <strong>types of those initializers</strong>. </p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1; <span class="hljs-comment">// default initialization; s1 is the empty string</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1; <span class="hljs-comment">// default initialization; s1 is the empty string</span>
 <span class="hljs-built_in">string</span> s2 = s1; <span class="hljs-comment">// s2 is a copy of s1</span>
 <span class="hljs-built_in">string</span> s3 = <span class="hljs-string">"hiya"</span>; <span class="hljs-comment">// s3 is a copy of the string literal</span>
-<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s4</span><span class="hljs-params">(<span class="hljs-number">10</span>, <span class="hljs-string">'c'</span>)</span></span>; <span class="hljs-comment">// s4 is cccccccccc</span></code></pre>
+<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s4</span><span class="hljs-params">(<span class="hljs-number">10</span>, <span class="hljs-string">'c'</span>)</span></span>; <span class="hljs-comment">// s4 is cccccccccc</span></code></pre></div>
 <p><img src="https://img-blog.csdnimg.cn/20200126165219910.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <h2 id="2-Direct-and-Copy-Forms-of-Initialization"><a href="#2-Direct-and-Copy-Forms-of-Initialization" class="headerlink" title="(2) Direct and Copy Forms of Initialization"></a>(2) Direct and Copy Forms of Initialization</h2><p>When we initialize a variable using <strong>=</strong>, we are asking the compiler to <strong>copy</strong> initialize the object by <strong>copying the initializer</strong> on the right-hand side into the object being created.</p>
 <p>Otherwise, when we omit the =, we use <strong>direct initialization</strong>.</p>
 <p>When we have a <strong>single initializer</strong>, we can use either the direct or copy form of initialization. </p>
 <p>When we initialize a variable from <strong>more than one value</strong>, such as in the initialization of s4 above, we must use the <strong>direct form of initialization</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s5 = <span class="hljs-string">"hiya"</span>; <span class="hljs-comment">// copy initialization</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s5 = <span class="hljs-string">"hiya"</span>; <span class="hljs-comment">// copy initialization</span>
 <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s6</span><span class="hljs-params">(<span class="hljs-string">"hiya"</span>)</span></span>; <span class="hljs-comment">// direct initialization</span>
-<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s7</span><span class="hljs-params">(<span class="hljs-number">10</span>, <span class="hljs-string">'c'</span>)</span></span>; <span class="hljs-comment">// direct initialization; s7 is cccccccccc</span></code></pre>
+<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s7</span><span class="hljs-params">(<span class="hljs-number">10</span>, <span class="hljs-string">'c'</span>)</span></span>; <span class="hljs-comment">// direct initialization; s7 is cccccccccc</span></code></pre></div>
 
 <p>When we want to use several values, we can <strong>indirectly</strong> use the <strong>copy form</strong> of initialization by <strong>explicitly</strong> creating a <strong>(temporary) object</strong> to copy:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s8 = <span class="hljs-built_in">string</span>(<span class="hljs-number">10</span>, <span class="hljs-string">'c'</span>); <span class="hljs-comment">// copy initialization; s8 is cccccccccc</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s8 = <span class="hljs-built_in">string</span>(<span class="hljs-number">10</span>, <span class="hljs-string">'c'</span>); <span class="hljs-comment">// copy initialization; s8 is cccccccccc</span></code></pre></div>
 <h3 id="Difference-between-direct-and-copy-Initialization"><a href="#Difference-between-direct-and-copy-Initialization" class="headerlink" title="Difference between direct and copy Initialization"></a>Difference between direct and copy Initialization</h3><p><a href="https://stackoverflow.com/a/1051395/12342782" target="_blank" rel="noopener">Is there a difference between copy initialization and direct initialization?</a></p>
 <h2 id="3-Operations-on-strings"><a href="#3-Operations-on-strings" class="headerlink" title="(3) Operations on strings"></a>(3) Operations on strings</h2><p><img src="https://img-blog.csdnimg.cn/20200126170111949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <h2 id="4-Reading-and-Writing-strings"><a href="#4-Reading-and-Writing-strings" class="headerlink" title="(4) Reading and Writing strings"></a>(4) Reading and Writing strings</h2><p>We use the iostream library to read and write values of <strong>built-in</strong> types such as int, double, and so on. </p>
 <p>We use the same IO operators to read and write strings:</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-built_in">string</span> s; <span class="hljs-comment">// empty string</span>
     <span class="hljs-built_in">cin</span> &gt;&gt; s; <span class="hljs-comment">// read a whitespace-separated string into s</span>
     <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// write s to the output</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>The string input operator reads and <strong>discards any leading whitespace</strong> (e.g., spaces, newlines, tabs). </p>
 <p>It then reads characters until the <strong>next whitespace</strong> character is encountered.</p>
 <p>Like the input and output operations on the built-in types, the string operators <strong>return their left-hand operand as their result</strong>. </p>
 <p>Thus, we can <strong>chain together multiple reads or writes</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1, s2;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1, s2;
 <span class="hljs-built_in">cin</span> &gt;&gt; s1 &gt;&gt; s2; <span class="hljs-comment">// read first input into s1, second into s2</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; s1 &lt;&lt; s2 &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// write both strings</span></code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; s1 &lt;&lt; s2 &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// write both strings</span></code></pre></div>
 
-<h2 id="5-Reading-an-Unknown-Number-of-strings"><a href="#5-Reading-an-Unknown-Number-of-strings" class="headerlink" title="(5) Reading an Unknown Number of strings"></a>(5) Reading an Unknown Number of strings</h2><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<h2 id="5-Reading-an-Unknown-Number-of-strings"><a href="#5-Reading-an-Unknown-Number-of-strings" class="headerlink" title="(5) Reading an Unknown Number of strings"></a>(5) Reading an Unknown Number of strings</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-built_in">string</span> word;
     <span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; word) <span class="hljs-comment">// read until end-of-file</span>
         <span class="hljs-built_in">cout</span> &lt;&lt; word &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// write each word followed by a new line</span>
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>If the stream is valid—it hasn’t hit <strong>end-of-file</strong> or encountered<br>an <strong>invalid input</strong>—then the body of the while is executed. </p>
 <h2 id="6-Using-getline-to-Read-an-Entire-Line"><a href="#6-Using-getline-to-Read-an-Entire-Line" class="headerlink" title="(6) Using getline to Read an Entire Line"></a>(6) Using getline to Read an Entire Line</h2><p>The getline function takes an input stream and a string. </p>
 <p>This function reads the given stream up to and <strong>including the first newline</strong> and stores what it read—<strong>not including the newline</strong>—in its string argument. </p>
@@ -275,53 +275,53 @@
 <p>Like the input operator, getline <strong>returns its istream</strong> argument. </p>
 <p><strong>The newline that causes getline to return is discarded; the newline is not stored in the string.</strong></p>
 <h2 id="7-The-string-empty-and-size-Operations"><a href="#7-The-string-empty-and-size-Operations" class="headerlink" title="(7) The string empty and size Operations"></a>(7) The string empty and size Operations</h2><p>The empty function does what one would expect: It returns a <strong>bool</strong>  indicating whether the string is empty.</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// read input a line at a time and discard blank lines</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// read input a line at a time and discard blank lines</span>
 <span class="hljs-keyword">while</span> (getline(<span class="hljs-built_in">cin</span>, line))
     <span class="hljs-keyword">if</span> (!line.empty())
-        <span class="hljs-built_in">cout</span> &lt;&lt; line &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre>
+        <span class="hljs-built_in">cout</span> &lt;&lt; line &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
 <p>The <strong>size member</strong> returns the <strong>length</strong> of a string. size returns a <strong>string::size_type</strong> value.</p>
 <p>Although we don’t know the precise type of <strong>string::size_type</strong>, we do know that it is an <strong>unsigned type</strong> big enough to hold the size of any string. </p>
 <p>Any variable used to store the result from the string size operation should be of type <strong>string::size_type</strong>.</p>
 <p>Admittedly, it can be tedious to type <strong>string::size_type</strong>. Under the new standard, we can ask the compiler to provide the appropriate type by using <strong>auto or decltype</strong>.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> len = line.size(); <span class="hljs-comment">// len has type string::size_type</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> len = line.size(); <span class="hljs-comment">// len has type string::size_type</span></code></pre></div>
 
 <h2 id="8-Comparing-strings"><a href="#8-Comparing-strings" class="headerlink" title="(8) Comparing strings"></a>(8) Comparing strings</h2><p>The <strong>equality operators</strong> (== and !=) test whether two strings are <strong>equal or unequal</strong>, respectively. </p>
 <p>Two strings are equal if they are the <strong>same length and contain the same characters</strong>. </p>
 <p>The relational operators <strong>&lt;, &lt;=, &gt;, &gt;=</strong> test whether one string is less than, less than or equal to, greater than, or greater than or equal to another.</p>
 <p>These operators use the same strategy as a (<strong>case-sensitive</strong>) dictionary:</p>
-<h2 id="9-Assignment-for-strings"><a href="#9-Assignment-for-strings" class="headerlink" title="(9) Assignment for strings"></a>(9) Assignment for strings</h2><pre><code class="hljs cpp">string st1(10, 'c'), st2; // st1 is cccccccccc; st2 is an empty string
+<h2 id="9-Assignment-for-strings"><a href="#9-Assignment-for-strings" class="headerlink" title="(9) Assignment for strings"></a>(9) Assignment for strings</h2><div class="hljs"><pre><code class="hljs cpp">string st1(10, 'c'), st2; // st1 is cccccccccc; st2 is an empty string
 st1 = st2; <span class="hljs-comment">// assignment: replace contents of st1 with a copy of st2</span>
-<span class="hljs-comment">// both st1 and st2 are now the empty string</span></code></pre>
+<span class="hljs-comment">// both st1 and st2 are now the empty string</span></code></pre></div>
 
-<h2 id="10-Adding-Two-strings"><a href="#10-Adding-Two-strings" class="headerlink" title="(10) Adding Two strings"></a>(10) Adding Two strings</h2><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1 = <span class="hljs-string">"hello, "</span>, s2 = <span class="hljs-string">"world\n"</span>;
+<h2 id="10-Adding-Two-strings"><a href="#10-Adding-Two-strings" class="headerlink" title="(10) Adding Two strings"></a>(10) Adding Two strings</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1 = <span class="hljs-string">"hello, "</span>, s2 = <span class="hljs-string">"world\n"</span>;
 <span class="hljs-built_in">string</span> s3 = s1 + s2; <span class="hljs-comment">// s3 is hello, world\n</span>
-s1 += s2; <span class="hljs-comment">// equivalent to s1 = s1 + s2</span></code></pre>
+s1 += s2; <span class="hljs-comment">// equivalent to s1 = s1 + s2</span></code></pre></div>
 <h2 id="11-Adding-Literals-and-strings"><a href="#11-Adding-Literals-and-strings" class="headerlink" title="(11) Adding Literals and strings"></a>(11) Adding Literals and strings</h2><p>The string library lets us convert both character literals and character string literals to strings.</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1 = <span class="hljs-string">"hello"</span>, s2 = <span class="hljs-string">"world"</span>; <span class="hljs-comment">// no punctuation in s1 or s2</span>
-<span class="hljs-built_in">string</span> s3 = s1 + <span class="hljs-string">", "</span> + s2 + <span class="hljs-string">'\n'</span>;</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s1 = <span class="hljs-string">"hello"</span>, s2 = <span class="hljs-string">"world"</span>; <span class="hljs-comment">// no punctuation in s1 or s2</span>
+<span class="hljs-built_in">string</span> s3 = s1 + <span class="hljs-string">", "</span> + s2 + <span class="hljs-string">'\n'</span>;</code></pre></div>
 <p>When we mix strings and string or character literals, <strong>at least one operand</strong> to <strong>each +</strong> operator must be of <strong>string type</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s4 = s1 + <span class="hljs-string">", "</span>; <span class="hljs-comment">// ok: adding a string and a literal</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> s4 = s1 + <span class="hljs-string">", "</span>; <span class="hljs-comment">// ok: adding a string and a literal</span>
 <span class="hljs-built_in">string</span> s5 = <span class="hljs-string">"hello"</span> + <span class="hljs-string">", "</span>; <span class="hljs-comment">// error: no string operand</span>
 <span class="hljs-built_in">string</span> s6 = s1 + <span class="hljs-string">", "</span> + <span class="hljs-string">"world"</span>; <span class="hljs-comment">// ok: each + has a string operand</span>
-<span class="hljs-built_in">string</span> s7 = <span class="hljs-string">"hello"</span> + <span class="hljs-string">", "</span> + s2; <span class="hljs-comment">// error: can't add string literals</span></code></pre>
+<span class="hljs-built_in">string</span> s7 = <span class="hljs-string">"hello"</span> + <span class="hljs-string">", "</span> + s2; <span class="hljs-comment">// error: can't add string literals</span></code></pre></div>
 
 <p>The subexpression <code>s1 + &quot;, &quot;</code><strong>returns a string</strong>, which forms the left-hand operand of the second <code>+</code> operator. It is as if we had written：</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">string</span> tmp = s1 + <span class="hljs-string">", "</span>; <span class="hljs-comment">// ok: + has a string operand</span>
-s6 = tmp + <span class="hljs-string">"world"</span>; <span class="hljs-comment">// ok: + has a string operand</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> tmp = s1 + <span class="hljs-string">", "</span>; <span class="hljs-comment">// ok: + has a string operand</span>
+s6 = tmp + <span class="hljs-string">"world"</span>; <span class="hljs-comment">// ok: + has a string operand</span></code></pre></div>
 
 <h2 id="12-Dealing-with-the-Characters-in-a-string"><a href="#12-Dealing-with-the-Characters-in-a-string" class="headerlink" title="(12) Dealing with the Characters in a string"></a>(12) Dealing with the Characters in a string</h2><p><strong>cctype Functions：</strong><br><img src="https://img-blog.csdnimg.cn/20200126192859119.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
-<h2 id="13-Range-Based-for-Processing-Every-Character"><a href="#13-Range-Based-for-Processing-Every-Character" class="headerlink" title="(13) Range-Based for: Processing Every Character"></a>(13) Range-Based for: Processing Every Character</h2><pre><code class="hljs cpp"><span class="hljs-keyword">for</span> (declaration : expression)
-    statement</code></pre>
+<h2 id="13-Range-Based-for-Processing-Every-Character"><a href="#13-Range-Based-for-Processing-Every-Character" class="headerlink" title="(13) Range-Based for: Processing Every Character"></a>(13) Range-Based for: Processing Every Character</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">for</span> (declaration : expression)
+    statement</code></pre></div>
 <p>Where <strong>expression</strong> is an <strong>object</strong> of a type that represents <strong>a sequence</strong>, and <strong>declaration</strong> defines the variable that we’ll use to access the <strong>underlying elements</strong> in the sequence.</p>
 <p>On <strong>each iteration</strong>, the variable in declaration is initialized from the value of the next element in expression.</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str</span><span class="hljs-params">(<span class="hljs-string">"some string"</span>)</span></span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str</span><span class="hljs-params">(<span class="hljs-string">"some string"</span>)</span></span>;
 <span class="hljs-comment">// print the characters in str one character to a line</span>
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> c : str) <span class="hljs-comment">// for every char in str</span>
-    <span class="hljs-built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print the current character followed by a newline</span></code></pre>
+    <span class="hljs-built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print the current character followed by a newline</span></code></pre></div>
 <p>In this case, we use <strong>auto</strong> to let the compiler determine the type of <code>c</code>, which in this case will be char. </p>
 <p>On each iteration, the next character in <code>str</code> will be copied into <code>c</code>. </p>
 <p>Thus, we can read this loop as saying, “For every character c in the string str,” do something. </p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">"Hello World!!!"</span>)</span></span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">"Hello World!!!"</span>)</span></span>;
 <span class="hljs-comment">// punct_cnt has the same type that s.size returns; see § 2.5.3 (p. 70)</span>
 <span class="hljs-keyword">decltype</span>(s.size()) punct_cnt = <span class="hljs-number">0</span>;
 <span class="hljs-comment">// count the number of punctuation characters in s</span>
@@ -329,25 +329,25 @@ s6 = tmp + <span class="hljs-string">"world"</span>; <span class="hljs-comment">
     <span class="hljs-keyword">if</span> (<span class="hljs-built_in">ispunct</span>(c)) <span class="hljs-comment">// if the character is punctuation</span>
         ++punct_cnt; <span class="hljs-comment">// increment the punctuation counter</span>
 <span class="hljs-built_in">cout</span> &lt;&lt; punct_cnt
-&lt;&lt; <span class="hljs-string">" punctuation characters in "</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre>
+&lt;&lt; <span class="hljs-string">" punctuation characters in "</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
 
 <h2 id="14-Change-the-Characters-in-a-string"><a href="#14-Change-the-Characters-in-a-string" class="headerlink" title="(14) Change the Characters in a string"></a>(14) Change the Characters in a string</h2><p>If we want to change the value of the characters in a string, we must define the loop variable as a reference type.</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">"Hello World!!!"</span>)</span></span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">"Hello World!!!"</span>)</span></span>;
 <span class="hljs-comment">// convert s to uppercase</span>
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;c : s) <span class="hljs-comment">// for every char in s (note: c is a reference)</span>
     c = <span class="hljs-built_in">toupper</span>(c); <span class="hljs-comment">// c is a reference, so the assignment changes the char in s</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre>
+<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
 
 <h2 id="15-Processing-Only-Some-Characters"><a href="#15-Processing-Only-Some-Characters" class="headerlink" title="(15) Processing Only Some Characters"></a>(15) Processing Only Some Characters</h2><p>There are two ways to access individual characters in a string: We can use a subscript or an iterator. </p>
 <p>Subscripts for strings start at zero, and the last character is in <code>s[s.size() - 1]</code>.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (!s.empty()) <span class="hljs-comment">// make sure there's a character to print</span>
-    <span class="hljs-built_in">cout</span> &lt;&lt; s[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print the first character in s</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (!s.empty()) <span class="hljs-comment">// make sure there's a character to print</span>
+    <span class="hljs-built_in">cout</span> &lt;&lt; s[<span class="hljs-number">0</span>] &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print the first character in s</span></code></pre></div>
 <h1 id="3-Library-vector-Type"><a href="#3-Library-vector-Type" class="headerlink" title="3. Library vector Type"></a>3. Library vector Type</h1><p>A vector is a collection of objects, all of which have the same type. Every object in the collection has an associated index, which gives access to that object. </p>
 <p>A vector is often referred to as a container because it “contains” other objects.</p>
 <p>A vector is a class template. C++ has both class and function templates.</p>
 <p>Templates are not themselves functions or classes. Instead, they can be thought of as instructions to the compiler for generating classes or functions.</p>
 <p>Because references are not objects, we cannot have a vector of references.</p>
-<h2 id="1-Defining-and-Initializing-vectors"><a href="#1-Defining-and-Initializing-vectors" class="headerlink" title="(1) Defining and Initializing vectors"></a>(1) Defining and Initializing vectors</h2><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; svec <span class="hljs-comment">// default initialization; svec is empty</span>
+<h2 id="1-Defining-and-Initializing-vectors"><a href="#1-Defining-and-Initializing-vectors" class="headerlink" title="(1) Defining and Initializing vectors"></a>(1) Defining and Initializing vectors</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; svec <span class="hljs-comment">// default initialization; svec is empty</span>
 <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">svec1</span><span class="hljs-params">(svec)</span></span>; <span class="hljs-comment">//svec1 has a copy of each element in svec</span>
 <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; svec2 = svec; <span class="hljs-comment">//copy elements of svec into svec2</span>
 <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">svec3</span><span class="hljs-params">(<span class="hljs-number">10</span>, <span class="hljs-string">"hi"</span>)</span></span>; <span class="hljs-comment">//ten strings; each element is "hi"</span>
@@ -355,60 +355,60 @@ s6 = tmp + <span class="hljs-string">"world"</span>; <span class="hljs-comment">
 <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ivec</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>; <span class="hljs-comment">// ten elements; each initialized to 0</span>
 <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ivec1&#123;<span class="hljs-number">10</span>&#125;; <span class="hljs-comment">// one element with value 10</span>
 <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; svec5&#123;<span class="hljs-number">10</span>&#125;; <span class="hljs-comment">// ten default-initialized elements</span>
-<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; svec6 = &#123;<span class="hljs-string">"a"</span>, <span class="hljs-string">"an"</span>&#125;; <span class="hljs-comment">// two elements; list initialization</span></code></pre>
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; svec6 = &#123;<span class="hljs-string">"a"</span>, <span class="hljs-string">"an"</span>&#125;; <span class="hljs-comment">// two elements; list initialization</span></code></pre></div>
 
-<h2 id="2-vector-Operations"><a href="#2-vector-Operations" class="headerlink" title="(2) vector Operations"></a>(2) vector Operations</h2><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v1;
+<h2 id="2-vector-Operations"><a href="#2-vector-Operations" class="headerlink" title="(2) vector Operations"></a>(2) vector Operations</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v1;
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i != <span class="hljs-number">100</span>; i++)
-    v1.push_back(i);</code></pre>
+    v1.push_back(i);</code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v1&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v1&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;;
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;i : v1)
-    i *= i;</code></pre>
+    i *= i;</code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-comment">//size member returns a value of the size_type </span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">//size member returns a value of the size_type </span>
 <span class="hljs-comment">//defined by the corresponding vector type</span>
 <span class="hljs-comment">//vector&lt;int&gt;::size_type</span>
 <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ivec;
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">decltype</span>(ivec.size()) ix = <span class="hljs-number">0</span>; ix != <span class="hljs-number">10</span>; ++ix)
-    ivec.push_back(ix);</code></pre>
+    ivec.push_back(ix);</code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ivec1</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>;
-<span class="hljs-built_in">cout</span> &lt;&lt; ivec1[<span class="hljs-number">0</span>];</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ivec1</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>;
+<span class="hljs-built_in">cout</span> &lt;&lt; ivec1[<span class="hljs-number">0</span>];</code></pre></div>
 
 <h1 id="5-Using-Iterators"><a href="#5-Using-Iterators" class="headerlink" title="5. Using Iterators"></a>5. Using Iterators</h1><p>Types that have iterators have members that <strong>return iterators</strong>. </p>
 <p>In particular, these types have members named <strong>begin</strong> and <strong>end</strong>. </p>
 <p>The begin member returns an iterator that denotes the first element (or first character):</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// the compiler determines the type of b and e; </span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// the compiler determines the type of b and e; </span>
 <span class="hljs-comment">// b denotes the first element and e denotes one past the last element </span>
-<span class="hljs-keyword">auto</span> b = v.begin(), e = v.end(); <span class="hljs-comment">// b and e have the same type</span></code></pre>
+<span class="hljs-keyword">auto</span> b = v.begin(), e = v.end(); <span class="hljs-comment">// b and e have the same type</span></code></pre></div>
 <p>The iterator returned by <strong>end</strong> is an iterator positioned <strong>one past the end</strong> of the associated container (or string). </p>
 <p>It is used as a <strong>marker</strong> indicating when we have processed all the elements. </p>
 <p>If the container is <strong>empty</strong>, begin returns the <strong>same</strong> iterator as the one returned by end.</p>
 <p>If the container is empty, the iterators returned by begin and end are equal—they are both off-the-end iterators.</p>
 <p><img src="https://img-blog.csdnimg.cn/20200127201927385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"><br>As with pointers, we can <strong>dereference</strong> an iterator to obtain the element denoted by an iterator.</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">"some string"</span>)</span></span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">"some string"</span>)</span></span>;
 <span class="hljs-keyword">if</span> (s.begin() != s.end()) &#123; <span class="hljs-comment">// make sure s is not empty</span>
 <span class="hljs-keyword">auto</span> it = s.begin(); <span class="hljs-comment">// it denotes the first character in s</span>
 *it = <span class="hljs-built_in">toupper</span>(*it); <span class="hljs-comment">// make that character uppercase</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>Because the iterator returned from end does not denote an element, it may not be incremented or dereferenced.</p>
 <p>C++ programmers use <strong>!=</strong> as a matter of habit. </p>
 <p>By routinely using iterators and !=, we don’t have to worry about the precise type of container we’re processing.</p>
 <p>As with <code>size_type</code>, the library types that have iterators define types named <strong>iterator</strong> and <strong>const_iterator</strong> that represent actual iterator types:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator it; <span class="hljs-comment">// it can read and write vector&lt;int&gt; elements</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator it; <span class="hljs-comment">// it can read and write vector&lt;int&gt; elements</span>
 <span class="hljs-built_in">string</span>::iterator it2; <span class="hljs-comment">// it2 can read and write characters in a string</span>
 <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::const_iterator it3; <span class="hljs-comment">// it3 can read but not write elements</span>
-<span class="hljs-built_in">string</span>::const_iterator it4; <span class="hljs-comment">// it4 can read but not write</span></code></pre>
+<span class="hljs-built_in">string</span>::const_iterator it4; <span class="hljs-comment">// it4 can read but not write</span></code></pre></div>
 <p>If the object is <code>const</code>, then <code>begin</code> and <code>end</code> return a <code>const_iterator</code>; if the object is not const, they return <code>iterator</code>:</p>
-<pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;
 <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; cv;
 <span class="hljs-keyword">auto</span> it1 = v.begin(); <span class="hljs-comment">// it1 has type vector&lt;int&gt;::iterator</span>
-<span class="hljs-keyword">auto</span> it2 = cv.begin(); <span class="hljs-comment">// it2 has type vector&lt;int&gt;::const_iterator</span></code></pre>
+<span class="hljs-keyword">auto</span> it2 = cv.begin(); <span class="hljs-comment">// it2 has type vector&lt;int&gt;::const_iterator</span></code></pre></div>
 
 <p>To let us ask specifically for the <strong>const_iterator</strong> type, the new standard introduced two new functions named <strong>cbegin</strong> and <strong>cend</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> it3 = v.cbegin(); <span class="hljs-comment">// it3 has type vector&lt;int&gt;::const_iterator</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> it3 = v.cbegin(); <span class="hljs-comment">// it3 has type vector&lt;int&gt;::const_iterator</span></code></pre></div>
 <p>Assuming it is an <code>iterator</code> into this vector, we can check whether the string that it denotes is empty as follows:</p>
-<pre><code class="hljs cpp">(*it).empty()</code></pre>
+<div class="hljs"><pre><code class="hljs cpp">(*it).empty()</code></pre></div>
 <p>The arrow operator (the <strong>-&gt;</strong> operator)combines dereference and member access into a single operation. </p>
 <p>That is, <strong>it-&gt;mem</strong> is a synonym for <strong>(* it).mem</strong>.</p>
 <p>We noted that there are implications of the fact that <strong>vectors</strong> can <strong>grow dynamically</strong>. </p>
@@ -419,7 +419,7 @@ s6 = tmp + <span class="hljs-string">"world"</span>; <span class="hljs-comment">
 <p>The result is the distance between the iterators. </p>
 <p>The result type is a <strong>signed integral type</strong> named <strong>difference_type</strong>.</p>
 <p>A classic algorithm that uses iterator arithmetic is binary search. </p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// text must be sorted</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// text must be sorted</span>
 <span class="hljs-comment">// beg and end will denote the range we're searching</span>
 <span class="hljs-keyword">auto</span> beg = text.begin(), end = text.end();
 <span class="hljs-keyword">auto</span> mid = text.begin() + (end - beg)/<span class="hljs-number">2</span>; <span class="hljs-comment">// original midpoint</span>
@@ -429,50 +429,50 @@ s6 = tmp + <span class="hljs-string">"world"</span>; <span class="hljs-comment">
     <span class="hljs-keyword">else</span> <span class="hljs-comment">// the element we want is in the second half</span>
         beg = mid + <span class="hljs-number">1</span>; <span class="hljs-comment">// start looking with the element just after mid</span>
     mid = beg + (end - beg)/<span class="hljs-number">2</span>; <span class="hljs-comment">// new midpoint</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <h1 id="6-Arrays"><a href="#6-Arrays" class="headerlink" title="6. Arrays"></a>6. Arrays</h1><h2 id="1-Difference-between-array-and-vector"><a href="#1-Difference-between-array-and-vector" class="headerlink" title="(1) Difference between array and vector"></a>(1) Difference between array and vector</h2><p><strong>Like a vector</strong>, an array is a <strong>container</strong> of <strong>unnamed objects</strong> of a <strong>single type</strong> that we access by position.</p>
 <p><strong>Unlike a vector</strong>, arrays have <strong>fixed size</strong>; we cannot add elements to an array.</p>
-<h2 id="2-Complicated-Array-Declarations"><a href="#2-Complicated-Array-Declarations" class="headerlink" title="(2) Complicated Array Declarations"></a>(2) Complicated Array Declarations</h2><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *ptrs[<span class="hljs-number">10</span>]; <span class="hljs-comment">// ptrs is an array of ten pointers to int</span>
+<h2 id="2-Complicated-Array-Declarations"><a href="#2-Complicated-Array-Declarations" class="headerlink" title="(2) Complicated Array Declarations"></a>(2) Complicated Array Declarations</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *ptrs[<span class="hljs-number">10</span>]; <span class="hljs-comment">// ptrs is an array of ten pointers to int</span>
 <span class="hljs-keyword">int</span> &amp;refs[<span class="hljs-number">10</span>] = <span class="hljs-comment">/* ? */</span>; <span class="hljs-comment">// error: no arrays of references</span>
 <span class="hljs-keyword">int</span> (*Parray)[<span class="hljs-number">10</span>] = &amp;arr; <span class="hljs-comment">// Parray points to an array of ten ints</span>
-<span class="hljs-keyword">int</span> (&amp;arrRef)[<span class="hljs-number">10</span>] = arr; <span class="hljs-comment">// arrRef refers to an array of ten ints</span></code></pre>
+<span class="hljs-keyword">int</span> (&amp;arrRef)[<span class="hljs-number">10</span>] = arr; <span class="hljs-comment">// arrRef refers to an array of ten ints</span></code></pre></div>
 <p>There are no limits on how many type modifiers can be used:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *(&amp;arry)[<span class="hljs-number">10</span>] = ptrs; <span class="hljs-comment">// arry is a reference to an array of ten pointers</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *(&amp;arry)[<span class="hljs-number">10</span>] = ptrs; <span class="hljs-comment">// arry is a reference to an array of ten pointers</span></code></pre></div>
 
 <h2 id="3-Pointers-and-Arrays"><a href="#3-Pointers-and-Arrays" class="headerlink" title="(3) Pointers and Arrays"></a>(3) Pointers and Arrays</h2><p>In particular, as we’ll see, when we use an array, the compiler ordinarily <strong>converts the array to a pointer</strong>.</p>
 <p>When we use an array as an initializer for a variable defined using <strong>auto</strong>, the deduced type is a <strong>pointer</strong>, <strong>not an array</strong>:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;; <span class="hljs-comment">// ia is an array of ten ints</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;; <span class="hljs-comment">// ia is an array of ten ints</span>
 <span class="hljs-function"><span class="hljs-keyword">auto</span> <span class="hljs-title">ia2</span><span class="hljs-params">(ia)</span></span>; <span class="hljs-comment">// ia2 is an int* that points to the first element in ia</span>
-ia2 = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: ia2 is a pointer, and we can't assign an int to a pointer</span></code></pre>
+ia2 = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: ia2 is a pointer, and we can't assign an int to a pointer</span></code></pre></div>
 
 <p>It is worth noting that this conversion does not happen when we use <strong>decltype</strong>. The type returned by <code>decltype(ia)</code> is <strong>array</strong> of ten ints:</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// ia3 is an array of ten ints</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// ia3 is an array of ten ints</span>
 <span class="hljs-keyword">decltype</span>(ia) ia3 = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;
 ia3 = p; <span class="hljs-comment">// error: can't assign an int* to an array</span>
-ia3[<span class="hljs-number">4</span>] = i; <span class="hljs-comment">// ok: assigns the value of i to an element in ia3</span></code></pre>
-<h2 id="4-The-Library-begin-and-end-Functions"><a href="#4-The-Library-begin-and-end-Functions" class="headerlink" title="(4) The Library begin and end Functions"></a>(4) The Library begin and end Functions</h2><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;; <span class="hljs-comment">// ia is an array of ten ints</span>
+ia3[<span class="hljs-number">4</span>] = i; <span class="hljs-comment">// ok: assigns the value of i to an element in ia3</span></code></pre></div>
+<h2 id="4-The-Library-begin-and-end-Functions"><a href="#4-The-Library-begin-and-end-Functions" class="headerlink" title="(4) The Library begin and end Functions"></a>(4) The Library begin and end Functions</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;; <span class="hljs-comment">// ia is an array of ten ints</span>
 <span class="hljs-keyword">int</span> *beg = begin(ia); <span class="hljs-comment">// pointer to the first element in ia</span>
-<span class="hljs-keyword">int</span> *last = end(ia); <span class="hljs-comment">// pointer one past the last element in ia</span></code></pre>
+<span class="hljs-keyword">int</span> *last = end(ia); <span class="hljs-comment">// pointer one past the last element in ia</span></code></pre></div>
 <p><strong>begin</strong> returns a <strong>pointer to the first</strong>, and <strong>end</strong> returns a <strong>pointer one past the last element</strong> in the given array. These functions are defined in the <strong>iterator header</strong>.</p>
-<h2 id="5-Pointer-Arithmetic"><a href="#5-Pointer-Arithmetic" class="headerlink" title="(5) Pointer Arithmetic"></a>(5) Pointer Arithmetic</h2><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *b = arr, *e = arr + sz;
+<h2 id="5-Pointer-Arithmetic"><a href="#5-Pointer-Arithmetic" class="headerlink" title="(5) Pointer Arithmetic"></a>(5) Pointer Arithmetic</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *b = arr, *e = arr + sz;
 <span class="hljs-keyword">while</span> (b &lt; e) &#123;
 <span class="hljs-comment">// use *b</span>
     ++b;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p><strong>We cannot use the relational operators on pointers to two unrelated objects:</strong></p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, sz = <span class="hljs-number">42</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, sz = <span class="hljs-number">42</span>;
 <span class="hljs-keyword">int</span> *p = &amp;i, *e = &amp;sz;
 <span class="hljs-comment">// undefined: p and e are unrelated; comparison is meaningless!</span>
-<span class="hljs-keyword">while</span> (p &lt; e)</code></pre>
+<span class="hljs-keyword">while</span> (p &lt; e)</code></pre></div>
 
-<h2 id="6-Subscripts-and-Pointers"><a href="#6-Subscripts-and-Pointers" class="headerlink" title="(6) Subscripts and Pointers"></a>(6) Subscripts and Pointers</h2><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *p = &amp;ia[<span class="hljs-number">2</span>]; <span class="hljs-comment">// p points to the element indexed by 2</span>
+<h2 id="6-Subscripts-and-Pointers"><a href="#6-Subscripts-and-Pointers" class="headerlink" title="(6) Subscripts and Pointers"></a>(6) Subscripts and Pointers</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *p = &amp;ia[<span class="hljs-number">2</span>]; <span class="hljs-comment">// p points to the element indexed by 2</span>
 <span class="hljs-keyword">int</span> j = p[<span class="hljs-number">1</span>]; <span class="hljs-comment">// p[1] is equivalent to *(p + 1),</span>
 <span class="hljs-comment">// p[1] is the same element as ia[3]</span>
-<span class="hljs-keyword">int</span> k = p[<span class="hljs-number">-2</span>]; <span class="hljs-comment">// p[-2] is the same element as ia[0]</span></code></pre>
+<span class="hljs-keyword">int</span> k = p[<span class="hljs-number">-2</span>]; <span class="hljs-comment">// p[-2] is the same element as ia[0]</span></code></pre></div>
 <p>Unlike subscripts for vector and string, the <strong>index of the built-in subscript</strong> operator is <strong>not an unsigned type</strong>.</p>
 <h1 id="7-Multidimensional-Arrays"><a href="#7-Multidimensional-Arrays" class="headerlink" title="7. Multidimensional Arrays"></a>7. Multidimensional Arrays</h1><p>Strictly speaking, there are no multidimensional arrays in C++. What are commonly referred to as multidimensional arrays are actually <strong>arrays of arrays</strong>. </p>
-<h2 id="1-Using-a-Range-for-with-Multidimensional-Arrays"><a href="#1-Using-a-Range-for-with-Multidimensional-Arrays" class="headerlink" title="(1) Using a Range for with Multidimensional Arrays"></a>(1) Using a Range for with Multidimensional Arrays</h2><pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">size_t</span> rowCnt = <span class="hljs-number">3</span>, colCnt = <span class="hljs-number">4</span>;
+<h2 id="1-Using-a-Range-for-with-Multidimensional-Arrays"><a href="#1-Using-a-Range-for-with-Multidimensional-Arrays" class="headerlink" title="(1) Using a Range for with Multidimensional Arrays"></a>(1) Using a Range for with Multidimensional Arrays</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">size_t</span> rowCnt = <span class="hljs-number">3</span>, colCnt = <span class="hljs-number">4</span>;
 <span class="hljs-keyword">int</span> ia[rowCnt][colCnt]; <span class="hljs-comment">// 12 uninitialized elements</span>
 <span class="hljs-comment">// for each row</span>
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i != rowCnt; ++i) &#123;
@@ -481,37 +481,37 @@ ia3[<span class="hljs-number">4</span>] = i; <span class="hljs-comment">// ok: a
         <span class="hljs-comment">// assign the element's positional index as its value</span>
         ia[i][j] = i * colCnt + j;
     &#125;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>same as</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">size_t</span> rowCnt = <span class="hljs-number">3</span>, colCnt = <span class="hljs-number">4</span>;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">size_t</span> rowCnt = <span class="hljs-number">3</span>, colCnt = <span class="hljs-number">4</span>;
 <span class="hljs-keyword">int</span> ia[rowCnt][colCnt];
 <span class="hljs-keyword">size_t</span> cnt = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;row : ia) <span class="hljs-comment">// for every element in the outer array</span>
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;col : row) &#123; <span class="hljs-comment">// for every element in the inner array</span>
         col = cnt; <span class="hljs-comment">// give this element the next value</span>
         ++cnt; <span class="hljs-comment">// increment cnt</span>
-    &#125;</code></pre>
+    &#125;</code></pre></div>
 <p><font color = red>note</font><br>To use a multidimensional array in a range for, the loop control variable for<br>all but the innermost array must be <strong>references</strong>.</p>
-<h2 id="2-Pointers-and-Multidimensional-Arrays"><a href="#2-Pointers-and-Multidimensional-Arrays" class="headerlink" title="(2) Pointers and Multidimensional Arrays"></a>(2) Pointers and Multidimensional Arrays</h2><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>]; 
+<h2 id="2-Pointers-and-Multidimensional-Arrays"><a href="#2-Pointers-and-Multidimensional-Arrays" class="headerlink" title="(2) Pointers and Multidimensional Arrays"></a>(2) Pointers and Multidimensional Arrays</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>]; 
 <span class="hljs-keyword">int</span> (*p)[<span class="hljs-number">4</span>] = ia; <span class="hljs-comment">// p points to an array of four ints</span>
-p = &amp;ia[<span class="hljs-number">2</span>]; <span class="hljs-comment">// p now points to the last element in ia</span></code></pre>
+p = &amp;ia[<span class="hljs-number">2</span>]; <span class="hljs-comment">// p now points to the last element in ia</span></code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-comment">// p points to an array of four ints</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// p points to an array of four ints</span>
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p = ia; p != ia + <span class="hljs-number">3</span>; ++p) &#123;
     <span class="hljs-comment">// q points to the first element of an array of four ints;</span>
     <span class="hljs-comment">//that is, q points to an int</span>
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> q = *p; q != *p + <span class="hljs-number">4</span>; ++q)
         <span class="hljs-built_in">cout</span> &lt;&lt; *q &lt;&lt; <span class="hljs-string">' '</span>;
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>we can even more easily write this loop using the library <code>begin</code> and <code>end</code> functions：</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// p points to the first array in ia</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// p points to the first array in ia</span>
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> p = begin(ia); p != end(ia); ++p) &#123;
     <span class="hljs-comment">// q points to the first element in an inner array</span>
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> q = begin(*p); q != end(*p); ++q)
         <span class="hljs-built_in">cout</span> &lt;&lt; *q &lt;&lt; <span class="hljs-string">' '</span>; 
     <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
             </div>
             <hr>

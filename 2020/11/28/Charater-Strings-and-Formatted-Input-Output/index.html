@@ -218,11 +218,11 @@
 For 8-bit microcomputers,"></p>
 <h1 id="2-The-strlen-Function"><a href="#2-The-strlen-Function" class="headerlink" title="2. The strlen() Function"></a>2. The strlen() Function</h1><p>The <strong>strlen()</strong> function gives the length of a string in characters.<br>The <strong>string.h</strong> file contains function prototypes for several string related functions, including <strong>strlen()</strong>.<br>&nbsp;<br>The <strong>strlen()</strong> gives you the exact number of characters (including spaces and punctuation) in the string. The <strong>sizeof</strong> operator gives you a number one <strong>larger</strong> because it also counts the <strong>invisible null character</strong> used to end the string.<br>&nbsp;<br>The <strong>C99</strong> and <strong>C11</strong> standards use a <strong>%zd</strong> specifier for the type used by the <strong>sizeof</strong> operator. This also applies for type returned by <strong>strlen()</strong>.<br>&nbsp;<br>The preceding chapter used <strong>sizeof</strong> with <strong>parentheses</strong>, but this example doesn’t. <strong>Parentheses</strong> are <strong>required for types</strong> but are <strong>optional for particular quantities</strong>. That is, you would use <strong>sizeof(char)</strong> or <strong>sizeof(float)</strong> but can use <strong>sizeof name</strong> or <strong>sizeof 6.28.</strong></p>
 <h1 id="3-Constants-and-the-C-Preprocessor"><a href="#3-Constants-and-the-C-Preprocessor" class="headerlink" title="3. Constants and the C Preprocessor"></a>3. Constants and the C Preprocessor</h1><p>The <strong>preprocessor</strong> uses <strong>#include</strong> to incorporate information from another file, it also lets you define constants. Just add a line like the following at the top of the file containing your program:</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAXRATE 0.015</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TAXRATE 0.015</span></code></pre></div>
 <p><strong>No semicolon</strong> is used because this is a substitution mechanism handled by the <strong>preprocessor</strong>, not a <strong>C</strong> statement.</p>
 <h1 id="4-The-const-Modifier"><a href="#4-The-const-Modifier" class="headerlink" title="4. The const Modifier"></a>4. The const Modifier</h1><p><strong>C90</strong> added a second way to <strong>create symbolic constants</strong>—using the <strong>const</strong> keyword to convert a declaration for a <strong>variable</strong> into a declaration for a <strong>constant</strong>:</p>
-<pre><code class="hljs c"><span class="hljs-comment">// MONTHS a symbolic constant for 12</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MONTHS = <span class="hljs-number">12</span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">// MONTHS a symbolic constant for 12</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> MONTHS = <span class="hljs-number">12</span>;</code></pre></div>
 <p>This newer approach is more flexible than using <strong>#define</strong>; it lets you declare a type, and it allows better control over which parts of a program can use the constant.</p>
 <h1 id="5-Manifest-Constants-on-the-Job"><a href="#5-Manifest-Constants-on-the-Job" class="headerlink" title="5. Manifest Constants on the Job"></a>5. Manifest Constants on the Job</h1><p>The C header files <strong>limits.h</strong> and <strong>float.h</strong> supply detailed information about the <strong>size limits</strong> of <strong>integer</strong> types and <strong>floating</strong> types, respectively. </p>
 <h1 id="6-The-printf-Function"><a href="#6-The-printf-Function" class="headerlink" title="6. The printf() Function"></a>6. The printf() Function</h1><p>The instructions you give <strong>printf()</strong> when you ask it to print a variable depend on the variable type. </p>
@@ -382,7 +382,7 @@ For 8-bit microcomputers,"></p>
 <td align="left">For numeric forms, pad the field width with leading zeros indtead of with spaces. This flag is ignored if a - flag is present or if, for an integer form, a precision is specified.</td>
 </tr>
 </tbody></table>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
   <span class="hljs-keyword">float</span> f = <span class="hljs-number">321454.321345</span>; 
@@ -407,9 +407,9 @@ For 8-bit microcomputers,"></p>
   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\"printf\" = %9s\n"</span>,<span class="hljs-string">"printf"</span>);
   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\"printf\" = %3s\n"</span>,<span class="hljs-string">"printf"</span>);
   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>Output：</p>
-<pre><code class="hljs c"><span class="hljs-number">2.3</span> = <span class="hljs-number">2.300000</span> <span class="hljs-comment">//%04f：输出宽度至少4，精度不限制时用默认的，浮点数默认精度6位，这里宽度指总的宽度（包括小数点和小数点后面的数）</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-number">2.3</span> = <span class="hljs-number">2.300000</span> <span class="hljs-comment">//%04f：输出宽度至少4，精度不限制时用默认的，浮点数默认精度6位，这里宽度指总的宽度（包括小数点和小数点后面的数）</span>
 <span class="hljs-number">2.3</span> = <span class="hljs-number">002.30</span> <span class="hljs-comment">//%06.2f： 总共宽度至少6位，精度2位，因此左边补0</span>
 <span class="hljs-number">2.3</span> =   <span class="hljs-number">2.30</span> <span class="hljs-comment">//%6.2f：总共宽度至少6位，精度2位，左边空两格，默认右对齐</span>
 <span class="hljs-number">2.3</span> = <span class="hljs-number">2.30</span> <span class="hljs-comment">// %-6.2f：总共宽度至少6位，精度2位，右边空两格，加-号左对齐</span>
@@ -424,10 +424,10 @@ For 8-bit microcomputers,"></p>
 
 <span class="hljs-string">"printf"</span> =        pri <span class="hljs-comment">// %9.3s 总宽度至少9，有效3位，因此只现实3个字符</span>
 <span class="hljs-string">"printf"</span> =    <span class="hljs-built_in">printf</span>  <span class="hljs-comment">// %9s，总宽度至少9，宽度9</span>
-<span class="hljs-string">"printf"</span> = <span class="hljs-built_in">printf</span>   <span class="hljs-comment">// %3s，总宽度至少3，因此宽度为6</span></code></pre>
+<span class="hljs-string">"printf"</span> = <span class="hljs-built_in">printf</span>   <span class="hljs-comment">// %3s，总宽度至少3，因此宽度为6</span></code></pre></div>
 
 <h2 id="3-The-Return-Value-of-printf"><a href="#3-The-Return-Value-of-printf" class="headerlink" title="(3) The Return Value of printf()"></a>(3) The Return Value of printf()</h2><p>The <strong>printf()</strong> function also has a return value; it returns the <strong>number of characters</strong> it printed. </p>
-<h2 id="4-Printing-Long-Strings"><a href="#4-Printing-Long-Strings" class="headerlink" title="(4) Printing Long Strings"></a>(4) Printing Long Strings</h2><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<h2 id="4-Printing-Long-Strings"><a href="#4-Printing-Long-Strings" class="headerlink" title="(4) Printing Long Strings"></a>(4) Printing Long Strings</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
 <span class="hljs-function"></span>&#123;
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Here's one way to print a "</span>);
@@ -437,7 +437,7 @@ For 8-bit microcomputers,"></p>
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Here's the newest way to print a "</span>
 <span class="hljs-string">"long string.\n"</span>); <span class="hljs-comment">/* ANSI C */</span>
 <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>Method 1 is to use more than one <strong>printf()</strong> statement.<br>Method 2 is to terminate the end of the first line with a backslash/return combination.<br>Method 3, which ANSI C introduced, is <strong>string concatenation</strong>. If you follow one <strong>quoted</strong> string constant with another, separated only by <strong>whitespace</strong>, C treats the combination as a <strong>single string</strong>. </p>
 <h1 id="7-scanf"><a href="#7-scanf" class="headerlink" title="7. scanf()"></a>7. scanf()</h1><p>It converts string input into various forms: integers, floating-point numbers, characters, and C strings.<br>&nbsp;<br>Rules:</p>
 <blockquote>

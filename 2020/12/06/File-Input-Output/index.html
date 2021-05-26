@@ -269,17 +269,17 @@
 <p>After your program successfully opens a file, <strong>fopen()</strong> returns a <strong>file pointer</strong>, which the other I/O functions can then use to specify the file. The file pointer is of type <strong>pointer-to-FILE</strong>. The pointer points to a <strong>data object</strong> containing information about the file, including information about the buffer used for the file’s I/O. </p>
 <p>The <strong>fopen()</strong> function returns the <strong>null pointer</strong> (also defined in stdio.h) if it cannot open the file. </p>
 <h2 id="2-The-getc-and-putc-Functions"><a href="#2-The-getc-and-putc-Functions" class="headerlink" title="(2) The getc() and putc() Functions"></a>(2) The getc() and putc() Functions</h2><p>The two functions <strong>getc()</strong> and <strong>putc()</strong> work very much like <strong>getchar()</strong> and <strong>putchar()</strong>. The difference is that you must tell these newcomers <strong>which file to use</strong>. </p>
-<pre><code class="hljs c">ch = getchar();
+<div class="hljs"><pre><code class="hljs c">ch = getchar();
 <span class="hljs-comment">//get a character from the file identified by fp</span>
-ch = getc(fp);</code></pre>
-<pre><code class="hljs c"><span class="hljs-comment">//put the character ch into the file identified by the FILE pointer fpout</span>
-putc(ch, fpout);</code></pre>
+ch = getc(fp);</code></pre></div>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">//put the character ch into the file identified by the FILE pointer fpout</span>
+putc(ch, fpout);</code></pre></div>
 <p><code>putc(ch,stdout)</code> is the same as <code>putchar(ch)</code>. </p>
 <h2 id="3-End-of-File"><a href="#3-End-of-File" class="headerlink" title="(3) End-of-File"></a>(3) End-of-File</h2><p>The <strong>getc()</strong> function returns the special value <strong>EOF</strong> if it tries to read a character and discovers it has reached the end of the file. So a C program discovers it has reached the end of a file only after it tries to read past the end of the file. </p>
 <h2 id="4-The-fclose-Function"><a href="#4-The-fclose-Function" class="headerlink" title="(4) The fclose() Function"></a>(4) The fclose() Function</h2><p>The <strong>fclose(fp)</strong> function closes the file identified by <code>fp</code>, flushing buffers as needed. </p>
 <p>The function <strong>fclose()</strong> returns a value of <strong>0</strong> if successful, and <strong>EOF</strong> if not:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">if</span> (fclose(fp) != <span class="hljs-number">0</span>)
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Error in closing file %s\n"</span>, argv[<span class="hljs-number">1</span>]);</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (fclose(fp) != <span class="hljs-number">0</span>)
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Error in closing file %s\n"</span>, argv[<span class="hljs-number">1</span>]);</code></pre></div>
 <p>The <strong>fclose()</strong> function can fail if, for example, the disk is full, a removable storage device has been removed, or there has been an I/O error.</p>
 <h2 id="5-Pointers-to-the-Standard-Files"><a href="#5-Pointers-to-the-Standard-Files" class="headerlink" title="(5) Pointers to the Standard Files"></a>(5) Pointers to the Standard Files</h2><p>The <strong>stdio.h</strong> file associates three file pointers with the three standard files automatically opened by C programs:</p>
 <table>
@@ -308,7 +308,7 @@ putc(ch, fpout);</code></pre>
 </tbody></table>
 <p>These pointers are all type <strong>pointer-to-FILE</strong>, so they can be used as arguments to the <strong>standard I/O functions</strong>.</p>
 <h1 id="3-File-I-O-fprintf-fscanf-fgets-and-fputs"><a href="#3-File-I-O-fprintf-fscanf-fgets-and-fputs" class="headerlink" title="3. File I/O: fprintf(), fscanf(), fgets(), and fputs()"></a>3. File I/O: fprintf(), fscanf(), fgets(), and fputs()</h1><h2 id="1-The-fprintf-and-fscanf-Functions"><a href="#1-The-fprintf-and-fscanf-Functions" class="headerlink" title="(1) The fprintf() and fscanf() Functions"></a>(1) The fprintf() and fscanf() Functions</h2><p>The file I/O functions <strong>fprintf()</strong> and <strong>fscanf()</strong> work just like <strong>printf()</strong> and <strong>scanf()</strong>, except that they require an additional first argument to identify the proper <strong>file</strong>.</p>
-<pre><code class="hljs c"><span class="hljs-comment">/* addaword.c -- uses fprintf(), fscanf(), and rewind() */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* addaword.c -- uses fprintf(), fscanf(), and rewind() */</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
@@ -334,9 +334,9 @@ putc(ch, fpout);</code></pre>
     <span class="hljs-keyword">if</span> (fclose(fp) != <span class="hljs-number">0</span>)
         <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,<span class="hljs-string">"Error closing file\n"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    &#125;</code></pre>
+    &#125;</code></pre></div>
 <p>The <strong>rewind()</strong> command takes the program to the <strong>file beginning</strong> so that the final while loop can print the file contents.</p>
-<h2 id="2-The-fgets-and-fputs-Functions"><a href="#2-The-fgets-and-fputs-Functions" class="headerlink" title="(2) The fgets() and fputs() Functions"></a>(2) The fgets() and fputs() Functions</h2><pre><code class="hljs c">fgets(buf, STLEN, fp);</code></pre>
+<h2 id="2-The-fgets-and-fputs-Functions"><a href="#2-The-fgets-and-fputs-Functions" class="headerlink" title="(2) The fgets() and fputs() Functions"></a>(2) The fgets() and fputs() Functions</h2><div class="hljs"><pre><code class="hljs c">fgets(buf, STLEN, fp);</code></pre></div>
 <p><strong>The first argument</strong> of <strong>fgets()</strong>, as with the banished <strong>gets()</strong>, is the address (type <strong>char *</strong>) where input should be stored. </p>
 <p><strong>The second argument</strong> is an integer representing the <strong>maximum size of the input string</strong>. </p>
 <p><strong>The final argument</strong> is the <strong>file pointer</strong> identifying the file to be read. </p>
@@ -344,11 +344,11 @@ putc(ch, fpout);</code></pre>
 <p>Therefore, the <strong>upper limit</strong> represents the <strong>maximum number of characters</strong> plus the <strong>null character</strong>. </p>
 <p>If <strong>fgets()</strong> reads in a whole line before running into the character limit, it places the <strong>newline character</strong>, marking the end of the line into the string, just before the <strong>null character</strong>. </p>
 <p>The <strong>fgets()</strong> function returns the value <strong>NULL</strong> when it encounters <strong>EOF</strong>. You can use this to check for the end of a file. Otherwise, it returns the address passed to it.</p>
-<pre><code class="hljs c"><span class="hljs-built_in">fputs</span>(buf, fp);</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-built_in">fputs</span>(buf, fp);</code></pre></div>
 <p>The <strong>fputs()</strong> function takes two arguments: first, an <strong>address of a string</strong> and then a <strong>file pointer</strong>.</p>
 <p>It writes the string found at the pointed-to location into the indicated file. <strong>Unlike puts()</strong>, <strong>fputs()</strong> does not append a <strong>newline</strong> when it prints. </p>
 <h1 id="4-fseek-and-ftell"><a href="#4-fseek-and-ftell" class="headerlink" title="4. fseek() and ftell()"></a>4. fseek() and ftell()</h1><p>The <strong>fseek()</strong> function enables you to treat a <strong>file</strong> like an <strong>array</strong> and move directly to any particular byte in a <strong>file</strong> opened by <strong>fopen()</strong>. </p>
-<pre><code class="hljs c"><span class="hljs-comment">/* reverse.c -- displays a file in reverse order */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* reverse.c -- displays a file in reverse order */</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CNTL_Z <span class="hljs-meta-string">'\032'</span> <span class="hljs-comment">/* eof marker in DOS text files */</span></span>
@@ -378,7 +378,7 @@ putc(ch, fpout);</code></pre>
     <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'\n'</span>);
     fclose(fp);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>The <strong>first of the three arguments</strong> to <strong>fseek()</strong> is a <strong>FILE pointer</strong> to the file being searched. The file should have been opened by using <strong>fopen()</strong>.</p>
 <p>The <strong>second argument</strong> to <strong>fseek()</strong> is called the <strong>offset</strong>. This argument tells how far to move from the <strong>starting point</strong> (see the following list of mode starting points). The argument must be a <strong>long value</strong>. It can be <strong>positive</strong> (move forward), <strong>negative</strong> (move backward), or <strong>zero</strong> (stay put).</p>
 <p><strong>The third argument</strong> is the <strong>mode</strong>, and it identifies the <strong>starting point</strong>. Since the <strong>ANSI standard</strong>, the <strong>stdio.h</strong> header file specifies the following manifest constants for the mode:</p>
@@ -403,11 +403,11 @@ putc(ch, fpout);</code></pre>
 </tr>
 </tbody></table>
 <p>Older implementations may lack these definitions and, instead, use the numeric values <code>0L</code>, <code>1L</code>, and <code>2L</code>, respectively, for these <strong>modes</strong>. The <code>L</code> suffix identifies type <strong>long values</strong>. </p>
-<pre><code class="hljs c">fseek(fp, <span class="hljs-number">0L</span>, SEEK_SET); <span class="hljs-comment">// go to the beginning of the file</span>
+<div class="hljs"><pre><code class="hljs c">fseek(fp, <span class="hljs-number">0L</span>, SEEK_SET); <span class="hljs-comment">// go to the beginning of the file</span>
 fseek(fp, <span class="hljs-number">10L</span>, SEEK_SET); <span class="hljs-comment">// go 10 bytes into the file</span>
 fseek(fp, <span class="hljs-number">2L</span>, SEEK_CUR); <span class="hljs-comment">// advance 2 bytes from the current position</span>
 fseek(fp, <span class="hljs-number">0L</span>, SEEK_END); <span class="hljs-comment">// go to the end of the file</span>
-fseek(fp, <span class="hljs-number">-10L</span>, SEEK_END); <span class="hljs-comment">// back up 10 bytes from the end of the file</span></code></pre>
+fseek(fp, <span class="hljs-number">-10L</span>, SEEK_END); <span class="hljs-comment">// back up 10 bytes from the end of the file</span></code></pre></div>
 <p>The value <strong>returned</strong> by <strong>fseek()</strong> is <strong>0</strong> if everything is okay, and <strong>-1</strong> if there is an error, such as attempting to move <strong>past the bounds</strong> of the <strong>file</strong>.</p>
 <p>The <strong>ftell()</strong> function is type <strong>long</strong>, and it <strong>returns</strong> the <strong>current file location</strong>. Under <strong>ANSI C</strong>, it is declared in <strong>stdio.h</strong>. </p>
 <p>As originally implemented in Unix, <strong>ftell()</strong> specifies the <strong>file position</strong> by returning the number of bytes from the <strong>beginning</strong>, with the <strong>first byte</strong> being byte <strong>0</strong>, and so on.</p>
@@ -417,20 +417,20 @@ fseek(fp, <span class="hljs-number">-10L</span>, SEEK_END); <span class="hljs-co
 <p><strong>ANSI C</strong> introduced two <strong>new positioning functions</strong> designed to work with <strong>larger file sizes</strong>. Instead of using a <strong>long</strong> value to represent a position, it uses a new type, called <strong>fpos_t</strong> (for file position type) for that purpose.</p>
 <p>The <strong>fpos_t</strong> type is not a fundamental type; rather, it is defined in terms of other types. A variable or data object of <strong>fpos_t</strong> type can <strong>specify a location</strong> within a file, and it <strong>cannot be an array type</strong>, but its nature is not specified beyond that. </p>
 <p><strong>ANSI C</strong> does define how <strong>fpos_t</strong> is used. The <strong>fgetpos()</strong> function has this prototype:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fgetpos</span><span class="hljs-params">(FILE * <span class="hljs-keyword">restrict</span> stream, <span class="hljs-keyword">fpos_t</span> * <span class="hljs-keyword">restrict</span> pos)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fgetpos</span><span class="hljs-params">(FILE * <span class="hljs-keyword">restrict</span> stream, <span class="hljs-keyword">fpos_t</span> * <span class="hljs-keyword">restrict</span> pos)</span></span>;</code></pre></div>
 <p>When called, it places an <strong>fpos_t</strong> value in the location pointed to by <code>pos</code>; the value describes a location in the file. The function <strong>returns zero</strong> if successful and a <strong>nonzero</strong> value for failure.</p>
 <p>The <strong>fsetpos()</strong> function has this prototype: </p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fsetpos</span><span class="hljs-params">(FILE *stream, <span class="hljs-keyword">const</span> <span class="hljs-keyword">fpos_t</span> *pos)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fsetpos</span><span class="hljs-params">(FILE *stream, <span class="hljs-keyword">const</span> <span class="hljs-keyword">fpos_t</span> *pos)</span></span>;</code></pre></div>
 <p>When called, it uses the <strong>fpos_t</strong> value in the location pointed to by <code>pos</code> to set the file pointer to the location indicated by that value. The function <strong>returns zero</strong> if successful and a <strong>nonzero</strong> value for failure. The <strong>fpos_t</strong> value should have been obtained by a previous call to <strong>fgetpos()</strong>.</p>
 <h1 id="6-Other-Standard-I-O-Functions"><a href="#6-Other-Standard-I-O-Functions" class="headerlink" title="6. Other Standard I/O Functions"></a>6. Other Standard I/O Functions</h1><h2 id="1-The-int-ungetc-int-c-FILE-fp-Function"><a href="#1-The-int-ungetc-int-c-FILE-fp-Function" class="headerlink" title="(1) The int ungetc(int c, FILE *fp) Function"></a>(1) The int ungetc(int c, FILE *fp) Function</h2><p>The <strong>int ungetc()</strong> function pushes the character specified by <code>c</code> back onto the input stream.</p>
 <p>If you push a character onto the input stream, the next call to a standard input function reads that character.</p>
 <p>The <strong>ANSI C</strong> standard guarantees <strong>only one pushback</strong> at a time. If an implementation permits you to push back <strong>several characters in a row</strong>, the input functions read them in the <strong>reversed order of pushing</strong>.</p>
 <p><img src="_v_images/20201206172345396_1469727691.png" srcset="/img/loading.gif" alt="The ungetc() Function"></p>
-<h2 id="2-The-int-fflush-Function"><a href="#2-The-int-fflush-Function" class="headerlink" title="(2) The int fflush() Function"></a>(2) The int fflush() Function</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fflush</span><span class="hljs-params">(FILE *fp)</span></span>;</code></pre>
+<h2 id="2-The-int-fflush-Function"><a href="#2-The-int-fflush-Function" class="headerlink" title="(2) The int fflush() Function"></a>(2) The int fflush() Function</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fflush</span><span class="hljs-params">(FILE *fp)</span></span>;</code></pre></div>
 <p>Calling the <strong>fflush()</strong> function causes any <strong>unwritten data in the output buffer</strong> to be sent to the <strong>output file</strong> identified by <code>fp</code>. This process is called <strong>flushing a buffer</strong>. </p>
 <p>If <code>fp</code> is the <strong>null pointer</strong>, all output buffers are flushed. </p>
 <p>The effect of using <strong>fflush()</strong> on an <strong>input stream</strong> is <strong>undefined</strong>. </p>
-<h2 id="3-The-int-setvbuf-Function"><a href="#3-The-int-setvbuf-Function" class="headerlink" title="(3) The int setvbuf() Function"></a>(3) The int setvbuf() Function</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">setvbuf</span><span class="hljs-params">(FILE * <span class="hljs-keyword">restrict</span> fp, <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> buf, <span class="hljs-keyword">int</span> mode, <span class="hljs-keyword">size_t</span> <span class="hljs-built_in">size</span>)</span></span>;</code></pre>
+<h2 id="3-The-int-setvbuf-Function"><a href="#3-The-int-setvbuf-Function" class="headerlink" title="(3) The int setvbuf() Function"></a>(3) The int setvbuf() Function</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">setvbuf</span><span class="hljs-params">(FILE * <span class="hljs-keyword">restrict</span> fp, <span class="hljs-keyword">char</span> * <span class="hljs-keyword">restrict</span> buf, <span class="hljs-keyword">int</span> mode, <span class="hljs-keyword">size_t</span> <span class="hljs-built_in">size</span>)</span></span>;</code></pre></div>
 <p>The <strong>setvbuf()</strong> function sets up an <strong>alternative buffer</strong> to be used by the standard I/O functions. It is called <strong>after the file has been opened</strong> and <strong>before any other operations have been performed</strong> on the stream. </p>
 <p>The pointer <code>fp</code> identifies the stream, and <code>buf</code> points to the storage to be used. If the value of <code>buf</code> is <strong>not NULL</strong>, you must create the <strong>buffer</strong>. </p>
 <p>For instance, you could declare an array of 1,024 chars and pass the address of that array. However, if you use <strong>NULL</strong> for the value of <code>buf</code>, the function allocates a <strong>buffer</strong> itself. The size variable tells <strong>setvbuf()</strong> how big the array is.</p>
@@ -438,42 +438,42 @@ fseek(fp, <span class="hljs-number">-10L</span>, SEEK_END); <span class="hljs-co
 <p>The function returns <strong>zero</strong> if successful, <strong>nonzero</strong> otherwise.</p>
 <p>Suppose you have a program that works with stored data objects having, say, a size of 3,000 bytes each. You could use <strong>setvbuf()</strong> to create a <strong>buffer</strong> whose size is a multiple of the data object’s size. </p>
 <h2 id="4-Binary-I-O-fread-and-fwrite"><a href="#4-Binary-I-O-fread-and-fwrite" class="headerlink" title="(4) Binary I/O: fread() and fwrite()"></a>(4) Binary I/O: fread() and fwrite()</h2><p>In general, <strong>fprintf()</strong> converts <strong>numeric values</strong> to <strong>character data</strong>, possibly <strong>altering the value</strong>.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">double</span> num = <span class="hljs-number">1.</span>/<span class="hljs-number">3.</span>;
-<span class="hljs-built_in">fprintf</span>(fp,<span class="hljs-string">"%f"</span>, num);</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> num = <span class="hljs-number">1.</span>/<span class="hljs-number">3.</span>;
+<span class="hljs-built_in">fprintf</span>(fp,<span class="hljs-string">"%f"</span>, num);</code></pre></div>
 <p>saves <code>num</code> as a sequence of eight characters: <code>0.333333</code>. Using a <code>%.2f</code> specifier saves it as four characters: <code>0.33</code>.</p>
 <p>Changing the specifier alters the amount of space needed to store the value; it can also result in different values being stored. After the value of <code>num</code> is stored as <code>0.33</code>, there is <strong>no way to get back the full precision</strong> when the file is read. </p>
 <p>The <strong>most accurate and consistent</strong> way to store a number is to use the <strong>same pattern of bits</strong> that the computer does. Therefore, a <strong>double</strong> value should be stored in a size <strong>double unit</strong>. </p>
 <p>When data is stored in a file using the same representation that the program uses, we say that the data is stored in <strong>binary form</strong>. There is <strong>no conversion from</strong> numeric forms to character sequences. </p>
 <p>For <strong>standard I/O</strong>, the <strong>fread()</strong> and <strong>fwrite()</strong> functions provide this <strong>binary service</strong>.</p>
 <p><img src="_v_images/20201206174743443_124649534.png" srcset="/img/loading.gif" alt="Binary and text output"></p>
-<h3 id="The-size-t-fwrite-Function"><a href="#The-size-t-fwrite-Function" class="headerlink" title="The size_t fwrite() Function"></a>The size_t fwrite() Function</h3><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">fwrite</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> * <span class="hljs-keyword">restrict</span> ptr, <span class="hljs-keyword">size_t</span> <span class="hljs-built_in">size</span>, <span class="hljs-keyword">size_t</span> nmemb, FILE * <span class="hljs-keyword">restrict</span> fp)</span></span>;</code></pre>
+<h3 id="The-size-t-fwrite-Function"><a href="#The-size-t-fwrite-Function" class="headerlink" title="The size_t fwrite() Function"></a>The size_t fwrite() Function</h3><div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">fwrite</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> * <span class="hljs-keyword">restrict</span> ptr, <span class="hljs-keyword">size_t</span> <span class="hljs-built_in">size</span>, <span class="hljs-keyword">size_t</span> nmemb, FILE * <span class="hljs-keyword">restrict</span> fp)</span></span>;</code></pre></div>
 <p>The <strong>fwrite()</strong> function <strong>writes binary data</strong> to a file. </p>
 <p>The <strong>size_t</strong> type is defined in terms of the standard C types. It is the type returned by the <strong>sizeof</strong> operator. Typically, it is <strong>unsigned int</strong>, but an implementation can choose another type. </p>
 <p>The pointer <code>ptr</code> is the address of the chunk of data to be written. </p>
 <p>Also, <code>size</code> represents the size, in <strong>bytes</strong>, of the chunks to be written, and<br><code>nmemb</code> represents the number of chunks to be written. As usual, <code>fp</code> identifies the file to be written to. </p>
 <p>For instance, to save a data object (such as an array) that is 256 bytes in size, you<br>can do this:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">buffer</span>[<span class="hljs-number">256</span>];
-fwrite(<span class="hljs-built_in">buffer</span>, <span class="hljs-number">256</span>, <span class="hljs-number">1</span>, fp);</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">buffer</span>[<span class="hljs-number">256</span>];
+fwrite(<span class="hljs-built_in">buffer</span>, <span class="hljs-number">256</span>, <span class="hljs-number">1</span>, fp);</code></pre></div>
 <p>This call writes one chunk of 256 bytes from buffer to the file. </p>
 <p>Or, to save an array of 10 double values, you can do this:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">double</span> earnings[<span class="hljs-number">10</span>];
-fwrite(earnings, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>), <span class="hljs-number">10</span>, fp);</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> earnings[<span class="hljs-number">10</span>];
+fwrite(earnings, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>), <span class="hljs-number">10</span>, fp);</code></pre></div>
 <p>This call writes data from the <code>earnings</code> array to the file in 10 chunks, each of size double.</p>
 <p>One problem with <strong>fwrite()</strong> is that its <strong>first argument</strong> is <strong>not a fixed type</strong>. Under ANSI C function prototyping, these actual arguments are converted to the <strong>pointer-to-void</strong> type, which acts as a sort of catchall type for pointers. </p>
 <p>The <strong>fwrite()</strong> function <strong>returns</strong> the <strong>number of items</strong> successfully written. Normally, this equals <code>nmemb</code>, but it can be less if there is a write error.</p>
-<h3 id="The-size-t-fread-Function"><a href="#The-size-t-fread-Function" class="headerlink" title="The size_t fread() Function"></a>The size_t fread() Function</h3><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">fread</span><span class="hljs-params">(<span class="hljs-keyword">void</span> * <span class="hljs-keyword">restrict</span> ptr, <span class="hljs-keyword">size_t</span> <span class="hljs-built_in">size</span>, <span class="hljs-keyword">size_t</span> nmemb, FILE * <span class="hljs-keyword">restrict</span> fp)</span></span>;</code></pre>
+<h3 id="The-size-t-fread-Function"><a href="#The-size-t-fread-Function" class="headerlink" title="The size_t fread() Function"></a>The size_t fread() Function</h3><div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">fread</span><span class="hljs-params">(<span class="hljs-keyword">void</span> * <span class="hljs-keyword">restrict</span> ptr, <span class="hljs-keyword">size_t</span> <span class="hljs-built_in">size</span>, <span class="hljs-keyword">size_t</span> nmemb, FILE * <span class="hljs-keyword">restrict</span> fp)</span></span>;</code></pre></div>
 <p>The <strong>fread()</strong> function takes the same set of arguments that <strong>fwrite()</strong> does. </p>
 <p>This time <code>ptr</code> is the address of the memory storage into which file data is read, and <code>fp</code> identifies the file to be read. </p>
 <p>For example, to recover the array of 10 doubles saved in the previous example, use this call:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">double</span> earnings[<span class="hljs-number">10</span>];
-fread(earnings, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>), <span class="hljs-number">10</span>, fp);</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> earnings[<span class="hljs-number">10</span>];
+fread(earnings, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>), <span class="hljs-number">10</span>, fp);</code></pre></div>
 <p>This call copies 10 size <strong>double</strong> values into the <code>earnings</code> array.</p>
 <p>The <strong>fread()</strong> function returns the <strong>number of items</strong> successfully read. Normally, this equals <code>nmemb</code>, but it can be less if there is a read error or if the <strong>end-of-file</strong> is reached.</p>
 <h2 id="5-The-int-feof-FILE-fp-and-int-ferror-FILE-fp-Functions"><a href="#5-The-int-feof-FILE-fp-and-int-ferror-FILE-fp-Functions" class="headerlink" title="(5) The int feof(FILE *fp) and int ferror(FILE *fp) Functions"></a>(5) The int feof(FILE *fp) and int ferror(FILE *fp) Functions</h2><p>When the standard input functions return <strong>EOF</strong>, this usually means they have reached the <strong>end of a file</strong>. However, it can also indicate that a <strong>read error</strong> has occurred. </p>
 <p>The <strong>feof()</strong> and <strong>ferror()</strong> functions enable you to <strong>distinguish between the two possibilities</strong>. </p>
 <p>The <strong>feof()</strong> function returns a <strong>nonzero</strong> value if the last input call detected the <strong>end-of-file</strong>, and it returns <strong>zero</strong> otherwise. </p>
 <p>The <strong>ferror()</strong> function returns a <strong>nonzero</strong> value if a read or write <strong>error</strong> has occurred, and it returns <strong>zero</strong> otherwise.</p>
-<h2 id="6-An-fread-and-fwrite-Example"><a href="#6-An-fread-and-fwrite-Example" class="headerlink" title="(6) An fread() and fwrite() Example"></a>(6) An fread() and fwrite() Example</h2><pre><code class="hljs c"><span class="hljs-comment">/* append.c -- appends files to a file */</span>
+<h2 id="6-An-fread-and-fwrite-Example"><a href="#6-An-fread-and-fwrite-Example" class="headerlink" title="(6) An fread() and fwrite() Example"></a>(6) An fread() and fwrite() Example</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* append.c -- appends files to a file */</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
@@ -558,8 +558,8 @@ fread(earnings, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keywo
                 <span class="hljs-keyword">continue</span>;
     &#125;
     <span class="hljs-keyword">return</span> ret_val;
-&#125;</code></pre>
-<h2 id="7-Random-Access-with-Binary-I-O"><a href="#7-Random-Access-with-Binary-I-O" class="headerlink" title="(7) Random Access with Binary I/O"></a>(7) Random Access with Binary I/O</h2><pre><code class="hljs c"><span class="hljs-comment">/* randbin.c -- random access, binary i/o */</span>
+&#125;</code></pre></div>
+<h2 id="7-Random-Access-with-Binary-I-O"><a href="#7-Random-Access-with-Binary-I-O" class="headerlink" title="(7) Random Access with Binary I/O"></a>(7) Random Access with Binary I/O</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* randbin.c -- random access, binary i/o */</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ARSIZE 1000</span>
@@ -603,7 +603,7 @@ fread(earnings, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keywo
     fclose(iofile);
     <span class="hljs-built_in">puts</span>(<span class="hljs-string">"Bye!"</span>);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
             </div>
             <hr>
             <div>

@@ -213,24 +213,24 @@
 <li>const variables in c++ have internal linkage by default, while in c const global variables have default external linkage.</li>
 </ol>
 <p><a href="https://lxwcd.github.io/2020/12/29/Variables-and-Basic-Types/#3-const-Qualifier">const qualifier in c++</a></p>
-<pre><code class="hljs cpp"><span class="hljs-comment">//c++ </span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">//c++ </span>
 <span class="hljs-comment">// file_1.cc defines and initializes a const that </span>
 <span class="hljs-comment">// is accessible to other files</span>
 <span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize = fcn();
 <span class="hljs-comment">// file_1.h</span>
-<span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize; <span class="hljs-comment">// same bufSize as defined in file_1.cc</span></code></pre>
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize; <span class="hljs-comment">// same bufSize as defined in file_1.cc</span></code></pre></div>
 <p><a href="https://lxwcd.github.io/2021/01/07/Storage-Classes-Linkage-and-Memory-Management/#4-Static-Variables-with-External-Linkage">Static Variables with External Linkage in c</a></p>
-<pre><code class="hljs c"><span class="hljs-comment">//c</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">//c</span>
 <span class="hljs-comment">/* file1.c -- defines some global constants */</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> PI = <span class="hljs-number">3.14159</span>;
 <span class="hljs-comment">/* file2.c -- use global constants defined elsewhere */</span>
-<span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> PI;</code></pre>
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> PI;</code></pre></div>
 
 <ol start="2">
 <li>A const variable in c is not a const expression<br><a href="https://lxwcd.github.io/2020/12/29/Variables-and-Basic-Types/#5-Constant-Expressions">constant expressions in c++</a></li>
 </ol>
 <p>A const object that is initialized from a constant expression is also a constant expression.</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">//c++</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">//c++</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> max_files = <span class="hljs-number">20</span>; <span class="hljs-comment">// max_files is a constant expression</span>
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> limit = max_files + <span class="hljs-number">1</span>; <span class="hljs-comment">// limit is a constant expression</span>
 <span class="hljs-keyword">int</span> staff_size = <span class="hljs-number">27</span>; <span class="hljs-comment">// staff_size is not a constant expression</span>
@@ -251,7 +251,7 @@ In C the <span class="hljs-keyword">const</span> qualifier makes an object read-
     <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span> * I;
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, a[<span class="hljs-number">0</span>]);
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, b[<span class="hljs-number">0</span>]);
-&#125;</code></pre>
+&#125;</code></pre></div>
 
             </div>
             <hr>

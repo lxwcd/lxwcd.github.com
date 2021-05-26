@@ -229,21 +229,21 @@
 <p>As an example, assume <code>p</code> is an <code>int*</code>. Because dereference yields an <strong>lvalue</strong> <code>decltype(*p)</code> is <code>int&amp;</code>. </p>
 <p>On the other hand, because the address-of operator yields an <strong>rvalue</strong> <code>decltype(&amp;p)</code> is <code>int**</code>, that is, a pointer to a pointer to type int.</p>
 <p>The left-hand operand of an assignment operator must be a <strong>modifiable lvalue</strong>. For example, given</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, k = <span class="hljs-number">0</span>; <span class="hljs-comment">// initializations, not assignment</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = i; <span class="hljs-comment">// initialization, not assignment</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, k = <span class="hljs-number">0</span>; <span class="hljs-comment">// initializations, not assignment</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = i; <span class="hljs-comment">// initialization, not assignment</span></code></pre></div>
 
-<pre><code class="hljs cpp"><span class="hljs-number">1024</span> = k; <span class="hljs-comment">// error: literals are rvalues</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-number">1024</span> = k; <span class="hljs-comment">// error: literals are rvalues</span>
 i + j = k; <span class="hljs-comment">// error: arithmetic expressions are rvalues</span>
-ci = k; <span class="hljs-comment">// error: ci is a const (nonmodifiable) lvalue</span></code></pre>
+ci = k; <span class="hljs-comment">// error: ci is a const (nonmodifiable) lvalue</span></code></pre></div>
 <p>The <strong>result of an assignment</strong> is its <strong>left-hand operand</strong>, which is an <strong>lvalue</strong>. </p>
 <p>The <strong>type of the result</strong> is the type of the left-hand operand. </p>
 <p>If the <strong>types</strong> of the left and right operands <strong>differ</strong>, the <strong>right-hand</strong> operand is <strong>converted</strong> to the type of the <strong>left</strong>:</p>
-<pre><code class="hljs cpp">k = <span class="hljs-number">0</span>; <span class="hljs-comment">// result: type int, value 0</span>
-k = <span class="hljs-number">3.14159</span>; <span class="hljs-comment">// result: type int, value 3</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp">k = <span class="hljs-number">0</span>; <span class="hljs-comment">// result: type int, value 0</span>
+k = <span class="hljs-number">3.14159</span>; <span class="hljs-comment">// result: type int, value 3</span></code></pre></div>
 <p>Under the new standard, we can use a <strong>braced initializer list</strong> on the right-hand side:</p>
-<pre><code class="hljs cpp">k = &#123;<span class="hljs-number">3.14</span>&#125;; <span class="hljs-comment">// error: narrowing conversion</span>
+<div class="hljs"><pre><code class="hljs cpp">k = &#123;<span class="hljs-number">3.14</span>&#125;; <span class="hljs-comment">// error: narrowing conversion</span>
 <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vi; <span class="hljs-comment">// initially empty</span>
-vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;</code></pre>
+vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;</code></pre></div>
 <p>If the <strong>left-hand operand</strong> is of a <strong>built-in type</strong>, the <strong>initializer list</strong> may contain at most one value, and that value <strong>must not</strong> require a <strong>narrowing conversion</strong>.</p>
 <p>Regardless of the type of the left-hand operand, the initializer list may be empty. </p>
 <p>In this case, the compiler generates a <strong>value-initialized</strong> temporary and assigns that value to the left-hand operand.</p>
@@ -251,19 +251,19 @@ vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>
 <h1 id="2-Arithmetic-Operators"><a href="#2-Arithmetic-Operators" class="headerlink" title="2. Arithmetic Operators"></a>2. Arithmetic Operators</h1><p>In a <strong>division</strong>, the <a href="http://eel.is/c++draft/expr.mul#:operator,division" target="_blank" rel="noopener">new standard</a> requires the quotient to be rounded toward zero (i.e., truncated).</p>
 <p>The <strong>modulus operator</strong> is defined so that if m and n are integers and n is nonzero, then <strong>(m/n)*n + m%n</strong> is equal to m. </p>
 <p><strong>By implication, if **m%n</strong> is nonzero, it has the same sign as <strong>m</strong>.**</p>
-<pre><code class="hljs angelscript"><span class="hljs-number">21</span> % <span class="hljs-number">6</span>; <span class="hljs-comment">/* result is 3 */</span> 			<span class="hljs-number">21</span> / <span class="hljs-number">6</span>; <span class="hljs-comment">/* result is 3 */</span>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">21</span> % <span class="hljs-number">6</span>; <span class="hljs-comment">/* result is 3 */</span> 			<span class="hljs-number">21</span> / <span class="hljs-number">6</span>; <span class="hljs-comment">/* result is 3 */</span>
 <span class="hljs-number">21</span> % <span class="hljs-number">7</span>; <span class="hljs-comment">/* result is 0 */</span>		 	<span class="hljs-number">21</span> / <span class="hljs-number">7</span>; <span class="hljs-comment">/* result is 3 */</span>
 <span class="hljs-number">-21</span> % <span class="hljs-number">-8</span>; <span class="hljs-comment">/* result is -5 */</span> 		<span class="hljs-number">-21</span> / <span class="hljs-number">-8</span>; <span class="hljs-comment">/* result is 2 */</span>
-<span class="hljs-number">21</span> % <span class="hljs-number">-5</span>; <span class="hljs-comment">/* result is 1 */</span> 			<span class="hljs-number">21</span> / <span class="hljs-number">-5</span>; <span class="hljs-comment">/* result is -4 */</span></code></pre>
+<span class="hljs-number">21</span> % <span class="hljs-number">-5</span>; <span class="hljs-comment">/* result is 1 */</span> 			<span class="hljs-number">21</span> / <span class="hljs-number">-5</span>; <span class="hljs-comment">/* result is -4 */</span></code></pre></div>
 <h1 id="3-Precedence-and-Associativity"><a href="#3-Precedence-and-Associativity" class="headerlink" title="3. Precedence and Associativity"></a>3. Precedence and Associativity</h1><p><img src="_v_images/20210307180220936_154393290.png" srcset="/img/loading.gif" alt="Operator Precedence"><br><img src="_v_images/20210307180305444_1692738126.png" srcset="/img/loading.gif" alt="Operator Precedence"></p>
 <h1 id="4-Order-of-Evaluation"><a href="#4-Order-of-Evaluation" class="headerlink" title="4. Order of Evaluation"></a>4. Order of Evaluation</h1><p><strong>Precedence</strong> specifies how the operands are grouped. It says nothing about the <strong>order</strong> in which the <strong>operands are evaluated</strong>. </p>
 <p>In most cases, the order is largely <strong>unspecified</strong>.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = f1() * f2();</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = f1() * f2();</code></pre></div>
 <p>we know that <code>f1</code> and <code>f2</code> must be called before the multiplication can be done. </p>
 <p>However, we have no way of knowing whether <code>f1</code> will be called before <code>f2</code> or vice versa.</p>
 <p>For operators that do not specify evaluation order, it is an error for an expression to refer to and change the <strong>same object</strong>. </p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-<span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// undefined</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// undefined</span></code></pre></div>
 <p>The compiler might evaluate <code>++i</code> before evaluating <code>i</code>.</p>
 <p>There are <strong>four operators</strong> that do <strong>guarantee the order</strong> in which <strong>operands are evaluated</strong>.</p>
 <p>The logical <strong>AND (&amp;&amp;)</strong> operator guarantees that its <strong>left-hand operand is evaluated first</strong>. </p>
@@ -273,21 +273,21 @@ vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>
 <p>The <strong>prefix</strong> increments (or decrements) its operand and <strong>yields the changed object</strong> as its result. </p>
 <p>The <strong>postfix</strong> operators increment (or decrement) the operand but <strong>yield a copy of the original</strong>, unchanged value as its result.</p>
 <p>The <strong>postfix operator</strong> must <strong>store the original value</strong> so that it can return the unincremented value as its result.</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// the behavior of the following loop is undefined!</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// the behavior of the following loop is undefined!</span>
 <span class="hljs-keyword">while</span> (beg != s.end() &amp;&amp; !<span class="hljs-built_in">isspace</span>(*beg))
-    *beg = <span class="hljs-built_in">toupper</span>(*beg++); <span class="hljs-comment">// error: this assignment is undefined</span></code></pre>
+    *beg = <span class="hljs-built_in">toupper</span>(*beg++); <span class="hljs-comment">// error: this assignment is undefined</span></code></pre></div>
 <p>The problem is that both the left and right-hand operands to = use beg and the right-hand operand changes beg. </p>
 <p>The compiler might evaluate this expression as either</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// execution if left-hand side is evaluated first</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// execution if left-hand side is evaluated first</span>
 *beg = <span class="hljs-built_in">toupper</span>(*beg); 
 <span class="hljs-comment">// execution if right-hand side is evaluated first</span>
-*(beg + <span class="hljs-number">1</span>) = <span class="hljs-built_in">toupper</span>(*beg);</code></pre>
+*(beg + <span class="hljs-number">1</span>) = <span class="hljs-built_in">toupper</span>(*beg);</code></pre></div>
 <h1 id="6-sizeof"><a href="#6-sizeof" class="headerlink" title="6. sizeof"></a>6. sizeof</h1><p>The <strong>sizeof</strong> operator returns the size, in <strong>bytes</strong>, of an expression or a type name. </p>
 <p>The operator is <strong>right associative</strong>. </p>
 <p>The result of <strong>sizeof</strong> is a <strong>constant expression</strong> of type <code>size_t</code>.</p>
 <p>The operator takes one of two forms:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">sizeof</span> (type)
-<span class="hljs-keyword">sizeof</span> expr</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">sizeof</span> (type)
+<span class="hljs-keyword">sizeof</span> expr</code></pre></div>
 <p><strong>sizeof an array</strong> is the size of the entire array. It is equivalent to taking the sizeof the element type times the number of elements in the array. </p>
 <p><strong>sizeof a string</strong> or a <strong>vector</strong> returns only the size of the fixed part of these types; it does not return the size used by the object’s elements.</p>
 <p>Note that sizeof does not convert the array to a pointer.</p>
@@ -303,7 +303,7 @@ vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>
 <li><p>In <strong>arithmetic and relational expressions</strong> with operands of mixed types, the types are converted to a common type.</p>
 </li>
 </ul>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ival = <span class="hljs-number">3.541</span> + <span class="hljs-number">3</span>; <span class="hljs-comment">// the compiler might warn about loss of precision</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ival = <span class="hljs-number">3.541</span> + <span class="hljs-number">3</span>; <span class="hljs-comment">// the compiler might warn about loss of precision</span></code></pre></div>
 
 <ol>
 <li><p><code>3</code> is converted to double, floating-point addition is done, and the result is a double.</p>
@@ -314,8 +314,8 @@ vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>
 <h2 id="2-The-Arithmetic-Conversions"><a href="#2-The-Arithmetic-Conversions" class="headerlink" title="(2) The Arithmetic Conversions"></a>(2) The Arithmetic Conversions</h2><p>The <strong>arithmetic conversions</strong> convert one arithmetic type to another. </p>
 <p>The rules define a hierarchy of type conversions in which operands to an operator are converted to the <strong>widest type</strong>.</p>
 <h2 id="3-Other-Implicit-Conversions"><a href="#3-Other-Implicit-Conversions" class="headerlink" title="(3) Other Implicit Conversions"></a>(3) Other Implicit Conversions</h2><h3 id="Array-to-Pointer-Conversions"><a href="#Array-to-Pointer-Conversions" class="headerlink" title="Array to Pointer Conversions"></a>Array to Pointer Conversions</h3><p>In most expressions, when we use an array, the array is automatically converted to a pointer to the first element in that array.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[<span class="hljs-number">10</span>]; <span class="hljs-comment">// array of ten ints</span>
-<span class="hljs-keyword">int</span>* ip = ia; <span class="hljs-comment">// convert ia to a pointer to the first element</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> ia[<span class="hljs-number">10</span>]; <span class="hljs-comment">// array of ten ints</span>
+<span class="hljs-keyword">int</span>* ip = ia; <span class="hljs-comment">// convert ia to a pointer to the first element</span></code></pre></div>
 <p>This conversion is <strong>not performed</strong> when an array is used with <strong>decltype</strong> or as the operand of the <strong>address-of</strong> ( &amp; ), <strong>sizeof</strong>, or <strong>typeid</strong> operators. </p>
 <p>The conversion is also <strong>omitted</strong> when we <strong>initialize a reference</strong> to an array.</p>
 <h2 id="4-Pointer-Conversions"><a href="#4-Pointer-Conversions" class="headerlink" title="(4) Pointer Conversions"></a>(4) Pointer Conversions</h2><ul>
@@ -328,57 +328,57 @@ vi = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>
 </ul>
 <h2 id="5-Conversions-to-bool"><a href="#5-Conversions-to-bool" class="headerlink" title="(5) Conversions to bool"></a>(5) Conversions to bool</h2><p>There is an <strong>automatic conversion</strong> from arithmetic or pointer types to bool. </p>
 <p>If the pointer or arithmetic value is zero, the conversion yields false; any other value yields true.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">char</span> *cp = get_string();
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">char</span> *cp = get_string();
 <span class="hljs-keyword">if</span> (cp) <span class="hljs-comment">/* ... */</span> <span class="hljs-comment">// true if the pointer cp is not zero</span>
-<span class="hljs-keyword">while</span> (*cp) <span class="hljs-comment">/* ... */</span> <span class="hljs-comment">// true if *cp is not the null character</span></code></pre>
+<span class="hljs-keyword">while</span> (*cp) <span class="hljs-comment">/* ... */</span> <span class="hljs-comment">// true if *cp is not the null character</span></code></pre></div>
 
 <h2 id="6-Conversion-to-const"><a href="#6-Conversion-to-const" class="headerlink" title="(6) Conversion to const"></a>(6) Conversion to const</h2><p>We <strong>can</strong> convert a <strong>pointer to a nonconst</strong> type to a <strong>pointer to the corresponding const type</strong>, and similarly for <strong>references</strong>. </p>
 <p>That is, if <code>T</code> is a type, we can convert a pointer or a reference to <code>T</code> into a pointer or reference to <strong>const T</strong>, respectively.</p>
 <h2 id="7-Conversions-Defined-by-Class-Types"><a href="#7-Conversions-Defined-by-Class-Types" class="headerlink" title="(7) Conversions Defined by Class Types"></a>(7) Conversions Defined by Class Types</h2><p>Class types can define conversions that the compiler will apply automatically. </p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// character string literal converted to type string</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// character string literal converted to type string</span>
 <span class="hljs-built_in">string</span> s, t = <span class="hljs-string">"a value"</span>; 
-<span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; s) <span class="hljs-comment">// while condition converts cin to bool</span></code></pre>
+<span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; s) <span class="hljs-comment">// while condition converts cin to bool</span></code></pre></div>
 <p>The condition <code>(cin &gt;&gt; s)</code> reads <code>cin</code> and yields <code>cin</code> as its result. </p>
 <p>Conditions expect a value of type bool, but this condition tests a value of type istream. </p>
 <p>The <strong>IO library</strong> defines a conversion from istream to bool. </p>
 <p>That conversion is used (automatically) to convert <code>cin</code> to bool. </p>
 <p>The resulting bool value depends on the state of the stream. </p>
 <p>If the last read succeeded, then the conversion yields true. If the last attempt failed, then the conversion to bool yields false.</p>
-<h2 id="8-Named-Casts"><a href="#8-Named-Casts" class="headerlink" title="(8) Named Casts"></a>(8) Named Casts</h2><pre><code class="hljs elm"><span class="hljs-title">cast</span>-name&lt;<span class="hljs-keyword">type</span>&gt;(expression);</code></pre>
+<h2 id="8-Named-Casts"><a href="#8-Named-Casts" class="headerlink" title="(8) Named Casts"></a>(8) Named Casts</h2><div class="hljs"><pre><code class="hljs elm"><span class="hljs-title">cast</span>-name&lt;<span class="hljs-keyword">type</span>&gt;(expression);</code></pre></div>
 <p>Where <code>type</code> is the target type of the conversion, and <code>expression</code> is the value to be cast. </p>
 <p>If <code>type</code> is a reference, then the result is an <code>lvalue</code>. </p>
 <p>The cast-name may be one of <strong>static_cast</strong>, <strong>dynamic_cast</strong>, <strong>const_cast</strong>, and <strong>reinterpret_cast</strong>.</p>
 <h3 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h3><p>Any well-defined type conversion, other than those involving low-level const, can be requested using a <strong>static_cast</strong>. </p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// cast used to force floating-point division</span>
-<span class="hljs-keyword">double</span> slope = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">double</span>&gt;(j) / i;</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// cast used to force floating-point division</span>
+<span class="hljs-keyword">double</span> slope = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">double</span>&gt;(j) / i;</code></pre></div>
 <p>A <code>static_cast</code> is <strong>often useful</strong> when a <strong>larger arithmetic</strong> type is assigned to a <strong>smaller type</strong>. </p>
 <p>A <code>static_cast</code> is <strong>also useful</strong> to perform a conversion that the compiler will not generate automatically.</p>
-<pre><code class="hljs cpp"><span class="hljs-comment">// ok: address of any nonconst object can be stored in a void*</span>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// ok: address of any nonconst object can be stored in a void*</span>
 <span class="hljs-keyword">void</span>* p = &amp;d; 
 <span class="hljs-comment">// ok: converts void* back to the original pointer type</span>
-<span class="hljs-keyword">double</span> *dp = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">double</span>*&gt;(p);</code></pre>
+<span class="hljs-keyword">double</span> *dp = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">double</span>*&gt;(p);</code></pre></div>
 <p>The result of the cast will be equal to the original address value.</p>
 <p>However, we <strong>must be certain</strong> that the type to which we cast the pointer is the <strong>actual type</strong> of that pointer; if the types do <strong>not match</strong>, the result is <strong>undefined</strong>.</p>
 <h3 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h3><p>A <strong>const_cast</strong> changes only a low-level const in its operand</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *pc;
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *pc;
 <span class="hljs-keyword">char</span> *p = <span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(pc); 
-<span class="hljs-comment">// ok: but writing through p is undefined ？？？</span></code></pre>
+<span class="hljs-comment">// ok: but writing through p is undefined ？？？</span></code></pre></div>
 <p>Conventionally we say that a cast that converts a const object to a nonconst type “<strong>casts away the const</strong>.” </p>
 <p><strong>Once we have cast away the const of an object, the compiler will no longer prevent us from writing to that object.</strong> </p>
 <p>If the object was originally not a const, using a cast to obtain write access is legal. </p>
 <p>Only a <strong>const_cast</strong> may be used to change the <strong>constness</strong> of an expression.</p>
 <h3 id="reinterpret-cast"><a href="#reinterpret-cast" class="headerlink" title="reinterpret_cast"></a>reinterpret_cast</h3><p>A <strong>reinterpret_cast</strong> generally performs a <strong>low-level reinterpretation</strong> of the bit pattern of its operands.</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *ip;
-<span class="hljs-keyword">char</span> *pc = <span class="hljs-keyword">reinterpret_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(ip);</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> *ip;
+<span class="hljs-keyword">char</span> *pc = <span class="hljs-keyword">reinterpret_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(ip);</code></pre></div>
 <p>We must never forget that the <strong>actual object</strong> addressed by <code>pc</code> is an <strong>int</strong>, <strong>not a character</strong>. </p>
 <p>Any use of <code>pc</code> that assumes it’s an ordinary character pointer is likely to fail at run time:</p>
-<pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str</span><span class="hljs-params">(pc)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">str</span><span class="hljs-params">(pc)</span></span>;</code></pre></div>
 <p>is likely to result in bizarre run-time behavior.</p>
 <h3 id="Old-Style-Casts"><a href="#Old-Style-Casts" class="headerlink" title="Old-Style Casts"></a>Old-Style Casts</h3><p>In early versions of C++, an explicit cast took one of the following two forms:</p>
-<pre><code class="hljs cpp">type (expr); <span class="hljs-comment">// function-style cast notation</span>
-(type) expr; <span class="hljs-comment">// C-language-style cast notation</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp">type (expr); <span class="hljs-comment">// function-style cast notation</span>
+(type) expr; <span class="hljs-comment">// C-language-style cast notation</span></code></pre></div>
 <p>When we use an old-style cast where a <strong>static_cast</strong> or a <strong>const_cast</strong> would be legal, the old-style cast does <strong>the same conversion</strong> as the respective named cast. If neither cast is legal, then an old-style cast performs a <strong>reinterpret_cast</strong>. For example:</p>
-<pre><code class="hljs cpp"><span class="hljs-keyword">char</span> *pc = (<span class="hljs-keyword">char</span>*) ip; <span class="hljs-comment">// ip is a pointer to int</span></code></pre>
+<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">char</span> *pc = (<span class="hljs-keyword">char</span>*) ip; <span class="hljs-comment">// ip is a pointer to int</span></code></pre></div>
 <p>has the same effect as using a <code>reinterpret_cast</code>.</p>
 
             </div>

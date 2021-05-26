@@ -227,12 +227,12 @@
 </li>
 </ol>
 <p>But then C added the const modifier. This allows you to create an object, but one whose value cannot be changed.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> ex;
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> ex;
 <span class="hljs-keyword">int</span> why = <span class="hljs-number">2</span>, zee = <span class="hljs-number">4</span>;
-ex = why + zee;</code></pre>
+ex = why + zee;</code></pre></div>
 <p>The expression <code>why + zee</code> is an rvalue; it doesn’t represent a specific memory location and you can’t assign to it. It’s just a temporary value the program calculates, and then discards when it’s finished with it.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt = &amp;entity;
-<span class="hljs-keyword">int</span> ranks[<span class="hljs-number">10</span>];</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt = &amp;entity;
+<span class="hljs-keyword">int</span> ranks[<span class="hljs-number">10</span>];</code></pre></div>
 <p><code>pt</code> is an identifier. It designates an object that holds an address. </p>
 <p>The expression <code>*pt</code> is not an identifier because it’s not a name. However, it does designate an object.</p>
 <p>The expression <code>ranks + 2 * entity</code> is neither an identifier (not a name) nor an lvalue. </p>
@@ -243,7 +243,7 @@ ex = why + zee;</code></pre>
 <blockquote>
 <p>C Primer Plus (6th)</p>
 </blockquote>
-<pre><code class="hljs c">ptr = &amp;pooh; <span class="hljs-comment">// assigns pooh's address to ptr</span></code></pre>
+<div class="hljs"><pre><code class="hljs c">ptr = &amp;pooh; <span class="hljs-comment">// assigns pooh's address to ptr</span></code></pre></div>
 <p>We say that <code>ptr</code> “points to” <code>pooh</code>. The difference between <code>ptr</code> and <code>&amp;pooh</code> is that <code>ptr</code> is a variable, and <code>&amp;pooh</code> is a constant. Or, <code>ptr</code> is a modifiable lvalue and <code>&amp;pooh</code> is an rvalue.</p>
 <h2 id="2-Indirection-Operator"><a href="#2-Indirection-Operator" class="headerlink" title="(2) Indirection Operator *"></a>(2) Indirection Operator *</h2><blockquote>
 <p>The C Programming Language<br>The unary <code>*</code> operator denotes indirection, and returns the object or function to which its operand points. </p>

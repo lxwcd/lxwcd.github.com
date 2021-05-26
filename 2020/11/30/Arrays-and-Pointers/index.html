@@ -211,20 +211,20 @@
               <p>C Primer Plus (Sixth Editioni) Chapter 10 Arrays and Pointers</p>
 <a id="more"></a>
 <h1 id="1-Arrays"><a href="#1-Arrays" class="headerlink" title="1. Arrays"></a>1. Arrays</h1><p>An array is composed of a series of elements of <strong>one data type</strong>.</p>
-<h2 id="1-Initialization"><a href="#1-Initialization" class="headerlink" title="(1) Initialization"></a>(1) Initialization</h2><pre><code class="hljs c"><span class="hljs-keyword">int</span> powers[<span class="hljs-number">8</span>] = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">16</span>,<span class="hljs-number">32</span>,<span class="hljs-number">64</span>&#125;; <span class="hljs-comment">/* ANSI C and later */</span></code></pre>
+<h2 id="1-Initialization"><a href="#1-Initialization" class="headerlink" title="(1) Initialization"></a>(1) Initialization</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> powers[<span class="hljs-number">8</span>] = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">16</span>,<span class="hljs-number">32</span>,<span class="hljs-number">64</span>&#125;; <span class="hljs-comment">/* ANSI C and later */</span></code></pre></div>
 <p>As you can see, you initialize an array by using a <strong>comma-separated</strong> list of values enclosed in braces. You can use spaces between the values and the commas, if you want.</p>
 <p>Sometimes you might use an array that’s intended to be a <strong>read-only</strong> array. In such cases, you can, and should, use the <strong>const</strong> keyword when you declare and initialize the array.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> days[MONTHS] = &#123;<span class="hljs-number">31</span>,<span class="hljs-number">28</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>&#125;;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> days[MONTHS] = &#123;<span class="hljs-number">31</span>,<span class="hljs-number">28</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>&#125;;</code></pre></div>
 <p><strong>C99</strong> added a new capability: <strong>designated initializers</strong>. This feature allows you to pick and choose which elements are initialized.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> days[MONTHS] = &#123;<span class="hljs-number">31</span>,<span class="hljs-number">28</span>, [<span class="hljs-number">4</span>] = <span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>, [<span class="hljs-number">1</span>] = <span class="hljs-number">29</span>&#125;;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> days[MONTHS] = &#123;<span class="hljs-number">31</span>,<span class="hljs-number">28</span>, [<span class="hljs-number">4</span>] = <span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>, [<span class="hljs-number">1</span>] = <span class="hljs-number">29</span>&#125;;</code></pre></div>
 <p><strong>First</strong>, if the code follows a designated initializer with further values, as in the sequence [4] = 31,30,31, these further values are used to initialize the subsequent elements. That is, after initializing <code>days[4]</code> to <code>31</code>, the code initializes <code>days[5]</code> and <code>days[6]</code> to <code>30</code> and <code>31</code>, respectively. </p>
 <p><strong>Second</strong>, if the code initializes a particular element to a value <strong>more than once</strong>, the <strong>last initialization</strong> is the one that takes effect.</p>
 <h2 id="2-Assigning-Array-Values"><a href="#2-Assigning-Array-Values" class="headerlink" title="(2) Assigning Array Values"></a>(2) Assigning Array Values</h2><p><strong>C doesn’t let you assign one array to another as a unit. Nor can you use the list-in-braces form except when initializing.</strong></p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> oxen[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">8</span>&#125;; <span class="hljs-comment">/* ok here */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> oxen[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">8</span>&#125;; <span class="hljs-comment">/* ok here */</span>
 <span class="hljs-keyword">int</span> yaks[SIZE];
 yaks = oxen; <span class="hljs-comment">/* not allowed */</span>
 yaks[SIZE] = oxen[SIZE]; <span class="hljs-comment">/* out of range */</span> oxen[SIZE<span class="hljs-number">-1</span>] is the last element of <span class="hljs-built_in">array</span> oxen
-yaks[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">8</span>&#125;; <span class="hljs-comment">/* doesn't work */</span></code></pre>
+yaks[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">8</span>&#125;; <span class="hljs-comment">/* doesn't work */</span></code></pre></div>
 <p><strong>Why can’t assign one array to another as a unit</strong><br>From <code>The C Programming Language</code></p>
 <blockquote>
 <p>There is one difference between an <strong>array name</strong> and a <strong>pointer</strong> that must be kept in mind. A <strong>pointer</strong> is a variable. But an <strong>array name</strong> is not a variable;</p>
@@ -234,22 +234,22 @@ yaks[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">
 </blockquote>
 <p>理解：<br>数组名为第一个元素的地址，是常量，不能被赋值。</p>
 <h2 id="3-Array-Bounds"><a href="#3-Array-Bounds" class="headerlink" title="(3) Array Bounds"></a>(3) Array Bounds</h2><p>The compiler doesn’t check to see <strong>whether the indices are valid</strong>. The result of using a bad index is, in the language of the C standard, undefined. That means when you run the program, it might seem to work, it might work oddly, or it might abort.</p>
-<h2 id="4-Multidimensional-Arrays"><a href="#4-Multidimensional-Arrays" class="headerlink" title="(4) Multidimensional Arrays"></a>(4) Multidimensional Arrays</h2><pre><code class="hljs c"><span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> rain[YEARS][MONTHS] =
+<h2 id="4-Multidimensional-Arrays"><a href="#4-Multidimensional-Arrays" class="headerlink" title="(4) Multidimensional Arrays"></a>(4) Multidimensional Arrays</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> rain[YEARS][MONTHS] =
 &#123;
 &#123;<span class="hljs-number">4.3</span>,<span class="hljs-number">4.3</span>,<span class="hljs-number">4.3</span>,<span class="hljs-number">3.0</span>,<span class="hljs-number">2.0</span>,<span class="hljs-number">1.2</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0.4</span>,<span class="hljs-number">2.4</span>,<span class="hljs-number">3.5</span>,<span class="hljs-number">6.6</span>&#125;,
 &#123;<span class="hljs-number">8.5</span>,<span class="hljs-number">8.2</span>,<span class="hljs-number">1.2</span>,<span class="hljs-number">1.6</span>,<span class="hljs-number">2.4</span>,<span class="hljs-number">0.0</span>,<span class="hljs-number">5.2</span>,<span class="hljs-number">0.9</span>,<span class="hljs-number">0.3</span>,<span class="hljs-number">0.9</span>,<span class="hljs-number">1.4</span>,<span class="hljs-number">7.3</span>&#125;,
 &#123;<span class="hljs-number">9.1</span>,<span class="hljs-number">8.5</span>,<span class="hljs-number">6.7</span>,<span class="hljs-number">4.3</span>,<span class="hljs-number">2.1</span>,<span class="hljs-number">0.8</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">1.1</span>,<span class="hljs-number">2.3</span>,<span class="hljs-number">6.1</span>,<span class="hljs-number">8.4</span>&#125;,
 &#123;<span class="hljs-number">7.2</span>,<span class="hljs-number">9.9</span>,<span class="hljs-number">8.4</span>,<span class="hljs-number">3.3</span>,<span class="hljs-number">1.2</span>,<span class="hljs-number">0.8</span>,<span class="hljs-number">0.4</span>,<span class="hljs-number">0.0</span>,<span class="hljs-number">0.6</span>,<span class="hljs-number">1.7</span>,<span class="hljs-number">4.3</span>,<span class="hljs-number">6.2</span>&#125;,
 &#123;<span class="hljs-number">7.6</span>,<span class="hljs-number">5.6</span>,<span class="hljs-number">3.8</span>,<span class="hljs-number">2.8</span>,<span class="hljs-number">3.8</span>,<span class="hljs-number">0.2</span>,<span class="hljs-number">0.0</span>,<span class="hljs-number">0.0</span>,<span class="hljs-number">0.0</span>,<span class="hljs-number">1.3</span>,<span class="hljs-number">2.6</span>,<span class="hljs-number">5.2</span>&#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 <h1 id="2-Pointers-and-Arrays"><a href="#2-Pointers-and-Arrays" class="headerlink" title="2. Pointers and Arrays"></a>2. Pointers and Arrays</h1><p>An <strong>array name</strong> is also the address of the first element of the array. </p>
 <p>That is, if <code>flizny</code> is an <strong>array</strong>, the following is true:</p>
-<pre><code class="hljs c">flizny == &amp;flizny[<span class="hljs-number">0</span>]; <span class="hljs-comment">// name of array is the address of the first element</span></code></pre>
+<div class="hljs"><pre><code class="hljs c">flizny == &amp;flizny[<span class="hljs-number">0</span>]; <span class="hljs-comment">// name of array is the address of the first element</span></code></pre></div>
 <p>Both are <strong>constants</strong> because they <strong>remain fixed</strong> for the duration of the program. </p>
-<pre><code class="hljs c">dates + <span class="hljs-number">2</span> == &amp;date[<span class="hljs-number">2</span>] <span class="hljs-comment">// same address</span>
-*(dates + <span class="hljs-number">2</span>) == dates[<span class="hljs-number">2</span>] <span class="hljs-comment">// same value</span></code></pre>
+<div class="hljs"><pre><code class="hljs c">dates + <span class="hljs-number">2</span> == &amp;date[<span class="hljs-number">2</span>] <span class="hljs-comment">// same address</span>
+*(dates + <span class="hljs-number">2</span>) == dates[<span class="hljs-number">2</span>] <span class="hljs-comment">// same value</span></code></pre></div>
 
-<pre><code class="hljs c"><span class="hljs-comment">/* day_mon3.c -- uses pointer notation */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">/* day_mon3.c -- uses pointer notation */</span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MONTHS 12</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
@@ -260,30 +260,30 @@ yaks[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">
 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Month %2d has %d days.\n"</span>, index +<span class="hljs-number">1</span>,
 *(days + index)); <span class="hljs-comment">// same as days[index]</span>
 <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>Here, <code>days</code> is the address of the first element of the array, <code>days + index</code> is the address of element <code>days[index]</code>, and <code>*(days + index)</code> is the value of that element, just as <code>days[index]</code> is. </p>
-<h1 id="3-Functions-Arrays-and-Pointers"><a href="#3-Functions-Arrays-and-Pointers" class="headerlink" title="3. Functions, Arrays, and Pointers"></a>3. Functions, Arrays, and Pointers</h1><pre><code class="hljs c"><span class="hljs-keyword">int</span>* ar:
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>;</code></pre>
+<h1 id="3-Functions-Arrays-and-Pointers"><a href="#3-Functions-Arrays-and-Pointers" class="headerlink" title="3. Functions, Arrays, and Pointers"></a>3. Functions, Arrays, and Pointers</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span>* ar:
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>;</code></pre></div>
 <p>The form <code>int* ar</code> always means that ar is type <strong>pointer-to-int</strong>. The form <code>int ar[]</code> also means that <code>ar</code> is type <strong>pointer-to-int</strong>, but only when used to declare <strong>formal parameters</strong>. </p>
 <p>The idea is that the second form reminds the reader that not only does <code>ar</code> point to an int, it points to an int that’s an element of an array.</p>
 <p>In this context, and only in this context, C interprets <code>int ar[]</code> to mean the same as <code>int* ar</code>; that is, <code>ar</code> is type <strong>pointer-to-int</strong>.</p>
 <p>Because <strong>prototypes</strong> allow you to omit a name, all four of the following prototypes are equivalent:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ar, <span class="hljs-keyword">int</span> n)</span></span>;
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ar, <span class="hljs-keyword">int</span> n)</span></span>;
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *, <span class="hljs-keyword">int</span>)</span></span>;
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> [], <span class="hljs-keyword">int</span>)</span></span>;</code></pre>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> [], <span class="hljs-keyword">int</span>)</span></span>;</code></pre></div>
 <p>You <strong>can’t omit names</strong> in function definitions, so, for definitions, the following two forms are equivalent:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ar, <span class="hljs-keyword">int</span> n)</span></span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ar, <span class="hljs-keyword">int</span> n)</span></span>
 <span class="hljs-function"></span>&#123;
 <span class="hljs-comment">// code goes here</span>
 &#125;
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>;
 &#123;
 <span class="hljs-comment">// code goes here</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p><strong>Dereferencing an Uninitialized Pointer:</strong> Do not dereference an uninitialized pointer. For example, consider the following:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt; <span class="hljs-comment">// an uninitialized pointer</span>
-*pt = <span class="hljs-number">5</span>; <span class="hljs-comment">// a terrible error</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt; <span class="hljs-comment">// an uninitialized pointer</span>
+*pt = <span class="hljs-number">5</span>; <span class="hljs-comment">// a terrible error</span></code></pre></div>
 <p>The second line means store the value <code>5</code> in the location to which <code>pt</code> points. But <code>pt</code>, being <strong>uninitialized</strong>, has a random value, so there is no knowing where the <code>5</code> will be placed. It might go somewhere harmless, it might overwrite data or code, or it might cause the program to crash. </p>
 <h1 id="4-Using-Pointer-Parameters"><a href="#4-Using-Pointer-Parameters" class="headerlink" title="4. Using Pointer Parameters"></a>4. Using Pointer Parameters</h1><p>A function working on an array needs to know where to start and stop. </p>
 <p>The two expressions <code>ar[i]</code> and <code>*(ar+i)</code> are equivalent in meaning. Both work if ar is the name of an <strong>array</strong>, and both work if ar is a <strong>pointer</strong> variable.<br>However, using an expression such as <code>ar++</code> only works if <code>ar</code> is a <strong>pointer</strong> variable.</p>
@@ -293,7 +293,7 @@ yaks[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">
 <p>If a function passed an array by value, it would have to allocate enough space to hold a copy of the original array and then copy all the data from the original array to the new array. </p>
 <p>It is much quicker to pass the address of the array and have the function work with the original data.</p>
 <h1 id="6-Using-const-with-Formal-Parameters"><a href="#6-Using-const-with-Formal-Parameters" class="headerlink" title="6. Using const with Formal Parameters"></a>6. Using const with Formal Parameters</h1><p>If a function’s intent is that it not change the contents of the array, use the keyword <strong>const</strong> when declaring the formal parameter in the prototype and in the <strong>function definition</strong>. </p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>; <span class="hljs-comment">/* prototype */</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>; <span class="hljs-comment">/* prototype */</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span> <span class="hljs-comment">/* definition */</span></span>
 <span class="hljs-function"></span>&#123;
     <span class="hljs-keyword">int</span> i;
@@ -301,46 +301,46 @@ yaks[SIZE] = &#123;<span class="hljs-number">5</span>,<span class="hljs-number">
     <span class="hljs-keyword">for</span>( i = <span class="hljs-number">0</span>; i &lt; n; i++)
         total += ar[i];
     <span class="hljs-keyword">return</span> total;
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>It’s important to understand that using <strong>const</strong> this way <strong>does not require that the original array be constant</strong>; it just says that the function has to treat the array as though it were constant. </p>
 <p>It prevents a function from modifying data in the calling function. </p>
 <p><strong>There are some rules you should know about pointer assignments and const.</strong></p>
 <p><strong>First</strong>, it’s valid to <strong>assign</strong> the <strong>address</strong> of either <strong>constant data</strong> or <strong>non-constant</strong> data to a <strong>pointer-to-constant</strong>:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">double</span> rates[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">88.99</span>, <span class="hljs-number">100.12</span>, <span class="hljs-number">59.45</span>, <span class="hljs-number">183.11</span>, <span class="hljs-number">340.5</span>&#125;;
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> rates[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">88.99</span>, <span class="hljs-number">100.12</span>, <span class="hljs-number">59.45</span>, <span class="hljs-number">183.11</span>, <span class="hljs-number">340.5</span>&#125;;
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> locked[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0.08</span>, <span class="hljs-number">0.075</span>, <span class="hljs-number">0.0725</span>, <span class="hljs-number">0.07</span>&#125;;
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *pc = rates; <span class="hljs-comment">// valid</span>
 pc = locked; <span class="hljs-comment">// valid</span>
-pc = &amp;rates[<span class="hljs-number">3</span>]; <span class="hljs-comment">// valid</span></code></pre>
+pc = &amp;rates[<span class="hljs-number">3</span>]; <span class="hljs-comment">// valid</span></code></pre></div>
 
 <p><strong>However</strong>, only the addresses of <strong>non-constant data</strong> can be assigned to <strong>regular pointers</strong>:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">double</span> rates[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">88.99</span>, <span class="hljs-number">100.12</span>, <span class="hljs-number">59.45</span>, <span class="hljs-number">183.11</span>, <span class="hljs-number">340.5</span>&#125;;
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> rates[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">88.99</span>, <span class="hljs-number">100.12</span>, <span class="hljs-number">59.45</span>, <span class="hljs-number">183.11</span>, <span class="hljs-number">340.5</span>&#125;;
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> locked[<span class="hljs-number">4</span>] = &#123;<span class="hljs-number">0.08</span>, <span class="hljs-number">0.075</span>, <span class="hljs-number">0.0725</span>, <span class="hljs-number">0.07</span>&#125;;
 <span class="hljs-keyword">double</span> *pnc = rates; <span class="hljs-comment">// valid</span>
 pnc = locked; <span class="hljs-comment">// not valid</span>
-pnc = &amp;rates[<span class="hljs-number">3</span>]; <span class="hljs-comment">// valid</span></code></pre>
+pnc = &amp;rates[<span class="hljs-number">3</span>]; <span class="hljs-comment">// valid</span></code></pre></div>
 <p>This is a reasonable rule. Otherwise, you could use the pointer to change data that was supposed to be constant.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">double</span> rates[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">88.99</span>, <span class="hljs-number">100.12</span>, <span class="hljs-number">59.45</span>, <span class="hljs-number">183.11</span>, <span class="hljs-number">340.5</span>&#125;;
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> rates[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">88.99</span>, <span class="hljs-number">100.12</span>, <span class="hljs-number">59.45</span>, <span class="hljs-number">183.11</span>, <span class="hljs-number">340.5</span>&#125;;
 <span class="hljs-keyword">double</span>* <span class="hljs-keyword">const</span> pc = rates; <span class="hljs-comment">// pc points to beginning of the array</span>
 pc = &amp;rates[<span class="hljs-number">2</span>]; <span class="hljs-comment">// not allowed to point elsewhere</span>
-*pc = <span class="hljs-number">92.99</span>; <span class="hljs-comment">// ok -- changes rates[0]</span></code></pre>
+*pc = <span class="hljs-number">92.99</span>; <span class="hljs-comment">// ok -- changes rates[0]</span></code></pre></div>
 <h1 id="7-Pointers-and-Multidimensional-Arrays"><a href="#7-Pointers-and-Multidimensional-Arrays" class="headerlink" title="7. Pointers and Multidimensional Arrays"></a>7. Pointers and Multidimensional Arrays</h1><p><img src="https://img-blog.csdnimg.cn/20190604210825828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
-<h2 id="1-Pointers-to-Multidimensional-Arrays"><a href="#1-Pointers-to-Multidimensional-Arrays" class="headerlink" title="(1) Pointers to Multidimensional Arrays"></a>(1) Pointers to Multidimensional Arrays</h2><pre><code class="hljs c"><span class="hljs-keyword">int</span> (*pz)[<span class="hljs-number">2</span>]; <span class="hljs-comment">// pz points to an array of 2 ints</span></code></pre>
+<h2 id="1-Pointers-to-Multidimensional-Arrays"><a href="#1-Pointers-to-Multidimensional-Arrays" class="headerlink" title="(1) Pointers to Multidimensional Arrays"></a>(1) Pointers to Multidimensional Arrays</h2><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> (*pz)[<span class="hljs-number">2</span>]; <span class="hljs-comment">// pz points to an array of 2 ints</span></code></pre></div>
 <p>This statement says that <code>pz</code> is a pointer to an array of two ints. </p>
 <p><code>[ ]</code> has a higher precedence than <code>*</code>. Therefore, with a declaration such as:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span>* pax[<span class="hljs-number">2</span>]; <span class="hljs-comment">// pax is an array of two pointers-to-int</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span>* pax[<span class="hljs-number">2</span>]; <span class="hljs-comment">// pax is an array of two pointers-to-int</span></code></pre></div>
 <p>You can use notation such as <code>pz[2][1]</code>, even though <code>pz</code> is a <strong>pointer</strong>, not an <strong>array</strong> name. </p>
 <p>More generally, you can represent individual elements by using <strong>array notation</strong> or <strong>pointer notation</strong> with either an <strong>array</strong> name or a <strong>pointer</strong>:</p>
-<pre><code class="hljs c">zippo[m][n] == *(*(zippo + m) + n)
-pz[m][n] == *(*(pz + m) + n)</code></pre>
+<div class="hljs"><pre><code class="hljs c">zippo[m][n] == *(*(zippo + m) + n)
+pz[m][n] == *(*(pz + m) + n)</code></pre></div>
 <h2 id="2-Pointer-Compatibility"><a href="#2-Pointer-Compatibility" class="headerlink" title="(2) Pointer Compatibility"></a>(2) Pointer Compatibility</h2><p>The rules for assigning one <strong>pointer</strong> to another are tighter than the rules for <strong>numeric types</strong>. </p>
 <p>For example, you can assign an <strong>int</strong> value to a <strong>double</strong> variable without using a <strong>type conversion</strong>, but you can’t do the same for <strong>pointers</strong> to these two types:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> n = <span class="hljs-number">5</span>;
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> n = <span class="hljs-number">5</span>;
 <span class="hljs-keyword">double</span> x;
 <span class="hljs-keyword">int</span> * p1 = &amp;n;
 <span class="hljs-keyword">double</span>* pd = &amp;x;
 x = n; <span class="hljs-comment">// implicit type conversion</span>
-pd = p1; <span class="hljs-comment">// compile-time error</span></code></pre>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt;
+pd = p1; <span class="hljs-comment">// compile-time error</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt;
 <span class="hljs-keyword">int</span> (*pa)[<span class="hljs-number">3</span>];
 <span class="hljs-keyword">int</span> ar1[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>];
 <span class="hljs-keyword">int</span> ar2[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>];
@@ -353,28 +353,28 @@ pa = ar1; <span class="hljs-comment">// both pointer-to-int[3]</span>
 pa = ar2; <span class="hljs-comment">// not valid</span>
 p2 = &amp;pt; <span class="hljs-comment">// both pointer-to-int *</span>
 *p2 = ar2[<span class="hljs-number">0</span>]; <span class="hljs-comment">// both pointer-to-int</span>
-p2 = ar2; <span class="hljs-comment">// not valid</span></code></pre>
+p2 = ar2; <span class="hljs-comment">// not valid</span></code></pre></div>
 <h2 id="3-Functions-and-Multidimensional-Arrays"><a href="#3-Functions-and-Multidimensional-Arrays" class="headerlink" title="(3) Functions and Multidimensional Arrays"></a>(3) Functions and Multidimensional Arrays</h2><p>You can declare a function parameter of this type like this:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">somefunction</span><span class="hljs-params">( <span class="hljs-keyword">int</span> (*pt)[<span class="hljs-number">4</span>])</span></span>; 
-<span class="hljs-comment">// pt is a pointer to an array of four ints.</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">somefunction</span><span class="hljs-params">( <span class="hljs-keyword">int</span> (*pt)[<span class="hljs-number">4</span>])</span></span>; 
+<span class="hljs-comment">// pt is a pointer to an array of four ints.</span></code></pre></div>
 <p>Alternatively, if (and only if) <code>pt</code> is a <strong>formal parameter</strong> to a function, you can declare it as follows:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">somefunction</span><span class="hljs-params">( <span class="hljs-keyword">int</span> pt[][<span class="hljs-number">4</span>] )</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">somefunction</span><span class="hljs-params">( <span class="hljs-keyword">int</span> pt[][<span class="hljs-number">4</span>] )</span></span>;</code></pre></div>
 <p><strong>Note that the first set of brackets is empty. The empty brackets identify pt as being a pointer.</strong></p>
 <p>Recall that the compiler converts <strong>array</strong> notation to <strong>pointer</strong> notation. This means, for example, that <code>ar[1]</code> will become <code>ar+1</code>. For the compiler to evaluate this, it needs to know the size object to which ar points. </p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[][<span class="hljs-number">4</span>], <span class="hljs-keyword">int</span> rows)</span></span>; <span class="hljs-comment">// valid declaration</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[][<span class="hljs-number">4</span>], <span class="hljs-keyword">int</span> rows)</span></span>; <span class="hljs-comment">// valid declaration</span></code></pre></div>
 <p>says that <code>ar</code> points to an array of four ints.</p>
 <p>You can also include a size in the other bracket pair, as shown here, but the compiler ignores it: </p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>], <span class="hljs-keyword">int</span> rows)</span></span>; <span class="hljs-comment">// valid declaration, 3 ignored</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>], <span class="hljs-keyword">int</span> rows)</span></span>; <span class="hljs-comment">// valid declaration, 3 ignored</span></code></pre></div>
 <p>In general, to declare a <strong>pointer</strong> corresponding to an <strong>N-dimensional array</strong>, <strong>you must supply values for all but the leftmost set of brackets</strong>:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum4d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[][<span class="hljs-number">12</span>][<span class="hljs-number">20</span>][<span class="hljs-number">30</span>], <span class="hljs-keyword">int</span> rows)</span></span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum4d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> ar[][<span class="hljs-number">12</span>][<span class="hljs-number">20</span>][<span class="hljs-number">30</span>], <span class="hljs-keyword">int</span> rows)</span></span>;</code></pre></div>
 <p>That’s because the <strong>first set of brackets</strong> indicates a <strong>pointer</strong>, whereas the rest of the brackets describe the type of data object <strong>being pointed to</strong>, as the following equivalent prototype illustrates:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum4d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> (*ar)[<span class="hljs-number">12</span>][<span class="hljs-number">20</span>][<span class="hljs-number">30</span>], <span class="hljs-keyword">int</span> rows)</span></span>; <span class="hljs-comment">// ar a pointer</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum4d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> (*ar)[<span class="hljs-number">12</span>][<span class="hljs-number">20</span>][<span class="hljs-number">30</span>], <span class="hljs-keyword">int</span> rows)</span></span>; <span class="hljs-comment">// ar a pointer</span></code></pre></div>
 <p>Here, ar points to a <code>12×20×30</code> array of ints.</p>
 <h2 id="4-Variable-Length-Arrays-VLAs"><a href="#4-Variable-Length-Arrays-VLAs" class="headerlink" title="(4) Variable-Length Arrays (VLAs)"></a>(4) Variable-Length Arrays (VLAs)</h2><p><strong>VLAs Do Not Change Size</strong>:<br>The term <strong>variable in variable-length array</strong> does not mean that you can modify the length of the array after you create it. Once created, a <strong>VLA</strong> keeps the <strong>same size</strong>. What the term variable does mean is that you can use a variable when specifying the array dimensions when <strong>first creating the array</strong>.</p>
 <p>First, here’s how to declare a function with a <strong>two-dimensional VLA</strong> argument:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum2d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rows, <span class="hljs-keyword">int</span> cols, <span class="hljs-keyword">int</span> ar[rows][cols])</span></span>; <span class="hljs-comment">// ar a VLA</span></code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum2d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rows, <span class="hljs-keyword">int</span> cols, <span class="hljs-keyword">int</span> ar[rows][cols])</span></span>; <span class="hljs-comment">// ar a VLA</span></code></pre></div>
 <p>One point to note is that a <strong>VLA</strong> declaration in a function definition parameter list doesn’t actually create an array. Just as with the old syntax, the <strong>VLA</strong> name really is a <strong>pointer</strong>. This means a function with a <strong>VLA</strong> parameter actually works with the data in the <strong>original array</strong>, and therefore has the ability to <strong>modify the array</strong> passed as an argument. </p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> thing[<span class="hljs-number">10</span>][<span class="hljs-number">6</span>];
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> thing[<span class="hljs-number">10</span>][<span class="hljs-number">6</span>];
 twoset(<span class="hljs-number">10</span>,<span class="hljs-number">6</span>,thing);
 ...
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">twoset</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span> ar[n][m])</span> <span class="hljs-comment">// ar a pointer to</span></span>
@@ -383,23 +383,23 @@ twoset(<span class="hljs-number">10</span>,<span class="hljs-number">6</span>,th
     <span class="hljs-keyword">int</span> temp[n][m]; <span class="hljs-comment">// temp an n x m array of int</span>
     temp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">2</span>; <span class="hljs-comment">// set an element of temp to 2</span>
     ar[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">2</span>; <span class="hljs-comment">// set thing[0][0] to 2</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>When <code>twoset()</code> is called as shown, <code>ar</code> becomes a pointer to <code>thing[0]</code>, and <code>temp</code> is created as a <code>10×6</code>array. Because both <code>ar</code> and <code>thing</code> are pointers to <code>thing[0]</code>, <code>ar[0][0]</code> accesses the same data location as <code>thing[0][0]</code>.</p>
 <p><strong>Variable-length</strong> arrays also allow for <strong>dynamic memory allocation</strong>. This means you can specify the size of the array while the program is running. </p>
 <h1 id="8-Compound-Literals"><a href="#8-Compound-Literals" class="headerlink" title="8. Compound Literals"></a>8. Compound Literals</h1><p>Suppose you want to pass a value to a function with an <strong>int</strong> parameter; you can pass an <strong>int</strong> variable, but you also can pass an <strong>int constant</strong>, such as <strong>5</strong>. Before <strong>C99</strong>, the situation for a function with an <strong>array argument</strong> was different; you could pass an <strong>array</strong>, but there was no equivalent to an <strong>array constant</strong>. <strong>C99</strong> changed that with the addition of compound literals. </p>
 <p><strong>Literals</strong> are <strong>constants</strong> that aren’t symbolic. For example, <strong>5</strong> is a type <strong>int literal</strong>, <strong>81.3</strong> is a <strong>type double literal</strong>, <strong>‘Y’</strong> is a type <strong>char literal</strong>, and <strong>“elephant”</strong> is a <strong>string literal</strong>. </p>
 <p>For <strong>arrays</strong>, a <strong>compound literal</strong> looks like an <strong>array initialization list</strong> preceded by a type name that is enclosed in parentheses. For example, here’s an ordinary array declaration:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> diva[<span class="hljs-number">2</span>] = &#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>&#125;;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> diva[<span class="hljs-number">2</span>] = &#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>&#125;;</code></pre></div>
 <p>And here’s a compound literal that creates a nameless array containing the same two int values:</p>
-<pre><code class="hljs c">(<span class="hljs-keyword">int</span> [<span class="hljs-number">2</span>])&#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>&#125; <span class="hljs-comment">// a compound literal</span></code></pre>
+<div class="hljs"><pre><code class="hljs c">(<span class="hljs-keyword">int</span> [<span class="hljs-number">2</span>])&#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>&#125; <span class="hljs-comment">// a compound literal</span></code></pre></div>
 <p>Because these <strong>compound literals</strong> are nameless, you can’t just create them in one statement and then use them later. Instead, you have to use them somehow when you make them.<br>One way is to use a *<em>pointer *</em>to keep track of the location. That is, you can do something like this:</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt1;
-pt1 = (<span class="hljs-keyword">int</span> [<span class="hljs-number">2</span>]) &#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>&#125;;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> * pt1;
+pt1 = (<span class="hljs-keyword">int</span> [<span class="hljs-number">2</span>]) &#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>&#125;;</code></pre></div>
 <p>Another thing you could do with a <strong>compound literal</strong> is pass it as an actual argument to a function with a matching formal parameter:</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>;
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ar[], <span class="hljs-keyword">int</span> n)</span></span>;
 ...
 <span class="hljs-keyword">int</span> total3;
-total3 = sum((<span class="hljs-keyword">int</span> [])&#123;<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>&#125;, <span class="hljs-number">6</span>);</code></pre>
+total3 = sum((<span class="hljs-keyword">int</span> [])&#123;<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>&#125;, <span class="hljs-number">6</span>);</code></pre></div>
 <p>Keep in mind that a <strong>compound literal</strong> is a means for providing values that are needed only <strong>temporarily</strong>. It has block scope. That means its existence is not guaranteed once program execution leaves the block in which the compound literal is defined, that is, the innermost pair of braces containing the definition.</p>
 
             </div>

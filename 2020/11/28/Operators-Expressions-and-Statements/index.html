@@ -215,32 +215,32 @@
 <p>The term <strong>rvalue</strong> refers to quantities that can be assigned to modifiable <strong>lvalues</strong> but which are not themselves lvalues. <strong>Rvalues</strong> can be constants, variables, or any other expression that yields a value. </p>
 <h2 id="2-Division-Operator"><a href="#2-Division-Operator" class="headerlink" title="(2) Division Operator: /"></a>(2) Division Operator: /</h2><p>Division works differently for integer types than it does for floating types. Floating-type division gives a floating-point answer, but integer division yields an integer answer.</p>
 <p>Integer division does not round to the nearest integer, but always truncates (that is, discards the entire fractional part).</p>
-<pre><code class="hljs c"><span class="hljs-number">5</span>/<span class="hljs-number">2</span> = <span class="hljs-number">2</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-number">5</span>/<span class="hljs-number">2</span> = <span class="hljs-number">2</span>
 <span class="hljs-number">-5</span>/<span class="hljs-number">2</span> = <span class="hljs-number">-2</span>
-<span class="hljs-number">5</span>/(<span class="hljs-number">-2</span>) = <span class="hljs-number">-2</span></code></pre>
+<span class="hljs-number">5</span>/(<span class="hljs-number">-2</span>) = <span class="hljs-number">-2</span></code></pre></div>
 <h2 id="3-Modulus-Operator"><a href="#3-Modulus-Operator" class="headerlink" title="(3) Modulus Operator: %"></a>(3) Modulus Operator: %</h2><p>The modulus operator is used in <strong>integer arithmetic</strong>. It gives the remainder that results when the integer to its left is divided by the integer to its right. For example, 13 % 5 (read as “13 modulo 5”) has the value 3.</p>
 <p>You get a negative modulus value if the first operand is negative, and you get a positive modulus otherwise.</p>
-<pre><code class="hljs c"><span class="hljs-number">5</span>%<span class="hljs-number">2</span> = <span class="hljs-number">1</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-number">5</span>%<span class="hljs-number">2</span> = <span class="hljs-number">1</span>
 <span class="hljs-number">-5</span>%<span class="hljs-number">2</span> = <span class="hljs-number">-1</span>
-<span class="hljs-number">5</span>%(<span class="hljs-number">-2</span>) = <span class="hljs-number">1</span></code></pre>
+<span class="hljs-number">5</span>%(<span class="hljs-number">-2</span>) = <span class="hljs-number">1</span></code></pre></div>
 <h2 id="4-Increment-and-Decrement-Operators-and-–"><a href="#4-Increment-and-Decrement-Operators-and-–" class="headerlink" title="(4) Increment and Decrement Operators: ++ and –"></a>(4) Increment and Decrement Operators: ++ and –</h2><p>The increment operator performs a simple task; it increments (increases) the value of its operand by 1. </p>
-<pre><code class="hljs pgsql">a_post = a++; 
+<div class="hljs"><pre><code class="hljs pgsql">a_post = a++; 
 // postfix: a <span class="hljs-keyword">is</span> changed <span class="hljs-keyword">after</span> its <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> used
 b_pre= ++b;
 // prefix: b <span class="hljs-keyword">is</span> changed <span class="hljs-keyword">before</span> its <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> used
-(a + b)++; //invalid</code></pre>
+(a + b)++; //invalid</code></pre></div>
 
 <p>You can get fooled if you try to do too much at once with the increment operators.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">while</span> (num &lt; <span class="hljs-number">21</span>)
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">while</span> (num &lt; <span class="hljs-number">21</span>)
 &#123;
     <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%10d %10d\n"</span>, num, num*num++);
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>In C, the compiler can choose which arguments in a function to evaluate first.</p>
-<pre><code class="hljs c">ans = num/<span class="hljs-number">2</span> + <span class="hljs-number">5</span>*(<span class="hljs-number">1</span> + num++);</code></pre>
+<div class="hljs"><pre><code class="hljs c">ans = num/<span class="hljs-number">2</span> + <span class="hljs-number">5</span>*(<span class="hljs-number">1</span> + num++);</code></pre></div>
 <p>You would think that it would find num/2 first and then move on, but it might do the last term first.</p>
 <h2 id="5-The-Comma-Operator"><a href="#5-The-Comma-Operator" class="headerlink" title="(5) The Comma Operator"></a>(5) The Comma Operator</h2><p>First, it guarantees that the expressions it separates are evaluated in a <strong>left-to-right order</strong>.<br>Second, the <strong>value of the whole comma expression</strong> is the value of the <strong>right-hand member</strong>.</p>
-<pre><code class="hljs c">x = (y = <span class="hljs-number">3</span>, (z = ++y + <span class="hljs-number">2</span>) + <span class="hljs-number">5</span>);
-<span class="hljs-comment">//x = (z = ++y + 2) + 5;</span></code></pre>
+<div class="hljs"><pre><code class="hljs c">x = (y = <span class="hljs-number">3</span>, (z = ++y + <span class="hljs-number">2</span>) + <span class="hljs-number">5</span>);
+<span class="hljs-comment">//x = (z = ++y + 2) + 5;</span></code></pre></div>
 <h1 id="2-Operator-Precedence"><a href="#2-Operator-Precedence" class="headerlink" title="2. Operator Precedence"></a>2. Operator Precedence</h1><table>
 <thead>
 <tr>
@@ -279,7 +279,7 @@ b_pre= ++b;
 <li>When passed as <strong>function arguments</strong>, <strong>char</strong> and <strong>short</strong> are converted to <strong>int</strong>, and <strong>float</strong> is converted to <strong>double</strong>. This <strong>automatic promotion</strong> is overridden by function prototyping.</li>
 </ol>
 <h2 id="2-The-Cast-Operator"><a href="#2-The-Cast-Operator" class="headerlink" title="(2) The Cast Operator"></a>(2) The Cast Operator</h2><p>The parentheses and type name together constitute a cast operator.</p>
-<pre><code class="hljs c"><span class="hljs-keyword">int</span> i = (<span class="hljs-keyword">int</span>)<span class="hljs-number">1.6</span>;</code></pre>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> i = (<span class="hljs-keyword">int</span>)<span class="hljs-number">1.6</span>;</code></pre></div>
             </div>
             <hr>
             <div>
