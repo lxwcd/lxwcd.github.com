@@ -240,8 +240,7 @@ int c(ld), d = ld; // ok: but value will be truncated</code></pre>
 <p>Identifiers must begin with either a letter or an underscore. Identifiers are case-sensitive; upper- and lowercase letters are distinct.</p>
 <p>The language reserves a set of names. These names may not be used as identifiers.<br><img src="https://img-blog.csdnimg.cn/20200124175004976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xlZTU2Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
 <p>The standard also reserves a set of names for use in the standard library. </p>
-<p>The <strong>identifiers</strong> may not contain two consecutive underscores, nor can an identifier <strong>begin with an underscore followed immediately by an uppercase letter</strong>.</p>
-<p>In addition, identifiers defined <strong>outside a function may not begin with an underscore</strong>.</p>
+<p>The <strong>identifiers</strong> may not contain two consecutive underscores, nor can an identifier <strong>begin with an underscore followed immediately by an uppercase letter</strong>. In addition, identifiers defined <strong>outside a function may not begin with an underscore</strong>. (Ubuntu 20.04.1 g++ 9.5.3 测试，无此限制，这样命名不会报错，正常使用)</p>
 <h1 id="3-const-Qualifier"><a href="#3-const-Qualifier" class="headerlink" title="3. const Qualifier"></a>3. const Qualifier</h1><h2 id="1-Initialization"><a href="#1-Initialization" class="headerlink" title="(1) Initialization"></a>(1) Initialization</h2><p>We can make a variable unchangeable by defining the variable’s type as <strong>const</strong>:</p>
 <pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> bufSize = <span class="hljs-number">512</span>; <span class="hljs-comment">// input buffer size</span></code></pre>
 
