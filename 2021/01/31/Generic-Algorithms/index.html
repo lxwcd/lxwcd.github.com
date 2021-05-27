@@ -8,37 +8,41 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
-  <link rel="icon" type="image/png" href="/img/groot.png">
+  <link rel="icon" href="/img/groot.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="诗酒趁年华">
+  <meta name="description" content="C++ Primer(Fifth Edition) Chapter 10 Generic Algorithms">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  
   <title>Generic Algorithms - CD_LX</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
     
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lxwcd.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -122,13 +130,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -137,13 +145,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/Generic-Algorithms_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Generic Algorithms">
               
             </span>
 
@@ -197,17 +205,17 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Generic Algorithms</h1>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>C++ Primer(Fifth Edition) Chapter 10 Generic Algorithms</p>
 <a id="more"></a>
 
@@ -216,70 +224,43 @@
 <h2 id="1-Read-Only-Algorithms"><a href="#1-Read-Only-Algorithms" class="headerlink" title="(1) Read-Only Algorithms"></a>(1) Read-Only Algorithms</h2><p>The <code>find</code> function is one such algorithm.</p>
 <p>Another read-only algorithm is <code>accumulate</code>, which is defined in the <code>numeric</code><br>header.</p>
 <p>The <code>accumulate</code> function takes three arguments. The first two specify a range of elements to sum. The third is an initial value for the sum.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// sum the elements in vec starting the summation with the value 0</span>
-<span class="hljs-keyword">int</span> sum = accumulate(vec.cbegin(), vec.cend(), <span class="hljs-number">0</span>);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// sum the elements in vec starting the summation with the value 0</span><br><span class="hljs-keyword">int</span> sum = accumulate(vec.cbegin(), vec.cend(), <span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
 <p>sets <code>sum</code> equal to the sum of the elements in <code>vec</code>, using <code>0</code> as the starting point for the summation.</p>
 <p><strong>The type of the third argument to accumulate determines which addition operator is used and is the type that accumulate returns.</strong></p>
 <h3 id="Algorithms-and-Element-Types"><a href="#Algorithms-and-Element-Types" class="headerlink" title="Algorithms and Element Types"></a>Algorithms and Element Types</h3><p>The fact that <code>accumulate</code> uses its third argument as the starting point for the summation has an important implication: It must be possible to add the element type to the type of the sum. That is, the elements in the sequence must match or be convertible to the type of the third argument. </p>
 <p>In this example, the elements in <code>vec</code> might be ints, or they might be double, or long long, or any other type that can be added to an int.</p>
 <p>As another example, because <code>string</code> has a <code>+</code> operator, we can concatenate the elements of a <code>vector</code> of strings by calling accumulate:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="hljs-built_in">string</span>(<span class="hljs-string">""</span>));</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="hljs-built_in">string</span>(<span class="hljs-string">""</span>));<br></code></pre></td></tr></table></figure>
 <p>This call concatenates each element in <code>v</code> onto a <code>string</code> that starts out as the empty string. Note that we explicitly create a string as the third parameter. </p>
 <p>Passing the empty string as a string literal would be a compile-time error:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// error: no + on const char*</span>
-<span class="hljs-built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="hljs-string">""</span>);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// error: no + on const char*</span><br><span class="hljs-built_in">string</span> sum = accumulate(v.cbegin(), v.cend(), <span class="hljs-string">""</span>);<br></code></pre></td></tr></table></figure>
 <p>Had we passed a string literal, the type of the object used to hold the <code>sum</code> would be <code>const char*</code>. That type determines which <code>+</code> operator is used. Because there is no <code>+</code> operator for type <code>const char*</code>, this call will not compile.</p>
 <h3 id="Algorithms-That-Operate-on-Two-Sequences"><a href="#Algorithms-That-Operate-on-Two-Sequences" class="headerlink" title="Algorithms That Operate on Two Sequences"></a>Algorithms That Operate on Two Sequences</h3><p>Another read-only algorithm is <code>equal</code>, which lets us determine whether two sequences hold the same values. </p>
 <p>It compares each element from the first sequence to the corresponding element in the second. It returns true if the corresponding elements are equal, false otherwise. </p>
 <p>The algorithm takes three iterators: The first two (as usual) denote the range of elements in the first sequence; the third denotes the first element in the second sequence:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// roster2 should have at least as many elements as roster1</span>
-equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// roster2 should have at least as many elements as roster1</span><br>equal(roster1.cbegin(), roster1.cend(), roster2.cbegin());<br></code></pre></td></tr></table></figure>
 <p>Because <code>equal</code> operates in terms of iterators, we can call <code>equal</code> to compare elements in containers of different types. Moreover, the element types also need not be the same so long as we can use <code>==</code> to compare the element types. </p>
 <p>For example, <code>roster1</code> could be a <code>vector&lt;string&gt;</code> and <code>roster2</code> a <code>list&lt;const char*&gt;</code>.</p>
 <p><strong>Algorithms that take a single iterator denoting a second sequence assume that the second sequence is at least as large at the first.</strong></p>
 <h2 id="2-Algorithms-That-Write-Container-Elements"><a href="#2-Algorithms-That-Write-Container-Elements" class="headerlink" title="(2) Algorithms That Write Container Elements"></a>(2) Algorithms That Write Container Elements</h2><p>Algorithms do not perform container operations, so they have no way themselves to change the size of a container.</p>
 <p>The <code>fill</code> algorithm takes a pair of iterators that denote a range and a third argument that is a value. <code>fill</code> assigns the given value to each element in the input sequence:</p>
 <p>The fill_n function takes a single iterator, a count, and a value.</p>
-<div class="hljs"><pre><code class="hljs cpp">fill(vec.begin(), vec.end(), <span class="hljs-number">0</span>); <span class="hljs-comment">// reset each element to 0</span>
-<span class="hljs-comment">// set a subsequence of the container to 10</span>
-fill(vec.begin(), vec.begin() + vec.size()/<span class="hljs-number">2</span>, <span class="hljs-number">10</span>);
-
-fill_n(vec.begin(), vec.size(), <span class="hljs-number">0</span>);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">fill(vec.begin(), vec.end(), <span class="hljs-number">0</span>); <span class="hljs-comment">// reset each element to 0</span><br><span class="hljs-comment">// set a subsequence of the container to 10</span><br>fill(vec.begin(), vec.begin() + vec.size()/<span class="hljs-number">2</span>, <span class="hljs-number">10</span>);<br><br>fill_n(vec.begin(), vec.size(), <span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
 <h3 id="back-inserter"><a href="#back-inserter" class="headerlink" title="back_inserter"></a>back_inserter</h3><p>One way to ensure that an algorithm has enough elements to hold the output is to use an <code>insert</code> iterator. An <code>insert</code> iterator is an iterator that adds elements to a container.</p>
 <p><code>back_inserter</code> takes a reference to a container and returns an <code>insert</code> iterator bound to that container. When we assign through that iterator, the assignment calls <code>push_back</code> to add an element with the given value to the container:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec; <span class="hljs-comment">// empty vector</span>
-<span class="hljs-keyword">auto</span> it = back_inserter(vec); <span class="hljs-comment">// assigning through it adds elements to vec</span>
-*it = <span class="hljs-number">42</span>; <span class="hljs-comment">// vec now has one element with value 42</span>
-<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec; <span class="hljs-comment">// empty vector</span>
-<span class="hljs-comment">// ok: back_inserter creates an insert iterator that adds elements to vec</span>
-fill_n(back_inserter(vec), <span class="hljs-number">10</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// appends ten elements to vec</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec; <span class="hljs-comment">// empty vector</span><br><span class="hljs-keyword">auto</span> it = back_inserter(vec); <span class="hljs-comment">// assigning through it adds elements to vec</span><br>*it = <span class="hljs-number">42</span>; <span class="hljs-comment">// vec now has one element with value 42</span><br><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec; <span class="hljs-comment">// empty vector</span><br><span class="hljs-comment">// ok: back_inserter creates an insert iterator that adds elements to vec</span><br>fill_n(back_inserter(vec), <span class="hljs-number">10</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// appends ten elements to vec</span><br></code></pre></td></tr></table></figure>
 <p>On each iteration, <code>fill_n</code> assigns to an element in the given sequence. Because we passed an iterator returned by <code>back_inserter</code>, each assignment will call <code>push_back</code> on <code>vec</code>. As a result, this call to <code>fill_n</code> adds ten elements to the end of <code>vec</code>, each of which has the value <code>0</code>.</p>
 <h3 id="Copy-Algorithms"><a href="#Copy-Algorithms" class="headerlink" title="Copy Algorithms"></a>Copy Algorithms</h3><p>This algorithm takes three iterators. The first two denote an input range; the third denotes the beginning of the destination sequence. This algorithm copies elements from its input range into elements in the destination. It is essential that the destination passed to copy be at least as large as the input range.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> a1[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;
-<span class="hljs-keyword">int</span> a2[<span class="hljs-keyword">sizeof</span>(a1)/<span class="hljs-keyword">sizeof</span>(*a1)]; <span class="hljs-comment">// a2 has the same size as a1</span>
-<span class="hljs-comment">// ret points just past the last element copied into a2</span>
-<span class="hljs-keyword">auto</span> ret = copy(begin(a1), end(a1), a2); <span class="hljs-comment">// copy a1 into a2</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> a1[] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;<br><span class="hljs-keyword">int</span> a2[<span class="hljs-keyword">sizeof</span>(a1)/<span class="hljs-keyword">sizeof</span>(*a1)]; <span class="hljs-comment">// a2 has the same size as a1</span><br><span class="hljs-comment">// ret points just past the last element copied into a2</span><br><span class="hljs-keyword">auto</span> ret = copy(begin(a1), end(a1), a2); <span class="hljs-comment">// copy a1 into a2</span><br></code></pre></td></tr></table></figure>
 <p>Here we define an <code>array</code> named <code>a2</code> and use <code>sizeof</code> to ensure that <code>a2</code> has as many elements as the array <code>a1</code>.</p>
 <p>The value returned by <code>copy</code> is the (incremented) value of its destination iterator. That is, <code>ret</code> will point just past the last element copied into <code>a2</code>. </p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// replace any element with the value 0 with 42</span>
-replace(ilst.begin(), ilst.end(), <span class="hljs-number">0</span>, <span class="hljs-number">42</span>);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// replace any element with the value 0 with 42</span><br>replace(ilst.begin(), ilst.end(), <span class="hljs-number">0</span>, <span class="hljs-number">42</span>);<br></code></pre></td></tr></table></figure>
 <p>If we want to leave the original sequence unchanged, we can call <code>replace_copy</code>. That algorithm takes a third iterator argument denoting a destination in which to write the adjusted sequence:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// use back_inserter to grow destination as needed</span>
-replace_copy(ilst.cbegin(), ilst.cend(),
-            back_inserter(ivec), <span class="hljs-number">0</span>, <span class="hljs-number">42</span>);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// use back_inserter to grow destination as needed</span><br>replace_copy(ilst.cbegin(), ilst.cend(),<br>            back_inserter(ivec), <span class="hljs-number">0</span>, <span class="hljs-number">42</span>);<br></code></pre></td></tr></table></figure>
 <p>After this call, <code>ilst</code> is unchanged, and <code>ivec</code> contains a copy of <code>ilst</code> with the exception that every element in <code>ilst</code> with the value <code>0</code> has the value <code>42</code> in <code>ivec</code>.</p>
 <h2 id="3-Algorithms-That-Reorder-Container-Elements"><a href="#3-Algorithms-That-Reorder-Container-Elements" class="headerlink" title="(3) Algorithms That Reorder Container Elements"></a>(3) Algorithms That Reorder Container Elements</h2><h3 id="Eliminating-Duplicates"><a href="#Eliminating-Duplicates" class="headerlink" title="Eliminating Duplicates"></a>Eliminating Duplicates</h3><p>To eliminate the duplicated words, we will first <code>sort</code> the <code>vector</code> so that duplicated words appear adjacent to each other. </p>
 <p>Once the vector is sorted, we can use another library algorithm, named <code>unique</code>, to reorder the vector so that the unique elements appear in the first part of the vector. Because algorithms cannot do container operations, we’ll use the <code>erase</code> member of vector to actually remove the elements:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">elimDups</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; &amp;words)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-comment">// sort words alphabetically so we can find the duplicates</span>
-    sort(words.begin(), words.end());
-    <span class="hljs-comment">// unique reorders the input range so that each word appears once in the</span>
-    <span class="hljs-comment">// front portion of the range and returns an iterator one past the unique range</span>
-    <span class="hljs-keyword">auto</span> end_unique = unique(words.begin(), words.end());
-    <span class="hljs-comment">// erase uses a vector operation to remove the nonunique elements</span>
-    words.erase(end_unique, words.end());
-&#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">elimDups</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; &amp;words)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// sort words alphabetically so we can find the duplicates</span><br>    sort(words.begin(), words.end());<br>    <span class="hljs-comment">// unique reorders the input range so that each word appears once in the</span><br>    <span class="hljs-comment">// front portion of the range and returns an iterator one past the unique range</span><br>    <span class="hljs-keyword">auto</span> end_unique = unique(words.begin(), words.end());<br>    <span class="hljs-comment">// erase uses a vector operation to remove the nonunique elements</span><br>    words.erase(end_unique, words.end());<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>The unique algorithm rearranges the input range to “eliminate” adjacent duplicated entries, and returns an iterator that denotes the end of the range of the unique values. </p>
 <p>After the call to <code>unique</code>, the vector holds The size of words is unchanged.</p>
 <p>The order of those elements is changed—the adjacent duplicates have been “removed”. </p>
@@ -287,145 +268,58 @@ replace_copy(ilst.cbegin(), ilst.cend(),
 <p>The iterator returned by <code>unique</code> denotes one past the last unique element. The elements beyond that point still exist, but we don’t know what values they have.</p>
 <h1 id="3-Customizing-Operations"><a href="#3-Customizing-Operations" class="headerlink" title="3. Customizing Operations"></a>3. Customizing Operations</h1><h2 id="1-Passing-a-Function-to-an-Algorithm"><a href="#1-Passing-a-Function-to-an-Algorithm" class="headerlink" title="(1) Passing a Function to an Algorithm"></a>(1) Passing a Function to an Algorithm</h2><p>A <code>predicate</code> is an expression that can be called and that returns a value that can be used as a condition. </p>
 <p>The predicates used by library algorithms are either unary predicates (meaning they have a single parameter) or binary predicates (meaning they have two parameters). </p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// comparison function to be used to sort by word length</span>
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isShorter</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s1, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s2)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">return</span> s1.size() &lt; s2.size();
-&#125;
-<span class="hljs-comment">// sort on word length, shortest to longest</span>
-sort(words.begin(), words.end(), isShorter);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// comparison function to be used to sort by word length</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isShorter</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s1, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s2)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> s1.size() &lt; s2.size();<br>&#125;<br><span class="hljs-comment">// sort on word length, shortest to longest</span><br>sort(words.begin(), words.end(), isShorter);<br></code></pre></td></tr></table></figure>
 
 <p>To keep the words of the same length in alphabetical order we can use the <code>stable_sort</code> algorithm. A <code>stable sort</code> maintains the original order among equal elements.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// put words in alphabetical order and remove duplicates</span>
-elimDups(words); 
-<span class="hljs-comment">// resort by length, maintaining alphabetical order among words of the same length</span>
-stable_sort(words.begin(), words.end(), isShorter);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// put words in alphabetical order and remove duplicates</span><br>elimDups(words); <br><span class="hljs-comment">// resort by length, maintaining alphabetical order among words of the same length</span><br>stable_sort(words.begin(), words.end(), isShorter);<br></code></pre></td></tr></table></figure>
 
 <h2 id="2-Lambda-Expressions"><a href="#2-Lambda-Expressions" class="headerlink" title="(2) Lambda Expressions"></a>(2) Lambda Expressions</h2><h3 id="Introducing-Lambdas"><a href="#Introducing-Lambdas" class="headerlink" title="Introducing Lambdas"></a>Introducing Lambdas</h3><p>A lambda expression represents a callable unit of code. It can be thought of as an unnamed, inline function. Like any function, a lambda has a return type, a parameter list, and a function body. Unlike a function, lambdas may be defined inside a function. </p>
-<div class="hljs"><pre><code class="hljs cpp">[capture <span class="hljs-built_in">list</span>] (parameter <span class="hljs-built_in">list</span>) -&gt; <span class="hljs-keyword">return</span> type &#123; function body &#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[capture <span class="hljs-built_in">list</span>] (parameter <span class="hljs-built_in">list</span>) -&gt; <span class="hljs-keyword">return</span> type &#123; function body &#125;<br></code></pre></td></tr></table></figure>
 <p>where <code>capture list</code> is an (often empty) list of local variables defined in the enclosing function; return type, parameter list, and function body are the same as in any ordinary function. </p>
 <p>However, unlike ordinary functions, a lambda must use a trailing return to specify its return type.</p>
 <p>We can omit either or both of the parameter list and return type but must always include the capture list and function body:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> f = [] &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>; &#125;;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> f = [] &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>; &#125;;<br></code></pre></td></tr></table></figure>
 <p>Here, we’ve defined <code>f</code> as a callable object that takes no arguments and returns <code>42</code>.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; f() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 42</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; f() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 42</span><br></code></pre></td></tr></table></figure>
 <p>Omitting the parentheses and the parameter list in a lambda is equivalent to specifying an empty parameter list. Hence, when we call f, the argument list is empty.</p>
 <p>If we omit the return type, the lambda has an inferred return type that depends on the code in the function body. If the function body is just a return statement, the return type is inferred from the type of the expression that is returned. Otherwise, the return type is void.</p>
 <h3 id="Passing-Arguments-to-a-Lambda"><a href="#Passing-Arguments-to-a-Lambda" class="headerlink" title="Passing Arguments to a Lambda"></a>Passing Arguments to a Lambda</h3><p>Unlike ordinary functions, a lambda may not have default arguments. Therefore, a call to a lambda always has as many arguments as the lambda has parameters. Once the parameters are initialized, the function body executes. </p>
-<div class="hljs"><pre><code class="hljs cpp">[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)
-&#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)<br>&#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;<br></code></pre></td></tr></table></figure>
 <p>The empty capture list indicates that this lambda will not use any local variables from the surrounding function. </p>
 <p>We can rewrite our call to <code>stable_sort</code> to use this lambda as follows:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// sort words by size, but maintain alphabetical order for words of the same size</span>
-stable_sort(words.begin(), words.end(),
-[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)
-&#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// sort words by size, but maintain alphabetical order for words of the same size</span><br>stable_sort(words.begin(), words.end(),<br>[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)<br>&#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;);<br></code></pre></td></tr></table></figure>
 <p>When stable_sort needs to compare two elements, it will call the given lambda expression. </p>
-<h3 id="Using-the-Capture-List"><a href="#Using-the-Capture-List" class="headerlink" title="Using the Capture List"></a>Using the Capture List</h3><div class="hljs"><pre><code class="hljs cpp">[sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
-&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;;</code></pre></div>
+<h3 id="Using-the-Capture-List"><a href="#Using-the-Capture-List" class="headerlink" title="Using the Capture List"></a>Using the Capture List</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">[sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)<br>&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;;<br></code></pre></td></tr></table></figure>
 <p>Inside the <code>[]</code> that begins a lambda we can provide a comma-separated list of names defined in the surrounding function.</p>
 <p>Because this lambda captures <code>sz</code>, the body of the lambda may use <code>sz</code>. The lambda does not capture words, and so has no access to that variable. Had we given our lambda an empty capture list, our code would not compile:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// error: sz not captured</span>
-[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
-&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// error: sz not captured</span><br>[](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)<br>&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;;<br></code></pre></td></tr></table></figure>
 
 <p>A lambda may use a variable local to its surrounding function only if the lambda captures that variable in its capture list.</p>
-<h3 id="find-if"><a href="#find-if" class="headerlink" title="find_if"></a>find_if</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// get an iterator to the first element whose size() is &gt;= sz</span>
-<span class="hljs-keyword">auto</span> wc = find_if(words.begin(), words.end(),
-                [sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
-&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;);
-
-<span class="hljs-comment">// compute the number of elements with size &gt;= sz</span>
-<span class="hljs-keyword">auto</span> count = words.end() - wc;
-<span class="hljs-built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; make_plural(count, <span class="hljs-string">"word"</span>, <span class="hljs-string">"s"</span>)
-&lt;&lt; <span class="hljs-string">" of length "</span> &lt;&lt; sz &lt;&lt; <span class="hljs-string">" or longer"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+<h3 id="find-if"><a href="#find-if" class="headerlink" title="find_if"></a>find_if</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// get an iterator to the first element whose size() is &gt;= sz</span><br><span class="hljs-keyword">auto</span> wc = find_if(words.begin(), words.end(),<br>                [sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)<br>&#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;);<br><br><span class="hljs-comment">// compute the number of elements with size &gt;= sz</span><br><span class="hljs-keyword">auto</span> count = words.end() - wc;<br><span class="hljs-built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; make_plural(count, <span class="hljs-string">"word"</span>, <span class="hljs-string">"s"</span>)<br>&lt;&lt; <span class="hljs-string">" of length "</span> &lt;&lt; sz &lt;&lt; <span class="hljs-string">" or longer"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
 <p>Our output statement calls <code>make_plural</code> to print <code>word</code> or <code>words</code>, depending on whether that size is equal to <code>1</code>.</p>
-<h3 id="The-for-each-Algorithm"><a href="#The-for-each-Algorithm" class="headerlink" title="The for_each Algorithm"></a>The for_each Algorithm</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// print words of the given size or longer, each one followed by a space</span>
-for_each(wc, words.end(),
-        [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s)&#123;<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">" "</span>;&#125;);
-<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+<h3 id="The-for-each-Algorithm"><a href="#The-for-each-Algorithm" class="headerlink" title="The for_each Algorithm"></a>The for_each Algorithm</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// print words of the given size or longer, each one followed by a space</span><br>for_each(wc, words.end(),<br>        [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s)&#123;<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">" "</span>;&#125;);<br><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
 <p>The capture list in this lambda is empty, yet the body uses two names: its own parameter, named <code>s</code>, and <code>cout</code>.</p>
 <p>The capture list is empty, because we use the capture list only for (nonstatic) variables defined in the surrounding function. </p>
 <p>A lambda can use names that are defined outside the function in which the lambda appears. </p>
 <p>The capture list is used for local nonstatic variables only; lambdas can use local statics and variables declared outside the function directly.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">biggies</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; &amp;words,</span></span>
-<span class="hljs-function"><span class="hljs-params"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::size_type sz)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-comment">// put words in alphabetical order and remove duplicates</span>
-    elimDups(words); 
-    <span class="hljs-comment">// sort words by size, but maintain alphabetical order for words of the same size</span>
-    stable_sort(words.begin(), words.end(),
-                [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)
-                &#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;);
-    <span class="hljs-comment">// get an iterator to the first element whose size() is &gt;= sz</span>
-    <span class="hljs-keyword">auto</span> wc = find_if(words.begin(), words.end(),
-                      [sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)
-                      &#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;);
-    <span class="hljs-comment">// compute the number of elements with size &gt;= sz</span>
-    <span class="hljs-keyword">auto</span> count = words.end() - wc;
-    <span class="hljs-built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; make_plural(count, <span class="hljs-string">"word"</span>, <span class="hljs-string">"s"</span>)
-    &lt;&lt; <span class="hljs-string">" of length "</span> &lt;&lt; sz &lt;&lt; <span class="hljs-string">" or longer"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-comment">// print words of the given size or longer, each one followed by a space</span>
-    for_each(wc, words.end(),
-            [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s)&#123;<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">" "</span>;&#125;);
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-&#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">biggies</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; &amp;words,</span></span><br><span class="hljs-function"><span class="hljs-params"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;::size_type sz)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// put words in alphabetical order and remove duplicates</span><br>    elimDups(words); <br>    <span class="hljs-comment">// sort words by size, but maintain alphabetical order for words of the same size</span><br>    stable_sort(words.begin(), words.end(),<br>                [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a, <span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;b)<br>                &#123; <span class="hljs-keyword">return</span> a.size() &lt; b.size();&#125;);<br>    <span class="hljs-comment">// get an iterator to the first element whose size() is &gt;= sz</span><br>    <span class="hljs-keyword">auto</span> wc = find_if(words.begin(), words.end(),<br>                      [sz](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;a)<br>                      &#123; <span class="hljs-keyword">return</span> a.size() &gt;= sz; &#125;);<br>    <span class="hljs-comment">// compute the number of elements with size &gt;= sz</span><br>    <span class="hljs-keyword">auto</span> count = words.end() - wc;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; make_plural(count, <span class="hljs-string">"word"</span>, <span class="hljs-string">"s"</span>)<br>    &lt;&lt; <span class="hljs-string">" of length "</span> &lt;&lt; sz &lt;&lt; <span class="hljs-string">" or longer"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    <span class="hljs-comment">// print words of the given size or longer, each one followed by a space</span><br>    for_each(wc, words.end(),<br>            [](<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span> &amp;s)&#123;<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-string">" "</span>;&#125;);<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="3-Lambda-Captures-and-Returns"><a href="#3-Lambda-Captures-and-Returns" class="headerlink" title="(3) Lambda Captures and Returns"></a>(3) Lambda Captures and Returns</h2><p>When we define a lambda, the compiler generates a new (unnamed) class type that corresponds to that lambda. </p>
 <p>By default, the class generated from a lambda contains a data member corresponding to the variables captured by the lambda. </p>
 <p>Like the data members of any class, the data members of a lambda are initialized when a lambda object is created. </p>
 <h3 id="Capture-by-Value"><a href="#Capture-by-Value" class="headerlink" title="Capture by Value"></a>Capture by Value</h3><p>Similar to parameter passing, we can capture variables by value or by reference. </p>
 <p>Unlike parameters, the value of a captured variable is copied when the lambda is created, not when it is called:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn1</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
-    <span class="hljs-comment">// copies v1 into the callable object named f</span>
-    <span class="hljs-keyword">auto</span> f = [v1] &#123; <span class="hljs-keyword">return</span> v1; &#125;;
-    v1 = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">auto</span> j = f(); <span class="hljs-comment">// j is 42; f stored a copy of v1 when we created it</span>
-&#125;</code></pre></div>
-<p><img src="_v_images/20210202212852556_443641787.png" srcset="/img/loading.gif" alt="Lambda Capture List"></p>
-<h3 id="Capture-by-Reference"><a href="#Capture-by-Reference" class="headerlink" title="Capture by Reference"></a>Capture by Reference</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn2</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
-    <span class="hljs-comment">// the object f2 contains a reference to v1</span>
-    <span class="hljs-keyword">auto</span> f2 = [&amp;v1] &#123; <span class="hljs-keyword">return</span> v1; &#125;;
-    v1 = <span class="hljs-number">0</span>;
-    <span class="hljs-comment">// j is 0; f2 refers to v1; it doesn't store it</span>
-    <span class="hljs-keyword">auto</span> j = f2(); 
-&#125;</code></pre></div>
-<h3 id="Mutable-Lambdas"><a href="#Mutable-Lambdas" class="headerlink" title="Mutable Lambdas"></a>Mutable Lambdas</h3><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn3</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
-    <span class="hljs-comment">// f can change the value of the variables it captures</span>
-    <span class="hljs-keyword">auto</span> f = [v1] () <span class="hljs-keyword">mutable</span> &#123; <span class="hljs-keyword">return</span> ++v1; &#125;;
-    v1 = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">auto</span> j = f(); <span class="hljs-comment">// j is 43</span>
-&#125;</code></pre></div>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn4</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span>
-    <span class="hljs-comment">// v1 is a reference to a non const variable</span>
-    <span class="hljs-comment">// we can change that variable through the reference inside f2</span>
-    <span class="hljs-keyword">auto</span> f2 = [&amp;v1] &#123; <span class="hljs-keyword">return</span> ++v1; &#125;;
-    v1 = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">auto</span> j = f2(); <span class="hljs-comment">// j is 1</span>
-&#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn1</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span><br>    <span class="hljs-comment">// copies v1 into the callable object named f</span><br>    <span class="hljs-keyword">auto</span> f = [v1] &#123; <span class="hljs-keyword">return</span> v1; &#125;;<br>    v1 = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">auto</span> j = f(); <span class="hljs-comment">// j is 42; f stored a copy of v1 when we created it</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="_v_images/20210202212852556_443641787.png" srcset="/img/loading.gif" lazyload alt="Lambda Capture List"></p>
+<h3 id="Capture-by-Reference"><a href="#Capture-by-Reference" class="headerlink" title="Capture by Reference"></a>Capture by Reference</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn2</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span><br>    <span class="hljs-comment">// the object f2 contains a reference to v1</span><br>    <span class="hljs-keyword">auto</span> f2 = [&amp;v1] &#123; <span class="hljs-keyword">return</span> v1; &#125;;<br>    v1 = <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">// j is 0; f2 refers to v1; it doesn't store it</span><br>    <span class="hljs-keyword">auto</span> j = f2(); <br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Mutable-Lambdas"><a href="#Mutable-Lambdas" class="headerlink" title="Mutable Lambdas"></a>Mutable Lambdas</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn3</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span><br>    <span class="hljs-comment">// f can change the value of the variables it captures</span><br>    <span class="hljs-keyword">auto</span> f = [v1] () <span class="hljs-keyword">mutable</span> &#123; <span class="hljs-keyword">return</span> ++v1; &#125;;<br>    v1 = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">auto</span> j = f(); <span class="hljs-comment">// j is 43</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fcn4</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">size_t</span> v1 = <span class="hljs-number">42</span>; <span class="hljs-comment">// local variable</span><br>    <span class="hljs-comment">// v1 is a reference to a non const variable</span><br>    <span class="hljs-comment">// we can change that variable through the reference inside f2</span><br>    <span class="hljs-keyword">auto</span> f2 = [&amp;v1] &#123; <span class="hljs-keyword">return</span> ++v1; &#125;;<br>    v1 = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">auto</span> j = f2(); <span class="hljs-comment">// j is 1</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="Specifying-the-Lambda-Return-Type"><a href="#Specifying-the-Lambda-Return-Type" class="headerlink" title="Specifying the Lambda Return Type"></a>Specifying the Lambda Return Type</h3><p>The lambdas we’ve written so far contain only a single return statement. As a result, we haven’t had to specify the return type. </p>
 <p>By default, if a lambda body contains any statements other than a return, that lambda is assumed to return void. Like other functions that return void, lambdas inferred to return void may not return a value.</p>
-<div class="hljs"><pre><code class="hljs cpp">transform(vi.begin(), vi.end(), vi.begin(),
-          [](<span class="hljs-keyword">int</span> i) &#123; <span class="hljs-keyword">return</span> i &lt; <span class="hljs-number">0</span> ? -i : i; &#125;);
-
-<span class="hljs-comment">// error: cannot deduce the return type for the lambda</span>
-transform(vi.begin(), vi.end(), vi.begin(),
-          [](<span class="hljs-keyword">int</span> i) &#123; <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -i; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> i; &#125;);
-
-transform(vi.begin(), vi.end(), vi.begin(),
-         [](<span class="hljs-keyword">int</span> i) -&gt; <span class="hljs-keyword">int</span>
-         &#123; <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -i; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> i; &#125;);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp">transform(vi.begin(), vi.end(), vi.begin(),<br>          [](<span class="hljs-keyword">int</span> i) &#123; <span class="hljs-keyword">return</span> i &lt; <span class="hljs-number">0</span> ? -i : i; &#125;);<br><br><span class="hljs-comment">// error: cannot deduce the return type for the lambda</span><br>transform(vi.begin(), vi.end(), vi.begin(),<br>          [](<span class="hljs-keyword">int</span> i) &#123; <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -i; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> i; &#125;);<br><br>transform(vi.begin(), vi.end(), vi.begin(),<br>         [](<span class="hljs-keyword">int</span> i) -&gt; <span class="hljs-keyword">int</span><br>         &#123; <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -i; <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> i; &#125;);<br></code></pre></td></tr></table></figure>
 
 <h1 id="4-Revisiting-Iterators"><a href="#4-Revisiting-Iterators" class="headerlink" title="4. Revisiting Iterators"></a>4. Revisiting Iterators</h1><h2 id="1-Insert-Iterators"><a href="#1-Insert-Iterators" class="headerlink" title="(1) Insert Iterators"></a>(1) Insert Iterators</h2><p>An <code>inserter</code> is an iterator adaptor that takes a container and yields an iterator that adds elements to the specified container. </p>
-<p>When we assign a value through an insert iterator, the iterator calls a container operation to add an element at a specified position in the given container.<br><img src="_v_images/20210202212659785_830469995.png" srcset="/img/loading.gif" alt="Insert Iterator Operations"><br>There are three kinds of inserters. Each differs from the others as to where elements are inserted:</p>
+<p>When we assign a value through an insert iterator, the iterator calls a container operation to add an element at a specified position in the given container.<br><img src="_v_images/20210202212659785_830469995.png" srcset="/img/loading.gif" lazyload alt="Insert Iterator Operations"><br>There are three kinds of inserters. Each differs from the others as to where elements are inserted:</p>
 <ul>
 <li><p><code>back_inserter</code> creates an iterator that uses push_back.</p>
 </li>
@@ -434,41 +328,22 @@ transform(vi.begin(), vi.end(), vi.begin(),
 <li><p><code>inserter</code> creates an iterator that uses insert. This function takes a second argument, which must be an iterator into the given container. Elements are inserted ahead of the element denoted by the given iterator.</p>
 </li>
 </ul>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-number">1</span>st = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;
-<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; lst2, lst3; <span class="hljs-comment">// empty lists</span>
-<span class="hljs-comment">// after copy completes, 1st2 contains 4 3 2 1</span>
-copy(<span class="hljs-number">1</span>st.cbegin(), lst.cend(), front_inserter(lst2));
-<span class="hljs-comment">// after copy completes, 1st3 contains 1 2 3 4</span>
-copy(<span class="hljs-number">1</span>st.cbegin(), lst.cend(), inserter(lst3, lst3.begin()));</code></pre></div>
-<h2 id="2-iostream-Iterators"><a href="#2-iostream-Iterators" class="headerlink" title="(2) iostream Iterators"></a>(2) iostream Iterators</h2><p><img src="_v_images/20210202212519319_272382113.png" srcset="/img/loading.gif" alt="istream_iterator Operations"></p>
-<p><img src="_v_images/20210202212538787_2147290368.png" srcset="/img/loading.gif" alt="ostream Iterator Operations"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-number">1</span>st = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;<br><span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt; lst2, lst3; <span class="hljs-comment">// empty lists</span><br><span class="hljs-comment">// after copy completes, 1st2 contains 4 3 2 1</span><br>copy(<span class="hljs-number">1</span>st.cbegin(), lst.cend(), front_inserter(lst2));<br><span class="hljs-comment">// after copy completes, 1st3 contains 1 2 3 4</span><br>copy(<span class="hljs-number">1</span>st.cbegin(), lst.cend(), inserter(lst3, lst3.begin()));<br></code></pre></td></tr></table></figure>
+<h2 id="2-iostream-Iterators"><a href="#2-iostream-Iterators" class="headerlink" title="(2) iostream Iterators"></a>(2) iostream Iterators</h2><p><img src="_v_images/20210202212519319_272382113.png" srcset="/img/loading.gif" lazyload alt="istream_iterator Operations"></p>
+<p><img src="_v_images/20210202212538787_2147290368.png" srcset="/img/loading.gif" lazyload alt="ostream Iterator Operations"></p>
 <h2 id="3-Reverse-Iterators"><a href="#3-Reverse-Iterators" class="headerlink" title="(3) Reverse Iterators"></a>(3) Reverse Iterators</h2><p>The containers, aside from forward_list, all have reverse iterators. We obtain a reverse iterator by calling the rbegin, rend, crbegin, and crend members.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;
-<span class="hljs-comment">// reverse iterator of vector from back to front</span>
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> r_iter = vec.crbegin(); <span class="hljs-comment">// binds r_iter to the last element</span>
-    r_iter != vec.crend(); <span class="hljs-comment">// crend refers 1 before 1st element</span>
-    ++r_iter) <span class="hljs-comment">// decrements the iterator one element</span>
-    <span class="hljs-built_in">cout</span> &lt;&lt; *r_iter &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 9, 8, 7,... 0</span></code></pre></div>
-<div class="hljs"><pre><code class="hljs cpp">sort(vec.begin(), vec.end()); <span class="hljs-comment">// sorts vec in ''normal'' order</span>
-<span class="hljs-comment">// sorts in reverse: puts the smallest element at the end of vec</span>
-sort(vec.rbegin(), vec.rend());</code></pre></div>
-<p><img src="_v_images/20210202212433603_786048652.png" srcset="/img/loading.gif" alt="Comparing begin/cend and rbegin/crend Iterators"><br>Not surprisingly, we can define a reverse iterator only from an iterator that supports <code>--</code> as well as <code>++</code>. </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;<br><span class="hljs-comment">// reverse iterator of vector from back to front</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> r_iter = vec.crbegin(); <span class="hljs-comment">// binds r_iter to the last element</span><br>    r_iter != vec.crend(); <span class="hljs-comment">// crend refers 1 before 1st element</span><br>    ++r_iter) <span class="hljs-comment">// decrements the iterator one element</span><br>    <span class="hljs-built_in">cout</span> &lt;&lt; *r_iter &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 9, 8, 7,... 0</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">sort(vec.begin(), vec.end()); <span class="hljs-comment">// sorts vec in ''normal'' order</span><br><span class="hljs-comment">// sorts in reverse: puts the smallest element at the end of vec</span><br>sort(vec.rbegin(), vec.rend());<br></code></pre></td></tr></table></figure>
+<p><img src="_v_images/20210202212433603_786048652.png" srcset="/img/loading.gif" lazyload alt="Comparing begin/cend and rbegin/crend Iterators"><br>Not surprisingly, we can define a reverse iterator only from an iterator that supports <code>--</code> as well as <code>++</code>. </p>
 <p>Aside from <code>forward_list</code>, the iterators on the standard containers all support decrement as well as increment. </p>
 <p>However, the <code>stream</code> iterators do not, because it is not possible to move backward through a stream. Therefore, it is not possible to create a reverse iterator from a <code>forward_list</code> or a stream iterator. </p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// find the first element in a comma-separated list</span>
-<span class="hljs-keyword">auto</span> comma = find(line.cbegin(), line.cend(), <span class="hljs-string">','</span>);
-<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">string</span>(line.cbegin(), comma) &lt;&lt; <span class="hljs-built_in">endl</span>;
-
-<span class="hljs-comment">// find the last element in a comma-separated list</span>
-<span class="hljs-keyword">auto</span> rcomma = find(line.crbegin(), line.crend(), <span class="hljs-string">','</span>);
-<span class="hljs-comment">// ok: get a forward iterator and read to the end of line</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">string</span>(rcomma.base(), line.cend()) &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// find the first element in a comma-separated list</span><br><span class="hljs-keyword">auto</span> comma = find(line.cbegin(), line.cend(), <span class="hljs-string">','</span>);<br><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">string</span>(line.cbegin(), comma) &lt;&lt; <span class="hljs-built_in">endl</span>;<br><br><span class="hljs-comment">// find the last element in a comma-separated list</span><br><span class="hljs-keyword">auto</span> rcomma = find(line.crbegin(), line.crend(), <span class="hljs-string">','</span>);<br><span class="hljs-comment">// ok: get a forward iterator and read to the end of line</span><br><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">string</span>(rcomma.base(), line.cend()) &lt;&lt; <span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
 <p>Technically speaking, the relationship between normal and reverse iterators accommodates the properties of a left-inclusive range.</p>
 <p>The point is that <code>[line.crbegin(), rcomma) and [rcomma.base(), line.cend())</code> refer to the same elements in line. In order for that to happen, <code>rcomma</code> and <code>rcomma.base()</code> must yield adjacent positions, rather than the same position, as must <code>crbegin()</code> and <code>cend()</code>.</p>
-<h1 id="5-Structure-of-Generic-Algorithms"><a href="#5-Structure-of-Generic-Algorithms" class="headerlink" title="5. Structure of Generic Algorithms"></a>5. Structure of Generic Algorithms</h1><p><img src="_v_images/20210202212113310_1303620266.png" srcset="/img/loading.gif" alt="Iterator Categories"></p>
+<h1 id="5-Structure-of-Generic-Algorithms"><a href="#5-Structure-of-Generic-Algorithms" class="headerlink" title="5. Structure of Generic Algorithms"></a>5. Structure of Generic Algorithms</h1><p><img src="_v_images/20210202212113310_1303620266.png" srcset="/img/loading.gif" lazyload alt="Iterator Categories"></p>
 <h1 id="6-Container-Specific-Algorithms"><a href="#6-Container-Specific-Algorithms" class="headerlink" title="6. Container-Specific Algorithms"></a>6. Container-Specific Algorithms</h1><p>Unlike the other containers, list and <code>forward_list</code> define several algorithms as members. In particular, the <code>list</code> types define their own versions of <code>sort</code>, <code>merge</code>, <code>remove</code>, <code>reverse</code>, and <code>unique</code>. The generic version of <code>sort</code> requires randomaccess iterators. As a result, <code>sort</code> cannot be used with <code>list</code> and <code>forward_list</code> because these types offer bidirectional and forward iterators, respectively.</p>
-<p><img src="_v_images/20210202211821083_764781053.png" srcset="/img/loading.gif" alt=" Algorithms That are Members of list and forward_list"></p>
-<p><img src="_v_images/20210202211733225_1095566265.png" srcset="/img/loading.gif" alt=" Arguments to the list and forward_list splice Members"></p>
+<p><img src="_v_images/20210202211821083_764781053.png" srcset="/img/loading.gif" lazyload alt=" Algorithms That are Members of list and forward_list"></p>
+<p><img src="_v_images/20210202211733225_1095566265.png" srcset="/img/loading.gif" lazyload alt=" Arguments to the list and forward_list splice Members"></p>
 
             </div>
             <hr>
@@ -496,10 +371,14 @@ sort(vec.rbegin(), vec.rend());</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -533,7 +412,7 @@ sort(vec.rbegin(), vec.rend());</code></pre></div>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -545,16 +424,15 @@ sort(vec.rbegin(), vec.rend());</code></pre></div>
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -575,62 +453,47 @@ sort(vec.rbegin(), vec.rend());</code></pre></div>
     </div>
   </div>
 </div>
-  
-
-  
-    <!-- APlayer 音乐播放器 -->
-    <div id="aplayer"></div>
-    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
-<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
-<script type="text/javascript">
-  var oldLoadAp = window.onload;
-  window.onload = function () {
-    oldLoadAp && oldLoadAp();
-
-    new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      autoplay: 'false' === 'true',
-      loop: 'all',
-      order: 'random',
-      theme: '#58C9B9',
-      preload: 'none',
-      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
-    });
-  }
-</script>
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -639,105 +502,38 @@ sort(vec.rbegin(), vec.rend());</code></pre></div>
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Generic Algorithms&nbsp;",
-      ],
-      cursorChar: " ",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-      icon: "§"
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
 
 
 
   <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -746,56 +542,6 @@ sort(vec.rbegin(), vec.rend());</code></pre></div>
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
@@ -804,10 +550,8 @@ sort(vec.rbegin(), vec.rend());</code></pre></div>
 
 
 
-
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

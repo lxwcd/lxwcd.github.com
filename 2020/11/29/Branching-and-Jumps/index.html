@@ -8,37 +8,41 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
-  <link rel="icon" type="image/png" href="/img/groot.png">
+  <link rel="icon" href="/img/groot.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="诗酒趁年华">
+  <meta name="description" content="C Primer Plus (Sixth Editioni) Chapter 7 C Control Statements: Branching and Jumps">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  
   <title>Branching and Jumps - CD_LX</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
     
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lxwcd.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -122,13 +130,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -137,13 +145,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/Branching-and-Jumps_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Branching and Jumps">
               
             </span>
 
@@ -165,7 +173,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      898 字
+      896 字
     </span>
   
 
@@ -197,23 +205,22 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Branching and Jumps</h1>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>C Primer Plus (Sixth Editioni) Chapter 7 C Control Statements: Branching and Jumps</p>
 <a id="more"></a>
 <h1 id="1-getchar-and-putchar"><a href="#1-getchar-and-putchar" class="headerlink" title="1.  getchar() and putchar()"></a>1.  getchar() and putchar()</h1><p>The <strong>getchar()</strong> function takes no arguments, and it <strong>returns</strong> the next character from input.<br>&nbsp;<br>The <strong>putchar()</strong> function prints its argument.<br>&nbsp;<br>Because these functions deal only with characters, they are faster and more compact than the more general <strong>scanf()</strong> and <strong>printf()</strong> functions.<br>&nbsp;<br>Characters are really stored as <strong>integers</strong>. <strong>getchar( )</strong> is actually type <strong>int</strong> itself.</p>
 <h1 id="2-The-ctype-h-Family-of-Character-Functions"><a href="#2-The-ctype-h-Family-of-Character-Functions" class="headerlink" title="2. The ctype.h Family of Character Functions"></a>2. The ctype.h Family of Character Functions</h1><p>C has a standard set of functions for analyzing characters; the <strong>ctype.h</strong> header file contains the prototypes.<br>&nbsp;<br>Note that the mapping functions don’t modify the original argument; instead, they return the modified value. </p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// no effect on ch</span>
-ch = <span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// convert ch to lowercase</span></code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// no effect on ch</span><br>ch = <span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">// convert ch to lowercase</span><br></code></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -308,107 +315,26 @@ ch = <span class="hljs-built_in">tolower</span>(ch); <span class="hljs-comment">
 </tbody></table>
 <h2 id="1-Precedence"><a href="#1-Precedence" class="headerlink" title="(1) Precedence"></a>(1) Precedence</h2><p>The <strong>!</strong> operator has a very high precedence—higher than <strong>multiplication</strong>, the same as the <strong>increment operators</strong>, and just below that of <strong>parentheses</strong>. The <strong>&amp;&amp;</strong> operator has higher precedence than <strong>||</strong>.</p>
 <h2 id="2-Order-of-Evaluation"><a href="#2-Order-of-Evaluation" class="headerlink" title="(2) Order of Evaluation"></a>(2) Order of Evaluation</h2><p>The <strong>&amp;&amp;</strong> and <strong>||</strong> operators are sequence points, so all side effects take place before a program moves from one operand to the next. </p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">while</span> ( x++ &lt; <span class="hljs-number">10</span> &amp;&amp; x + y &lt; <span class="hljs-number">20</span>)</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">while</span> ( x++ &lt; <span class="hljs-number">10</span> &amp;&amp; x + y &lt; <span class="hljs-number">20</span>)<br></code></pre></td></tr></table></figure>
 <p>The fact that the <strong>&amp;&amp;</strong> operator is a sequence point guarantees that <code>x</code> is incremented before the expression on the right is evaluated.</p>
-<h1 id="4-A-Word-Count-Program"><a href="#4-A-Word-Count-Program" class="headerlink" title="4. A Word-Count Program"></a>4. A Word-Count Program</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;ctype.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdbool.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STOP <span class="hljs-meta-string">'\x1b'</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">char</span> c;  <span class="hljs-comment">//read in character</span>
-    <span class="hljs-keyword">char</span> prev; <span class="hljs-comment">//previous character read</span>
-    <span class="hljs-keyword">long</span> n_chars = <span class="hljs-number">0L</span>; <span class="hljs-comment">//number of characters</span>
-    <span class="hljs-keyword">long</span> n_alphabets = <span class="hljs-number">0L</span>; <span class="hljs-comment">//alphabetic</span>
-    <span class="hljs-keyword">long</span> n_digits = <span class="hljs-number">0L</span>; <span class="hljs-comment">//digits</span>
-    <span class="hljs-keyword">long</span> n_spaces = <span class="hljs-number">0L</span>;
-    <span class="hljs-keyword">long</span> n_punctuations = <span class="hljs-number">0L</span>;
-    <span class="hljs-keyword">int</span> n_lines = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">int</span> n_words = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">bool</span> inword = <span class="hljs-literal">false</span>;  
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Enter text to be analyzed (Esc to terminate):\n"</span>);
-    prev = <span class="hljs-string">'\n'</span>;
-    <span class="hljs-keyword">while</span> ((c = getchar()) != STOP)
-    &#123;
-        n_chars++;
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isalpha</span>(c))
-           n_alphabets++;
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isdigit</span>(c))
-            n_digits++;
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">ispunct</span>(c))
-            n_punctuations++;
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isspace</span>(c))
-            n_spaces++;
-        <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'\n'</span>)
-            n_lines++;
-        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isspace</span>(c) &amp;&amp; !inword) 
-        &#123;
-            inword = <span class="hljs-literal">true</span>;
-            n_words++;
-        &#125;
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isspace</span>(c) &amp;&amp; inword) 
-        &#123;
-            inword = <span class="hljs-literal">false</span>; <span class="hljs-comment">//reached end of a word</span>
-        &#125;
-        prev = c;
-    &#125;
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Charaters = %ld, alphabets = %ld, digits = %ld,\</span>
-<span class="hljs-string">    punctuations = %ld, spaces = %ld,  words = %d, lines = %d\n"</span>,
-    n_chars,n_alphabets,n_digits,n_punctuations,n_spaces,n_words,n_lines);
-    <span class="hljs-comment">/*return 0; */</span>
-&#125;</code></pre></div>
+<h1 id="4-A-Word-Count-Program"><a href="#4-A-Word-Count-Program" class="headerlink" title="4. A Word-Count Program"></a>4. A Word-Count Program</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;ctype.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdbool.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STOP <span class="hljs-meta-string">'\x1b'</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">char</span> c;  <span class="hljs-comment">//read in character</span><br>    <span class="hljs-keyword">char</span> prev; <span class="hljs-comment">//previous character read</span><br>    <span class="hljs-keyword">long</span> n_chars = <span class="hljs-number">0L</span>; <span class="hljs-comment">//number of characters</span><br>    <span class="hljs-keyword">long</span> n_alphabets = <span class="hljs-number">0L</span>; <span class="hljs-comment">//alphabetic</span><br>    <span class="hljs-keyword">long</span> n_digits = <span class="hljs-number">0L</span>; <span class="hljs-comment">//digits</span><br>    <span class="hljs-keyword">long</span> n_spaces = <span class="hljs-number">0L</span>;<br>    <span class="hljs-keyword">long</span> n_punctuations = <span class="hljs-number">0L</span>;<br>    <span class="hljs-keyword">int</span> n_lines = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> n_words = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">bool</span> inword = <span class="hljs-literal">false</span>;  <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Enter text to be analyzed (Esc to terminate):\n"</span>);<br>    prev = <span class="hljs-string">'\n'</span>;<br>    <span class="hljs-keyword">while</span> ((c = getchar()) != STOP)<br>    &#123;<br>        n_chars++;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isalpha</span>(c))<br>           n_alphabets++;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isdigit</span>(c))<br>            n_digits++;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">ispunct</span>(c))<br>            n_punctuations++;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isspace</span>(c))<br>            n_spaces++;<br>        <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'\n'</span>)<br>            n_lines++;<br>        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isspace</span>(c) &amp;&amp; !inword) <br>        &#123;<br>            inword = <span class="hljs-literal">true</span>;<br>            n_words++;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isspace</span>(c) &amp;&amp; inword) <br>        &#123;<br>            inword = <span class="hljs-literal">false</span>; <span class="hljs-comment">//reached end of a word</span><br>        &#125;<br>        prev = c;<br>    &#125;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Charaters = %ld, alphabets = %ld, digits = %ld,\</span><br><span class="hljs-string">    punctuations = %ld, spaces = %ld,  words = %d, lines = %d\n"</span>,<br>    n_chars,n_alphabets,n_digits,n_punctuations,n_spaces,n_words,n_lines);<br>    <span class="hljs-comment">/*return 0; */</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Output:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-function">Enter <span class="hljs-built_in">text</span> to be <span class="hljs-title">analyzed</span> <span class="hljs-params">(Esc to <span class="hljs-built_in">terminate</span>)</span>:</span>
-<span class="hljs-function">Reason is a</span>
-<span class="hljs-function">powerful servant but</span>
-an inadequate master.
-<span class="hljs-number">2</span> - <span class="hljs-number">1</span> = <span class="hljs-number">1</span>;
-*** :) ***
-^[
-Charaters = <span class="hljs-number">77</span>, alphabets = <span class="hljs-number">45</span>, digits = <span class="hljs-number">3</span>, 
-punctuations = <span class="hljs-number">12</span>, spaces = <span class="hljs-number">17</span>,  words = <span class="hljs-number">17</span>, lines = <span class="hljs-number">5</span></code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function">Enter <span class="hljs-built_in">text</span> to be <span class="hljs-title">analyzed</span> <span class="hljs-params">(Esc to <span class="hljs-built_in">terminate</span>)</span>:</span><br><span class="hljs-function">Reason is a</span><br><span class="hljs-function">powerful servant but</span><br>an inadequate master.<br><span class="hljs-number">2</span> - <span class="hljs-number">1</span> = <span class="hljs-number">1</span>;<br>*** :) ***<br>^[<br>Charaters = <span class="hljs-number">77</span>, alphabets = <span class="hljs-number">45</span>, digits = <span class="hljs-number">3</span>, <br>punctuations = <span class="hljs-number">12</span>, spaces = <span class="hljs-number">17</span>,  words = <span class="hljs-number">17</span>, lines = <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
 <h1 id="5-The-Conditional-Operator"><a href="#5-The-Conditional-Operator" class="headerlink" title="5. The Conditional Operator: ?:"></a>5. The Conditional Operator: ?:</h1><p>C offers a shorthand way to express one form of the <strong>if else</strong> statement. It is called a conditional expression and uses the <strong>?:</strong> conditional operator. </p>
-<div class="hljs"><pre><code class="hljs c">expression1 ? expression2 : expression3</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">expression1 ? expression2 : expression3<br></code></pre></td></tr></table></figure>
 <p>If expression1 is true (nonzero), the whole conditional expression has the same value as expression2. If expression1 is false (zero), the whole conditional expression has the same value as expression3.</p>
 <h1 id="6-Loop-Aids-continue-and-break"><a href="#6-Loop-Aids-continue-and-break" class="headerlink" title="6. Loop Aids: continue and break"></a>6. Loop Aids: continue and break</h1><h2 id="1-The-continue-Statement"><a href="#1-The-continue-Statement" class="headerlink" title="(1) The continue Statement"></a>(1) The continue Statement</h2><p>The continue statement causes the program to <strong>skip over</strong> the rest of the loop, which is devoted to processing valid input. Instead, the program <strong>starts the next loop cycle</strong> by attempting to read the next input value. </p>
 <p><strong>continue</strong> works for the while, do while, for, and not for the switch function.</p>
 <p><strong>continue</strong> terminates the current loop, but not the entire loop.</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">for</span> (count = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span>; count++)
-&#123;
-ch = getchar();
-<span class="hljs-keyword">if</span> (ch == <span class="hljs-string">'\n'</span>)
-<span class="hljs-keyword">continue</span>;
-<span class="hljs-built_in">putchar</span>(ch);
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span> (count = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span>; count++)<br>&#123;<br>ch = getchar();<br><span class="hljs-keyword">if</span> (ch == <span class="hljs-string">'\n'</span>)<br><span class="hljs-keyword">continue</span>;<br><span class="hljs-built_in">putchar</span>(ch);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>In this case, when the <strong>continue</strong> statement is executed, <strong>first count is incremented</strong> and then it’s compared to 10.</p>
 <h2 id="2-The-break-Statement"><a href="#2-The-break-Statement" class="headerlink" title="(2) The break Statement"></a>(2) The break Statement</h2><p>A <strong>break</strong> statement in a loop causes the program to break free of the loop that encloses it and to proceed to the next stage of the program. </p>
 <p>break works for while, do while, for and switch functions.</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-  <span class="hljs-keyword">int</span> i;
-  <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++)
-  &#123;
-    <span class="hljs-keyword">if</span>(i == <span class="hljs-number">3</span>)
-    <span class="hljs-keyword">break</span>;
-  &#125;
-  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"i = %d\n"</span>,i);
-  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">int</span> i;<br>  <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++)<br>  &#123;<br>    <span class="hljs-keyword">if</span>(i == <span class="hljs-number">3</span>)<br>    <span class="hljs-keyword">break</span>;<br>  &#125;<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"i = %d\n"</span>,i);<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>In this case, when the program executes the <strong>break</strong> statement, it breaks out of the for loop <strong>without adding i</strong>.  </p>
-<h1 id="7-The-goto-Statement"><a href="#7-The-goto-Statement" class="headerlink" title="7. The goto Statement"></a>7. The goto Statement</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)
-    <span class="hljs-keyword">goto</span> a;
-<span class="hljs-keyword">goto</span> b;
-a: cost = cost * <span class="hljs-number">1.05</span>;
-flag = <span class="hljs-number">2</span>;
-b: bill = cost * flag;</code></pre></div>
+<h1 id="7-The-goto-Statement"><a href="#7-The-goto-Statement" class="headerlink" title="7. The goto Statement"></a>7. The goto Statement</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)<br>    <span class="hljs-keyword">goto</span> a;<br><span class="hljs-keyword">goto</span> b;<br>a: cost = cost * <span class="hljs-number">1.05</span>;<br>flag = <span class="hljs-number">2</span>;<br>b: bill = cost * flag;<br></code></pre></td></tr></table></figure>
 <p>It is the same as:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)
-&#123;
-    cost = cost * <span class="hljs-number">1.05</span>;
-    flag = <span class="hljs-number">2</span>;
-&#125;
-bill = cost * flag;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span> &gt; <span class="hljs-number">12</span>)<br>&#123;<br>    cost = cost * <span class="hljs-number">1.05</span>;<br>    flag = <span class="hljs-number">2</span>;<br>&#125;<br>bill = cost * flag;<br></code></pre></td></tr></table></figure>
 <p>When a <strong>goto</strong> is encountered, it jumps unconditionally to the statement where the <strong>label</strong> is, and then <strong>executes sequentially from there</strong>.</p>
 
             </div>
@@ -437,10 +363,14 @@ bill = cost * flag;</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -474,7 +404,7 @@ bill = cost * flag;</code></pre></div>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -486,16 +416,15 @@ bill = cost * flag;</code></pre></div>
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -516,62 +445,47 @@ bill = cost * flag;</code></pre></div>
     </div>
   </div>
 </div>
-  
-
-  
-    <!-- APlayer 音乐播放器 -->
-    <div id="aplayer"></div>
-    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
-<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
-<script type="text/javascript">
-  var oldLoadAp = window.onload;
-  window.onload = function () {
-    oldLoadAp && oldLoadAp();
-
-    new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      autoplay: 'false' === 'true',
-      loop: 'all',
-      order: 'random',
-      theme: '#58C9B9',
-      preload: 'none',
-      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
-    });
-  }
-</script>
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -580,105 +494,38 @@ bill = cost * flag;</code></pre></div>
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Branching and Jumps&nbsp;",
-      ],
-      cursorChar: " ",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-      icon: "§"
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
 
 
 
   <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -687,56 +534,6 @@ bill = cost * flag;</code></pre></div>
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
@@ -745,10 +542,8 @@ bill = cost * flag;</code></pre></div>
 
 
 
-
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

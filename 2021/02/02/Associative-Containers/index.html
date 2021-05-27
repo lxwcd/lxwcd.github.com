@@ -8,37 +8,41 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
-  <link rel="icon" type="image/png" href="/img/groot.png">
+  <link rel="icon" href="/img/groot.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="诗酒趁年华">
+  <meta name="description" content="C++ Primer(Fifth Edition) Chapter 11 Associative Containers">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  
   <title>Associative Containers - CD_LX</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
     
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lxwcd.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -122,13 +130,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -137,13 +145,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/Associative-Containers_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Associative Containers">
               
             </span>
 
@@ -197,17 +205,17 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Associative Containers</h1>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>C++ Primer(Fifth Edition) Chapter 11 Associative Containers</p>
 <a id="more"></a>
 
@@ -218,178 +226,62 @@
 <p>A <code>set</code> element contains only a key; a <code>set</code> supports efficient queries as to whether a given key is present. </p>
 <p>We might use a <code>set</code> to hold words that we want to ignore during some kind of text processing. </p>
 <p>The <code>map</code> and <code>multimap</code> types are defined in the <code>map</code> header; the <code>set</code> and <code>multiset</code> types are in the <code>set</code> header; and the unordered containers are in the <code>unordered_map</code> and <code>unordered_set</code> headers.</p>
-<h1 id="1-Using-an-Associative-Container"><a href="#1-Using-an-Associative-Container" class="headerlink" title="1. Using an Associative Container"></a>1. Using an Associative Container</h1><p><img src="_v_images/20210203211639967_1951984141.png" srcset="/img/loading.gif" alt="Associative Container Types"></p>
-<h2 id="1-Using-a-map"><a href="#1-Using-a-map" class="headerlink" title="(1) Using a map"></a>(1) Using a map</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// count the number of times each word occurs in the input</span>
-<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty map from string to size_t</span>
-<span class="hljs-built_in">string</span> word;
-<span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; word)
-    ++word_count[word]; <span class="hljs-comment">// fetch and increment the counter for word</span>
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> &amp;w : word_count) <span class="hljs-comment">// for each element in the map</span>
-    <span class="hljs-comment">// print the results</span>
-    <span class="hljs-built_in">cout</span> &lt;&lt; w.first &lt;&lt; <span class="hljs-string">" occurs "</span> &lt;&lt; w.second
-         &lt;&lt; ((w.second &gt; <span class="hljs-number">1</span>) ? <span class="hljs-string">" times"</span> : <span class="hljs-string">" time"</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+<h1 id="1-Using-an-Associative-Container"><a href="#1-Using-an-Associative-Container" class="headerlink" title="1. Using an Associative Container"></a>1. Using an Associative Container</h1><p><img src="_v_images/20210203211639967_1951984141.png" srcset="/img/loading.gif" lazyload alt="Associative Container Types"></p>
+<h2 id="1-Using-a-map"><a href="#1-Using-a-map" class="headerlink" title="(1) Using a map"></a>(1) Using a map</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// count the number of times each word occurs in the input</span><br><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty map from string to size_t</span><br><span class="hljs-built_in">string</span> word;<br><span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; word)<br>    ++word_count[word]; <span class="hljs-comment">// fetch and increment the counter for word</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> &amp;w : word_count) <span class="hljs-comment">// for each element in the map</span><br>    <span class="hljs-comment">// print the results</span><br>    <span class="hljs-built_in">cout</span> &lt;&lt; w.first &lt;&lt; <span class="hljs-string">" occurs "</span> &lt;&lt; w.second<br>         &lt;&lt; ((w.second &gt; <span class="hljs-number">1</span>) ? <span class="hljs-string">" times"</span> : <span class="hljs-string">" time"</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
 <p>When we subscript <code>word_count</code>, we use a string as the subscript, and we get back the <code>size_t</code> counter associated with that string.</p>
-<h2 id="2-Using-a-set"><a href="#2-Using-a-set" class="headerlink" title="(2) Using a set"></a>(2) Using a set</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// count the number of times each word occurs in the input</span>
-<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty map from string to size_t</span>
-<span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt; exclude = &#123;<span class="hljs-string">"The"</span>, <span class="hljs-string">"But"</span>, <span class="hljs-string">"And"</span>, <span class="hljs-string">"Or"</span>, <span class="hljs-string">"An"</span>, <span class="hljs-string">"A"</span>,
-<span class="hljs-string">"the"</span>, <span class="hljs-string">"but"</span>, <span class="hljs-string">"and"</span>, <span class="hljs-string">"or"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"a"</span>&#125;;
-<span class="hljs-built_in">string</span> word;
-<span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; word)
-    <span class="hljs-comment">// count only words that are not in exclude</span>
-<span class="hljs-keyword">if</span> (exclude.find(word) == exclude.end())
-    ++word_count[word]; <span class="hljs-comment">// fetch and increment the counter for word</span></code></pre></div>
-<h1 id="2-Overview-of-the-Associative-Containers"><a href="#2-Overview-of-the-Associative-Containers" class="headerlink" title="2. Overview of the Associative Containers"></a>2. Overview of the Associative Containers</h1><h2 id="1-Defining-an-Associative-Container"><a href="#1-Defining-an-Associative-Container" class="headerlink" title="(1) Defining an Associative Container"></a>(1) Defining an Associative Container</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty</span>
-<span class="hljs-comment">// list initialization</span>
-<span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt; exclude = &#123;<span class="hljs-string">"the"</span>, <span class="hljs-string">"but"</span>, <span class="hljs-string">"and"</span>, <span class="hljs-string">"or"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"a"</span>,
-                       <span class="hljs-string">"The"</span>, <span class="hljs-string">"But"</span>, <span class="hljs-string">"And"</span>, <span class="hljs-string">"Or"</span>, <span class="hljs-string">"An"</span>, <span class="hljs-string">"A"</span>&#125;;
-<span class="hljs-comment">// three elements; authors maps last name to first</span>
-<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; authors = &#123; &#123;<span class="hljs-string">"Joyce"</span>, <span class="hljs-string">"James"</span>&#125;,
-                                &#123;<span class="hljs-string">"Austen"</span>, <span class="hljs-string">"Jane"</span>&#125;,
-                                &#123;<span class="hljs-string">"Dickens"</span>, <span class="hljs-string">"Charles"</span>&#125; &#125;;
-
-<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ivec;
-<span class="hljs-keyword">for</span> (<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::size_type i = <span class="hljs-number">0</span>; i != <span class="hljs-number">10</span>; ++i) 
-&#123;
-    ivec.push_back(i);
-    ivec.push_back(i); <span class="hljs-comment">// duplicate copies of each number</span>
-&#125;
-<span class="hljs-comment">// iset holds unique elements from ivec; miset holds all 20 elements</span>
-<span class="hljs-function"><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">iset</span><span class="hljs-params">(ivec.cbegin(), ivec.cend())</span></span>;
-<span class="hljs-function"><span class="hljs-built_in">multiset</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">miset</span><span class="hljs-params">(ivec.cbegin(), ivec.cend())</span></span>;
-<span class="hljs-built_in">cout</span> &lt;&lt; ivec.size() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 20</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; iset.size() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 10</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; miset.size() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 20</span></code></pre></div>
+<h2 id="2-Using-a-set"><a href="#2-Using-a-set" class="headerlink" title="(2) Using a set"></a>(2) Using a set</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// count the number of times each word occurs in the input</span><br><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty map from string to size_t</span><br><span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt; exclude = &#123;<span class="hljs-string">"The"</span>, <span class="hljs-string">"But"</span>, <span class="hljs-string">"And"</span>, <span class="hljs-string">"Or"</span>, <span class="hljs-string">"An"</span>, <span class="hljs-string">"A"</span>,<br><span class="hljs-string">"the"</span>, <span class="hljs-string">"but"</span>, <span class="hljs-string">"and"</span>, <span class="hljs-string">"or"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"a"</span>&#125;;<br><span class="hljs-built_in">string</span> word;<br><span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; word)<br>    <span class="hljs-comment">// count only words that are not in exclude</span><br><span class="hljs-keyword">if</span> (exclude.find(word) == exclude.end())<br>    ++word_count[word]; <span class="hljs-comment">// fetch and increment the counter for word</span><br></code></pre></td></tr></table></figure>
+<h1 id="2-Overview-of-the-Associative-Containers"><a href="#2-Overview-of-the-Associative-Containers" class="headerlink" title="2. Overview of the Associative Containers"></a>2. Overview of the Associative Containers</h1><h2 id="1-Defining-an-Associative-Container"><a href="#1-Defining-an-Associative-Container" class="headerlink" title="(1) Defining an Associative Container"></a>(1) Defining an Associative Container</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty</span><br><span class="hljs-comment">// list initialization</span><br><span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt; exclude = &#123;<span class="hljs-string">"the"</span>, <span class="hljs-string">"but"</span>, <span class="hljs-string">"and"</span>, <span class="hljs-string">"or"</span>, <span class="hljs-string">"an"</span>, <span class="hljs-string">"a"</span>,<br>                       <span class="hljs-string">"The"</span>, <span class="hljs-string">"But"</span>, <span class="hljs-string">"And"</span>, <span class="hljs-string">"Or"</span>, <span class="hljs-string">"An"</span>, <span class="hljs-string">"A"</span>&#125;;<br><span class="hljs-comment">// three elements; authors maps last name to first</span><br><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; authors = &#123; &#123;<span class="hljs-string">"Joyce"</span>, <span class="hljs-string">"James"</span>&#125;,<br>                                &#123;<span class="hljs-string">"Austen"</span>, <span class="hljs-string">"Jane"</span>&#125;,<br>                                &#123;<span class="hljs-string">"Dickens"</span>, <span class="hljs-string">"Charles"</span>&#125; &#125;;<br><br><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ivec;<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::size_type i = <span class="hljs-number">0</span>; i != <span class="hljs-number">10</span>; ++i) <br>&#123;<br>    ivec.push_back(i);<br>    ivec.push_back(i); <span class="hljs-comment">// duplicate copies of each number</span><br>&#125;<br><span class="hljs-comment">// iset holds unique elements from ivec; miset holds all 20 elements</span><br><span class="hljs-function"><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">iset</span><span class="hljs-params">(ivec.cbegin(), ivec.cend())</span></span>;<br><span class="hljs-function"><span class="hljs-built_in">multiset</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">miset</span><span class="hljs-params">(ivec.cbegin(), ivec.cend())</span></span>;<br><span class="hljs-built_in">cout</span> &lt;&lt; ivec.size() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 20</span><br><span class="hljs-built_in">cout</span> &lt;&lt; iset.size() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 10</span><br><span class="hljs-built_in">cout</span> &lt;&lt; miset.size() &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// prints 20</span><br></code></pre></td></tr></table></figure>
 <h2 id="2-Requirements-on-Key-Type"><a href="#2-Requirements-on-Key-Type" class="headerlink" title="(2) Requirements on Key Type"></a>(2) Requirements on Key Type</h2><p>For the ordered containers—map, multimap, set, and multiset—the key type must define a way to compare the elements. </p>
 <p>By default, the library uses the <code>&lt;</code> operator for the key type to compare the keys. </p>
 <p>In the <code>set</code> types, the <code>key</code> is the element type; in the <code>map</code> types, the <code>key</code> is the first type. </p>
-<h2 id="3-The-pair-Type"><a href="#3-The-pair-Type" class="headerlink" title="(3) The pair Type"></a>(3) The pair Type</h2><p><img src="_v_images/20210203211601916_1379278038.png" srcset="/img/loading.gif" alt="Operations on pairs"><br>Before we look at the operations on associative containers, we need to know about the library type named <code>pair</code>, which is defined in the <code>utility</code> header.</p>
+<h2 id="3-The-pair-Type"><a href="#3-The-pair-Type" class="headerlink" title="(3) The pair Type"></a>(3) The pair Type</h2><p><img src="_v_images/20210203211601916_1379278038.png" srcset="/img/loading.gif" lazyload alt="Operations on pairs"><br>Before we look at the operations on associative containers, we need to know about the library type named <code>pair</code>, which is defined in the <code>utility</code> header.</p>
 <p>A <code>pair</code> holds two data members. Like the containers, <code>pair</code> is a template from which we generate specific types. </p>
-<div class="hljs"><pre><code class="hljs cpp">pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; anon; <span class="hljs-comment">// holds two strings</span>
-pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// holds a string and an size_t</span>
-pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; line; <span class="hljs-comment">// holds string and vector&lt;int&gt;</span>
-pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; author&#123;<span class="hljs-string">"James"</span>, <span class="hljs-string">"Joyce"</span>&#125;;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp">pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; anon; <span class="hljs-comment">// holds two strings</span><br>pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// holds a string and an size_t</span><br>pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; line; <span class="hljs-comment">// holds string and vector&lt;int&gt;</span><br>pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; author&#123;<span class="hljs-string">"James"</span>, <span class="hljs-string">"Joyce"</span>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Imagine we have a function that needs to return a pair. Under the new standard we can list initialize the return value</p>
-<div class="hljs"><pre><code class="hljs cpp">pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;
-process(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; &amp;v)
-&#123;
-    <span class="hljs-comment">// process v</span>
-    <span class="hljs-keyword">if</span> (!v.empty())
-        <span class="hljs-keyword">return</span> &#123;v.back(), v.back().size()&#125;; <span class="hljs-comment">// list initialize</span>
-        <span class="hljs-comment">//return make_pair(v.back(), v.back().size());</span>
-    <span class="hljs-keyword">else</span>
-        <span class="hljs-keyword">return</span> pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;(); <span class="hljs-comment">// explicitly constructed return value</span>
-&#125;</code></pre></div>
-<h1 id="3-Operations-on-Associative-Containers"><a href="#3-Operations-on-Associative-Containers" class="headerlink" title="3. Operations on Associative Containers"></a>3. Operations on Associative Containers</h1><p><img src="_v_images/20210203211527913_884341106.png" srcset="/img/loading.gif" alt="Associative Container Additional Type Aliases"></p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::value_type v1; <span class="hljs-comment">// v1 is a string</span>
-<span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::key_type v2; <span class="hljs-comment">// v2 is a string</span>
-<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::value_type v3; <span class="hljs-comment">// v3 is a pair&lt;const string, int&gt;</span>
-<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::key_type v4; <span class="hljs-comment">// v4 is a string</span>
-<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::mapped_type v5; <span class="hljs-comment">// v5 is an int</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp">pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;<br>process(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; &amp;v)<br>&#123;<br>    <span class="hljs-comment">// process v</span><br>    <span class="hljs-keyword">if</span> (!v.empty())<br>        <span class="hljs-keyword">return</span> &#123;v.back(), v.back().size()&#125;; <span class="hljs-comment">// list initialize</span><br>        <span class="hljs-comment">//return make_pair(v.back(), v.back().size());</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;(); <span class="hljs-comment">// explicitly constructed return value</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="3-Operations-on-Associative-Containers"><a href="#3-Operations-on-Associative-Containers" class="headerlink" title="3. Operations on Associative Containers"></a>3. Operations on Associative Containers</h1><p><img src="_v_images/20210203211527913_884341106.png" srcset="/img/loading.gif" lazyload alt="Associative Container Additional Type Aliases"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::value_type v1; <span class="hljs-comment">// v1 is a string</span><br><span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::key_type v2; <span class="hljs-comment">// v2 is a string</span><br><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::value_type v3; <span class="hljs-comment">// v3 is a pair&lt;const string, int&gt;</span><br><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::key_type v4; <span class="hljs-comment">// v4 is a string</span><br><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt;::mapped_type v5; <span class="hljs-comment">// v5 is an int</span><br></code></pre></td></tr></table></figure>
 <h2 id="1-Associative-Container-Iterators"><a href="#1-Associative-Container-Iterators" class="headerlink" title="(1) Associative Container Iterators"></a>(1) Associative Container Iterators</h2><p>It is essential to remember that the value_type of a map is a <code>pair</code> and that we can change the value but not the key member of that <code>pair</code>.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// get an iterator to an element in word_count</span>
-<span class="hljs-keyword">auto</span> map_it = word_count.begin();
-<span class="hljs-comment">// *map_it is a reference to a pair&lt;const string, size_t&gt; object</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; map_it-&gt;first; <span class="hljs-comment">// prints the key for this element</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; map_it-&gt;second; <span class="hljs-comment">// prints the value of the element</span>
-map_it-&gt;first = <span class="hljs-string">"new key"</span>; <span class="hljs-comment">// error: key is const</span>
-++map_it-&gt;second; <span class="hljs-comment">// ok: we can change the value through an iterator</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// get an iterator to an element in word_count</span><br><span class="hljs-keyword">auto</span> map_it = word_count.begin();<br><span class="hljs-comment">// *map_it is a reference to a pair&lt;const string, size_t&gt; object</span><br><span class="hljs-built_in">cout</span> &lt;&lt; map_it-&gt;first; <span class="hljs-comment">// prints the key for this element</span><br><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; map_it-&gt;second; <span class="hljs-comment">// prints the value of the element</span><br>map_it-&gt;first = <span class="hljs-string">"new key"</span>; <span class="hljs-comment">// error: key is const</span><br>++map_it-&gt;second; <span class="hljs-comment">// ok: we can change the value through an iterator</span><br></code></pre></td></tr></table></figure>
 <p>Although the set types define both the <code>iterator</code> and <code>const_iterator</code> types, both types of iterators give us read-only access to the elements in the set. </p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; iset = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;
-<span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator set_it = iset.begin();
-<span class="hljs-keyword">if</span> (set_it != iset.end()) 
-&#123;
-    *set_it = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: keys in a set are read-only</span>
-    <span class="hljs-built_in">cout</span> &lt;&lt; *set_it &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// ok: can read the key</span>
-&#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; iset = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;<br><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator set_it = iset.begin();<br><span class="hljs-keyword">if</span> (set_it != iset.end()) <br>&#123;<br>    *set_it = <span class="hljs-number">42</span>; <span class="hljs-comment">// error: keys in a set are read-only</span><br>    <span class="hljs-built_in">cout</span> &lt;&lt; *set_it &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// ok: can read the key</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// get an iterator positioned on the first element</span>
-<span class="hljs-keyword">auto</span> map_it = word_count.cbegin();
-<span class="hljs-comment">// compare the current iterator to the off-the-end iterator</span>
-<span class="hljs-keyword">while</span> (map_it != word_count.cend()) 
-&#123;
-    <span class="hljs-comment">// dereference the iterator to print the element key--value pairs</span>
-    <span class="hljs-built_in">cout</span> &lt;&lt; map_it-&gt;first &lt;&lt; <span class="hljs-string">" occurs "</span>
-    &lt;&lt; map_it-&gt;second &lt;&lt; <span class="hljs-string">" times"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    ++map_it; <span class="hljs-comment">// increment the iterator to denote the next element</span>
-&#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// get an iterator positioned on the first element</span><br><span class="hljs-keyword">auto</span> map_it = word_count.cbegin();<br><span class="hljs-comment">// compare the current iterator to the off-the-end iterator</span><br><span class="hljs-keyword">while</span> (map_it != word_count.cend()) <br>&#123;<br>    <span class="hljs-comment">// dereference the iterator to print the element key--value pairs</span><br>    <span class="hljs-built_in">cout</span> &lt;&lt; map_it-&gt;first &lt;&lt; <span class="hljs-string">" occurs "</span><br>    &lt;&lt; map_it-&gt;second &lt;&lt; <span class="hljs-string">" times"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    ++map_it; <span class="hljs-comment">// increment the iterator to denote the next element</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="Associative-Containers-and-Algorithms"><a href="#Associative-Containers-and-Algorithms" class="headerlink" title="Associative Containers and Algorithms"></a>Associative Containers and Algorithms</h3><p>In general, we do not use the generic algorithms with the associative containers. </p>
 <p>The fact that the <code>keys</code> are <code>const</code> means that we cannot pass associative<br>container iterators to algorithms that write to or reorder container elements. </p>
 <p>Associative containers can be used with the algorithms that read elements.</p>
 <p>However, many of these algorithms search the sequence. Because elements in an associative container can be found (quickly) by their key, it is almost always a bad idea to use a generic search algorithm. </p>
-<h2 id="2-Adding-Elements"><a href="#2-Adding-Elements" class="headerlink" title="(2) Adding Elements"></a>(2) Adding Elements</h2><div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ivec = &#123;<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>&#125;; <span class="hljs-comment">// ivec has eight elements</span>
-<span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; set2; <span class="hljs-comment">// empty set</span>
-set2.insert(ivec.cbegin(), ivec.cend()); <span class="hljs-comment">// set2 has four elements</span>
-set2.insert(&#123;<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>&#125;); <span class="hljs-comment">// set2 now has eight elements</span>
-
-<span class="hljs-comment">// four ways to add word to word_count</span>
-word_count.insert(&#123;word, <span class="hljs-number">1</span>&#125;);
-word_count.insert(make_pair(word, <span class="hljs-number">1</span>));
-word_count.insert(pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt;(word, <span class="hljs-number">1</span>));
-word_count.insert(<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt;::value_type(word, <span class="hljs-number">1</span>))</code></pre></div>
-<h3 id="Testing-the-Return-from-insert"><a href="#Testing-the-Return-from-insert" class="headerlink" title="Testing the Return from insert"></a>Testing the Return from insert</h3><p><img src="_v_images/20210203211430238_786400850.png" srcset="/img/loading.gif" alt="Associative Container insert Operations"></p>
+<h2 id="2-Adding-Elements"><a href="#2-Adding-Elements" class="headerlink" title="(2) Adding Elements"></a>(2) Adding Elements</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ivec = &#123;<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>&#125;; <span class="hljs-comment">// ivec has eight elements</span><br><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; set2; <span class="hljs-comment">// empty set</span><br>set2.insert(ivec.cbegin(), ivec.cend()); <span class="hljs-comment">// set2 has four elements</span><br>set2.insert(&#123;<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>&#125;); <span class="hljs-comment">// set2 now has eight elements</span><br><br><span class="hljs-comment">// four ways to add word to word_count</span><br>word_count.insert(&#123;word, <span class="hljs-number">1</span>&#125;);<br>word_count.insert(make_pair(word, <span class="hljs-number">1</span>));<br>word_count.insert(pair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt;(word, <span class="hljs-number">1</span>));<br>word_count.insert(<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt;::value_type(word, <span class="hljs-number">1</span>))<br></code></pre></td></tr></table></figure>
+<h3 id="Testing-the-Return-from-insert"><a href="#Testing-the-Return-from-insert" class="headerlink" title="Testing the Return from insert"></a>Testing the Return from insert</h3><p><img src="_v_images/20210203211430238_786400850.png" srcset="/img/loading.gif" lazyload alt="Associative Container insert Operations"></p>
 <p>The value returned by <code>insert</code> (or <code>emplace</code>) depends on the container type and the parameters. </p>
 <p>For the containers that have <code>unique</code> keys, the versions of <code>insert</code> and <code>emplace</code> that add a single element return a <code>pair</code> that lets us know whether the insertion happened. </p>
 <p>The first member of the <code>pair</code> is an iterator to the element with the given <code>key</code>; the second is a <code>bool</code> indicating whether that element was inserted, or was already there. </p>
 <p>If the key is already in the container, then insert does nothing, and the bool portion of the return value is false. If the key isn’t present, then the element is inserted and the bool is true. </p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// more verbose way to count number of times each word occurs in the input</span>
-<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty map from string to size_t</span>
-<span class="hljs-built_in">string</span> word;
-<span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; word) 
-&#123;
-    <span class="hljs-comment">// inserts an element with key equal to word and value 1;</span>
-    <span class="hljs-comment">// if word is already in word_count, insert does nothing</span>
-    <span class="hljs-keyword">auto</span> ret = word_count.insert(&#123;word, <span class="hljs-number">1</span>&#125;);
-    <span class="hljs-keyword">if</span> (!ret.second) <span class="hljs-comment">// word was already in word_count</span>
-        ++ret.first-&gt;second; <span class="hljs-comment">// increment the counter</span>
-&#125;</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// more verbose way to count number of times each word occurs in the input</span><br><span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt; word_count; <span class="hljs-comment">// empty map from string to size_t</span><br><span class="hljs-built_in">string</span> word;<br><span class="hljs-keyword">while</span> (<span class="hljs-built_in">cin</span> &gt;&gt; word) <br>&#123;<br>    <span class="hljs-comment">// inserts an element with key equal to word and value 1;</span><br>    <span class="hljs-comment">// if word is already in word_count, insert does nothing</span><br>    <span class="hljs-keyword">auto</span> ret = word_count.insert(&#123;word, <span class="hljs-number">1</span>&#125;);<br>    <span class="hljs-keyword">if</span> (!ret.second) <span class="hljs-comment">// word was already in word_count</span><br>        ++ret.first-&gt;second; <span class="hljs-comment">// increment the counter</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p><code>ret</code> holds the value returned by <code>insert</code>, which is a <code>pair</code>.</p>
 <p><code>ret.first</code> is the first member of that <code>pair</code>, which is a <code>map</code> iterator referring to the element with the given <code>key</code>.</p>
 <p><code>ret.first-&gt;</code> dereferences that iterator to fetch that element. Elements in the <code>map</code> are also <code>pairs</code>.</p>
 <p><code>ret.first-&gt;second</code> is the value part of the <code>map</code> element <code>pair</code>.</p>
 <p><code>++ret.first-&gt;second</code> increments that value.</p>
-<div class="hljs"><pre><code class="hljs cpp">pair&lt;<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt;::iterator, <span class="hljs-keyword">bool</span>&gt; ret =
-            word_count.insert(make_pair(word, <span class="hljs-number">1</span>));</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">pair&lt;<span class="hljs-built_in">map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">size_t</span>&gt;::iterator, <span class="hljs-keyword">bool</span>&gt; ret =<br>            word_count.insert(make_pair(word, <span class="hljs-number">1</span>));<br></code></pre></td></tr></table></figure>
 <p>For each <code>word</code>, we attempt to insert it with a value <code>1</code>. If <code>word</code> is already in the map, then nothing happens. In particular, the counter associated with <code>word</code> is unchanged. </p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">multimap</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; authors;
-<span class="hljs-comment">// adds the first element with the key Barth, John</span>
-authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class="hljs-string">"Sot-Weed Factor"</span>&#125;);
-<span class="hljs-comment">// ok: adds the second element with the key Barth, John</span>
-authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class="hljs-string">"Lost in the Funhouse"</span>&#125;);</code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">multimap</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; authors;<br><span class="hljs-comment">// adds the first element with the key Barth, John</span><br>authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class="hljs-string">"Sot-Weed Factor"</span>&#125;);<br><span class="hljs-comment">// ok: adds the second element with the key Barth, John</span><br>authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class="hljs-string">"Lost in the Funhouse"</span>&#125;);<br></code></pre></td></tr></table></figure>
 <p>For the containers that allow multiple keys, the insert operation that takes a single element returns an iterator to the new element. There is no need to return a bool, because insert always adds a new element in these types.</p>
-<h2 id="3-Erasing-Elements"><a href="#3-Erasing-Elements" class="headerlink" title="(3)  Erasing Elements"></a>(3)  Erasing Elements</h2><p><img src="_v_images/20210203211334616_1628345457.png" srcset="/img/loading.gif" alt="Removing Elements from an Associative Container"></p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// erase on a key returns the number of elements removed</span>
-<span class="hljs-keyword">if</span> (word_count.erase(removal_word))
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"ok: "</span> &lt;&lt; removal_word &lt;&lt; <span class="hljs-string">" removed\n"</span>;
-<span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"oops: "</span> &lt;&lt; removal_word &lt;&lt; <span class="hljs-string">" not found!\n"</span>;</code></pre></div>
-<h2 id="4-Subscripting-a-map"><a href="#4-Subscripting-a-map" class="headerlink" title="(4) Subscripting a map"></a>(4) Subscripting a map</h2><p><img src="_v_images/20210203211302384_180126600.png" srcset="/img/loading.gif" alt="Subscript Operation for map and unordered_map"><br>The <code>set</code> types do not support subscripting because there is no “value” associated with a <code>key</code> in a <code>set</code>.</p>
+<h2 id="3-Erasing-Elements"><a href="#3-Erasing-Elements" class="headerlink" title="(3)  Erasing Elements"></a>(3)  Erasing Elements</h2><p><img src="_v_images/20210203211334616_1628345457.png" srcset="/img/loading.gif" lazyload alt="Removing Elements from an Associative Container"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// erase on a key returns the number of elements removed</span><br><span class="hljs-keyword">if</span> (word_count.erase(removal_word))<br>    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"ok: "</span> &lt;&lt; removal_word &lt;&lt; <span class="hljs-string">" removed\n"</span>;<br><span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"oops: "</span> &lt;&lt; removal_word &lt;&lt; <span class="hljs-string">" not found!\n"</span>;<br></code></pre></td></tr></table></figure>
+<h2 id="4-Subscripting-a-map"><a href="#4-Subscripting-a-map" class="headerlink" title="(4) Subscripting a map"></a>(4) Subscripting a map</h2><p><img src="_v_images/20210203211302384_180126600.png" srcset="/img/loading.gif" lazyload alt="Subscript Operation for map and unordered_map"><br>The <code>set</code> types do not support subscripting because there is no “value” associated with a <code>key</code> in a <code>set</code>.</p>
 <p>We cannot subscript a multimap or an <code>unordered_multimap</code> because there may be more than one value associated with a given <code>key</code>.</p>
 <p>Ordinarily, the type returned by dereferencing an iterator and the type returned by the subscript operator are the same. Not so for <code>maps</code>: when we subscript a <code>map</code>, we get a <code>mapped_type</code> object; when we dereference a <code>map</code> iterator, we get a <code>value_type</code> object.</p>
 <p>In common with other subscripts, the map subscript operator returns an lvalue. Because the return is an lvalue, we can read or write the element:</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; word_count[<span class="hljs-string">"Anna"</span>]; <span class="hljs-comment">// fetch the element indexed by Anna; prints 1</span>
-++word_count[<span class="hljs-string">"Anna"</span>]; <span class="hljs-comment">// fetch the element and add 1 to it</span>
-<span class="hljs-built_in">cout</span> &lt;&lt; word_count[<span class="hljs-string">"Anna"</span>]; <span class="hljs-comment">// fetch the element and print it; prints 2</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">cout</span> &lt;&lt; word_count[<span class="hljs-string">"Anna"</span>]; <span class="hljs-comment">// fetch the element indexed by Anna; prints 1</span><br>++word_count[<span class="hljs-string">"Anna"</span>]; <span class="hljs-comment">// fetch the element and add 1 to it</span><br><span class="hljs-built_in">cout</span> &lt;&lt; word_count[<span class="hljs-string">"Anna"</span>]; <span class="hljs-comment">// fetch the element and print it; prints 2</span><br></code></pre></td></tr></table></figure>
 
 <p>The fact that the subscript operator adds an element if it is not already in the map allows us to write surprisingly succinct programs such as the loop inside our wordcounting program.</p>
-<h2 id="5-Accessing-Elements"><a href="#5-Accessing-Elements" class="headerlink" title="(5) Accessing Elements"></a>(5) Accessing Elements</h2><p><img src="_v_images/20210203211232033_1390640357.png" srcset="/img/loading.gif" alt="Operations to Find Elements in an Associative Container"></p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">search_item</span><span class="hljs-params">(<span class="hljs-string">"Alain de Botton"</span>)</span></span>; <span class="hljs-comment">// author we'll look for</span>
-<span class="hljs-keyword">auto</span> entries = authors.count(search_item); <span class="hljs-comment">// number of elements</span>
-<span class="hljs-keyword">auto</span> iter = authors.find(search_item); <span class="hljs-comment">// first entry for this author</span>
-<span class="hljs-comment">// loop through the number of entries there are for this author</span>
-<span class="hljs-keyword">while</span>(entries) 
-&#123;
-    <span class="hljs-built_in">cout</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print each title</span>
-    ++iter; <span class="hljs-comment">// advance to the next title</span>
-    --entries; <span class="hljs-comment">// keep track of how many we've printed</span>
-&#125;</code></pre></div>
+<h2 id="5-Accessing-Elements"><a href="#5-Accessing-Elements" class="headerlink" title="(5) Accessing Elements"></a>(5) Accessing Elements</h2><p><img src="_v_images/20210203211232033_1390640357.png" srcset="/img/loading.gif" lazyload alt="Operations to Find Elements in an Associative Container"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">search_item</span><span class="hljs-params">(<span class="hljs-string">"Alain de Botton"</span>)</span></span>; <span class="hljs-comment">// author we'll look for</span><br><span class="hljs-keyword">auto</span> entries = authors.count(search_item); <span class="hljs-comment">// number of elements</span><br><span class="hljs-keyword">auto</span> iter = authors.find(search_item); <span class="hljs-comment">// first entry for this author</span><br><span class="hljs-comment">// loop through the number of entries there are for this author</span><br><span class="hljs-keyword">while</span>(entries) <br>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print each title</span><br>    ++iter; <span class="hljs-comment">// advance to the next title</span><br>    --entries; <span class="hljs-comment">// keep track of how many we've printed</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>We are guaranteed that iterating across a <code>multimap</code> or <code>multiset</code> returns all the elements with a given key in sequence.</p>
 <p>The iterator returned from <code>lower_bound</code> may or may not refer to an element with the given <code>key</code>. If the <code>key</code> is not in the container, then <code>lower_bound</code> refers to the first point at which this <code>key</code> can be inserted while preserving the element order within the container.</p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// definitions of authors and search_item as above</span>
-<span class="hljs-comment">// beg and end denote the range of elements for this author</span>
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> beg = authors.lower_bound(search_item),
-        end = authors.upper_bound(search_item);
-        beg != end; ++beg)
-    <span class="hljs-built_in">cout</span> &lt;&lt; beg-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print each title</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// definitions of authors and search_item as above</span><br><span class="hljs-comment">// beg and end denote the range of elements for this author</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> beg = authors.lower_bound(search_item),<br>        end = authors.upper_bound(search_item);<br>        beg != end; ++beg)<br>    <span class="hljs-built_in">cout</span> &lt;&lt; beg-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print each title</span><br></code></pre></td></tr></table></figure>
 <p>The call to <code>lower_bound</code> positions <code>beg</code> so that it refers to the first element matching <code>search_item</code> if there is one. </p>
 <p>If there is no such element, then <code>beg</code> refers to the first element with a <code>key</code> larger than <code>search_item</code>, which could be the <code>off-the-end</code> iterator. </p>
 <p>The call to <code>upper_bound</code> sets <code>end</code> to refer to the element just <code>beyond</code> the last element with the given <code>key</code>. </p>
@@ -397,11 +289,7 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
 <p>If there is no element for this key, then <code>lower_bound</code> and <code>upper_bound</code> will be <code>equal</code>.</p>
 <p>Instead of calling <code>upper_bound</code> and <code>lower_bound</code>, we can call <code>equal_range</code>.</p>
 <p><code>equal_range</code> takes a <code>key</code> and returns a <code>pair</code> of iterators. If the <code>key</code> is present, then the first iterator refers to the first instance of the <code>key</code> and the second iterator refers one <strong>past the last instance</strong> of the <code>key</code>. If no matching element is found, then both the first and second iterators refer to the position where this key can be inserted. </p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-comment">// definitions of authors and search_item as above</span>
-<span class="hljs-comment">// pos holds iterators that denote the range of elements for this key</span>
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> pos = authors.equal_range(search_item);
-        pos.first != pos.second; ++pos.first)
-    <span class="hljs-built_in">cout</span> &lt;&lt; pos.first-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print each title</span></code></pre></div>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// definitions of authors and search_item as above</span><br><span class="hljs-comment">// pos holds iterators that denote the range of elements for this key</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> pos = authors.equal_range(search_item);<br>        pos.first != pos.second; ++pos.first)<br>    <span class="hljs-built_in">cout</span> &lt;&lt; pos.first-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// print each title</span><br></code></pre></td></tr></table></figure>
 
 <h1 id="4-The-Unordered-Containers"><a href="#4-The-Unordered-Containers" class="headerlink" title="4. The Unordered Containers"></a>4. The Unordered Containers</h1><p>The unordered containers are organized as a collection of buckets, each of which holds zero or more elements. </p>
 <p>These containers use a <code>hash</code> function to map elements to buckets. </p>
@@ -422,15 +310,8 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
 <p>However, we cannot directly define an unordered container that uses a our own class types for its key type. </p>
 <p>Unlike the containers, we cannot use the hash template directly. Instead, we must supply our own version of the hash template. </p>
 <p>Instead of using the default hash, we can use a strategy similar to the one we used to override the default comparison operation on keys for the ordered containers. </p>
-<p><img src="_v_images/20210203211142438_1688126798.png" srcset="/img/loading.gif" alt="Unordered Container Management Operations"></p>
-<div class="hljs"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">hasher</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data &amp;sd)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">return</span> hash&lt;<span class="hljs-built_in">string</span>&gt;()(sd.isbn());
-&#125;
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">eqOp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data &amp;lhs, <span class="hljs-keyword">const</span> Sales_data &amp;rhs)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">return</span> lhs.isbn() == rhs.isbn();
-&#125;</code></pre></div>
+<p><img src="_v_images/20210203211142438_1688126798.png" srcset="/img/loading.gif" lazyload alt="Unordered Container Management Operations"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">hasher</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data &amp;sd)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> hash&lt;<span class="hljs-built_in">string</span>&gt;()(sd.isbn());<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">eqOp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Sales_data &amp;lhs, <span class="hljs-keyword">const</span> Sales_data &amp;rhs)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> lhs.isbn() == rhs.isbn();<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -458,10 +339,14 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -495,7 +380,7 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -507,16 +392,15 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -537,62 +421,47 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
     </div>
   </div>
 </div>
-  
-
-  
-    <!-- APlayer 音乐播放器 -->
-    <div id="aplayer"></div>
-    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
-<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
-<script type="text/javascript">
-  var oldLoadAp = window.onload;
-  window.onload = function () {
-    oldLoadAp && oldLoadAp();
-
-    new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      autoplay: 'false' === 'true',
-      loop: 'all',
-      order: 'random',
-      theme: '#58C9B9',
-      preload: 'none',
-      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
-    });
-  }
-</script>
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -601,105 +470,38 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Associative Containers&nbsp;",
-      ],
-      cursorChar: " ",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-      icon: "§"
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
 
 
 
   <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -708,56 +510,6 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
@@ -766,10 +518,8 @@ authors.insert(&#123;<span class="hljs-string">"Barth, John"</span>, <span class
 
 
 
-
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

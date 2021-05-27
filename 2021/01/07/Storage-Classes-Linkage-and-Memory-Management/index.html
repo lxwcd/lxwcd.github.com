@@ -8,37 +8,41 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/groot.png">
-  <link rel="icon" type="image/png" href="/img/groot.png">
+  <link rel="icon" href="/img/groot.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="诗酒趁年华">
+  <meta name="description" content="C Primer Plus (Sixth Editioni) Chapter 12 Storage Classes Linkage and Memory Management">
   <meta name="author" content="李诩">
   <meta name="keywords" content="编程, 阅读, 音乐, 生活">
+  
   <title>Storage Classes Linkage and Memory Management - CD_LX</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
     
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
@@ -50,6 +54,10 @@
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"lxwcd.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null},"tajs":null},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -122,13 +130,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -137,13 +145,13 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/Storage-Classes-Linkage-and-Memory-Management_Inner.jpeg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Storage Classes Linkage and Memory Management">
               
             </span>
 
@@ -197,17 +205,17 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <article class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Storage Classes Linkage and Memory Management</h1>
             
-            <div class="markdown-body" id="post-body">
+            <div class="markdown-body">
               <p>C Primer Plus (Sixth Editioni) Chapter 12 Storage Classes Linkage and Memory Management</p>
 <a id="more"></a>
 
@@ -220,11 +228,11 @@
 <p>This means that even if a label first appears inside an inner block in a function, its scope extends to the whole function. </p>
 <p>It would be confusing if you could use the same label inside two separate blocks, and function scope for labels prevents this from happening.</p>
 <p>Function prototype scope applies to variable names used in function prototypes, as in the following:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mighty</span><span class="hljs-params">(<span class="hljs-keyword">int</span> mouse, <span class="hljs-keyword">double</span> large)</span></span>;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mighty</span><span class="hljs-params">(<span class="hljs-keyword">int</span> mouse, <span class="hljs-keyword">double</span> large)</span></span>;<br></code></pre></td></tr></table></figure>
 <p>Function prototype scope runs from the point the variable is defined to the end of the prototype declaration. </p>
 <p>What this means is that all the compiler cares about when handling a function prototype argument is the types; the names you use, if any, normally don’t matter, and they needn’t match the names you use in the function definition. </p>
 <p>One case in which the names matter a little is with variable-length array parameters:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use_a_VLA</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> m, ar[n][m])</span></span>;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">use_a_VLA</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> m, ar[n][m])</span></span>;<br></code></pre></td></tr></table></figure>
 <p>If you use names in the brackets, they have to be names declared earlier in the prototype.</p>
 <h2 id="3-file-scope"><a href="#3-file-scope" class="headerlink" title="(3) file scope"></a>(3) file scope</h2><p>A variable with its definition placed outside of any function has file scope. </p>
 <p>A variable with file scope is visible from the point it is defined to the end of the file containing the definition. </p>
@@ -239,13 +247,7 @@
 <p>A variable with file scope can have either internal or external linkage.</p>
 <p>A variable with external linkage can be used anywhere in a multifile program. </p>
 <p>A variable with internal linkage can be used anywhere in a single translation unit.</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> giants = <span class="hljs-number">5</span>; <span class="hljs-comment">// file scope, external linkage</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> dodgers = <span class="hljs-number">3</span>; <span class="hljs-comment">// file scope, internal linkage</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-    ...
-&#125;
-...</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> giants = <span class="hljs-number">5</span>; <span class="hljs-comment">// file scope, external linkage</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> dodgers = <span class="hljs-number">3</span>; <span class="hljs-comment">// file scope, internal linkage</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    ...<br>&#125;<br>...<br></code></pre></td></tr></table></figure>
 <h1 id="3-Storage-Duration"><a href="#3-Storage-Duration" class="headerlink" title="3. Storage Duration"></a>3. Storage Duration</h1><p>Scope and linkage describe the visibility of identifiers. </p>
 <p>Storage duration describes the persistence of the objects accessed by these identifiers. </p>
 <p>A C object has one of the following four storage durations: static storage duration, thread storage duration, automatic storage duration, or allocated storage duration.</p>
@@ -262,33 +264,20 @@
 <p>Variable-length arrays provide a slight exception in that they exist from the point of declaration to the end of the block rather than from the beginning of the block to the end.</p>
 <h1 id="4-Five-Storage-Classes"><a href="#4-Five-Storage-Classes" class="headerlink" title="4. Five Storage Classes"></a>4. Five Storage Classes</h1><h2 id="1-Automatic-Variables"><a href="#1-Automatic-Variables" class="headerlink" title="(1) Automatic Variables"></a>(1) Automatic Variables</h2><p>A variable belonging to the automatic storage class has automatic storage duration, block scope, and no linkage.</p>
 <p>Automatic variables are not initialized unless you do so explicitly. </p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-comment">//The keyword auto is termed a storage-class specifier.</span>
-    <span class="hljs-keyword">auto</span> <span class="hljs-keyword">int</span> i; <span class="hljs-comment">//uninitialized</span>
-    <span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; <span class="hljs-comment">//automatic variable without explicitly using auto</span>
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//The keyword auto is termed a storage-class specifier.</span><br>    <span class="hljs-keyword">auto</span> <span class="hljs-keyword">int</span> i; <span class="hljs-comment">//uninitialized</span><br>    <span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; <span class="hljs-comment">//automatic variable without explicitly using auto</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="2-Register-Variables"><a href="#2-Register-Variables" class="headerlink" title="(2) Register Variables"></a>(2) Register Variables</h2><p>register variables are stored in the CPU registers or, more generally, in the fastest memory available, where they can be accessed and manipulated more rapidly than regular variables. </p>
 <p>Because a register variable may be in a register rather than in memory, you can’t take the address of a register variable. </p>
 <p>In most other respects, register variables are the same as automatic variables. </p>
 <p>That is, they have block scope, no linkage, and automatic storage duration. </p>
 <p>A variable is declared by using the storage class specifier register:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> quick;
-    ...
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">register</span> <span class="hljs-keyword">int</span> quick;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>A variable as a register class is more a request than a direct order. </p>
 <p>The compiler has to weigh your demands against the number of registers or amount of fast memory available, or it can simply ignore the request. </p>
 <p>In that case, the variable becomes an ordinary automatic variable; however, you still can’t use the address operator with it.</p>
 <h2 id="3-Static-Variables-with-Block-Scope"><a href="#3-Static-Variables-with-Block-Scope" class="headerlink" title="(3) Static Variables with Block Scope"></a>(3) Static Variables with Block Scope</h2><p>You also can create local variables having block scope but static duration. </p>
 <p>These variables have the same scope as automatic variables, but they don’t vanish when the containing function ends its job. </p>
 <p>That is, such variables have block scope, no linkage, but static storage duration.</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">try</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">static</span> j = <span class="hljs-number">2</span>;
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">try</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">static</span> j = <span class="hljs-number">2</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><code>i</code> is initialized each time <code>try()</code> is called, but <code>j</code> is initialized just once, when <code>try()</code> is <strong>compiled</strong>.</p>
 <p>Only <code>try()</code> is allowed to see <code>j</code>, but <code>static j = 2;</code> is not executed during runtime.</p>
 <p>Static variables are initialized to zero if you don’t explicitly initialize them to some other value.</p>
@@ -298,16 +287,7 @@
 <p>You create an external variable by placing a defining declaration outside of any function. </p>
 <p>An external variable can additionally be declared inside a function that uses it by using the <code>extern</code> keyword. </p>
 <p>If a particular external variable is defined in one source code file and is used in a second source code file, declaring the variable in the second file with <code>extern</code> is mandatory. </p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> Errupt; <span class="hljs-comment">/* externally defined variable */</span>
-<span class="hljs-keyword">double</span> Up[<span class="hljs-number">100</span>]; <span class="hljs-comment">/* externally defined array */</span>
-<span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> Coal; <span class="hljs-comment">/* mandatory declaration if */</span>
-<span class="hljs-comment">/* Coal defined in another file */</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> Errupt; <span class="hljs-comment">/* optional declaration */</span>
-    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">double</span> Up[]; <span class="hljs-comment">/* optional declaration */</span>
-...
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> Errupt; <span class="hljs-comment">/* externally defined variable */</span><br><span class="hljs-keyword">double</span> Up[<span class="hljs-number">100</span>]; <span class="hljs-comment">/* externally defined array */</span><br><span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> Coal; <span class="hljs-comment">/* mandatory declaration if */</span><br><span class="hljs-comment">/* Coal defined in another file */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> Errupt; <span class="hljs-comment">/* optional declaration */</span><br>    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">double</span> Up[]; <span class="hljs-comment">/* optional declaration */</span><br>...<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Note that you don’t have to give the array size in the optional declaration of double <code>Up</code>. That’s because the original declaration already supplied that information. </p>
 <p>The group of extern declarations inside <code>main()</code> can be omitted entirely because external variables have file scope, so they are known from the point of declaration to the end of the file. </p>
 <p>If only extern is omitted from the declaration inside a function, a separate automatic variable is set up. </p>
@@ -315,46 +295,27 @@
 <p>external variables are initialized automatically to zero if you don’t initialize them.</p>
 <p>This rule applies to elements of an externally defined array, too. </p>
 <p>Unlike the case for automatic variables, you can use only <strong>constant expressions</strong> to initialize <strong>file scope</strong> variables:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>; <span class="hljs-comment">// ok, 10 is constant</span>
-<span class="hljs-keyword">int</span> y = <span class="hljs-number">3</span> + <span class="hljs-number">20</span>; <span class="hljs-comment">// ok, a constant expression</span>
-<span class="hljs-keyword">size_t</span> z = <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>); <span class="hljs-comment">// ok, a constant expression</span>
-<span class="hljs-keyword">int</span> x2 = <span class="hljs-number">2</span> * x; <span class="hljs-comment">// not ok, x is a variable</span></code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>; <span class="hljs-comment">// ok, 10 is constant</span><br><span class="hljs-keyword">int</span> y = <span class="hljs-number">3</span> + <span class="hljs-number">20</span>; <span class="hljs-comment">// ok, a constant expression</span><br><span class="hljs-keyword">size_t</span> z = <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>); <span class="hljs-comment">// ok, a constant expression</span><br><span class="hljs-keyword">int</span> x2 = <span class="hljs-number">2</span> * x; <span class="hljs-comment">// not ok, x is a variable</span><br></code></pre></td></tr></table></figure>
 <p>As long as the type is not a variable array, a sizeof expression is considered a constant expression.</p>
 <p>An external variable can be initialized only once, and that must occur when the variable is defined. </p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-comment">// file one.c</span>
-<span class="hljs-keyword">char</span> permis = <span class="hljs-string">'N'</span>;
-...
-<span class="hljs-comment">// file two.c</span>
-<span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> permis = <span class="hljs-string">'Y'</span>; <span class="hljs-comment">/* error */</span></code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// file one.c</span><br><span class="hljs-keyword">char</span> permis = <span class="hljs-string">'N'</span>;<br>...<br><span class="hljs-comment">// file two.c</span><br><span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> permis = <span class="hljs-string">'Y'</span>; <span class="hljs-comment">/* error */</span><br></code></pre></td></tr></table></figure>
 <p>The keyword extern indicates that a declaration is not a definition because it instructs the compiler to look elsewhere.</p>
 <h2 id="5-Static-Variables-with-Internal-Linkage"><a href="#5-Static-Variables-with-Internal-Linkage" class="headerlink" title="(5) Static Variables with Internal Linkage"></a>(5) Static Variables with Internal Linkage</h2><p>Variables of this storage class have static storage duration, file scope, and internal linkage. </p>
 <p>You create one by defining it outside of any function (just as with an external variable) with the storage class specifier <code>static</code>:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> svil = <span class="hljs-number">1</span>; <span class="hljs-comment">// static variable, internal linkage</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
-<span class="hljs-function"></span>&#123;
-    ...
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> svil = <span class="hljs-number">1</span>; <span class="hljs-comment">// static variable, internal linkage</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>The ordinary external variable can be used by functions in any file that’s part of the program, but the static variable with internal linkage can be used only by functions in the same file. </p>
 <p>You can redeclare any file scope variable within a function by using the storage class specifier <code>extern</code>. </p>
 <p>Such a declaration doesn’t change the linkage. Consider the following code:</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">int</span> traveler = <span class="hljs-number">1</span>; <span class="hljs-comment">// external linkage</span>
-<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> stayhome = <span class="hljs-number">1</span>; <span class="hljs-comment">// internal linkage</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> traveler; <span class="hljs-comment">// use global traveler</span>
-    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> stayhome; <span class="hljs-comment">// use global stayhome</span>
-&#125;</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> traveler = <span class="hljs-number">1</span>; <span class="hljs-comment">// external linkage</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> stayhome = <span class="hljs-number">1</span>; <span class="hljs-comment">// internal linkage</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> traveler; <span class="hljs-comment">// use global traveler</span><br>    <span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> stayhome; <span class="hljs-comment">// use global stayhome</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h1 id="4-Storage-Class-Specifier-Roundup"><a href="#4-Storage-Class-Specifier-Roundup" class="headerlink" title="4. Storage-Class Specifier Roundup"></a>4. Storage-Class Specifier Roundup</h1><p>The C language has six keywords that are grouped together as storage-class specifiers. They are auto, register, static, extern, _Thread_local, and typedef.</p>
 <p>The extern specifier indicates that you are declaring a variable that has been defined elsewhere. </p>
 <p>If the declaration containing extern has file scope, the variable referred to must have external linkage. </p>
 <p>If the declaration containing extern has block scope, the referred-to variable can have either external linkage or internal linkage, depending on the defining declaration for that variable.</p>
 <h1 id="5-malloc-and-free"><a href="#5-malloc-and-free" class="headerlink" title="5. malloc() and free()"></a>5. malloc() and free()</h1><p>Then malloc() finds a suitable block of free memory. The memory is anonymous; that is, malloc() allocates memory but it doesn’t assign a name to it. However, it does return the address of the first byte of that block.</p>
-<div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">double</span> * ptd;
-ptd = (<span class="hljs-keyword">double</span> *) <span class="hljs-built_in">malloc</span>(<span class="hljs-number">30</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>));</code></pre></div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">double</span> * ptd;<br>ptd = (<span class="hljs-keyword">double</span> *) <span class="hljs-built_in">malloc</span>(<span class="hljs-number">30</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">double</span>));<br></code></pre></td></tr></table></figure>
 
 <p>The free() function takes as its argument an address returned earlier by malloc() and frees up the memory that had been allocated.</p>
-<h1 id="6-calloc"><a href="#6-calloc" class="headerlink" title="6. calloc()"></a>6. calloc()</h1><div class="hljs"><pre><code class="hljs c"><span class="hljs-keyword">long</span> *newmen;
-newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">calloc</span>(<span class="hljs-number">100</span>, <span class="hljs-keyword">sizeof</span> (<span class="hljs-keyword">long</span>));</code></pre></div>
+<h1 id="6-calloc"><a href="#6-calloc" class="headerlink" title="6. calloc()"></a>6. calloc()</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">long</span> *newmen;<br>newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">calloc</span>(<span class="hljs-number">100</span>, <span class="hljs-keyword">sizeof</span> (<span class="hljs-keyword">long</span>));<br></code></pre></td></tr></table></figure>
 
 <p>The calloc() function throws in one more feature: It sets all the bits in the block to zero. (Note, however, that on some hardware systems, a floating-point value of 0 is not represented by all bits set to 0.)</p>
 
@@ -384,10 +345,14 @@ newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">c
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -421,7 +386,7 @@ newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">c
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -433,16 +398,15 @@ newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">c
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -463,62 +427,47 @@ newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">c
     </div>
   </div>
 </div>
-  
-
-  
-    <!-- APlayer 音乐播放器 -->
-    <div id="aplayer"></div>
-    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
-<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
-<script type="text/javascript">
-  var oldLoadAp = window.onload;
-  window.onload = function () {
-    oldLoadAp && oldLoadAp();
-
-    new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      autoplay: 'false' === 'true',
-      loop: 'all',
-      order: 'random',
-      theme: '#58C9B9',
-      preload: 'none',
-      audio: [{"name":"Bang Bang","artist":"Nancy Sinatra","url":"/music/songs/Bang Bang.mp3","cover":"/music/cover/Bang Bang.jpg","lrc":"/music/lyrics/Bang Bang.lrc"},{"name":"Silhouettes Of You","artist":"Isaac Gracie","url":"/music/songs/Silhouettes Of You.mp3","cover":"/music/cover/Silhouettes Of You.jpg","lrc":"/music/lyrics/Silhouettes Of You.lrc"},{"name":"Mad World","artist":"Adam Lambert","url":"/music/songs/Mad World.mp3","cover":"/music/cover/Mad World.jpg","lrc":"/music/lyrics/Mad World.lrc"},{"name":"Señorita","artist":"Shawn Mendes Camila Cabello","url":"/music/songs/Señorita.mp3","cover":"/music/cover/Señorita.jpg","lrc":"/music/lyrics/Señorita.lrc"},{"name":"Issues","artist":"Julia Michaels","url":"/music/songs/Issues.mp3","cover":"/music/cover/Issues.jpg","lrc":"/music/lyrics/Issues.lrc"},{"name":"Mystery of Love","artist":"Sufjan Stevens","url":"/music/songs/Mystery of Love.mp3","cover":"/music/cover/Mystery of Love.jpg","lrc":"/music/lyrics/Mystery of Love.lrc"},{"name":"Bad Things","artist":"Machine Gun Kelly Camila Cabello","url":"/music/songs/Bad Things.mp3","cover":"/music/cover/Bad Things.jpg","lrc":"/music/lyrics/Bad Things.lrc"},{"name":"小夜曲","artist":"Franz Schubert","url":"/music/songs/小夜曲.mp3","cover":"/music/cover/小夜曲.jpg"}]
-    });
-  }
-</script>
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
     
 
     
+  </main>
 
-    
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -527,105 +476,38 @@ newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">c
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '#post-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Storage Classes Linkage and Memory Management&nbsp;",
-      ],
-      cursorChar: " ",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
-      
-      icon: "§"
-      
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
 
 
 
   <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -634,56 +516,6 @@ newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">c
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
@@ -692,10 +524,8 @@ newmem = (<span class="hljs-keyword">long</span> *)<span class="hljs-built_in">c
 
 
 
-
-
-
-
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>
