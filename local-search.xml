@@ -4,31 +4,6 @@
   
   
   <entry>
-    <title>计算机学习资源.md</title>
-    <link href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90-md/"/>
-    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90-md/</url>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><h2 id="电子书"><a href="#电子书" class="headerlink" title="电子书"></a>电子书</h2><ol><li><a href="https://github.com/imarvinle/awesome-cs-books" target="_blank" rel="noopener">github资源</a></li><li><a href="">百度云</a></li></ol><h2 id="在线学习网址"><a href="#在线学习网址" class="headerlink" title="在线学习网址"></a>在线学习网址</h2><ol><li><a href="https://en.cppreference.com/w/cpp/language" target="_blank" rel="noopener">cppreference</a></li><li><a href="http://www.cplusplus.com" target="_blank" rel="noopener">cplusplus</a></li><li><a href="https://www.learncpp.com" target="_blank" rel="noopener">learncpp</a></li><li><a href="https://www.tutorialspoint.com/cplusplus/index.htm" target="_blank" rel="noopener">tutorialspoint</a></li><li><a href="http://yosefk.com/c++fqa/index.html" target="_blank" rel="noopener">c++FQA</a></li><li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4878.pdf" target="_blank" rel="noopener">Standard for Programming Language C++</a></li><li><a href="https://gcc.gnu.org/projects/cxx-status.html" target="_blank" rel="noopener">C++ Standards Support in GCC</a></li><li><a href="http://eel.is/c++draft/#dcl.dcl" target="_blank" rel="noopener">c++draft</a></li><li><a href="https://www.cdecl.org/" target="_blank" rel="noopener">C gibberish translator</a></li><li><a href="https://google.github.io/styleguide/cppguide.html" target="_blank" rel="noopener">Google C++ Style Guide</a></li></ol><h2 id="提问解惑网址"><a href="#提问解惑网址" class="headerlink" title="提问解惑网址"></a>提问解惑网址</h2><ol><li><a href="https://stackoverflow.com" target="_blank" rel="noopener">stackoverflow</a></li><li><a href="https://bbs.bccn.net/forum-56-1.html" target="_blank" rel="noopener">编程论坛</a></li><li><a href="https://bytes.com/topic/c/" target="_blank" rel="noopener">C/C++ Forum</a></li><li><a href="https://forums.codeguru.com/index.php" target="_blank" rel="noopener">codeguru</a></li><li><a href="https://www.zhihu.com/question/27145069" target="_blank" rel="noopener">知乎</a></li></ol><h2 id="项目学习"><a href="#项目学习" class="headerlink" title="项目学习"></a>项目学习</h2><ol><li><a href="https://www.zhihu.com/question/29112393/answer/511136742" target="_blank" rel="noopener">c++项目</a></li><li><a href="https://zhuanlan.zhihu.com/p/86779615" target="_blank" rel="noopener">22个c++项目</a></li><li><a href="https://zhuanlan.zhihu.com/p/273682109" target="_blank" rel="noopener">适合 C++ 新手学习的开源项目</a></li></ol><h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><h2 id="电子书-1"><a href="#电子书-1" class="headerlink" title="电子书"></a>电子书</h2><ol><li><a href="https://github.com/imarvinle/awesome-cs-books" target="_blank" rel="noopener">github资源</a></li><li><a href="">百度云</a></li></ol><h2 id="在线学习网址-1"><a href="#在线学习网址-1" class="headerlink" title="在线学习网址"></a>在线学习网址</h2><h2 id="提问解惑网址-1"><a href="#提问解惑网址-1" class="headerlink" title="提问解惑网址"></a>提问解惑网址</h2><h2 id="项目学习-1"><a href="#项目学习-1" class="headerlink" title="项目学习"></a>项目学习</h2>]]></content>
-    
-    
-    <categories>
-      
-      <category>Resources</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Resources</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Dynamic Memor</title>
     <link href="/2021/02/03/Dynamic-Memory/"/>
     <url>/2021/02/03/Dynamic-Memory/</url>
